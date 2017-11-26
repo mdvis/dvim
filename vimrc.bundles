@@ -1,0 +1,40 @@
+"Plugins {
+    set nocompatible
+    filetype off
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'gmarik/vundle'
+
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'godlygeek/tabular'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'Shougo/neocomplete.vim'
+    Plugin 'vim-syntastic/syntastic'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'easymotion/vim-easymotion'
+
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
+    Plugin 'tomasr/molokai'
+    Plugin 'Lokaltog/vim-distinguished'
+
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+
+    Plugin 'mattn/emmet-vim'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'tpope/vim-surround'
+    Plugin 'ternjs/tern_for_vim'
+    Plugin 'heavenshell/vim-jsdoc'
+    Plugin 'kshenoy/vim-signature'
+    Plugin 'haya14busa/incsearch.vim'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'nathanaelkane/vim-indent-guides'
+
+    call vundle#end()
+    filetype plugin indent on
+"}

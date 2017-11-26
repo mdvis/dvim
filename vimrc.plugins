@@ -1,0 +1,38 @@
+"Plugins Beginning{
+    set nocompatible
+    filetype off
+    let g:Plug_dir = '~/.vim/plugged/'
+    call plug#begin(g:Plug_dir)
+
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'godlygeek/tabular'
+    Plug 'majutsushi/tagbar'
+    Plug 'tpope/vim-fugitive'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'easymotion/vim-easymotion'
+
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'tomasr/molokai'
+    Plug 'Lokaltog/vim-distinguished'
+
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
+    Plug 'mattn/emmet-vim'
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-surround'
+    Plug 'ternjs/tern_for_vim'
+    Plug 'heavenshell/vim-jsdoc'
+    Plug 'kshenoy/vim-signature'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'nathanaelkane/vim-indent-guides'
+
+    call plug#end()
+"}
