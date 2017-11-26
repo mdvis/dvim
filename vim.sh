@@ -8,6 +8,9 @@
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
 
+debug(){
+	echo $ret
+}
 
 
 sync_repo() {
@@ -24,6 +27,8 @@ sync_repo() {
         cd "$repo_path" && git pull origin master
         ret="$?"
     fi
+
+    debug
 }
 
 sync_repo "$REPO_PATH" "$REPO_URI"
