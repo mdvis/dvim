@@ -1,23 +1,32 @@
 #!/usr/bin/env bash
 
-echo $#
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
+
+[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.Dvim"
+[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/Dvim.git"
+
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
-[ -z "$REPO_PATH" ] && VUNDLE_URI="https://github.com/manjuist/Dvim.git"
 
 sync_repo() {
-    if [ ! -e "$VUNDLE_PATH" ]; then
-        mkdir -p "$VUNDLE_PATH"
-        git clone "$VUNDLE_URI" "$VUNDLE_PATH"
+
+    local repo_path="$1"
+    local repo_uri="$2"
+
+    local 
+    if [ ! -e "$repo_path" ]; then
+        mkdir -p "repo_path"
+        git clone "$repo_uri" "$repo_path"
         ret="$?"
     else
-        cd "$VUNDLE_PATH" && git pull origin master
+        cd "$repo_path" && git pull origin master
         ret="$?"
     fi
 }
 
-sync_repo
+sync_repo "$REPO_PATH" "$REPO_URI"
+sync_repo "$VUNDLE_PATH" "$VUNDLE_PATH"
+
 ##   Copyright 2014 Steve Francia
 ##
 ##   Licensed under the Apache License, Version 2.0 (the "License");
