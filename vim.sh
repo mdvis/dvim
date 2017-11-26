@@ -8,6 +8,8 @@
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
 
+
+
 sync_repo() {
 
     local repo_path="$1"
@@ -25,7 +27,7 @@ sync_repo() {
 }
 
 sync_repo "$REPO_PATH" "$REPO_URI"
-sync_repo "$VUNDLE_PATH" "$VUNDLE_PATH"
+sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
 
 ##   Copyright 2014 Steve Francia
 ##
