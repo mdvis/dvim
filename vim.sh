@@ -78,9 +78,16 @@ create_symlinks() {
     ret="$?"
 }
 
+copy_colors(){
+    [ -d "$APP_PATH/colors"] mkdir -p "$APP_PATH/colors" 
+    cp "$APP_PATH${1}" "$APP_PATH/colors/${1}" 
+}
+
 sync_repo "$REPO_PATH" "$REPO_URI"
 sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
 copy_font "$REPO_PATH/SourceCodePro.ttf" "$FONT_PATH"
 create_symlinks "$REPO_PATH" "$HOME"
 install_plugins
+copy_colors "/bundle/molokai/colors/molokai.vim"
+copy_colors "/bundle/vim-distinguished/colors/distinguished.vim"
 

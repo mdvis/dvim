@@ -59,12 +59,14 @@
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
     "Colors{
+    if filereadable(expand("~/.vim/bundle/molokai/colors/molokai.vim")) && filereadable(expand("~/.vim/bundle/vim-distinguished/colors/distinguished.vim"))
         if has("gui_running")
             colorscheme molokai
         else
             set t_Co=256
             colorscheme distinguished
         endif
+    endif
     "}
     
     "Fonts{
