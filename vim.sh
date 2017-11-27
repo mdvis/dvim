@@ -8,10 +8,11 @@
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
 
+[ -z "$FONT_PATH" ] && FONT_PATH="$HOME/.font"
+
 debug(){
 	echo $ret
 }
-
 
 sync_repo() {
 
@@ -31,9 +32,18 @@ sync_repo() {
     debug
 }
 
+copy_font() {
+    local source_font_path=$1
+    local target_font_path=$2
+
+    cp "$source_font_path" "$target_path"
+}
+
 sync_repo "$REPO_PATH" "$REPO_URI"
 sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
+copy_font "$REPO_PATH/*.ttf" "$FONT_PATH"
 
+vim "+BundleInstall!" "+BundleClean" "+qall"
 ##   Copyright 2014 Steve Francia
 ##
 ##   Licensed under the Apache License, Version 2.0 (the "License");
