@@ -79,7 +79,7 @@ create_symlinks() {
 }
 
 copy_colors(){
-    [ -z "$APP_PATH/colors" ] && COLOR_PATH="$APP_PATH/colors"
+    [ ! -d "$APP_PATH/colors" ] && COLOR_PATH="$APP_PATH/colors"
     mkdir -p "$COLOR_PATH" 
     cp "$APP_PATH${1}${2}" "$COLOR_PATH/${2}" 
 }
@@ -91,4 +91,3 @@ create_symlinks "$REPO_PATH" "$HOME"
 install_plugins
 copy_colors "/bundle/molokai/colors/" "molokai.vim"
 copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim"
-
