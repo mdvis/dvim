@@ -75,45 +75,6 @@ sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
 copy_font "$REPO_PATH/*.ttf" "$FONT_PATH"
 install_plugins
 
-#
-#
-############################# SETUP FUNCTIONS
-#
-#do_backup() {
-#    if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
-#        msg "Attempting to back up your original vim configuration."
-#        today=`date +%Y%m%d_%s`
-#        for i in "$1" "$2" "$3"; do
-#            [ -e "$i" ] && [ ! -L "$i" ] && mv -v "$i" "$i.$today";
-#        done
-#        ret="$?"
-#        success "Your original vim configuration has been backed up."
-#        debug
-#   fi
-#}
-#
-#sync_repo() {
-#    local repo_path="$1"
-#    local repo_uri="$2"
-#    local repo_branch="$3"
-#    local repo_name="$4"
-#
-#    msg "Trying to update $repo_name"
-#
-#    if [ ! -e "$repo_path" ]; then
-#        mkdir -p "$repo_path"
-#        git clone -b "$repo_branch" "$repo_uri" "$repo_path"
-#        ret="$?"
-#        success "Successfully cloned $repo_name."
-#    else
-#        cd "$repo_path" && git pull origin "$repo_branch"
-#        ret="$?"
-#        success "Successfully updated $repo_name"
-#    fi
-#
-#    debug
-#}
-#
 #create_symlinks() {
 #    local source_path="$1"
 #    local target_path="$2"
@@ -135,71 +96,5 @@ install_plugins
 #    debug
 #}
 #
-#setup_fork_mode() {
-#    local source_path="$2"
-#    local target_path="$3"
-#
-#    if [ "$1" -eq '1' ]; then
-#        touch "$target_path/.vimrc.fork"
-#        touch "$target_path/.vimrc.bundles.fork"
-#        touch "$target_path/.vimrc.before.fork"
-#
-#        lnif "$source_path/.vimrc.fork"         "$target_path/.vimrc.fork"
-#        lnif "$source_path/.vimrc.bundles.fork" "$target_path/.vimrc.bundles.fork"
-#        lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
-#
-#        ret="$?"
-#        success "Created fork maintainer files."
-#        debug
-#    fi
-#}
-#
-#setup_vundle() {
-#    local system_shell="$SHELL"
-#    export SHELL='/bin/sh'
-#
-#    vim \
-#        -u "$1" \
-#        "+set nomore" \
-#        "+BundleInstall!" \
-#        "+BundleClean" \
-#        "+qall"
-#
-#    local system_shell="$SHELL"
-#    export SHELL='/bin/sh'
-#    export SHELL="$system_shell"
-#
-#    success "Now updating/installing plugins using Vundle"
-#    debug
-#}
-#
-############################# MAIN()
-#variable_set "$HOME"
-#program_must_exist "vim"
-#program_must_exist "git"
-#
-#do_backup       "$HOME/.vim" \
-#                "$HOME/.vimrc" \
-#                "$HOME/.gvimrc"
-#
-#sync_repo       "$APP_PATH" \
-#                "$REPO_URI" \
-#                "$REPO_BRANCH" \
-#                "$app_name"
-#
 #create_symlinks "$APP_PATH" \
 #                "$HOME"
-#
-#setup_fork_mode "$fork_maintainer" \
-#                "$APP_PATH" \
-#                "$HOME"
-#
-#sync_repo       "$HOME/.vim/bundle/vundle" \
-#                "$VUNDLE_URI" \
-#                "master" \
-#                "vundle"
-#
-#setup_vundle    "$APP_PATH/.vimrc.bundles.default"
-#
-#msg             "\nThanks for installing $app_name."
-#msg             "© `date +%Y` http://vim.spf13.com/"
