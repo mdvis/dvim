@@ -36,8 +36,6 @@ sync_repo() {
         cd "$repo_path" && git pull origin master
         ret="$?"
     fi
-
-    debug
 }
 
 install_plugins() {
@@ -53,7 +51,8 @@ copy_font() {
     local source_font_path="$1"
     local target_font_path="$2"
 
-    cp "$source_font_path" "$target_path"
+    mkdir -p ~/.font
+    cp "$source_font_path" "$target_font_path"
 }
 
 
@@ -62,39 +61,26 @@ lnif() {
         ln -sf "$1" "$2"
     fi
     ret="$?"
-    debug
 }
 
 install_font(){
     local font_path="$1"
-    cd font_path && mkfontscale && mkfontdir && fc-cache
+    cd "$font_path" && mkfontscale && mkfontdir && fc-cache
+}
+
+create_symlinks() {
+    local source_path="$1"
+    local target_path="$2"
+
+    lnif "$source_path/vimrc"         "$target_path/.vimrc"
+    lnif "$source_path/vimrc.bundles" "$target_path/.vimrc.bundles"
+
+    ret="$?"
 }
 
 sync_repo "$REPO_PATH" "$REPO_URI"
 sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
-copy_font "$REPO_PATH/*.ttf" "$FONT_PATH"
+copy_font "$REPO_PATH/SourceCodePro.ttf" "$FONT_PATH"
+create_symlinks "$REPO_PATH" "$HOME"
 install_plugins
 
-#create_symlinks() {
-#    local source_path="$1"
-#    local target_path="$2"
-#
-#    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-#    lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
-#    lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
-#    lnif "$source_path/.vim"           "$target_path/.vim"
-#
-#    if program_exists "nvim"; then
-#        lnif "$source_path/.vim"       "$target_path/.config/nvim"
-#        lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
-#    fi
-#
-#    touch  "$target_path/.vimrc.local"
-#
-#    ret="$?"
-#    success "Setting up vim symlinks."
-#    debug
-#}
-#
-#create_symlinks "$APP_PATH" \
-#                "$HOME"
