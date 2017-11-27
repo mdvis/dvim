@@ -79,7 +79,7 @@ create_symlinks() {
 }
 
 copy_colors(){
-    [ -z "$APP_PATH/colors"] && mkdir -p "$APP_PATH/colors" 
+    [ -z "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
     cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
 }
 
