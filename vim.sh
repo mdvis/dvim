@@ -80,7 +80,7 @@ create_symlinks() {
 
 copy_colors(){
     [ -z "$APP_PATH/colors"] && mkdir -p "$APP_PATH/colors" 
-    cp "$APP_PATH${1}" "$APP_PATH/colors/${1}" 
+    cp "$APP_PATH${1}" "$APP_PATH/colors${1}" 
 }
 
 sync_repo "$REPO_PATH" "$REPO_URI"
