@@ -163,7 +163,12 @@
     " }
 
     " NeoComplete{
-        let g:neocomplete#enable_at_startup=1
+        let g:acp_enableAtStartup = 0
+        let g:neocomplete#enable_at_startup = 1
+        let g:neocomplete#enable_smart_case = 1
+        let g:neocomplete#enable_auto_delimiter = 1
+        let g:neocomplete#max_list = 15
+        let g:neocomplete#force_overwrite_completefunc = 1
         nmap <Leader><Leader>n :NeoCompleteToggle<CR>
     " }
 
@@ -187,8 +192,40 @@
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
+    
+    " Ctrlp-funky {
+        nnoremap <Leader>fu :CtrlPFunky<Cr>
+        " narrow the list down with a word under cursor
+        nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+    " }
 
     " Tagbar{
         nmap <Leader>t :TagbarToggle<CR>
+    " }
+
+    " YouCompleteMe {
+        let g:acp_enableAtStartup = 0
+
+        " enable completion from tags
+        let g:ycm_collect_identifiers_from_tags_files = 1
+
+        " remap Ultisnips for compatibility for YCM
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+        " Disable the neosnippet preview candidate window
+        " When enabled, there can be too much visual noise
+        " especially when splits are used.
+        set completeopt-=preview
     " }
 "}
