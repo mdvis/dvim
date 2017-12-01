@@ -23,10 +23,8 @@ error() {
 }
 
 sync_repo() {
-
     local repo_path="$1"
     local repo_uri="$2"
-
     local 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "repo_path"
@@ -36,23 +34,25 @@ sync_repo() {
         cd "$repo_path" && git pull origin master
         ret="$?"
     fi
+    success "${3}.Download success!"
 }
 
 install_plugins() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
-
     vim "+BundleInstall!" "+BundleClean" "+qall"
-
     export SHELL="$system_shell"
+    ret="$?"
+    success "${1}.Install plugins complete!"
 }
 
 copy_font() {
     local source_font_path="$1"
     local target_font_path="$2"
-
     mkdir -p ~/.font
     cp "$source_font_path" "$target_font_path"
+    ret="$?"
+    success "${3}.Copy font complete!"
 }
 
 
@@ -60,33 +60,36 @@ lnif() {
     if [ -e "$1" ]; then
         ln -sf "$1" "$2"
     fi
-    ret="$?"
 }
 
 install_font(){
     local font_path="$1"
     cd "$font_path" && mkfontscale && mkfontdir && fc-cache
+    ret="$?"
+    success "${2}.Font installed!"
 }
 
 create_symlinks() {
     local source_path="$1"
     local target_path="$2"
-
     lnif "$source_path/vimrc"         "$target_path/.vimrc"
     lnif "$source_path/vimrc.bundles" "$target_path/.vimrc.bundles"
-
     ret="$?"
+    success "${3}.Link complete!"
 }
 
 copy_colors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
     [ ! -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
+    ret="$?"
+    success "${3}.Color install!"
 }
 
-sync_repo "$REPO_PATH" "$REPO_URI"
-sync_repo "$VUNDLE_PATH" "$VUNDLE_URI"
-copy_font "$REPO_PATH/SourceCodePro.ttf" "$FONT_PATH"
-create_symlinks "$REPO_PATH" "$HOME"
-install_plugins
-copy_colors "/bundle/molokai/colors/" "molokai.vim"
-copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim"
+sync_repo "$REPO_PATH" "$REPO_URI" "1"
+sync_repo "$VUNDLE_PATH" "$VUNDLE_URI" "2"
+copy_font "$REPO_PATH/SourceCodePro.ttf" "$FONT_PATH" "3"
+install_font "$FONT_PATH" "4"
+create_symlinks "$REPO_PATH" "$HOME" "5"
+install_plugins "6"
+copy_colors "/bundle/molokai/colors/" "molokai.vim" "7"
+copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim" "8"
