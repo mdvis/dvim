@@ -3,64 +3,52 @@
     filetype off
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
+    "Plugin 'Shougo/neocomplete.vim'
+    "Plugin 'Shougo/neosnippet'
+    "Plugin 'Shougo/neosnippet-snippets'
     Plugin 'VundleVim/Vundle.vim'
-
     Plugin 'Valloric/YouCompleteMe'
-
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
     Plugin 'godlygeek/tabular'
     Plugin 'majutsushi/tagbar'
     Plugin 'tpope/vim-fugitive'
     Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'scrooloose/nerdtree'
-    "Plugin 'Shougo/neocomplete.vim'
-    "Plugin 'Shougo/neosnippet'
-    "Plugin 'Shougo/neosnippet-snippets'
     Plugin 'vim-syntastic/syntastic'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'easymotion/vim-easymotion'
-
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-
+    Plugin 'powerline/fonts'
     Plugin 'tomasr/molokai'
     Plugin 'Lokaltog/vim-distinguished'
-
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
-
-    Plugin 'powerline/fonts'
     Plugin 'mhinz/vim-signify'
     Plugin 'tpope/vim-surround'
+    Plugin 'luochen1990/rainbow'
     Plugin 'ternjs/tern_for_vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'bling/vim-bufferline'
     Plugin 'heavenshell/vim-jsdoc'
     Plugin 'kshenoy/vim-signature'
-    Plugin 'tacahiroy/ctrlp-funky'
-    Plugin 'vim-scripts/sessionman.vim'
     Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'haya14busa/incsearch.vim'
     Plugin 'rhysd/conflict-marker.vim'
+    Plugin 'vim-scripts/sessionman.vim'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'nathanaelkane/vim-indent-guides'
-
     Plugin 'python-mode/python-mode'
     Plugin 'yssource/python.vim'
     Plugin 'python_match.vim'
     Plugin 'pythoncomplete'
-
-    Plugin 'elzr/vim-json'
-    Plugin 'groenewege/vim-less'
     Plugin 'pangloss/vim-javascript'
     Plugin 'briancollins/vim-jst'
-    Plugin 'kchmck/vim-coffee-script'
-
     Plugin 'vim-scripts/HTML-AutoCloseTag'
     Plugin 'hail2u/vim-css3-syntax'
     Plugin 'gorodinskiy/vim-coloresque'
     Plugin 'tpope/vim-haml'
     Plugin 'mattn/emmet-vim'
-
     call vundle#end()
     filetype plugin indent on
 "}
