@@ -33,7 +33,6 @@
     Plugin 'heavenshell/vim-jsdoc'
     Plugin 'kshenoy/vim-signature'
     Plugin 'jistr/vim-nerdtree-tabs'
-    Plugin 'haya14busa/incsearch.vim'
     Plugin 'rhysd/conflict-marker.vim'
     Plugin 'vim-scripts/sessionman.vim'
     Plugin 'terryma/vim-multiple-cursors'
