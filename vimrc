@@ -172,11 +172,6 @@
         nmap <Leader><Leader>n :NeoCompleteToggle<CR>
     " }
 
-    " Incsearch{
-        map /  <Plug>(incsearch-forward)
-        map ?  <Plug>(incsearch-backward)
-    " }
-
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <leader>n :NERDTreeToggle<CR>
