@@ -46,27 +46,10 @@ install_plugins() {
     success "${1}.Install plugins complete!"
 }
 
-copy_font() {
-    local source_font_path="$1"
-    local target_font_path="$2"
-    mkdir -p ~/.font
-    cp "$source_font_path" "$target_font_path"
-    ret="$?"
-    success "${3}.Copy font complete!"
-}
-
-
 lnif() {
     if [ -e "$1" ]; then
         ln -sf "$1" "$2"
     fi
-}
-
-install_font(){
-    local font_path="$1"
-    cd "$font_path" && mkfontscale && mkfontdir && fc-cache
-    ret="$?"
-    success "${2}.Font installed!"
 }
 
 create_symlinks() {
@@ -87,9 +70,7 @@ copy_colors(){
 
 sync_repo "$REPO_PATH" "$REPO_URI" "1"
 sync_repo "$VUNDLE_PATH" "$VUNDLE_URI" "2"
-copy_font "$REPO_PATH/SourceCodePro.ttf" "$FONT_PATH" "3"
-install_font "$FONT_PATH" "4"
-create_symlinks "$REPO_PATH" "$HOME" "5"
-install_plugins "6"
-copy_colors "/bundle/molokai/colors/" "molokai.vim" "7"
-copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim" "8"
+create_symlinks "$REPO_PATH" "$HOME" "3"
+install_plugins "4"
+copy_colors "/bundle/molokai/colors/" "molokai.vim" "5"
+copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim" "6"
