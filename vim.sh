@@ -5,7 +5,6 @@
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/Dvim.git"
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
-[ -z "$FONT_PATH" ] && FONT_PATH="$HOME/.font"
 
 msg() {
     printf '%b\n' "$1" >&2
