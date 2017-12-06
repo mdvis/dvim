@@ -119,8 +119,6 @@
 
 "Mappings{
     let mapleader = ","
-    nmap <leader>y "+y
-    nmap <leader>p "+p
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>h <c-w>h
