@@ -94,6 +94,14 @@
         " want to try them first.
         set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
 	endif
+    if has("win32")
+		source $VIMRUNTIME/vimrc_example.vim
+		" menu error code
+		source $VIMRUNTIME/delmenu.vim
+		source $VIMRUNTIME/menu.vim
+		" console output error code
+		language messages zh_CN.utf-8
+    endif
 "}
 
 "Auto load vimrc{
