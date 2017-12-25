@@ -35,13 +35,6 @@
     set nowrap
     set number                      " Line numbers on
 
-    "Backup file{
-        set noswapfile
-        set noundofile
-        set nobackup
-        set nowb
-    "}
-
     "File{
         filetype plugin indent on   " Automatically detect file types.
         syntax on                   " Syntax highlighting
@@ -230,3 +223,11 @@
         set completeopt-=preview
     " }
 "}
+
+"Backup file{
+    set noswapfile
+    set noundofile
+    set nobackup
+    set nowb
+"}
+
