@@ -112,11 +112,6 @@
         source ~/.vimrc.bundles
     endif
 " }
-" vim-plug {
-    "if filereadable(expand("~/.vimrc.plugins"))
-        "source ~/.vimrc.plugins
-    "endif
-" }
 
 "Mappings{
     let mapleader = ","
