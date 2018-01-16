@@ -3,11 +3,15 @@
     filetype off
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
-    "Plugin 'Shougo/neocomplete.vim'
-    "Plugin 'Shougo/neosnippet'
-    "Plugin 'Shougo/neosnippet-snippets'
     Plugin 'VundleVim/Vundle.vim'
-    Plugin 'Valloric/YouCompleteMe'
+    if WINDOWS()
+        Plugin 'Shougo/neocomplete.vim'
+        Plugin 'Shougo/neosnippet'
+        Plugin 'Shougo/neosnippet-snippets'
+    endif
+    if UNIX()
+        Plugin 'Valloric/YouCompleteMe'
+    endif
     Plugin 'SirVer/ultisnips'
     Plugin 'honza/vim-snippets'
     Plugin 'godlygeek/tabular'
