@@ -9,7 +9,7 @@
         Plugin 'Shougo/neosnippet'
         Plugin 'Shougo/neosnippet-snippets'
     endif
-    if UNIX()
+    if LINUX()
         Plugin 'Valloric/YouCompleteMe'
     endif
     Plugin 'SirVer/ultisnips'
