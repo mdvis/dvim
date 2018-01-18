@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
-[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.Dvim"
-[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/Dvim.git"
-[ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
-[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
+
+[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.d-vim"
+[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/d-vim.git"
+
+[ -z "$VIMPLUG_PATH" ] && VIMPLUG_PATH="$HOME/.vim/plugged/vim-plug"
+[ -z "$VIMPLUG_URI" ] && VIMPLUG_URI="https://github.com/junegunn/vim-plug.git"
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -39,7 +41,7 @@ sync_repo() {
 install_plugins() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
-    vim "+BundleInstall!" "+BundleClean" "+qall"
+    vim "+PlugInstall!" "+PlugClean" "+qall"
     export SHELL="$system_shell"
     ret="$?"
     success "${1}.Install plugins complete!"
@@ -54,10 +56,17 @@ lnif() {
 create_symlinks() {
     local source_path="$1"
     local target_path="$2"
-    lnif "$source_path/vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/vimrc.bundles" "$target_path/.vimrc.bundles"
+    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
+    lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
     ret="$?"
     success "${3}.Link complete!"
+}
+
+copy_plug(){
+    [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
+    [ ! -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
+    ret="$?"
+    success "${3}.Vim-plug install!"
 }
 
 copy_colors(){
@@ -68,8 +77,9 @@ copy_colors(){
 }
 
 sync_repo "$REPO_PATH" "$REPO_URI" "1"
-sync_repo "$VUNDLE_PATH" "$VUNDLE_URI" "2"
+sync_repo "$VIMPLUG_PATH" "$VIMPLUG_URI" "2"
 create_symlinks "$REPO_PATH" "$HOME" "3"
-install_plugins "4"
-copy_colors "/bundle/molokai/colors/" "molokai.vim" "5"
-copy_colors "/bundle/vim-distinguished/colors/" "distinguished.vim" "6"
+copy_plug "/plugged/vim-plug/" "plug.vim" "4"
+install_plugins "5"
+copy_colors "/plugged/vim-distinguished/colors/" "distinguished.vim" "6"
+copy_colors "/plugged/molokai/colors/" "molokai.vim" "7"

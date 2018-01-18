@@ -3,11 +3,15 @@
     filetype off
     let g:Plug_dir = '~/.vim/plugged/'
     call plug#begin(g:Plug_dir)
-    "Plug 'Shougo/neocomplete.vim'
-    "Plug 'Shougo/neosnippet'
-    "Plug 'Shougo/neosnippet-snippets'
     Plug 'VundleVim/Vundle.vim'
-    Plug 'Valloric/YouCompleteMe'
+    if WINDOWS()
+        Plug 'Shougo/neocomplete.vim'
+        Plug 'Shougo/neosnippet'
+        Plug 'Shougo/neosnippet-snippets'
+    endif
+    if LINUX()
+        Plug 'Valloric/YouCompleteMe'
+    endif
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'godlygeek/tabular'

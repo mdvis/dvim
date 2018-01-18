@@ -1,47 +1,46 @@
-REM    Copyright 2014 Steve Francia
-REM 
-REM    Licensed under the Apache License, Version 2.0 (the "License");
-REM    you may not use this file except in compliance with the License.
-REM    You may obtain a copy of the License at
-REM 
-REM        http://www.apache.org/licenses/LICENSE-2.0
-REM 
-REM    Unless required by applicable law or agreed to in writing, software
-REM    distributed under the License is distributed on an "AS IS" BASIS,
-REM    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-REM    See the License for the specific language governing permissions and
-REM    limitations under the License.
-
-
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
-@set APP_PATH=%HOME%\Dvim
+@set APP_PATH=%HOME%\d-vim
 IF NOT EXIST "%APP_PATH%" (
-    call git clone -b 3.0 https://github.com/manjuist/Dvim.git "%APP_PATH%"
+    call git clone -b 3.0 https://github.com/manjuist/d-vim.git "%APP_PATH%"
 ) ELSE (
     @set ORIGINAL_DIR=%CD%
-    echo updating Dvim
+    echo updating d-vim
     chdir /d "%APP_PATH%"
     call git pull
     chdir /d "%ORIGINAL_DIR%"
     call cd "%APP_PATH%"
 )
 
-call mklink "%HOME%\.vimrc" "%APP_PATH%\vimrc"
-call mklink "%HOME%\.vimrc.bundles" "%APP_PATH%\vimrc.bundles"
+call mklink "%HOME%\.vimrc" "%APP_PATH%\.vimrc"
+call mklink "%HOME%\.vimrc.plugins" "%APP_PATH%\.vimrc.plugins"
 call mklink /J "%HOME%\.vim" "%APP_PATH%\"
+call mklink /J "%HOME%\vimfiles" "%APP_PATH%\"
 
-IF NOT EXIST "%APP_PATH%\.vim\bundle" (
-    call mkdir "%APP_PATH%\bundle"
+IF NOT EXIST "%APP_PATH%\colors" (
+    call mkdir "%APP_PATH%\colors"
 )
 
-IF NOT EXIST "%HOME%/.vim/bundle/Vundle.vim" (
-    call git clone https://github.com/VundleVim/Vundle.vim.git "%HOME%/.vim/bundle/Vundle.vim"
+IF NOT EXIST "%APP_PATH%\autoload" (
+    call mkdir "%APP_PATH%\autoload"
+)
+
+IF NOT EXIST "%APP_PATH%\plugged" (
+    call mkdir "%APP_PATH%\plugged"
+)
+
+IF NOT EXIST "%HOME%/.vim/plugged/vim-plug" (
+    call git clone https://github.com/junegunn/vim-plug.git "%HOME%/.vim/plugged/vim-plug"
 ) ELSE (
-  call cd "%HOME%/.vim/bundle/Vundle.vim"
+  call cd "%HOME%/.vim/plugged/vim-plug"
   call git pull
   call cd %HOME%
 )
 
-call vim +BundleInstall! +BundleClean +qall
+call cp "%HOME%/.vim/plguged/vim-plug/plug.vim" "%HOME%/vimfiles/autoload/plug.vim"
+
+call vim +PlugInstall! +PlugClean +qall
+
+call cp "%HOME%/.vim/plguged/vim-distinguished/colors/distinguished.vim" "%HOME%/vimfiles/colors/distinguished.vim"
+call cp "%HOME%/.vim/plguged/molokai/colors/molokai.vim" "%HOME%/vimfiles/colors/molokai.vim"
