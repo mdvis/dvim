@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
-[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.Dvim"
-[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/Dvim.git"
+[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.d-vim"
+[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/d-vim.git"
 [ -z "$VUNDLE_PATH" ] && VUNDLE_PATH="$HOME/.vim/bundle/Vundle.vim"
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim.git"
 
@@ -54,8 +54,8 @@ lnif() {
 create_symlinks() {
     local source_path="$1"
     local target_path="$2"
-    lnif "$source_path/vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/vimrc.bundles" "$target_path/.vimrc.bundles"
+    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
+    lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
     ret="$?"
     success "${3}.Link complete!"
 }
