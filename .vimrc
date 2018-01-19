@@ -107,9 +107,9 @@
     endif
 "}
 
-" Bundles {
-    if filereadable(expand("~/.vimrc.bundles"))
-        source ~/.vimrc.bundles
+" Vim-plug {
+    if filereadable(expand("~/.vimrc.plugins"))
+        source ~/.vimrc.plugins
     endif
 " }
 

@@ -30,17 +30,17 @@ IF NOT EXIST "%APP_PATH%\plugged" (
     call mkdir "%APP_PATH%\plugged"
 )
 
-IF NOT EXIST "%HOME%/.vim/plugged/vim-plug" (
-    call git clone https://github.com/junegunn/vim-plug.git "%HOME%/.vim/plugged/vim-plug"
+IF NOT EXIST "%HOME%\.vim\plugged\vim-plug" (
+    call git clone https://github.com/junegunn/vim-plug.git "%HOME%\.vim\plugged\vim-plug"
 ) ELSE (
-  call cd "%HOME%/.vim/plugged/vim-plug"
+  call cd "%HOME%\.vim\plugged\vim-plug"
   call git pull
   call cd %HOME%
 )
 
-call cp "%HOME%/.vim/plguged/vim-plug/plug.vim" "%HOME%/vimfiles/autoload/plug.vim"
+call copy "%HOME%\.vim\plugged\vim-plug\plug.vim" "%HOME%\vimfiles\autoload\plug.vim"
 
 call vim +PlugInstall! +PlugClean +qall
 
-call cp "%HOME%/.vim/plguged/vim-distinguished/colors/distinguished.vim" "%HOME%/vimfiles/colors/distinguished.vim"
-call cp "%HOME%/.vim/plguged/molokai/colors/molokai.vim" "%HOME%/vimfiles/colors/molokai.vim"
+call copy "%HOME%\.vim\plugged\vim-distinguished\colors\distinguished.vim" "%HOME%\vimfiles\colors\distinguished.vim"
+call copy "%HOME%\.vim\plugged\molokai\colors\molokai.vim" "%HOME%\vimfiles\colors\molokai.vim"
