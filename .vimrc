@@ -167,7 +167,7 @@
     "" }
 
     " NerdTree {
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+        if isdirectory(expand("~/.vim/plugged/nerdtree"))
             map <leader>n :NERDTreeToggle<CR>
             map <leader>e :NERDTreeFind<CR>
 
