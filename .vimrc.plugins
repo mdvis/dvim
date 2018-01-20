@@ -43,8 +43,6 @@
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'python-mode/python-mode'
     Plug 'yssource/python.vim'
-    Plug 'python_match.vim'
-    Plug 'pythoncomplete'
     Plug 'pangloss/vim-javascript'
     Plug 'briancollins/vim-jst'
     Plug 'vim-scripts/HTML-AutoCloseTag'

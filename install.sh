@@ -64,14 +64,14 @@ create_symlinks() {
 
 copy_plug(){
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
-    [ ! -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
+    [ -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
     ret="$?"
     success "${3}.Vim-plug install!"
 }
 
 copy_colors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
-    [ ! -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
+    [ -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
     ret="$?"
     success "${3}.Color install!"
 }
