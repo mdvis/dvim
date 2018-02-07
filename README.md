@@ -1,6 +1,8 @@
 # Linux, *nix, Mac OSX Installation #
 ```
 $ sh -c "$(curl -L http://manjuist.github.io/d-vim/install.sh)"
+or
+$ curl -L http://manjuist.github.io/d-vim/install.sh -o - | sh
 ```
 # Plugins #
 * neocomplete.vim
