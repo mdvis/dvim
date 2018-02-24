@@ -28,7 +28,7 @@ sync_repo() {
     local repo_uri="$2"
     local 
     if [ ! -e "$repo_path" ]; then
-        mkdir -p "repo_path"
+        mkdir -p "$repo_path"
         git clone "$repo_uri" "$repo_path"
         ret="$?"
     else
