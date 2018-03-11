@@ -17,10 +17,10 @@
 " }
 
 " Behavior {
-    "set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-    "set backspace=indent,eol,start  " Backspace for dummies
+    "set whichwrap=b,s,h,l,<,>,[,]  " Backspace and cursor keys wrap too
+    "set backspace=indent,eol,start " Backspace for dummies
     set softtabstop=4               " Let backspace delete indent
-    set scrolljump=5               " Lines to scroll when cursor leaves screen
+    set scrolljump=5                " Lines to scroll when cursor leaves screen
     set shiftwidth=4                " Use indents of 4 spaces
     set scrolloff=3                 " Minimum lines to keep above and below cursor
     set foldenable                  " Auto fold code
@@ -32,8 +32,10 @@
     set smartcase                   " Case sensitive when uc present
     set showmatch                   " Show matching brackets/parenthesis
     set hlsearch                    " Highlight search terms
-    set nowrap
+    set nowrap                      " Not wrap
     set number                      " Line numbers on
+    "set textwidth=80
+    set formatoptions+=mM
 
     "File{
         filetype plugin indent on   " Automatically detect file types.
@@ -46,7 +48,7 @@
     set wildmenu                    " Show list instead of just completing
     set cursorline                  " Highlight current line
     set linespace=0                 " No extra spaces between rows
-    set laststatus=2
+    set laststatus=2                " Status line
     set winminheight=0              " Windows can be 0 line high
     set background=dark
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
@@ -64,11 +66,11 @@
     
     "Fonts{
         if LINUX()
-            set guifont=Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 12
+            set guifont=Source\ Code\ Pro\ 14,Bitstream\ Vera\ Sans\ Mono\ 14
         elseif OSX()
-            set guifont=Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h12
+            set guifont=Source\ Code\ Pro:h14,Bitstream\ Vera\ Sans\ Mono:h14
         elseif WINDOWS()
-            set guifont=Source_Code_Pro:h12,Bitstream_Vera_Sans_Mono:h12
+            set guifont=Source_Code_Pro:h14,Bitstream_Vera_Sans_Mono:h14
         endif
     "}
 " }
@@ -99,11 +101,7 @@
 
 "Auto load vimrc{
     if has("autocmd")
-        if LINUX()
             autocmd! bufwritepost .vimrc source $MYVIMRC
-        else
-            autocmd! bufwritepost _vimrc source $MYVIMRC
-        endif
     endif
 "}
 
@@ -130,9 +128,47 @@
 
 "Plugin Config Start{
     " airline{
+        let g:airline_theme='molokai'
+        let g:airline_powerline_fonts=1
         let g:airline#extensions#tabline#enabled=1
         let g:airline#extensions#tabline#left_sep = ' '
         let g:airline#extensions#tabline#left_alt_sep = '|'
+        let g:airline#extensions#tabline#formatter = 'default'
+        let g:airline_mode_map = {
+              \ '__' : '-',
+              \ 'n'  : 'N',
+              \ 'i'  : 'I',
+              \ 'R'  : 'R',
+              \ 'c'  : 'C',
+              \ 'v'  : 'V',
+              \ 'V'  : 'V',
+              \ '' : 'V',
+              \ 's'  : 'S',
+              \ 'S'  : 'S',
+              \ '' : 'S',
+              \ }
+        if !exists('g:airline_symbols')
+            let g:airline_symbols = {}
+        endif
+        " unicode symbols
+        let g:airline_left_sep = '»'
+        let g:airline_left_sep = '▶'
+        let g:airline_right_sep = '«'
+        let g:airline_right_sep = '◀'
+        let g:airline_symbols.crypt = '🔒'
+        let g:airline_symbols.linenr = '☰'
+        let g:airline_symbols.linenr = '␊'
+        let g:airline_symbols.linenr = '␤'
+        let g:airline_symbols.linenr = '¶'
+        let g:airline_symbols.maxlinenr = ''
+        let g:airline_symbols.maxlinenr = '㏑'
+        let g:airline_symbols.branch = '⎇'
+        let g:airline_symbols.paste = 'ρ'
+        let g:airline_symbols.paste = 'Þ'
+        let g:airline_symbols.paste = '∥'
+        let g:airline_symbols.spell = 'Ꞩ'
+        let g:airline_symbols.notexists = '∄'
+        let g:airline_symbols.whitespace = 'Ξ'
     " }
 
     " Indent{
