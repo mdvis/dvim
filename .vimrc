@@ -153,7 +153,7 @@
     " }
 
     " Emmet{
-        let g:user_emmet_expandabbr_key='<Leader><tab>'
+        let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
 
     "" NeoComplete{
@@ -220,7 +220,7 @@
     
     " Ultisnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-        let g:UltiSnipsExpandTrigger="<leader><leader><tab>"
+        let g:UltiSnipsExpandTrigger="<leader><tab>"
         let g:UltiSnipsJumpForwardTrigger="<c-b>"
         let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
