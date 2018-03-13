@@ -9,7 +9,7 @@
         Plug 'Shougo/neosnippet'
         Plug 'Shougo/neosnippet-snippets'
     endif
-    if LINUX()
+    if LINUX() || OSX()
         Plug 'Valloric/YouCompleteMe'
     endif
     Plug 'SirVer/ultisnips'
