@@ -192,15 +192,17 @@
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
 
-    "" NeoComplete{
-        "let g:acp_enableAtStartup = 0
-        "let g:neocomplete#enable_at_startup = 1
-        "let g:neocomplete#enable_smart_case = 1
-        "let g:neocomplete#enable_auto_delimiter = 1
-        "let g:neocomplete#max_list = 15
-        "let g:neocomplete#force_overwrite_completefunc = 1
-        "nmap <Leader><Leader>n :NeoCompleteToggle<CR>
-    "" }
+    if WINDOWS()
+    " NeoComplete{
+        let g:acp_enableAtStartup = 0
+        let g:neocomplete#enable_at_startup = 1
+        let g:neocomplete#enable_smart_case = 1
+        let g:neocomplete#enable_auto_delimiter = 1
+        let g:neocomplete#max_list = 15
+        let g:neocomplete#force_overwrite_completefunc = 1
+        nmap <Leader><Leader>n :NeoCompleteToggle<CR>
+    " }
+    endif
 
     " NerdTree {
         if isdirectory(expand("~/.vim/plugged/nerdtree"))
@@ -210,7 +212,7 @@
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
+            let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
