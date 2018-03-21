@@ -17,8 +17,8 @@
 " }
 
 " Behavior {
-    "set whichwrap=b,s,h,l,<,>,[,]  " Backspace and cursor keys wrap too
-    "set backspace=indent,eol,start " Backspace for dummies
+    " set whichwrap=b,s,h,l,<,>,[,]  " Backspace and cursor keys wrap too
+    " set backspace=indent,eol,start " Backspace for dummies
     set softtabstop=4               " Let backspace delete indent
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set shiftwidth=4                " Use indents of 4 spaces
@@ -34,14 +34,15 @@
     set hlsearch                    " Highlight search terms
     set nowrap                      " Not wrap
     set number                      " Line numbers on
-    "set textwidth=80
+    " set textwidth=80
     set formatoptions+=mM
 
-    "File{
+    " File {
         filetype plugin indent on   " Automatically detect file types.
+        syntax enable
         syntax on                   " Syntax highlighting
-    "}
-"}
+    " }
+" }
 
 " UI {
     set go=
@@ -53,7 +54,7 @@
     set background=dark
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
-    "Colors{
+    " Colors {
         if filereadable(expand("~/.vim/colors/molokai.vim")) && filereadable(expand("~/.vim/colors/distinguished.vim"))
             if has("gui_running")
                 colorscheme molokai
@@ -62,9 +63,9 @@
                 colorscheme distinguished
             endif
         endif
-    "}
+    " }
     
-    "Fonts{
+    " Fonts {
         if LINUX()
             set guifont=Source\ Code\ Pro\ 14
             set guifontwide=YouYuan\ 14
@@ -75,14 +76,14 @@
             set guifont=Source_Code_Pro:h14
             set guifontwide=YouYuan:h14
         endif
-    "}
+    " }
 " }
 
-"Encode{
+" Encode {
 	if has("multi_byte")
         " Powershell as the primary terminal, this would be utf-8
 		set termencoding=utf-8
-        "set termencoding=cp850
+        " set termencoding=cp850
         " Let Vim use utf-8 internally, because many scripts require this
         set encoding=utf-8
         setglobal fileencoding=utf-8
@@ -102,11 +103,11 @@
     endif
 "}
 
-"Auto load vimrc{
+" Auto load vimrc {
     if has("autocmd")
             autocmd! bufwritepost .vimrc source $MYVIMRC
     endif
-"}
+" }
 
 " Vim-plug {
     if filereadable(expand("~/.vimrc.plugins"))
@@ -114,7 +115,7 @@
     endif
 " }
 
-"Mappings{
+" Mappings {
     let mapleader = ","
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
@@ -127,16 +128,16 @@
     nmap <leader>2 :vertical resize 25<CR>
     nmap j gj
     nmap k gk
-"}
+" }
 
-"Auto type{
+" Auto type {
     autocmd BufRead,BufNewFile *.scss set filetype=css
     autocmd BufRead,BufNewFile *.less set filetype=css
     autocmd BufRead,BufNewFile *.jsx set filetype=js
-"}
+" }
 
-"Plugin Config Start{
-    " airline{
+" Plugin Config Start {
+    " airline {
         let g:airline_theme='molokai'
         let g:airline_powerline_fonts=1
         let g:airline#extensions#tabline#enabled=1
@@ -180,7 +181,7 @@
         let g:airline_symbols.whitespace = 'Ξ'
     " }
 
-    " Indent{
+    " Indent {
         let g:indent_guides_guide_size= 1
         let g:indent_guides_auto_colors = 0
         let g:indent_guides_enable_on_vim_startup = 1
@@ -188,7 +189,7 @@
         autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#000000
     " }
 
-    " Easemotion{
+    " Easemotion {
         let g:EasyMotion_smartcase = 1
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
@@ -197,12 +198,12 @@
         map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
 
-    " Emmet{
+    " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
 
     if WINDOWS()
-    " NeoComplete{
+    " NeoComplete {
         let g:acp_enableAtStartup = 0
         let g:neocomplete#enable_at_startup = 1
         let g:neocomplete#enable_smart_case = 1
@@ -235,7 +236,7 @@
         nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
     " }
 
-    " Tagbar{
+    " Tagbar {
         nmap <Leader>t :TagbarToggle<CR>
     " }
 
@@ -274,12 +275,17 @@
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
     " }
-"}
+" }
 
-"Backup file{
+" Backup file {
     set noswapfile
     set noundofile
     set nobackup
     set nowb
-"}
+" }
 
+" configure for late {
+    "hi -> highlight
+    "fdm -> foldmethod
+    "gfw -> guifontwide
+" }

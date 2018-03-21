@@ -1,6 +1,6 @@
 "Plugins Beginning{
     set nocompatible
-    filetype off
+    "filetype off
     let g:Plug_dir = '~/.vim/plugged/'
     call plug#begin(g:Plug_dir)
     Plug 'VundleVim/Vundle.vim'
