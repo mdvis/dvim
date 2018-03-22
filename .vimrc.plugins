@@ -20,7 +20,6 @@
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tacahiroy/ctrlp-funky'
     Plug 'scrooloose/nerdtree'
-    Plug 'vim-syntastic/syntastic'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
     Plug 'vim-airline/vim-airline'
@@ -50,5 +49,6 @@
     Plug 'gorodinskiy/vim-coloresque'
     Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
+    Plug 'w0rp/ale'
     call plug#end()
 "}

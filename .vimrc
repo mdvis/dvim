@@ -272,6 +272,14 @@
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
     " }
+    
+    " Ale{
+        let g:ale_fixers = {
+        \   'javascript':['eslint'],
+        \   'SCSS':['scss-lint']
+        \}
+        let g:ale_fix_on_save=1
+    "}
 " }
 
 " Backup file {
