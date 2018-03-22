@@ -67,11 +67,14 @@
     
     " Fonts {
         if LINUX()
-            set guifont=Source\ Code\ Pro\ 14,Bitstream\ Vera\ Sans\ Mono\ 14
+            set guifont=Source\ Code\ Pro\ 14
+            set guifontwide=YouYuan\ 14
         elseif OSX()
-            set guifont=Source\ Code\ Pro:h14,Bitstream\ Vera\ Sans\ Mono:h14
+            set guifont=Source\ Code\ Pro:h14
+            set guifontwide=YouYuan:h14
         elseif WINDOWS()
-            set guifont=Source_Code_Pro:h14,Bitstream_Vera_Sans_Mono:h14
+            set guifont=Source_Code_Pro:h14
+            set guifontwide=YouYuan:h14
         endif
     " }
 " }
