@@ -12,6 +12,7 @@
     if LINUX() || OSX()
         Plug 'Valloric/YouCompleteMe'
     endif
+    Plug 'w0rp/ale'
     Plug 'tpope/vim-haml'
     Plug 'tomasr/molokai'
     Plug 'mattn/emmet-vim'
