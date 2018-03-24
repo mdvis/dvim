@@ -287,5 +287,4 @@
 " configure for late {
     "hi -> highlight
     "fdm -> foldmethod
-    "gfw -> guifontwide
 " }
