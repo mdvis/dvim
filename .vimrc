@@ -68,13 +68,13 @@
     " Fonts {
         if LINUX()
             set guifont=Source\ Code\ Pro\ 14
-            set guifontwide=YouYuan\ 14
+            set guifontwide=YouYuan\ 14\ cGB2312
         elseif OSX()
             set guifont=Source\ Code\ Pro:h14
-            set guifontwide=YouYuan:h14
+            set guifontwide=YouYuan:h14:cGB2312
         elseif WINDOWS()
             set guifont=Source_Code_Pro:h14
-            set guifontwide=YouYuan:h14
+            set guifontwide=YouYuan:h14:cGB2312
         endif
     " }
 " }
