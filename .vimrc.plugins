@@ -3,7 +3,6 @@
     filetype off
     let g:Plug_dir = '~/.vim/plugged/'
     call plug#begin(g:Plug_dir)
-    Plug 'VundleVim/Vundle.vim'
     if WINDOWS()
         Plug 'Shougo/neosnippet'
         Plug 'Shougo/neocomplete.vim'
@@ -37,7 +36,6 @@
     Plug 'kshenoy/vim-signature'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'pangloss/vim-javascript'
-    Plug 'vim-syntastic/syntastic'
     Plug 'python-mode/python-mode'
     Plug 'vim-airline/vim-airline'
     Plug 'jistr/vim-nerdtree-tabs'
