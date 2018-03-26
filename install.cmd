@@ -1,12 +1,13 @@
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
-@set APP_PATH=%HOME%\d-vim
+@set APP_NAME=d-vim
+@set APP_PATH=%HOME%\%APP_NAME%
 IF NOT EXIST "%APP_PATH%" (
-    call git clone -b 3.0 https://github.com/manjuist/d-vim.git "%APP_PATH%"
+    call git clone -b 3.0 https://github.com/manjuist/%APP_NAME%.git "%APP_PATH%"
 ) ELSE (
     @set ORIGINAL_DIR=%CD%
-    echo updating d-vim
+    echo updating %APP_NAME%
     chdir /d "%APP_PATH%"
     call git pull
     chdir /d "%ORIGINAL_DIR%"

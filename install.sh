@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+APP_NAME="d-vim"
+
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 
-[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.d-vim"
-[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/d-vim.git"
+[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
+[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
 
 [ -z "$VIMPLUG_PATH" ] && VIMPLUG_PATH="$HOME/.vim/plugged/vim-plug"
 [ -z "$VIMPLUG_URI" ] && VIMPLUG_URI="https://github.com/junegunn/vim-plug.git"
