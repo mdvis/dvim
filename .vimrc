@@ -67,14 +67,14 @@
     
     " Fonts {
         if LINUX()
-            set guifont=Source\ Code\ Pro\ 14
-            set guifontwide=YouYuan\ 14\ cGB2312
+            set guifont=Source\ Code\ Pro\ 12
+            set guifontwide=YouYuan\ 12\ cGB2312
         elseif OSX()
-            set guifont=Source\ Code\ Pro:h14
-            set guifontwide=YouYuan:h14:cGB2312
+            set guifont=Source\ Code\ Pro:h12
+            set guifontwide=YouYuan:h12:cGB2312
         elseif WINDOWS()
-            set guifont=Source_Code_Pro:h14
-            set guifontwide=YouYuan:h14:cGB2312
+            set guifont=Source_Code_Pro:h12
+            set guifontwide=YouYuan:h12:cGB2312
         endif
     " }
 " }
@@ -282,6 +282,8 @@
         \   'SCSS':['scss-lint']
         \}
         let g:ale_fix_on_save=1
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
     "}
 " }
 
