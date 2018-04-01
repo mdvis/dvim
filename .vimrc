@@ -131,8 +131,8 @@
 " }
 
 " Auto type {
-    autocmd BufRead,BufNewFile *.scss set filetype=css
-    autocmd BufRead,BufNewFile *.less set filetype=css
+    "autocmd BufRead,BufNewFile *.scss set filetype=css
+    "autocmd BufRead,BufNewFile *.less set filetype=css
     autocmd BufRead,BufNewFile *.jsx set filetype=js
 " }
 
@@ -279,8 +279,9 @@
     " Ale{
         let g:ale_fixers = {
         \   'javascript':['eslint'],
-        \   'SCSS':['scss-lint']
+        \   'SCSS':['prettier']
         \}
+        "\   'SCSS':['scss-lint']
         let g:ale_fix_on_save=1
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)

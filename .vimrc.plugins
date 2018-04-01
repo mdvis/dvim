@@ -49,5 +49,9 @@
     Plug 'vim-scripts/HTML-AutoCloseTag'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'prettier/vim-prettier', {
+        \ 'do': 'npm install',
+        \ 'for': ['typescript', 'css', 'less', 'scss'] }
+        "\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
     call plug#end()
 "}
