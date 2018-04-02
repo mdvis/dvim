@@ -36,6 +36,11 @@
     set number                      " Line numbers on
     " set textwidth=80
     set formatoptions+=mM
+    set gcr=a:block-blinkon0
+    " set foldmethod=indent
+    set foldmethod=syntax
+    set nofoldenable
+
 
     " File {
         filetype plugin indent on   " Automatically detect file types.
@@ -45,9 +50,23 @@
 " }
 
 " UI {
+    if LINUX()
+        if has("gui_running")
+            set lines=999 columns=999
+        endif
+    endif
+    if OSX()
+        set fu
+        set nofu
+    endif
+    if WINDOWS()
+        autocmd GUIEnter * simalt ~x
+    endif
+
     set go=
     set wildmenu                    " Show list instead of just completing
     set cursorline                  " Highlight current line
+    set cursorcolumn                  " Highlight current line
     set linespace=0                 " No extra spaces between rows
     set laststatus=2                " Status line
     set winminheight=0              " Windows can be 0 line high
@@ -105,7 +124,7 @@
 
 " Auto load vimrc {
     if has("autocmd")
-            autocmd! bufwritepost .vimrc source $MYVIMRC
+            autocmd! bufwritepost $MYVIMRC source $MYVIMRC
     endif
 " }
 
@@ -117,6 +136,13 @@
 
 " Mappings {
     let mapleader = ","
+
+    nmap j gj
+    nmap k gk
+
+    vnoremap <leader>y "+y
+    vnoremap <leader>p "+p
+
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>h <c-w>h
@@ -126,8 +152,8 @@
     nmap <leader>r :reg<CR>
     nmap <leader>1 :vertical resize 120<CR>
     nmap <leader>2 :vertical resize 25<CR>
-    nmap j gj
-    nmap k gk
+    nmap <leader>sw :mksession! my.vim<CR>
+    nmap <leader>sr :source! my.vim<CR>
 " }
 
 " Auto type {
@@ -297,5 +323,4 @@
 
 " configure for late {
     "hi -> highlight
-    "fdm -> foldmethod
 " }
