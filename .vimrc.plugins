@@ -9,7 +9,8 @@
         Plug 'Shougo/neosnippet-snippets'
     endif
     if LINUX() || OSX()
-        Plug 'Valloric/YouCompleteMe'
+        Plug 'Valloric/YouCompleteMe',{
+            \'do':'./install.py --js-completer'}
     endif
     Plug 'w0rp/ale'
     Plug 'tpope/vim-haml'
@@ -52,6 +53,5 @@
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['typescript', 'css', 'less', 'scss'] }
-        "\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
     call plug#end()
 "}
