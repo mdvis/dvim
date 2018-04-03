@@ -153,7 +153,7 @@
     nmap <leader>1 :vertical resize 120<CR>
     nmap <leader>2 :vertical resize 25<CR>
     nmap <leader>sw :mksession! my.vim<CR>
-    nmap <leader>sr :source! my.vim<CR>
+    nmap <leader>sr :source my.vim<CR>
 " }
 
 " Auto type {
