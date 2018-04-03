@@ -82,6 +82,7 @@
                 colorscheme distinguished
             endif
         endif
+        highlight Cursor guifg=black
     " }
     
     " Fonts {
