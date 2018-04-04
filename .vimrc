@@ -51,15 +51,7 @@
 
 " UI {
     if has("gui_running")
-        if LINUX()
-                set lines=999 columns=999
-        endif
-        if OSX()
-            set fullscreen
-        endif
-        if WINDOWS()
-            autocmd GUIEnter * simalt ~x
-        endif
+        set lines=999 columns=999
     endif
 
     set go=
