@@ -36,7 +36,7 @@
     set number                      " Line numbers on
     " set textwidth=80
     set formatoptions+=mM
-    set gcr=a:block-blinkon0
+    set guicursor=a:block-blinkon0
     " set foldmethod=indent
     set foldmethod=syntax
     set nofoldenable
@@ -65,12 +65,14 @@
     set go=
     set wildmenu                    " Show list instead of just completing
     set cursorline                  " Highlight current line
-    set cursorcolumn                  " Highlight current line
+    set cursorcolumn                " Highlight current line
     set linespace=0                 " No extra spaces between rows
     set laststatus=2                " Status line
     set winminheight=0              " Windows can be 0 line high
     set background=dark
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+
+    highlight Cursor guifg=black
 
     " Colors {
         if filereadable(expand("~/.vim/colors/molokai.vim")) && filereadable(expand("~/.vim/colors/distinguished.vim"))
@@ -81,7 +83,6 @@
                 colorscheme distinguished
             endif
         endif
-        highlight Cursor guifg=black
     " }
     
     " Fonts {
@@ -89,8 +90,8 @@
             set guifont=Source\ Code\ Pro\ 12
             set guifontwide=YouYuan\ 12
         elseif OSX()
-            set guifont=Source\ Code\ Pro:h12
-            set guifontwide=YouYuan:h12
+            set guifont=Source\ Code\ Pro:h16
+            set guifontwide=YouYuan:h16
         elseif WINDOWS()
             set guifont=Source_Code_Pro:h12
             set guifontwide=YouYuan:h12
@@ -102,10 +103,12 @@
 	if has("multi_byte")
         " Powershell as the primary terminal, this would be utf-8
 		set termencoding=utf-8
+
         " set termencoding=cp850
         " Let Vim use utf-8 internally, because many scripts require this
         set encoding=utf-8
         setglobal fileencoding=utf-8
+
         " Windows has traditionally used cp1252, so it's probably wise to
         " fallback into cp1252 instead of eg. iso-8859-15.
         " Newer Windows files might contain utf-8 or utf-16 LE so we might
@@ -114,9 +117,11 @@
 	endif
     if has("win32")
 		source $VIMRUNTIME/vimrc_example.vim
+
 		" menu error code
 		source $VIMRUNTIME/delmenu.vim
 		source $VIMRUNTIME/menu.vim
+
 		" console output error code
 		language messages zh_CN.utf-8
     endif
@@ -159,7 +164,7 @@
 " Auto type {
     "autocmd BufRead,BufNewFile *.scss set filetype=css
     "autocmd BufRead,BufNewFile *.less set filetype=css
-    autocmd BufRead,BufNewFile *.jsx set filetype=js
+    "autocmd BufRead,BufNewFile *.jsx set filetype=js
 " }
 
 " Plugin Config Start {
@@ -186,6 +191,7 @@
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
+
         " unicode symbols
         let g:airline_left_sep = '»'
         let g:airline_left_sep = '▶'
@@ -258,6 +264,7 @@
     
     " Ctrlp-funky {
         nnoremap <Leader>fu :CtrlPFunky<Cr>
+
         " narrow the list down with a word under cursor
         nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
     " }
@@ -319,8 +326,4 @@
     set noundofile
     set nobackup
     set nowb
-" }
-
-" configure for late {
-    "hi -> highlight
 " }
