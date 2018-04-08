@@ -13,12 +13,13 @@
             \'do':'./install.py --js-completer'}
     endif
     Plug 'w0rp/ale'
+    Plug 'gcmt/taboo.vim'
     Plug 'tpope/vim-haml'
     Plug 'tomasr/molokai'
     Plug 'mattn/emmet-vim'
     Plug 'powerline/fonts'
     Plug 'SirVer/ultisnips'
-    Plug 'godlygeek/tabular'
+    Plug 'godlygeek/tabular' " Vim script for text filtering and alignment 
     Plug 'mhinz/vim-signify'
     Plug 'majutsushi/tagbar'
     Plug 'honza/vim-snippets'

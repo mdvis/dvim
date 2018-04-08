@@ -84,7 +84,7 @@
             endif
         endif
     " }
-    
+
     " Fonts {
         if LINUX()
             set guifont=Source\ Code\ Pro\ 12
@@ -100,9 +100,9 @@
 " }
 
 " Encode {
-	if has("multi_byte")
+    if has("multi_byte")
         " Powershell as the primary terminal, this would be utf-8
-		set termencoding=utf-8
+        set termencoding=utf-8
 
         " set termencoding=cp850
         " Let Vim use utf-8 internally, because many scripts require this
@@ -114,16 +114,16 @@
         " Newer Windows files might contain utf-8 or utf-16 LE so we might
         " want to try them first.
         set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-	endif
+    endif
     if has("win32")
-		source $VIMRUNTIME/vimrc_example.vim
+        source $VIMRUNTIME/vimrc_example.vim
 
-		" menu error code
-		source $VIMRUNTIME/delmenu.vim
-		source $VIMRUNTIME/menu.vim
+        " menu error code
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
 
-		" console output error code
-		language messages zh_CN.utf-8
+        " console output error code
+        language messages zh_CN.utf-8
     endif
 "}
 
@@ -174,39 +174,20 @@
         let g:airline#extensions#tabline#enabled=1
         let g:airline#extensions#tabline#left_sep = ' '
         let g:airline#extensions#tabline#left_alt_sep = '|'
-        let g:airline#extensions#tabline#formatter = 'default'
-        let g:airline_mode_map = {
-              \ '__' : '-',
-              \ 'n'  : 'N',
-              \ 'i'  : 'I',
-              \ 'R'  : 'R',
-              \ 'c'  : 'C',
-              \ 'v'  : 'V',
-              \ 'V'  : 'V',
-              \ '' : 'V',
-              \ 's'  : 'S',
-              \ 'S'  : 'S',
-              \ '' : 'S',
-              \ }
+        let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+        " unicode symbols
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
-
-        " unicode symbols
-        let g:airline_left_sep = '»'
         let g:airline_left_sep = '▶'
-        let g:airline_right_sep = '«'
         let g:airline_right_sep = '◀'
+        let g:airline_left_alt_sep = '❯'
+        let g:airline_right_alt_sep = '❮'
         let g:airline_symbols.crypt = '🔒'
         let g:airline_symbols.linenr = '☰'
-        let g:airline_symbols.linenr = '␊'
-        let g:airline_symbols.linenr = '␤'
-        let g:airline_symbols.linenr = '¶'
-        let g:airline_symbols.maxlinenr = ''
         let g:airline_symbols.maxlinenr = '㏑'
         let g:airline_symbols.branch = '⎇'
-        let g:airline_symbols.paste = 'ρ'
-        let g:airline_symbols.paste = 'Þ'
         let g:airline_symbols.paste = '∥'
         let g:airline_symbols.spell = 'Ꞩ'
         let g:airline_symbols.notexists = '∄'
@@ -261,7 +242,7 @@
             let g:nerdtree_tabs_open_on_gui_startup=1
         endif
     " }
-    
+
     " Ctrlp-funky {
         nnoremap <Leader>fu :CtrlPFunky<Cr>
 
@@ -298,7 +279,7 @@
         " especially when splits are used.
         set completeopt-=preview
     " }
-    
+
     " Ultisnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
         let g:UltiSnipsExpandTrigger="<leader><tab>"
@@ -308,7 +289,7 @@
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit="vertical"
     " }
-    
+
     " Ale{
         let g:ale_fixers = {
         \   'javascript':['eslint'],
