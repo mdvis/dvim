@@ -131,13 +131,6 @@
     endif
 " }
 
-" Session {
-    if filereadable(expand("~/.my.vim"))
-        silent exec 'source .my.vim'
-    endif
-
-" }
-
 " Mappings {
     let mapleader = ","
 
