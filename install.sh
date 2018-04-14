@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP_NAME="d-vim"
+APP_NAME="dvim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 

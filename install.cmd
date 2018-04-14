@@ -1,7 +1,7 @@
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
-@set APP_NAME=d-vim
+@set APP_NAME=dvim
 @set APP_PATH=%HOME%\%APP_NAME%
 IF NOT EXIST "%APP_PATH%" (
     call git clone -b 3.0 https://github.com/manjuist/%APP_NAME%.git "%APP_PATH%"
