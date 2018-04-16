@@ -153,12 +153,6 @@
     nmap <leader>sr :source .my.vim<CR>
 " }
 
-" Auto type {
-    "autocmd BufRead,BufNewFile *.scss set filetype=css
-    "autocmd BufRead,BufNewFile *.less set filetype=css
-    "autocmd BufRead,BufNewFile *.jsx set filetype=js
-" }
-
 " Plugin Config Start {
     " airline {
         let g:airline_theme='molokai'
