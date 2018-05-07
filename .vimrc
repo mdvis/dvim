@@ -40,7 +40,9 @@
     " set foldmethod=indent
     set foldmethod=syntax
     set nofoldenable
-
+    set iskeyword-=.
+    set iskeyword-=#
+    set iskeyword-=-
 
     " File {
         filetype plugin indent on   " Automatically detect file types.
