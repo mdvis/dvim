@@ -2,8 +2,6 @@ v1.0为vundle版本，v2.0为vim-plug版本
 
 # Linux, *nix, Mac OSX Installation #
 ```
-$ sh -c "$(curl -L http://manjuist.github.io/dvim/install.sh)"
-or
 $ curl -L http://manjuist.github.io/dvim/install.sh -o - | sh
 ```
 # Plugins #
