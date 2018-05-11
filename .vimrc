@@ -1,8 +1,4 @@
 " Environment {
-    " Basics {
-        set nocompatible        " Must be first line
-    " }
-
     " Identify platform {
         silent function! OSX()
             return has('macunix')
@@ -14,6 +10,11 @@
             return  (has('win32') || has('win64'))
         endfunction
     " }
+
+    " Basics {
+        set nocompatible        " Must be first line
+    " }
+
 " }
 
 " Behavior {
@@ -52,11 +53,11 @@
 " }
 
 " UI {
-    if has("gui_running")
+    if has('gui_running')
         set lines=999 columns=999
     endif
 
-    set go=
+    set guioptions=
     set wildmenu                    " Show list instead of just completing
     set cursorline                  " Highlight current line
     set cursorcolumn                " Highlight current line
@@ -69,8 +70,8 @@
     highlight Cursor guifg=black
 
     " Colors {
-        if filereadable(expand("~/.vim/colors/molokai.vim")) && filereadable(expand("~/.vim/colors/distinguished.vim"))
-            if has("gui_running")
+        if filereadable(expand('~/.vim/colors/molokai.vim')) && filereadable(expand('~/.vim/colors/distinguished.vim'))
+            if has('gui_running')
                 colorscheme molokai
             else
                 set t_Co=256
@@ -94,13 +95,14 @@
 " }
 
 " Encode {
-    if has("multi_byte")
+    if has('multi_byte')
         " Powershell as the primary terminal, this would be utf-8
         set termencoding=utf-8
 
         " set termencoding=cp850
         " Let Vim use utf-8 internally, because many scripts require this
         set encoding=utf-8
+        scriptencoding utf-8
         setglobal fileencoding=utf-8
 
         " Windows has traditionally used cp1252, so it's probably wise to
@@ -109,7 +111,7 @@
         " want to try them first.
         set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
     endif
-    if has("win32")
+    if has('win32')
         source $VIMRUNTIME/vimrc_example.vim
 
         " menu error code
@@ -122,19 +124,19 @@
 "}
 
 " Auto load vimrc {
-    if has("autocmd")
+    if has('autocmd')
             autocmd! bufwritepost $MYVIMRC source $MYVIMRC
     endif
 " }
 
 " Vim-plug {
-    if filereadable(expand("~/.vimrc.plugins"))
+    if filereadable(expand('~/.vimrc.plugins'))
         source ~/.vimrc.plugins
     endif
 " }
 
 " Mappings {
-    let mapleader = ","
+    let g:mapleader = ','
 
     nmap j gj
     nmap k gk
@@ -217,17 +219,17 @@
     endif
 
     " NerdTree {
-        if isdirectory(expand("~/.vim/plugged/nerdtree"))
+        if isdirectory(expand('~/.vim/plugged/nerdtree'))
             map <leader>n :NERDTreeToggle<CR>
             map <leader>e :NERDTreeFind<CR>
 
-            let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
-            let NERDTreeMouseMode=2
-            let NERDTreeShowHidden=1
-            let NERDTreeKeepTreeInNewTab=1
+            let g:NERDTreeShowBookmarks=1
+            let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+            let g:NERDTreeChDirMode=0
+            let g:NERDTreeQuitOnOpen=1
+            let g:NERDTreeMouseMode=2
+            let g:NERDTreeShowHidden=1
+            let g:NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
@@ -255,13 +257,15 @@
         let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
         " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+        augroup vimrc
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+        augroup END
 
         " Disable the neosnippet preview candidate window
         " When enabled, there can be too much visual noise
@@ -271,20 +275,21 @@
 
     " Ultisnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-        let g:UltiSnipsExpandTrigger="<leader><tab>"
-        let g:UltiSnipsJumpForwardTrigger="<c-b>"
-        let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+        let g:UltiSnipsExpandTrigger='<leader><tab>'
+        let g:UltiSnipsJumpForwardTrigger='<c-b>'
+        let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
         " If you want :UltiSnipsEdit to split your window.
-        let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsEditSplit='vertical'
     " }
 
     " Ale{
         let g:ale_fixers = {
         \   'javascript':['eslint'],
-        \   'SCSS':['prettier']
+        \   'SCSS':['prettier'],
+        \   'python':['autopep8'],
         \}
-        " \   'SCSS':['scss-lint']
+
         let g:ale_lint_on_enter=0
         let g:ale_fix_on_save=1
         " let g:ale_lint_on_text_changed='never'
@@ -297,5 +302,5 @@
     set noswapfile
     set noundofile
     set nobackup
-    set nowb
+    set nowritebackup
 " }
