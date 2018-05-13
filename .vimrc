@@ -185,6 +185,7 @@
         let g:airline_symbols.whitespace = 'Ξ'
     " }
 
+    if has('gui_running')
     " Indent {
         let g:indent_guides_guide_size= 1
         let g:indent_guides_auto_colors = 0
@@ -192,6 +193,7 @@
         autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333333
         autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#000000
     " }
+    endif
 
     " Easemotion {
         let g:EasyMotion_smartcase = 1
