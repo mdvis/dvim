@@ -1,3 +1,5 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+
 " Environment {
     " Identify platform {
         silent function! OSX()
@@ -35,11 +37,12 @@
     set hlsearch                    " Highlight search terms
     set nowrap                      " Not wrap
     set number                      " Line numbers on
-    " set textwidth=80
+    set textwidth=150
     set formatoptions+=mM
     set guicursor=a:block-blinkon0
-    " set foldmethod=indent
-    set foldmethod=syntax
+    set foldmarker={,} 
+    set foldlevel=0 
+    set foldmethod=marker
     set nofoldenable
     set iskeyword-=.
     set iskeyword-=#
