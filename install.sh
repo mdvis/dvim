@@ -25,6 +25,21 @@ error() {
     exit 1
 }
 
+backup(){
+    now=`date +%Y%m%d_%s`
+    mv "$1" "$1.$now"
+}
+
+exiseBackup(){
+    for i in $@
+    do
+        if [[ -e "$i" ]]
+        then
+            backup $i
+        fi
+    done
+ }
+
 sync_repo() {
     local repo_path="$1"
     local repo_uri="$2"
@@ -37,7 +52,7 @@ sync_repo() {
         cd "$repo_path" && git pull origin master
         ret="$?"
     fi
-    success "${3}.Download success!"
+    success "Download success!"
 }
 
 install_plugins() {
@@ -46,7 +61,7 @@ install_plugins() {
     vim "+PlugInstall!" "+PlugClean" "+qall"
     export SHELL="$system_shell"
     ret="$?"
-    success "${1}.Install plugins complete!"
+    success "Install plugins complete!"
 }
 
 lnif() {
@@ -61,27 +76,42 @@ create_symlinks() {
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
     lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
     ret="$?"
-    success "${3}.Link complete!"
+    success "Link complete!"
 }
 
 copy_plug(){
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
     [ -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
     ret="$?"
-    success "${3}.Vim-plug install!"
+    success "Vim-plug install!"
 }
 
 copy_colors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
     [ -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
     ret="$?"
-    success "${3}.Color install!"
+    success "Color install!"
 }
 
-sync_repo "$REPO_PATH" "$REPO_URI" "1"
-sync_repo "$VIMPLUG_PATH" "$VIMPLUG_URI" "2"
-create_symlinks "$REPO_PATH" "$HOME" "3"
-copy_plug "/plugged/vim-plug/" "plug.vim" "4"
-install_plugins "5"
-copy_colors "/plugged/vim-distinguished/colors/" "distinguished.vim" "6"
-copy_colors "/plugged/molokai/colors/" "molokai.vim" "7"
+exiseBackup     "$HOME/.vim" \
+                "$HOME/.vimrc"
+
+sync_repo       "$REPO_PATH" \
+                "$REPO_URI"
+
+sync_repo       "$VIMPLUG_PATH" \
+                "$VIMPLUG_URI"
+
+create_symlinks "$REPO_PATH" \
+                "$HOME"
+
+copy_plug       "/plugged/vim-plug/" \
+                "plug.vim"
+
+install_plugins
+
+copy_colors     "/plugged/vim-distinguished/colors/" \
+                "distinguished.vim"
+
+copy_colors     "/plugged/molokai/colors/" \
+                "molokai.vim"
