@@ -3,12 +3,10 @@
 APP_NAME="dvim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
-
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
-
-[ -z "$VIMPLUG_PATH" ] && VIMPLUG_PATH="$HOME/.vim/plugged/vim-plug"
-[ -z "$VIMPLUG_URI" ] && VIMPLUG_URI="https://github.com/junegunn/vim-plug.git"
+[ -z "$PLUGINS_MANAGER_PATH" ] && PLUGINS_MANAGER_PATH="$APP_PATH/vim-plug"
+[ -z "$PLUGINS_MANAGER_URI" ] && PLUGINS_MANAGER_URI="https://github.com/junegunn/vim-plug.git"
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -25,6 +23,11 @@ error() {
     exit 1
 }
 
+debug() {
+    if [[ "$ret" -gt "1" ]]; then
+        msg "$FUNCNAME/$BASH_LINENO"
+}
+
 backup(){
     now=`date +%Y%m%d_%s`
     mv "$1" "$1.$now"
@@ -33,8 +36,7 @@ backup(){
 exiseBackup(){
     for i in $@
     do
-        if [[ -e "$i" ]]
-        then
+        if [[ -e "$i" ]]; then
             backup $i
         fi
     done
@@ -43,7 +45,6 @@ exiseBackup(){
 sync_repo() {
     local repo_path="$1"
     local repo_uri="$2"
-    local 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
         git clone "$repo_uri" "$repo_path"
@@ -99,13 +100,13 @@ exiseBackup     "$HOME/.vim" \
 sync_repo       "$REPO_PATH" \
                 "$REPO_URI"
 
-sync_repo       "$VIMPLUG_PATH" \
-                "$VIMPLUG_URI"
+sync_repo       "$PLUGINS_MANAGER_PATH" \
+                "$PLUGINS_MANAGER_URI"
 
 create_symlinks "$REPO_PATH" \
                 "$HOME"
 
-copy_plug       "/plugged/vim-plug/" \
+copy_plug       "/vim-plug/" \
                 "plug.vim"
 
 install_plugins
