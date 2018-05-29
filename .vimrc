@@ -16,50 +16,66 @@
     " Basics {
         set nocompatible        " Must be first line
     " }
-
 " }
 
-" Behavior {
-    " set whichwrap=b,s,h,l,<,>,[,]  " Backspace and cursor keys wrap too
-    " set backspace=indent,eol,start " Backspace for dummies
-    set softtabstop=4               " Let backspace delete indent
-    set scrolljump=5                " Lines to scroll when cursor leaves screen
-    set shiftwidth=4                " Use indents of 4 spaces
-    set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
-    set autoindent                  " Indent at the same level of the previous line
-    set ignorecase                  " Case insensitive search
-    set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=4                   " An indentation every four columns
-    set incsearch                   " Find as you type search
-    set smartcase                   " Case sensitive when uc present
-    set showmatch                   " Show matching brackets/parenthesis
-    set hlsearch                    " Highlight search terms
-    set nowrap                      " Not wrap
-    set number                      " Line numbers on
-    set textwidth=150
-    set formatoptions+=mM
-    set foldmarker={,} 
-    set foldlevel=0 
-    set foldmethod=marker
-    set nofoldenable
+" Vim-plug {
+    if filereadable(expand('~/.vimrc.plugins'))
+        source ~/.vimrc.plugins
+    endif
+" }
+
+" General {
+    " File {
+        filetype plugin indent on   " Automatically detect file types.
+        syntax on                   " Syntax highlighting
+        set mouse=a
+        set mousehide
+    " }
+
+    set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
+    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+    set virtualedit=onemore                         " Allow for cursor beyond last character
+    set nospell                                     " Spell checking off
     set iskeyword-=.
     set iskeyword-=#
     set iskeyword-=-
-
-    " File {
-        filetype plugin indent on   " Automatically detect file types.
-        syntax enable
-        syntax on                   " Syntax highlighting
-    " }
 " }
 
 " UI {
-    set wildmenu                    " Show list instead of just completing
+    set showmode " Display the current mode
     set cursorline                  " Highlight current line
+    if has('statusline')
+        set laststatus=2
+        " set statusline=
+    endif
+    " Behavior {
+        set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
+        set backspace=indent,eol,start  " Backspace for dummies
+        set softtabstop=4               " Let backspace delete indent
+        set scrolljump=5                " Lines to scroll when cursor leaves screen
+        set shiftwidth=4                " Use indents of 4 spaces
+        set scrolloff=3                 " Minimum lines to keep above and below cursor
+        set autoindent                  " Indent at the same level of the previous line
+        set ignorecase                  " Case insensitive search
+        set expandtab                   " Tabs are spaces, not tabs
+        set tabstop=4                   " An indentation every four columns
+        set incsearch                   " Find as you type search
+        set smartcase                   " Case sensitive when uc present
+        set showmatch                   " Show matching brackets/parenthesis
+        set hlsearch                    " Highlight search terms
+        set nowrap                      " Not wrap
+        set number                      " Line numbers on
+        set textwidth=150
+        set formatoptions+=mM
+        set foldmarker={,}
+        set foldlevel=0
+        set foldmethod=marker
+        set nofoldenable
+        " set foldenable                  " Auto fold code
+    " }
+    set wildmenu                    " Show list instead of just completing
     set cursorcolumn                " Highlight current line
     set linespace=0                 " No extra spaces between rows
-    set laststatus=2                " Status line
     set winminheight=0              " Windows can be 0 line high
     set background=dark
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
@@ -107,12 +123,6 @@
 " Auto load vimrc {
     if has('autocmd')
             autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-    endif
-" }
-
-" Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
     endif
 " }
 
@@ -269,6 +279,18 @@
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
     "}
+    " Session List {
+        set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+        nmap <leader>sl :SessionList<CR>
+        nmap <leader>ss :SessionSave<CR>
+        nmap <leader>sc :SessionClose<CR>
+    " }
+
+    " Indent {
+        let g:indent_guides_start_level= 2
+        let g:indent_guides_guide_size= 1
+        let g:indent_guides_enable_on_vim_startup = 1
+    " }
 " }
 
 " Backup file {
