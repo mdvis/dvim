@@ -66,9 +66,11 @@
 
 
     " Colors {
-        if filereadable(expand('~/.vim/colors/distinguished.vim'))
-            set t_Co=256
-            colorscheme distinguished
+        if !has('gui_running')
+            if filereadable(expand('~/.vim/colors/distinguished.vim'))
+                set t_Co=256
+                colorscheme distinguished
+            endif
         endif
     " }
 " }
