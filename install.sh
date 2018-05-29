@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP_NAME="dvim"
+readonly APP_NAME="dvim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
@@ -26,6 +26,7 @@ error() {
 debug() {
     if [[ "$ret" -gt "1" ]]; then
         msg "$FUNCNAME/$BASH_LINENO"
+    fi
 }
 
 backup(){
@@ -34,8 +35,7 @@ backup(){
 }
 
 exiseBackup(){
-    for i in $@
-    do
+    for i in $@; do
         if [[ -e "$i" ]]; then
             backup $i
         fi
@@ -45,6 +45,8 @@ exiseBackup(){
 sync_repo() {
     local repo_path="$1"
     local repo_uri="$2"
+    local
+
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
         git clone "$repo_uri" "$repo_path"
@@ -54,30 +56,38 @@ sync_repo() {
         ret="$?"
     fi
     success "Download success!"
+    debug
 }
 
 install_plugins() {
-    local system_shell="$SHELL"
+    local systemShell="$SHELL"
     export SHELL='/bin/sh'
     vim "+PlugInstall!" "+PlugClean" "+qall"
-    export SHELL="$system_shell"
+    export SHELL="$systemShell"
     ret="$?"
     success "Install plugins complete!"
+    debug
 }
 
 lnif() {
     if [ -e "$1" ]; then
         ln -sf "$1" "$2"
     fi
+    ret="$?"
+    debug
 }
 
 create_symlinks() {
     local source_path="$1"
     local target_path="$2"
+    local
+
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
+    lnif "$source_path/.gvimrc"         "$target_path/.gvimrc"
     lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
     ret="$?"
     success "Link complete!"
+    debug
 }
 
 copy_plug(){
@@ -85,13 +95,15 @@ copy_plug(){
     [ -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
     ret="$?"
     success "Vim-plug install!"
+    debug
 }
 
 copy_colors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
     [ -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
     ret="$?"
-    success "Color install!"
+    success "$2 Color install!"
+    debug
 }
 
 exiseBackup     "$HOME/.vim" \

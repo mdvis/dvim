@@ -39,7 +39,6 @@
     set number                      " Line numbers on
     set textwidth=150
     set formatoptions+=mM
-    set guicursor=a:block-blinkon0
     set foldmarker={,} 
     set foldlevel=0 
     set foldmethod=marker
@@ -56,11 +55,6 @@
 " }
 
 " UI {
-    if has('gui_running')
-        set lines=999 columns=999
-    endif
-
-    set guioptions=
     set wildmenu                    " Show list instead of just completing
     set cursorline                  " Highlight current line
     set cursorcolumn                " Highlight current line
@@ -70,29 +64,11 @@
     set background=dark
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
-    highlight Cursor guifg=black
 
     " Colors {
-        if filereadable(expand('~/.vim/colors/molokai.vim')) && filereadable(expand('~/.vim/colors/distinguished.vim'))
-            if has('gui_running')
-                colorscheme molokai
-            else
-                set t_Co=256
-                colorscheme distinguished
-            endif
-        endif
-    " }
-
-    " Fonts {
-        if LINUX()
-            set guifont=Source\ Code\ Pro\ 12
-            set guifontwide=YouYuan\ 12
-        elseif OSX()
-            set guifont=Source\ Code\ Pro:h16
-            set guifontwide=YouYuan:h16
-        elseif WINDOWS()
-            set guifont=Source_Code_Pro:h12
-            set guifontwide=YouYuan:h12
+        if filereadable(expand('~/.vim/colors/distinguished.vim'))
+            set t_Co=256
+            colorscheme distinguished
         endif
     " }
 " }
@@ -187,16 +163,6 @@
         let g:airline_symbols.notexists = '∄'
         let g:airline_symbols.whitespace = 'Ξ'
     " }
-
-    if has('gui_running')
-    " Indent {
-        let g:indent_guides_guide_size= 1
-        let g:indent_guides_auto_colors = 0
-        let g:indent_guides_enable_on_vim_startup = 1
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333333
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#000000
-    " }
-    endif
 
     " Easemotion {
         let g:EasyMotion_smartcase = 1
