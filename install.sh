@@ -32,6 +32,7 @@ debug() {
 backup(){
     now=`date +%Y%m%d_%s`
     mv "$1" "$1.$now"
+    debug
 }
 
 exiseBackup(){
@@ -40,6 +41,7 @@ exiseBackup(){
             backup $i
         fi
     done
+    debug
  }
 
 syncRepo() {
@@ -107,7 +109,7 @@ copyColors(){
 }
 
 exiseBackup     "$HOME/.vim" \
-                "$HOME/.vimrc"
+                "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins"
 
 syncRepo        "$REPO_PATH" \
