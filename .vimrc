@@ -72,6 +72,8 @@
         set foldmethod=marker
         set nofoldenable
         " set foldenable                  " Auto fold code
+        set splitbelow
+        set splitright
     " }
     set wildmenu                    " Show list instead of just completing
     set cursorcolumn                " Highlight current line
@@ -270,10 +272,17 @@
         let g:ale_fixers = {
         \   'javascript':['eslint'],
         \   'SCSS':['prettier'],
-        \   'python':['autopep8'],
+        \   'python':['autopep8','isort','yapf']
         \}
 
-        let g:ale_lint_on_enter=0
+        let g:ale_linters = {
+        \   'python':['flake8','pylint'],
+        \   'SCSS':['prettier','stylelint']
+        \}
+
+        let g:ale_linter_aliases = {'CSS': 'SCSS'}
+
+        let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
         " let g:ale_lint_on_text_changed='never'
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)

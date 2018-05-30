@@ -42,7 +42,7 @@ exiseBackup(){
     done
  }
 
-sync_repo() {
+syncRepo() {
     local repo_path="$1"
     local repo_uri="$2"
     local
@@ -59,7 +59,7 @@ sync_repo() {
     debug
 }
 
-install_plugins() {
+installPlugins() {
     local systemShell="$SHELL"
     export SHELL='/bin/sh'
     vim "+PlugInstall!" "+PlugClean" "+qall"
@@ -77,7 +77,7 @@ lnif() {
     debug
 }
 
-create_symlinks() {
+createSymlinks() {
     local source_path="$1"
     local target_path="$2"
     local
@@ -90,7 +90,7 @@ create_symlinks() {
     debug
 }
 
-copy_plug(){
+copyPlug(){
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
     [ -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
     ret="$?"
@@ -98,7 +98,7 @@ copy_plug(){
     debug
 }
 
-copy_colors(){
+copyColors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
     [ -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
     ret="$?"
@@ -108,23 +108,24 @@ copy_colors(){
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc"
+                "$HOME/.vimrc.plugins"
 
-sync_repo       "$REPO_PATH" \
+syncRepo        "$REPO_PATH" \
                 "$REPO_URI"
 
-sync_repo       "$PLUGINS_MANAGER_PATH" \
+syncRepo        "$PLUGINS_MANAGER_PATH" \
                 "$PLUGINS_MANAGER_URI"
 
-create_symlinks "$REPO_PATH" \
+createSymlinks "$REPO_PATH" \
                 "$HOME"
 
-copy_plug       "/vim-plug/" \
+copyPlug       "/vim-plug/" \
                 "plug.vim"
 
-install_plugins
+installPlugins
 
-copy_colors     "/plugged/vim-distinguished/colors/" \
+copyColors     "/plugged/vim-distinguished/colors/" \
                 "distinguished.vim"
 
-copy_colors     "/plugged/molokai/colors/" \
+copyColors     "/plugged/molokai/colors/" \
                 "molokai.vim"
