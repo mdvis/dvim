@@ -44,6 +44,7 @@
 " UI {
     set showmode " Display the current mode
     set cursorline                  " Highlight current line
+    " set cursorcolumn                " Highlight current line
     if has('statusline')
         set laststatus=2
         " set statusline=
@@ -65,7 +66,7 @@
         set hlsearch                    " Highlight search terms
         set nowrap                      " Not wrap
         set number                      " Line numbers on
-        set textwidth=150
+        set textwidth=80
         set formatoptions+=mM
         set foldmarker={,}
         set foldlevel=0
@@ -76,7 +77,6 @@
         set splitright
     " }
     set wildmenu                    " Show list instead of just completing
-    set cursorcolumn                " Highlight current line
     set linespace=0                 " No extra spaces between rows
     set winminheight=0              " Windows can be 0 line high
     set background=dark

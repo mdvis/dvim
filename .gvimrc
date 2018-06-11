@@ -1,7 +1,7 @@
 " UI {
     set guicursor=a:block-blinkon0
     set lines=999 columns=999
-    set guioptions=
+    "set guioptions=
 
     highlight Cursor guifg=black
 
