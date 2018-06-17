@@ -7,6 +7,7 @@ readonly APP_NAME="dvim"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
 [ -z "$PLUGINS_MANAGER_PATH" ] && PLUGINS_MANAGER_PATH="$APP_PATH/vim-plug"
 [ -z "$PLUGINS_MANAGER_URI" ] && PLUGINS_MANAGER_URI="https://github.com/junegunn/vim-plug.git"
+readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -92,9 +93,9 @@ createSymlinks() {
     debug
 }
 
-copyPlug(){
+installPlug(){
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
-    [ -d "$APP_PATH/autoload" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/autoload/${2}" 
+    [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}" 
     ret="$?"
     success "Vim-plug install!"
     debug
@@ -121,7 +122,7 @@ syncRepo        "$PLUGINS_MANAGER_PATH" \
 createSymlinks "$REPO_PATH" \
                 "$HOME"
 
-copyPlug       "/vim-plug/" \
+installPlug       "/vim-plug/" \
                 "plug.vim"
 
 installPlugins
