@@ -1,8 +1,6 @@
-v1.0为vundle版本，v2.0为vim-plug版本
-
 # Linux, *nix, Mac OSX Installation #
 ```
-$ curl -L http://manjuist.github.io/dvim/install.sh -o - | sh
+$ curl -L https://raw.githubusercontent.com/manjuist/dvim/master/install.sh -o - | sh
 ```
 # Plugins #
 * neocomplete.vim
