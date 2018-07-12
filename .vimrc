@@ -125,6 +125,7 @@
 " Auto load vimrc {
     if has('autocmd')
             autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+            autocmd! bufwritepost $MYGVIMRC source $MYGVIMRC
     endif
 " }
 
@@ -137,6 +138,7 @@
     vnoremap <leader>y "+y
     vnoremap <leader>p "+p
 
+    nmap <leader>N :noh<CR>
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>h <c-w>h
@@ -307,4 +309,15 @@
     set noundofile
     set nobackup
     set nowritebackup
+" }
+" Template {
+    "autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
+    autocmd! BufNewFile *.js,*.jsx exec ":call SetTpl()"
+    function! SetTpl()
+        call setline(1         , "/**")
+        call append(line(".")  , " * 功能:模块功能")
+        call append(line(".")+1, " * 作者: Deve")
+        call append(line(".")+2, " * 日期:".strftime("%Y-%m-%d"))
+        call append(line(".")+3, " */")
+    endfunc
 " }

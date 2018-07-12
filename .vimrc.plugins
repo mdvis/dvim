@@ -17,9 +17,8 @@
     endif
 
     Plug 'w0rp/ale'
-    Plug 'gcmt/taboo.vim'
     Plug 'tpope/vim-haml'
-    Plug 'tomasr/molokai'
+    Plug 'gcmt/taboo.vim'
     Plug 'mattn/emmet-vim'
     Plug 'powerline/fonts'
     Plug 'SirVer/ultisnips'
@@ -39,6 +38,7 @@
     Plug 'bling/vim-bufferline'
     Plug 'tacahiroy/ctrlp-funky'
     Plug 'heavenshell/vim-jsdoc'
+    Plug 'altercation/solarized'
     Plug 'kshenoy/vim-signature'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'pangloss/vim-javascript'
@@ -49,7 +49,6 @@
     Plug 'easymotion/vim-easymotion'
     Plug 'rhysd/conflict-marker.vim'
     Plug 'vim-scripts/sessionman.vim'
-    Plug 'Lokaltog/vim-distinguished'
     Plug 'gorodinskiy/vim-coloresque'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'vim-scripts/HTML-AutoCloseTag'
