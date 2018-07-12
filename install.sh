@@ -127,8 +127,5 @@ installPlug       "/vim-plug/" \
 
 installPlugins
 
-copyColors     "/plugged/vim-distinguished/colors/" \
-                "distinguished.vim"
-
-copyColors     "/plugged/molokai/colors/" \
-                "molokai.vim"
+copyColors     "/plugged/solarized/vim-colors-solarized/colors/" \
+                "solarized.vim"
