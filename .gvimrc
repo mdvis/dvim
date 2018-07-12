@@ -4,11 +4,6 @@
 
     highlight Cursor guifg=black
 
-
-    if filereadable(expand('~/.vim/colors/distinguished.vim'))
-        colorscheme molokai
-    endif
-
     " Fonts {
         if LINUX()
             set guifont=Source\ Code\ Pro\ 14

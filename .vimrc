@@ -85,9 +85,8 @@
 
     " Colors {
         if !has('gui_running')
-            if filereadable(expand('~/.vim/colors/distinguished.vim'))
-                set t_Co=256
-                colorscheme distinguished
+            if filereadable(expand('~/.vim/colors/solarized.vim'))
+                colorscheme solarized
             endif
         endif
     " }
