@@ -44,6 +44,7 @@
     Plug 'pangloss/vim-javascript'
     Plug 'python-mode/python-mode'
     Plug 'vim-airline/vim-airline'
+    Plug 'dbeniamine/cheat.sh-vim'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
