@@ -84,10 +84,8 @@
 
 
     " Colors {
-        if !has('gui_running')
-            if filereadable(expand('~/.vim/colors/solarized.vim'))
-                colorscheme solarized
-            endif
+        if filereadable(expand('~/.vim/colors/solarized.vim'))
+            colorscheme solarized
         endif
     " }
 " }
