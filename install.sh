@@ -86,7 +86,6 @@ createSymlinks() {
     local
 
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/.gvimrc"         "$target_path/.gvimrc"
     lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
     ret="$?"
     success "Link complete!"

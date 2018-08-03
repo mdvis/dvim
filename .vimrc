@@ -1,4 +1,4 @@
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
 " Environment {
     " Identify platform {
@@ -36,9 +36,9 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     "set virtualedit=onemore                         " Allow for cursor beyond last character
     set nospell                                     " Spell checking off
-    set iskeyword-=.
-    set iskeyword-=#
-    set iskeyword-=-
+    set iskeyword -=.
+    set iskeyword -=#
+    set iskeyword -=-
 " }
 
 " UI {
@@ -122,7 +122,6 @@
 " Auto load vimrc {
     if has('autocmd')
             autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-            autocmd! bufwritepost $MYGVIMRC source $MYGVIMRC
     endif
 " }
 
@@ -354,14 +353,37 @@
     set nobackup
     set nowritebackup
 " }
+
 " Template {
     "autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
     autocmd! BufNewFile *.js,*.jsx exec ":call SetTpl()"
     function! SetTpl()
         call setline(1         , "/**")
-        call append(line(".")  , " * 功能:模块功能")
+        call append(line(".")  , " * 功能: 模块功能")
         call append(line(".")+1, " * 作者: Deve")
-        call append(line(".")+2, " * 日期:".strftime("%Y-%m-%d"))
+        call append(line(".")+2, " * 日期: ".strftime("%Y-%m-%d"))
         call append(line(".")+3, " */")
     endfunc
+" }
+
+" UI {
+    if has('gui_running')
+        set guicursor=a:block-blinkon0
+        set guioptions=
+
+        highlight Cursor guifg=black
+
+        " Fonts {
+            if LINUX()
+                set guifont=Source\ Code\ Pro\ 14
+                set guifontwide=YouYuan\ 14
+            elseif OSX()
+                set guifont=Source\ Code\ Pro:h14
+                set guifontwide=YouYuan:h14
+            elseif WINDOWS()
+                set guifont=Source_Code_Pro:h14
+                set guifontwide=YouYuan:h14
+            endif
+        " }
+    endif
 " }
