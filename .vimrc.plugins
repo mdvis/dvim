@@ -50,6 +50,7 @@
     Plug 'easymotion/vim-easymotion'
     Plug 'rhysd/conflict-marker.vim'
     Plug 'vim-scripts/sessionman.vim'
+    Plug 'leafgarland/typescript-vim'
     Plug 'gorodinskiy/vim-coloresque'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'vim-scripts/HTML-AutoCloseTag'
