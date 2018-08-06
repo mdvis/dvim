@@ -23,10 +23,12 @@
     Plug 'powerline/fonts'
     Plug 'SirVer/ultisnips'
     Plug 'godlygeek/tabular'
-    Plug 'mhinz/vim-signify'
+    " Plug 'mhinz/vim-signify'
+    Plug 'airblade/vim-gitgutter'
     Plug 'majutsushi/tagbar'
     Plug 'honza/vim-snippets'
     Plug 'tpope/vim-fugitive'
+    " Plug 'justinmk/vim-sneak'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tpope/vim-surround'
     Plug 'yssource/python.vim'
@@ -41,6 +43,7 @@
     Plug 'altercation/solarized'
     Plug 'kshenoy/vim-signature'
     Plug 'hail2u/vim-css3-syntax'
+    Plug 'zivyangll/git-blame.vim'
     Plug 'pangloss/vim-javascript'
     Plug 'python-mode/python-mode'
     Plug 'vim-airline/vim-airline'
@@ -56,8 +59,13 @@
     Plug 'vim-scripts/HTML-AutoCloseTag'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
+
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['typescript', 'css', 'less', 'scss'] }
+
+    Plug 'junegunn/fzf', {
+        \ 'dir': '~/.fzf',
+        \ 'do': './install --all' }
     call plug#end()
 "}
