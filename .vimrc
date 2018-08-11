@@ -387,3 +387,34 @@
         " }
     endif
 " }
+
+" Set Font {
+    let g:fontMap={
+                \'Inconsolata': {
+                    \ 'LINUX': 'Inconsolata\ 14',
+                    \ 'OSX': 'Inconsolata:h14',
+                    \ 'WINDOWS': 'Inconsolata:h14'
+                \ },
+                \'SourceCodeProLight': {
+                    \ 'LINUX': 'Source\ Code\ Pro\ Light\ 14',
+                    \ 'OSX': 'Source\ Code\ Pro\ Light:h14',
+                    \ 'WINDOWS': 'Source_Code_Pro_Light:h14'
+                \ },
+                \'SourceCodePro': {
+                    \ 'LINUX': 'Source\ Code\ Pro\ 14',
+                    \ 'OSX': 'Source\ Code\ Pro:h14',
+                    \ 'WINDOWS': 'Source_Code_Pro:h14'
+                \ } 
+                \ }
+    echo fontMap.Inconsolata.LINUX
+    echo fontMap.Inconsolata.OSX
+    echo fontMap.Inconsolata.WINDOWS
+
+    echo fontMap.SourceCodeProLight.LINUX
+    echo fontMap.SourceCodeProLight.OSX
+    echo fontMap.SourceCodeProLight.WINDOWS
+
+    echo fontMap.SourceCodePro.LINUX
+    echo fontMap.SourceCodePro.OSX
+    echo fontMap.SourceCodePro.WINDOWS
+" }
