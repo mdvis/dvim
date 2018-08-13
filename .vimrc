@@ -28,17 +28,18 @@
     " File {
         filetype plugin indent on   " Automatically detect file types.
         syntax on                   " Syntax highlighting
+
         set mouse=a
         set mousehide
     " }
 
-    set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
-    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-    "set virtualedit=onemore                         " Allow for cursor beyond last character
     set nospell                                     " Spell checking off
     set iskeyword -=.
     set iskeyword -=#
     set iskeyword -=-
+    "set virtualedit=onemore                         " Allow for cursor beyond last character
+    set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
+    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 " }
 
 " UI {
@@ -50,12 +51,21 @@
         " set statusline=
     endif
     " Behavior {
-        set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
         set backspace=indent,eol,start  " Backspace for dummies
+        set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
+        set formatoptions+=mM
+        set foldmethod=marker
+        set foldmarker={,}
         set softtabstop=4               " Let backspace delete indent
         set scrolljump=5                " Lines to scroll when cursor leaves screen
         set shiftwidth=4                " Use indents of 4 spaces
+        set nofoldenable
+        set textwidth=80
+        " set foldenable                  " Auto fold code
+        set foldlevel=0
         set scrolloff=3                 " Minimum lines to keep above and below cursor
+        set splitbelow
+        set splitright
         set autoindent                  " Indent at the same level of the previous line
         set ignorecase                  " Case insensitive search
         set expandtab                   " Tabs are spaces, not tabs
@@ -66,15 +76,6 @@
         set hlsearch                    " Highlight search terms
         set nowrap                      " Not wrap
         set number                      " Line numbers on
-        set textwidth=80
-        set formatoptions+=mM
-        set foldmarker={,}
-        set foldlevel=0
-        set foldmethod=marker
-        set nofoldenable
-        " set foldenable                  " Auto fold code
-        set splitbelow
-        set splitright
     " }
     set wildmenu                    " Show list instead of just completing
     set linespace=0                 " No extra spaces between rows
@@ -128,12 +129,14 @@
 " Mappings {
     let g:mapleader = ','
 
-    nmap j gj
-    nmap k gk
-
     vnoremap <leader>y "+y
     vnoremap <leader>p "+p
 
+    nmap <leader>1 :vertical resize 120<CR>
+    nmap <leader>2 :vertical resize 25<CR>
+    nmap <leader>sw :mksession! .my.vim<CR>
+    nmap <leader>sr :source .my.vim<CR>
+    nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
@@ -141,11 +144,9 @@
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
-    nmap <leader>r :reg<CR>
-    nmap <leader>1 :vertical resize 120<CR>
-    nmap <leader>2 :vertical resize 25<CR>
-    nmap <leader>sw :mksession! .my.vim<CR>
-    nmap <leader>sr :source .my.vim<CR>
+    nmap j gj
+    nmap k gk
+
 " }
 
 " Plugin Config Start {
@@ -166,12 +167,12 @@
         let g:airline_right_sep = '◀'
         let g:airline_left_alt_sep = '❯'
         let g:airline_right_alt_sep = '❮'
-        let g:airline_symbols.crypt = '🔒'
-        let g:airline_symbols.linenr = '☰'
-        let g:airline_symbols.maxlinenr = '㏑'
-        let g:airline_symbols.branch = '⎇'
         let g:airline_symbols.paste = '∥'
         let g:airline_symbols.spell = 'Ꞩ'
+        let g:airline_symbols.crypt = '🔒'
+        let g:airline_symbols.linenr = '☰'
+        let g:airline_symbols.branch = '⎇'
+        let g:airline_symbols.maxlinenr = '㏑'
         let g:airline_symbols.notexists = '∄'
         let g:airline_symbols.whitespace = 'Ξ'
     " }
@@ -192,28 +193,29 @@
     if WINDOWS()
     " NeoComplete {
         let g:acp_enableAtStartup = 0
+        let g:neocomplete#max_list = 15
         let g:neocomplete#enable_at_startup = 1
         let g:neocomplete#enable_smart_case = 1
         let g:neocomplete#enable_auto_delimiter = 1
-        let g:neocomplete#max_list = 15
         let g:neocomplete#force_overwrite_completefunc = 1
+
         nmap <Leader><Leader>n :NeoCompleteToggle<CR>
     " }
     endif
 
     " NerdTree {
         if isdirectory(expand('~/.vim/plugged/nerdtree'))
-            map <leader>n :NERDTreeToggle<CR>
             map <leader>e :NERDTreeFind<CR>
+            map <leader>n :NERDTreeToggle<CR>
 
-            let g:NERDTreeShowBookmarks=1
-            let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let g:NERDTreeChDirMode=1
-            let g:NERDTreeQuitOnOpen=1
             let g:NERDTreeMouseMode=2
+            let g:NERDTreeQuitOnOpen=1
             let g:NERDTreeShowHidden=1
+            let g:NERDTreeShowBookmarks=1
             let g:NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=1
+            let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         endif
     " }
 
@@ -229,38 +231,36 @@
     " }
 
     " YouCompleteMe {
-        let g:acp_enableAtStartup = 0
-
-        " enable completion from tags
-        let g:ycm_collect_identifiers_from_tags_files = 1
-
-        " remap Ultisnips for compatibility for YCM
-        let g:UltiSnipsExpandTrigger = '<C-j>'
-        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
-        " Enable omni completion.
-        augroup vimrc
-            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-        augroup END
 
         " Disable the neosnippet preview candidate window
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
+        let g:acp_enableAtStartup = 0
+        " remap Ultisnips for compatibility for YCM
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+        " enable completion from tags
+        let g:ycm_collect_identifiers_from_tags_files = 1
+
+        " Enable omni completion.
+        augroup vimrc
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+        augroup END
     " }
 
     " Ultisnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
         let g:UltiSnipsExpandTrigger='<leader><tab>'
-        let g:UltiSnipsJumpForwardTrigger='<c-b>'
         let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+        let g:UltiSnipsJumpForwardTrigger='<c-b>'
 
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit='vertical'
@@ -348,9 +348,9 @@
 " }
 
 " Backup file {
+    set nobackup
     set noswapfile
     set noundofile
-    set nobackup
     set nowritebackup
 " }
 
@@ -371,50 +371,53 @@
         set guicursor=a:block-blinkon0
         set guioptions=
 
-        highlight Cursor guifg=black
-
         " Fonts {
             if LINUX()
-                set guifont=Source\ Code\ Pro\ 14
-                set guifontwide=YouYuan\ 14
-            elseif OSX()
-                set guifont=Source\ Code\ Pro:h14
-                set guifontwide=YouYuan:h14
-            elseif WINDOWS()
-                set guifont=Source_Code_Pro:h14
-                set guifontwide=YouYuan:h14
-            endif
+-                set guifont=Source\ Code\ Pro\ 14
+-                set guifontwide=YouYuan\ 14
+-            elseif OSX()
+-                set guifont=Source\ Code\ Pro:h14
+-                set guifontwide=YouYuan:h14
+-            elseif WINDOWS()
+-                set guifont=Source_Code_Pro:h14
+-                set guifontwide=YouYuan:h14
+-            endif
         " }
+        
+        highlight Cursor guifg=black
     endif
 " }
 
 " Set Font {
-    let g:fontMap={
-                \'Inconsolata': {
-                    \ 'LINUX': 'Inconsolata\ 14',
-                    \ 'OSX': 'Inconsolata:h14',
-                    \ 'WINDOWS': 'Inconsolata:h14'
-                \ },
-                \'SourceCodeProLight': {
-                    \ 'LINUX': 'Source\ Code\ Pro\ Light\ 14',
-                    \ 'OSX': 'Source\ Code\ Pro\ Light:h14',
-                    \ 'WINDOWS': 'Source_Code_Pro_Light:h14'
-                \ },
-                \'SourceCodePro': {
-                    \ 'LINUX': 'Source\ Code\ Pro\ 14',
-                    \ 'OSX': 'Source\ Code\ Pro:h14',
-                    \ 'WINDOWS': 'Source_Code_Pro:h14'
-                \ } 
-                \ }
-    echo fontMap.Inconsolata.LINUX
-    echo fontMap.Inconsolata.OSX
-    echo fontMap.Inconsolata.WINDOWS
+    let g:font={
+        \'Inconsolata': {
+            \ 'LINUX': 'Inconsolata\ 14',
+            \ 'OSX': 'Inconsolata:h14',
+            \ 'WINDOWS': 'Inconsolata:h14'
+        \ },
+        \'SourceCodeProLight': {
+            \ 'LINUX': 'Source\ Code\ Pro\ Light\ 14',
+            \ 'OSX': 'Source\ Code\ Pro\ Light:h14',
+            \ 'WINDOWS': 'Source_Code_Pro_Light:h14'
+        \ },
+        \'SourceCodePro': {
+            \ 'LINUX': 'Source\ Code\ Pro\ 14',
+            \ 'OSX': 'Source\ Code\ Pro:h14',
+            \ 'WINDOWS': 'Source_Code_Pro:h14'
+        \ } 
+    \ }
 
-    echo fontMap.SourceCodeProLight.LINUX
-    echo fontMap.SourceCodeProLight.OSX
-    echo fontMap.SourceCodeProLight.WINDOWS
+    let g:fontMap={ "in":"Inconsolata", "scp":"SourceCodePro", "scpl":"SourceCodeProLight" }
 
-    echo fontMap.SourceCodePro.LINUX
-    echo fontMap.SourceCodePro.OSX
-    echo fontMap.SourceCodePro.WINDOWS
+    function! SetFont(fontName)
+        " Fonts {
+            if LINUX()
+                exec 'set guifont='.g:font[g:fontMap[a:fontName]].LINUX
+            elseif OSX()
+                exec 'set guifont='.g:font[g:fontMap[a:fontName]].OSX
+            elseif WINDOWS()
+                exec 'set guifont='.g:font[g:fontMap[a:fontName]].WINDOWS
+            endif
+        " }
+    endfunc
 " }
