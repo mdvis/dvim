@@ -58,7 +58,9 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'vim-scripts/HTML-AutoCloseTag'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'nathanaelkane/vim-indent-guides'
+    if has('gui')
+        Plug 'nathanaelkane/vim-indent-guides'
+    endif
 
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
