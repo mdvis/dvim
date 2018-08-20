@@ -289,23 +289,23 @@
         endfunc
     " }
     " UI {
-    if has('gui_running')
-        set guicursor=a:block-blinkon0
-        set guioptions=
-        " Fonts {
-        if LINUX()
-            set guifont=Source\ Code\ Pro\ 14
-            set guifontwide=YouYuan\ 14
-        elseif OSX()
-            set guifont=Source\ Code\ Pro:h14
-            set guifontwide=YouYuan:h14
-        elseif WINDOWS()
-            set guifont=Source_Code_Pro:h14
-            set guifontwide=YouYuan:h14
+        if has('gui_running')
+            set guicursor=a:block-blinkon0
+            set guioptions=
+            " Fonts {
+            if LINUX()
+                set guifont=Source\ Code\ Pro\ 14
+                set guifontwide=YouYuan\ 14
+            elseif OSX()
+                set guifont=Source\ Code\ Pro:h14
+                set guifontwide=YouYuan:h14
+            elseif WINDOWS()
+                set guifont=Source_Code_Pro:h14
+                set guifontwide=YouYuan:h14
+            endif
+            " }
+            highlight Cursor guifg=black
         endif
-        " }
-        highlight Cursor guifg=black
-    endif
     " }
     " Set iskeyword {
         function! SetIsk()
