@@ -1,6 +1,9 @@
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
 " Environment {
+    " Basics {
+        set nocompatible
+    " }
     " Identify platform {
         silent function! OSX()
             return has('macunix')
@@ -14,9 +17,6 @@
             return  (has('win32') || has('win64'))
         endfunction
     " }
-    " Basics {
-        set nocompatible        " Must be first line
-    " }
 " }
 
 " Vim-plug {
@@ -27,24 +27,22 @@
 
 " General {
     " File {
-        filetype plugin indent on   " Automatically detect file types.
-        syntax on                   " Syntax highlighting
+        filetype plugin indent on
+        syntax on
         set mouse=a
         set mousehide
     " }
-    set nospell                                     " Spell checking off
-    set iskeyword -=.
-    set iskeyword -=#
-    set iskeyword -=-
-    "set virtualedit=onemore                         " Allow for cursor beyond last character
+    set nospell
+    set iskeyword=@,48-57,_
+    " set virtualedit=onemore                       " Allow for cursor beyond last character
     set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 " }
 
 " UI {
-    set showmode " Display the current mode
-    set cursorline                  " Highlight current line
-    " set cursorcolumn                " Highlight current line
+    set showmode         " Display the current mode
+    set cursorline       " Highlight current line
+    " set cursorcolumn   " Highlight current line
     if has('statusline')
         set laststatus=2
         " set statusline=
@@ -56,14 +54,14 @@
         set foldmethod=marker
         set foldmarker={,}
         set softtabstop=4               " Let backspace delete indent
-        set scrolljump=5                " Lines to scroll when cursor leaves screen
-        set shiftwidth=4                " Use indents of 4 spaces
+        set scrolljump=5
+        set shiftwidth=4
         set nofoldenable
         set textwidth=80
-        " set foldenable                  " Auto fold code
         set foldlevel=0
-        set scrolloff=3                 " Minimum lines to keep above and below cursor
+        set scrolloff=3
         set splitbelow
+        " set foldenable                  " Auto fold code
         set splitright
         set autoindent                  " Indent at the same level of the previous line
         set ignorecase                  " Case insensitive search
@@ -72,9 +70,9 @@
         set incsearch                   " Find as you type search
         set smartcase                   " Case sensitive when uc present
         set showmatch                   " Show matching brackets/parenthesis
-        set hlsearch                    " Highlight search terms
-        set nowrap                      " Not wrap
-        set number                      " Line numbers on
+        set hlsearch
+        set nowrap
+        set number
     " }
     set wildmenu                    " Show list instead of just completing
     set linespace=0                 " No extra spaces between rows
@@ -115,12 +113,10 @@
         " console output error code
         language messages zh_CN.utf-8
     endif
-"}
+" }
 
 " Auto load vimrc {
-    if has('autocmd')
-        autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-    endif
+    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " }
 
 " Mappings {
@@ -180,17 +176,17 @@
     " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
-    if WINDOWS()
-        " NeoComplete {
-        let g:acp_enableAtStartup = 0
-        let g:neocomplete#max_list = 15
-        let g:neocomplete#enable_at_startup = 1
-        let g:neocomplete#enable_smart_case = 1
-        let g:neocomplete#enable_auto_delimiter = 1
-        let g:neocomplete#force_overwrite_completefunc = 1
-        nmap <Leader><Leader>n :NeoCompleteToggle<CR>
-        " }
-    endif
+    " NeoComplete {
+        if isdirectory(expand('~/.vim/plugged/neocomplete'))
+            let g:acp_enableAtStartup = 0
+            let g:neocomplete#max_list = 15
+            let g:neocomplete#enable_at_startup = 1
+            let g:neocomplete#enable_smart_case = 1
+            let g:neocomplete#enable_auto_delimiter = 1
+            let g:neocomplete#force_overwrite_completefunc = 1
+            nmap <Leader><Leader>n :NeoCompleteToggle<CR>
+        endif
+    " }
     " NerdTree {
         if isdirectory(expand('~/.vim/plugged/nerdtree'))
             map <leader>e :NERDTreeFind<CR>
@@ -244,7 +240,7 @@
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit='vertical'
     " }
-    " Ale{
+    " Ale {
         let g:ale_fixers = {
                     \   'javascript':['eslint'],
                     \   'SCSS':['prettier'],
@@ -261,7 +257,7 @@
         " let g:ale_lint_on_text_changed='never'
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
-    "}
+    " }
     " Session List {
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
         nmap <leader>sl :SessionList<CR>
@@ -281,9 +277,8 @@
         set noundofile
         set nowritebackup
     " }
-
     " Template {
-        "autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
+        " autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
         autocmd! BufNewFile *.js,*.jsx exec ":call SetTpl()"
         function! SetTpl()
             call setline(1         , "/**")
@@ -293,7 +288,6 @@
             call append(line(".")+3, " */")
         endfunc
     " }
-
     " UI {
     if has('gui_running')
         set guicursor=a:block-blinkon0
@@ -313,34 +307,9 @@
         highlight Cursor guifg=black
     endif
     " }
-    " Set Font {
-        let g:font={
-                    \'Inconsolata': {
-                    \ 'LINUX': 'Inconsolata\ 14',
-                    \ 'OSX': 'Inconsolata:h14',
-                    \ 'WINDOWS': 'Inconsolata:h14'
-                    \ },
-                    \'SourceCodeProLight': {
-                    \ 'LINUX': 'Source\ Code\ Pro\ Light\ 14',
-                    \ 'OSX': 'Source\ Code\ Pro\ Light:h14',
-                    \ 'WINDOWS': 'Source_Code_Pro_Light:h14'
-                    \ },
-                    \'SourceCodePro': {
-                    \ 'LINUX': 'Source\ Code\ Pro\ 14',
-                    \ 'OSX': 'Source\ Code\ Pro:h14',
-                    \ 'WINDOWS': 'Source_Code_Pro:h14'
-                    \ } 
-                    \ }
-        let g:fontMap={ "in":"Inconsolata", "scp":"SourceCodePro", "scpl":"SourceCodeProLight" }
-        function! SetFont(fontName)
-            " Fonts {
-            if LINUX()
-                exec 'set guifont='.g:font[g:fontMap[a:fontName]].LINUX
-            elseif OSX()
-                exec 'set guifont='.g:font[g:fontMap[a:fontName]].OSX
-            elseif WINDOWS()
-                exec 'set guifont='.g:font[g:fontMap[a:fontName]].WINDOWS
-            endif
-            " }
+    " Set iskeyword {
+        function! SetIsk()
+            set iskeyword=@,48-57,_
         endfunc
     " }
+" }
