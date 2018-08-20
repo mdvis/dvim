@@ -33,7 +33,7 @@
         set mousehide
     " }
     set nospell
-    set iskeyword=@,48-57,_
+    " set iskeyword=
     " set virtualedit=onemore                       " Allow for cursor beyond last character
     set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -306,10 +306,5 @@
             " }
             highlight Cursor guifg=black
         endif
-    " }
-    " Set iskeyword {
-        function! SetIsk()
-            set iskeyword=@,48-57,_
-        endfunc
     " }
 " }
