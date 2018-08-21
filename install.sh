@@ -126,5 +126,7 @@ installPlug       "/vim-plug/" \
 
 installPlugins
 
-copyColors     "/plugged/solarized/vim-colors-solarized/colors/" \
+copyColors     "/plugged/vim-colors-solarized/colors/" \
                 "solarized.vim"
+copyColors     "/plugged/gruvbox/colors/" \
+                "gruvbox.vim"

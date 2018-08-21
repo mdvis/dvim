@@ -21,6 +21,7 @@
     Plug 'gcmt/taboo.vim'
     Plug 'mattn/emmet-vim'
     Plug 'powerline/fonts'
+    Plug 'morhetz/gruvbox'
     Plug 'SirVer/ultisnips'
     Plug 'godlygeek/tabular'
     Plug 'mhinz/vim-signify'
@@ -36,7 +37,6 @@
     Plug 'jiangmiao/auto-pairs'
     Plug 'bling/vim-bufferline'
     Plug 'heavenshell/vim-jsdoc'
-    Plug 'altercation/solarized'
     Plug 'kshenoy/vim-signature'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'zivyangll/git-blame.vim'
@@ -54,6 +54,7 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'vim-scripts/HTML-AutoCloseTag'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'altercation/vim-colors-solarized'
     if has('gui')
         Plug 'nathanaelkane/vim-indent-guides'
     endif
