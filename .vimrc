@@ -83,6 +83,10 @@
         if filereadable(expand('~/.vim/colors/solarized.vim'))
             "let g:solarized_termcolors=256
             "colorscheme solarized
+
+            let g:gruvbox_contrast_dark='soft'
+            "let g:gruvbox_contrast_dark='medium'
+            "let g:gruvbox_contrast_dark='hard'
             colorscheme gruvbox
         endif
     " }
