@@ -201,10 +201,10 @@
             let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         endif
     " }
-    " Ctrlp-funky {
-        nnoremap <Leader>fu :CtrlPFunky<Cr>
-        " narrow the list down with a word under cursor
-        nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+    " fzf {
+        nmap <C-p> :Files<CR>
+        nmap <C-e> :Buffers<CR>
+        let g:fzf_action = { 'ctrl-e': 'edit'  }
     " }
     " Tagbar {
         nmap <Leader>t :TagbarToggle<CR>
