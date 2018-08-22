@@ -140,6 +140,14 @@
 " }
 
 " Plugin Config Start {
+    " js {
+        let g:javascript_plugin_jsdoc=1
+    " }
+    
+    " Rainbow {
+        let g:rainbow_active=1
+    " }
+    
     " airline {
         let g:airline_theme='molokai'
         let g:airline_powerline_fonts=1
