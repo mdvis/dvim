@@ -52,7 +52,7 @@
     Plug 'leafgarland/typescript-vim'
     Plug 'gorodinskiy/vim-coloresque'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'vim-scripts/HTML-AutoCloseTag'
+    " Plug 'vim-scripts/HTML-AutoCloseTag'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'altercation/vim-colors-solarized'
     if has('gui')
