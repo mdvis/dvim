@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
 readonly APP_NAME="dvim"
+readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
-#[ -z "$PLUGINS_MANAGER_PATH" ] && PLUGINS_MANAGER_PATH="$APP_PATH/vim-plug"
-[ -z "$PLUGINS_MANAGER_URI" ] && PLUGINS_MANAGER_URI="https://github.com/junegunn/vim-plug.git"
-readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -92,7 +90,7 @@ createSymlinks() {
     debug
 }
 
-installPlug(){
+setInstallPlug(){
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
     [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}" 
     ret="$?"
@@ -102,7 +100,7 @@ installPlug(){
 
 copyColors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
-    [ -d "$APP_PATH/colors" ] && cp "$APP_PATH${1}${2}" "$APP_PATH/colors/${2}" 
+    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}" 
     ret="$?"
     success "$2 Color install!"
     debug
@@ -112,21 +110,16 @@ exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins"
 
+copyColors      "/colors/" \
+                "gruvbox.vim"
+
 syncRepo        "$REPO_PATH" \
                 "$REPO_URI"
 
-#syncRepo        "$PLUGINS_MANAGER_PATH" \
-                #"$PLUGINS_MANAGER_URI"
-
-createSymlinks "$REPO_PATH" \
+createSymlinks  "$REPO_PATH" \
                 "$HOME"
 
-installPlug       "/vim-plug/" \
+setInstallPlug  "/vim-plug/" \
                 "plug.vim"
 
 installPlugins
-
-copyColors     "/plugged/vim-colors-solarized/colors/" \
-                "solarized.vim"
-copyColors     "/plugged/gruvbox/colors/" \
-                "gruvbox.vim"
