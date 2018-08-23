@@ -1,10 +1,11 @@
 "Plugins Beginning{
     set nocompatible
-
     let g:Plug_dir = '~/.vim/plugged/'
 
     filetype off
+
     call plug#begin(g:Plug_dir)
+
     if WINDOWS()
         Plug 'Shougo/neosnippet'
         Plug 'Shougo/neocomplete.vim'
@@ -16,57 +17,51 @@
             \'do':'./install.py --js-completer'}
     endif
 
-    Plug 'w0rp/ale'
-    Plug 'tpope/vim-haml'
-    Plug 'gcmt/taboo.vim'
-    Plug 'mattn/emmet-vim'
-    Plug 'powerline/fonts'
-    Plug 'morhetz/gruvbox'
-    Plug 'SirVer/ultisnips'
-    Plug 'godlygeek/tabular'
-    Plug 'mhinz/vim-signify'
-    Plug 'majutsushi/tagbar'
-    Plug 'honza/vim-snippets'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'yssource/python.vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'luochen1990/rainbow'
-    Plug 'briancollins/vim-jst'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'bling/vim-bufferline'
-    Plug 'heavenshell/vim-jsdoc'
-    Plug 'kshenoy/vim-signature'
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'zivyangll/git-blame.vim'
-    Plug 'pangloss/vim-javascript'
-    Plug 'python-mode/python-mode'
-    Plug 'vim-airline/vim-airline'
-    Plug 'dbeniamine/cheat.sh-vim'
-    Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'rhysd/conflict-marker.vim'
-    Plug 'vim-scripts/sessionman.vim'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'gorodinskiy/vim-coloresque'
-    Plug 'terryma/vim-multiple-cursors'
-    Plug 'vim-scripts/HTML-AutoCloseTag'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'altercation/vim-colors-solarized'
     if has('gui')
         Plug 'nathanaelkane/vim-indent-guides'
     endif
 
+    Plug 'w0rp/ale'
+    Plug 'morhetz/gruvbox'
+    Plug 'SirVer/ultisnips'
+    Plug 'godlygeek/tabular' "test filtering and alignment
+    Plug 'mhinz/vim-signify'
+    Plug 'majutsushi/tagbar'
+    Plug 'tpope/vim-surround'
+    Plug 'scrooloose/nerdtree'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'kshenoy/vim-signature'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'altercation/vim-colors-solarized'
+
+    Plug 'tpope/vim-haml'
+    Plug 'mattn/emmet-vim'
+    Plug 'honza/vim-snippets'
+    Plug 'luochen1990/rainbow'
+    Plug 'heavenshell/vim-jsdoc'
+    Plug 'python-mode/python-mode'
+    Plug 'pangloss/vim-javascript'
+    Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
+    Plug 'leafgarland/typescript-vim'
+
+    Plug 'powerline/fonts'
+    Plug 'bling/vim-bufferline'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
     Plug 'ternjs/tern_for_vim', {
         \ 'do': 'npm install'}
+
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['typescript', 'css', 'less', 'scss'] }
 
+    Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
         \ 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
+
     call plug#end()
 "}
