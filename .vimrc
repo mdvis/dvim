@@ -141,14 +141,20 @@
 " }
 
 " Plugin Config Start {
+    " Goyo {
+        let g:goyo_width='700'
+        let g:goyo_height='700'
+        nmap <leader>g :Goyo<CR>
+    " }
+
     " js {
         let g:javascript_plugin_jsdoc=1
     " }
-    
+
     " Rainbow {
         let g:rainbow_active=1
     " }
-    
+
     " airline {
         let g:airline_theme='molokai'
         let g:airline_powerline_fonts=1
@@ -213,10 +219,10 @@
     " fzf {
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
-        let g:fzf_action = { 
-                    \ 'ctrl-e': 'edit', 
-                    \ 'ctrl-t': 'tab split', 
-                    \ 'ctrl-x': 'split', 
+        let g:fzf_action = {
+                    \ 'ctrl-e': 'edit',
+                    \ 'ctrl-t': 'tab split',
+                    \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
     " }
     " Tagbar {
