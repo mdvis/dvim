@@ -81,6 +81,7 @@
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
     " Colors {
         if filereadable(expand('~/.vim/colors/gruvbox.vim'))
+            let g:gruvbox_contrast_dark='hard'
             colorscheme gruvbox
         endif
     " }
