@@ -43,5 +43,4 @@ call copy "%HOME%\.vim\plugged\vim-plug\plug.vim" "%HOME%\vimfiles\autoload\plug
 
 call vim +PlugInstall! +PlugClean +qall
 
-call copy "%HOME%\.vim\plugged\vim-distinguished\colors\distinguished.vim" "%HOME%\vimfiles\colors\distinguished.vim"
-call copy "%HOME%\.vim\plugged\molokai\colors\molokai.vim" "%HOME%\vimfiles\colors\molokai.vim"
+call copy "%APP_NAME%\colors\gruvbox.vim" "%HOME%\vimfiles\colors\gruvbox.vim"
