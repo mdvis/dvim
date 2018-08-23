@@ -204,7 +204,11 @@
     " fzf {
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
-        let g:fzf_action = { 'ctrl-e': 'edit'  }
+        let g:fzf_action = { 
+                    \ 'ctrl-e': 'edit', 
+                    \ 'ctrl-t': 'tab split', 
+                    \ 'ctrl-x': 'split', 
+                    \ 'ctrl-v': 'vsplit' }
     " }
     " Tagbar {
         nmap <Leader>t :TagbarToggle<CR>

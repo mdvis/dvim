@@ -32,7 +32,6 @@
     Plug 'yssource/python.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'luochen1990/rainbow'
-    Plug 'ternjs/tern_for_vim'
     Plug 'briancollins/vim-jst'
     Plug 'jiangmiao/auto-pairs'
     Plug 'bling/vim-bufferline'
@@ -59,6 +58,8 @@
         Plug 'nathanaelkane/vim-indent-guides'
     endif
 
+    Plug 'ternjs/tern_for_vim', {
+        \ 'do': 'npm install'}
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['typescript', 'css', 'less', 'scss'] }
