@@ -50,7 +50,7 @@
     Plug 'leafgarland/typescript-vim'
 
     Plug 'powerline/fonts'
-    Plug 'bling/vim-bufferline'
+    " Plug 'bling/vim-bufferline'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 

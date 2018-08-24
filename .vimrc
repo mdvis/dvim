@@ -271,17 +271,17 @@
             set guioptions=
             " Fonts {
             if LINUX()
-                set guifont=Source\ Code\ Pro\ 14
-                set guifontwide=YouYuan\ 14
+                set guifont=Source\ Code\ Pro\ 16
+                set guifontwide=YouYuan\ 16
             elseif OSX()
-                set guifont=Source\ Code\ Pro:h14
-                set guifontwide=YouYuan:h14
+                set guifont=Source\ Code\ Pro:h16
+                set guifontwide=YouYuan:h16
             elseif WINDOWS()
-                set guifont=Source_Code_Pro:h14
-                set guifontwide=YouYuan:h14
+                set guifont=Source_Code_Pro:h16
+                set guifontwide=YouYuan:h16
             endif
             " }
-            highlight Cursor guifg=black
+            highlight Cursor guifg=white
         endif
     " }
 " }
