@@ -120,31 +120,10 @@
     autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " }
 
-" Mappings {
-    let g:mapleader = ','
-    vnoremap <leader>y "+y
-    vnoremap <leader>p "+p
-    nmap <leader>1 :vertical resize 120<CR>
-    nmap <leader>2 :vertical resize 25<CR>
-    nmap <leader>sw :mksession! ~/.my.vim<CR>
-    nmap <leader>sr :source ~/.my.vim<CR>
-    nmap <leader>r :reg<CR>
-    nmap <leader>N :noh<CR>
-    nmap <leader>w :w<CR>
-    nmap <leader>q :q<CR>
-    nmap <leader>h <c-w>h
-    nmap <leader>j <c-w>j
-    nmap <leader>k <c-w>k
-    nmap <leader>l <c-w>l
-    nmap j gj
-    nmap k gk
-" }
-
 " Plugin Config Start {
     " Goyo {
         let g:goyo_width='700'
         let g:goyo_height='700'
-        nmap <leader>g :Goyo<CR>
     " }
 
     " js {
@@ -182,11 +161,6 @@
     " }
     " Easemotion {
         let g:EasyMotion_smartcase = 1
-        map <Leader><Leader>j <Plug>(easymotion-j)
-        map <Leader><Leader>k <Plug>(easymotion-k)
-        map <Leader><leader>. <Plug>(easymotion-repeat)
-        map <Leader><leader>l <Plug>(easymotion-lineforward)
-        map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
@@ -199,13 +173,10 @@
             let g:neocomplete#enable_smart_case = 1
             let g:neocomplete#enable_auto_delimiter = 1
             let g:neocomplete#force_overwrite_completefunc = 1
-            nmap <Leader><Leader>n :NeoCompleteToggle<CR>
         endif
     " }
     " NerdTree {
         if isdirectory(expand('~/.vim/plugged/nerdtree'))
-            map <leader>e :NERDTreeFind<CR>
-            map <leader>n :NERDTreeToggle<CR>
             let g:NERDTreeChDirMode=1
             let g:NERDTreeMouseMode=2
             let g:NERDTreeQuitOnOpen=1
@@ -217,16 +188,11 @@
         endif
     " }
     " fzf {
-        nmap <C-p> :Files<CR>
-        nmap <C-e> :Buffers<CR>
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
                     \ 'ctrl-t': 'tab split',
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
-    " }
-    " Tagbar {
-        nmap <Leader>t :TagbarToggle<CR>
     " }
     " YouCompleteMe {
         " Disable the neosnippet preview candidate window
@@ -274,14 +240,6 @@
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
         " let g:ale_lint_on_text_changed='never'
-        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <C-j> <Plug>(ale_next_wrap)
-    " }
-    " Session List {
-        set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-        nmap <leader>sl :SessionList<CR>
-        nmap <leader>ss :SessionSave<CR>
-        nmap <leader>sc :SessionClose<CR>
     " }
     " Indent {
         if isdirectory(expand('~/.vim/plugged/vim-indent-guides'))
@@ -327,3 +285,49 @@
         endif
     " }
 " }
+" Mappings {
+    let g:mapleader = ','
+    vnoremap <leader>y "+y
+    vnoremap <leader>p "+p
+    nmap <leader>sw :mksession! ~/.my.vim<CR>
+    nmap <leader>sr :source ~/.my.vim<CR>
+    nmap <leader>r :reg<CR>
+    nmap <leader>N :noh<CR>
+    nmap <leader>w :w<CR>
+    nmap <leader>q :q<CR>
+    nmap <leader>h <c-w>h
+    nmap <leader>j <c-w>j
+    nmap <leader>k <c-w>k
+    nmap <leader>l <c-w>l
+    nmap j gj
+    nmap k gk
+    " Goyo {
+        nmap <leader>g :Goyo<CR>
+    " }
+    " Easemotion {
+        map <Leader><Leader>j <Plug>(easymotion-j)
+        map <Leader><Leader>k <Plug>(easymotion-k)
+        map <Leader><leader>. <Plug>(easymotion-repeat)
+        map <Leader><leader>l <Plug>(easymotion-lineforward)
+        map <Leader><leader>h <Plug>(easymotion-linebackward)
+    " }
+    " Neocomplete {
+        nmap <Leader><Leader>n :NeoCompleteToggle<CR>
+    " }
+    " Nerdtree {
+        map <leader>e :NERDTreeFind<CR>
+        map <leader>n :NERDTreeToggle<CR>
+    " }
+    " Ale {
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
+    " }
+    " Tagbar {
+        nmap <Leader>t :TagbarToggle<CR>
+    " }
+    " FZF {
+        nmap <C-p> :Files<CR>
+        nmap <C-e> :Buffers<CR>
+    " }
+" }
+
