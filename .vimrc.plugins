@@ -22,6 +22,7 @@
     endif
 
     Plug 'w0rp/ale'
+    Plug 'kien/tabman.vim'
     Plug 'morhetz/gruvbox'
     Plug 'SirVer/ultisnips'
     Plug 'godlygeek/tabular' "test filtering and alignment
@@ -32,6 +33,7 @@
     Plug 'scrooloose/nerdtree'
     Plug 'jiangmiao/auto-pairs'
     Plug 'kshenoy/vim-signature'
+    Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
     Plug 'terryma/vim-multiple-cursors'

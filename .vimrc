@@ -122,8 +122,8 @@
 
 " Plugin Config Start {
     " Goyo {
-        let g:goyo_width='700'
-        let g:goyo_height='700'
+        let g:goyo_width='70%'
+        let g:goyo_height='70%'
     " }
 
     " js {
@@ -311,12 +311,13 @@
         map <Leader><leader>l <Plug>(easymotion-lineforward)
         map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
-    " Neocomplete {
-        nmap <Leader><Leader>n :NeoCompleteToggle<CR>
+    " Tabman {
+        map <leader>mt :TMToggle<CR>
+        map <leader>mf :TMFocus<CR>
     " }
     " Nerdtree {
         map <leader>e :NERDTreeFind<CR>
-        map <leader>n :NERDTreeToggle<CR>
+        map <leader>n :NERDTreeTabsToggle<CR>
     " }
     " Ale {
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
