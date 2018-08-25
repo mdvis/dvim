@@ -19,8 +19,14 @@
 
     if has('gui')
         Plug 'nathanaelkane/vim-indent-guides'
+        " Plug 'Yggdroot/indentLine'
     endif
 
+    " Plug 'Shougo/deoplete.nvim'
+    " Plug 'maralla/completor.vim'
+    " Plug 'prabirshrestha/asyncomplete.vim'
+    " Plug 'ervandew/supertab'
+    " Plug 'mhinz/vim-grepper'
     Plug 'w0rp/ale'
     Plug 'kien/tabman.vim'
     Plug 'morhetz/gruvbox'
