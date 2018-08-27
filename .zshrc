@@ -42,3 +42,5 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.iterm2_shell_integration.zsh
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+
+export CDPATH=.:~:~/Desktop
