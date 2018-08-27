@@ -6,27 +6,16 @@
 
     call plug#begin(g:Plug_dir)
 
-    if WINDOWS()
-        Plug 'Shougo/neosnippet'
-        Plug 'Shougo/neocomplete.vim'
-        Plug 'Shougo/neosnippet-snippets'
-    endif
-
     if LINUX() || OSX()
         Plug 'Valloric/YouCompleteMe',{
             \'do':'./install.py --js-completer'}
     endif
 
-    if has('gui')
-        Plug 'nathanaelkane/vim-indent-guides'
-        " Plug 'Yggdroot/indentLine'
-    endif
+    "Plug 'Shougo/deoplete.nvim'
+    "Plug 'roxma/nvim-yarp'
+    "Plug 'roxma/vim-hug-neovim-rpc'
 
-    " Plug 'Shougo/deoplete.nvim'
-    " Plug 'maralla/completor.vim'
-    " Plug 'prabirshrestha/asyncomplete.vim'
-    " Plug 'ervandew/supertab'
-    " Plug 'mhinz/vim-grepper'
+    " Plug 'ervandew/supertab' 2492
     Plug 'w0rp/ale'
     Plug 'kien/tabman.vim'
     Plug 'morhetz/gruvbox'
@@ -36,6 +25,7 @@
     Plug 'mhinz/vim-signify'
     Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-surround'
+    Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
     Plug 'jiangmiao/auto-pairs'
     Plug 'kshenoy/vim-signature'

@@ -194,6 +194,9 @@
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
     " }
+    " Deoplete {
+        let g:deoplete#enable_at_startup=1
+    " }
     " YouCompleteMe {
         " Disable the neosnippet preview candidate window
         " When enabled, there can be too much visual noise
@@ -289,8 +292,8 @@
     let g:mapleader = ','
     vnoremap <leader>y "+y
     vnoremap <leader>p "+p
-    nmap <leader>sw :mksession! ~/.my.vim<CR>
-    nmap <leader>sr :source ~/.my.vim<CR>
+    nmap <leader>sw :mksession! ~/.my.vim
+    nmap <leader>sr :source ~/.my.vim
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
     nmap <leader>w :w<CR>
