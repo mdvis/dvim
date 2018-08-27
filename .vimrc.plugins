@@ -6,16 +6,6 @@
 
     call plug#begin(g:Plug_dir)
 
-    if LINUX() || OSX()
-        Plug 'Valloric/YouCompleteMe',{
-            \'do':'./install.py --js-completer'}
-    endif
-
-    "Plug 'Shougo/deoplete.nvim'
-    "Plug 'roxma/nvim-yarp'
-    "Plug 'roxma/vim-hug-neovim-rpc'
-
-    " Plug 'ervandew/supertab' 2492
     Plug 'w0rp/ale'
     Plug 'kien/tabman.vim'
     Plug 'morhetz/gruvbox'
@@ -46,21 +36,21 @@
     Plug 'leafgarland/typescript-vim'
 
     Plug 'powerline/fonts'
-    " Plug 'bling/vim-bufferline'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    Plug 'ternjs/tern_for_vim', {
-        \ 'do': 'npm install'}
+    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
-    Plug 'prettier/vim-prettier', {
-        \ 'do': 'npm install',
-        \ 'for': ['typescript', 'css', 'less', 'scss'] }
+    Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
         \ 'do': './install --all' }
+
+    Plug 'prettier/vim-prettier', {
+        \ 'do': 'npm install',
+        \ 'for': ['typescript', 'css', 'less', 'scss'] }
 
     call plug#end()
 "}
