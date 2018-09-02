@@ -39,9 +39,19 @@
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    "Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
-    Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
+    "Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-go'
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
@@ -50,7 +60,8 @@
 
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
-        \ 'for': ['typescript', 'css', 'less', 'scss'] }
+        \ 'for': ['css', 'less', 'scss'] }
+    "\ 'for': ['typescript', 'css', 'less', 'scss'] }
 
     call plug#end()
 "}
