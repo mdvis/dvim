@@ -166,16 +166,26 @@
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
     " NerdTree {
-        if isdirectory(expand('~/.vim/plugged/nerdtree'))
-            let g:NERDTreeChDirMode=1
-            let g:NERDTreeMouseMode=2
-            let g:NERDTreeQuitOnOpen=1
-            let g:NERDTreeShowHidden=1
-            let g:NERDTreeShowBookmarks=1
-            let g:NERDTreeKeepTreeInNewTab=1
-            let g:nerdtree_tabs_open_on_gui_startup=1
-            let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-        endif
+        let g:NERDTreeWinSize=30
+        let g:NERDTreeChDirMode=1
+        let g:NERDTreeMouseMode=2
+        let g:NERDTreeQuitOnOpen=1
+        let g:NERDTreeShowHidden=1
+        let g:NERDTreeShowBookmarks=1
+        let g:NERDTreeKeepTreeInNewTab=1
+        let g:nerdtree_tabs_open_on_gui_startup=1
+        let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+        let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "*",
+            \ "Staged"    : "+",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "x",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ 'Ignored'   : '☒',
+            \ "Unknown"   : "?" }
     " }
     " fzf {
         let g:fzf_action = {
@@ -282,7 +292,7 @@
     nmap <leader>l <c-w>l
     nmap j gj
     nmap k gk
-    nmap <leader>T :call SetTpl()<CR>
+    nmap <leader>st :call SetTpl()<CR>
     " Goyo {
         nmap <leader>g :Goyo<CR>
     " }
@@ -294,8 +304,8 @@
         map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Tabman {
-        map <leader>mt :TMToggle<CR>
-        map <leader>mf :TMFocus<CR>
+        map <leader>t :TMToggle<CR>
+        map <leader>ft :TMFocus<CR>
     " }
     " Nerdtree {
         map <leader>e :NERDTreeFind<CR>
@@ -306,7 +316,7 @@
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
     " }
     " Tagbar {
-        nmap <Leader>t :TagbarToggle<CR>
+        " nmap <Leader>t :TagbarToggle<CR>
     " }
     " FZF {
         nmap <C-p> :Files<CR>
@@ -361,7 +371,7 @@
         let g:deoplete#sources#ternjs#filetypes = [
                     \ 'jsx',
                     \ 'javascript.jsx',
-                    \ 'vue']
+                    \ 'vue' ]
     " }
 " }
 

@@ -13,7 +13,7 @@
     Plug 'godlygeek/tabular' "test filtering and alignment
     Plug 'junegunn/goyo.vim'
     Plug 'mhinz/vim-signify'
-    Plug 'majutsushi/tagbar'
+    " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
@@ -22,6 +22,7 @@
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'altercation/vim-colors-solarized'
 
@@ -39,7 +40,7 @@
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    "Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
     "Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
     if has('nvim')
