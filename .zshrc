@@ -28,6 +28,7 @@ export LANG=en_US.UTF-8
 
 alias c='clear'
 alias rm="rm -i"
+alias mv="mv -i"
 alias l='ls -F --color=auto'
 alias ll='ls -lF --color=auto'
 alias lo="ls -lF --color=auto | awk '{print $9}'"
