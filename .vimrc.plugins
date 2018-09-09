@@ -11,7 +11,6 @@
     Plug 'morhetz/gruvbox'
     Plug 'SirVer/ultisnips'
     Plug 'godlygeek/tabular' "test filtering and alignment
-    Plug 'junegunn/goyo.vim'
     Plug 'mhinz/vim-signify'
     " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-surround'
@@ -42,17 +41,7 @@
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
-    "Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
-    if has('nvim')
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-        Plug 'Shougo/deoplete.nvim'
-        Plug 'roxma/nvim-yarp'
-        Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'zchee/deoplete-go'
+    Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
