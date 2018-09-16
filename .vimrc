@@ -42,6 +42,7 @@
 
 " UI {
     set showmode         " Display the current mode
+    set showcmd
     set cursorline       " Highlight current line
     " set cursorcolumn   " Highlight current line
     if has('statusline')
@@ -73,13 +74,17 @@
         set showmatch                   " Show matching brackets/parenthesis
         set hlsearch
         set nowrap
+        set linebreak
+        set wrapmargin=2
+        set sidescrolloff=8
         set number
         " set relativenumber
     " }
-    set wildmenu                    " Show list instead of just completing
     set linespace=0                 " No extra spaces between rows
     set winminheight=0              " Windows can be 0 line high
     set background=dark
+
+    set wildmenu                    " Show list instead of just completing
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
     " Colors {
         if filereadable(expand('~/.vim/colors/gruvbox.vim'))
@@ -234,8 +239,14 @@
     " Backup file {
         set nobackup
         set noswapfile
-        set noundofile
+        set undofile
+        "set noundofile
         set nowritebackup
+        " 结尾的//表示生成的文件名带有绝对路径
+        " 路径中用%替换目录分隔符，这样可以防止文件重名
+        set backupdir=~/.vim/.backup//
+        set directory=~/.vim/.swp//
+        set undodir=~/.vim/.undo//
     " }
     " Template {
         " autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
@@ -313,3 +324,10 @@
     " }
 " }
 
+set noerrorbells " no error bell
+set visualbell " visual error bell
+
+set autochdir
+set autoread
+set listchars=tab:»■,trail:■
+set list
