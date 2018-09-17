@@ -12,7 +12,6 @@
     Plug 'SirVer/ultisnips'
     Plug 'godlygeek/tabular' "test filtering and alignment
     Plug 'mhinz/vim-signify'
-    " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
@@ -51,7 +50,6 @@
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['css', 'less', 'scss'] }
-    "\ 'for': ['typescript', 'css', 'less', 'scss'] }
 
     call plug#end()
 "}

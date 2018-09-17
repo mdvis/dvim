@@ -45,6 +45,8 @@
     set showcmd
     set cursorline       " Highlight current line
     " set cursorcolumn   " Highlight current line
+    set listchars=tab:»☂,trail:☂
+    set list
     if has('statusline')
         set laststatus=2
         " set statusline=
@@ -72,6 +74,8 @@
         set incsearch                   " Find as you type search
         set smartcase                   " Case sensitive when uc present
         set showmatch                   " Show matching brackets/parenthesis
+        set autochdir
+        set autoread
         set hlsearch
         set nowrap
         set linebreak
@@ -79,6 +83,8 @@
         set sidescrolloff=8
         set number
         " set relativenumber
+        set noerrorbells " no error bell
+        set visualbell " visual error bell
     " }
     set linespace=0                 " No extra spaces between rows
     set winminheight=0              " Windows can be 0 line high
@@ -315,19 +321,8 @@
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
     " }
-    " Tagbar {
-        " nmap <Leader>t :TagbarToggle<CR>
-    " }
     " FZF {
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
     " }
 " }
-
-set noerrorbells " no error bell
-set visualbell " visual error bell
-
-set autochdir
-set autoread
-set listchars=tab:»■,trail:■
-set list
