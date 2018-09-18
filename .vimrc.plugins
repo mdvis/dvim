@@ -26,7 +26,7 @@
 
     Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
-    Plug 'honza/vim-snippets'
+    Plug 'manjuist/vim-snippets'
     Plug 'luochen1990/rainbow'
     Plug 'heavenshell/vim-jsdoc'
     Plug 'python-mode/python-mode'
