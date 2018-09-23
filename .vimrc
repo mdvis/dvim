@@ -45,7 +45,7 @@
     set showcmd
     set cursorline       " Highlight current line
     " set cursorcolumn   " Highlight current line
-    set listchars=tab:»☂,trail:☂
+    set listchars=tab:»▮,trail:▮
     set list
     if has('statusline')
         set laststatus=2
@@ -287,8 +287,6 @@
 " }
 " Mappings {
     let g:mapleader = ','
-    vnoremap <leader>y "+y
-    vnoremap <leader>p "+p
     nmap <leader>sw :mksession! ~/.my.vim
     nmap <leader>sr :source ~/.my.vim
     nmap <leader>r :reg<CR>
@@ -301,7 +299,7 @@
     nmap <leader>l <c-w>l
     nmap j gj
     nmap k gk
-    nmap <leader>st :call SetTpl()<CR>
+    nmap <leader>T :call SetTpl()<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
