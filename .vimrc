@@ -44,7 +44,7 @@
     set showmode         " Display the current mode
     set showcmd
     set cursorline       " Highlight current line
-    " set cursorcolumn   " Highlight current line
+    set cursorcolumn   " Highlight current line
     set listchars=tab:»▮,trail:▮
     set list
     if has('statusline')
@@ -281,7 +281,6 @@
                 set guifontwide=YouYuan:h16
             endif
             " }
-            highlight Cursor guifg=white
         endif
     " }
 " }

@@ -24,11 +24,13 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'altercation/vim-colors-solarized'
 
+    Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
-    Plug 'manjuist/vim-snippets'
+    Plug 'tpope/vim-fireplace'
     Plug 'luochen1990/rainbow'
     Plug 'heavenshell/vim-jsdoc'
+    Plug 'manjuist/vim-snippets'
     Plug 'python-mode/python-mode'
     Plug 'pangloss/vim-javascript'
     Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
@@ -38,6 +40,8 @@
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
     Plug 'Valloric/YouCompleteMe',{'do':'./install.py --all'}
@@ -46,6 +50,10 @@
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
         \ 'do': './install --all' }
+
+    Plug 'nsf/gocode', {
+                \ 'rtp': 'vim',
+                \ 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
