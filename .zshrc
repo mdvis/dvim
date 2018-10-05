@@ -29,19 +29,19 @@ export LANG=en_US.UTF-8
 alias c='clear'
 alias rm="rm -i"
 alias mv="mv -i"
-alias l='ls -F --color=auto'
-alias ll='ls -lF --color=auto'
-alias lo="ls -lF --color=auto | awk '{print $9}'"
-alias la='ls -AF --color=auto'
-alias lla='ls -lAF --color=auto'
+alias l='ls -F'
+alias ll='ls -lF'
+alias lo="ls -lF | awk '{print $9}'"
+alias la='ls -AF'
+alias lla='ls -lAF'
 alias code="cd /home/deve/Desktop/Comp/"
 alias glog='git log --date=format:'%Y-%m-%d-%H:%M' --pretty="%C(bold yellow)%h %C(red)%ad %C(blue)%cn %C(reset)%s"'
+alias -s {js,html,py,sh,css,scss,xml,vue}=vim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.iterm2_shell_integration.zsh
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
