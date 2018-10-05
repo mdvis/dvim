@@ -14,8 +14,12 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git brew gulp man npm osx tmux python sudo yarn)
+
 source $ZSH/oh-my-zsh.sh
+
 export LANG=en_US.UTF-8
+
+alias -s {js,html,py,sh,css,scss,xml,vue}=vim
 
 alias c='clear'
 alias rm="rm -i"
@@ -27,10 +31,10 @@ alias lla='ls -lAF'
 alias lo="ls -lF | awk '{if (NR > 1) {print \$9}}'"
 alias glog='git log --date=format:'%Y-%m-%d-%H:%M' --pretty="%C(bold yellow)%h %C(red)%ad %C(blue)%cn %C(reset)%s"'
 
-alias -s {js,html,py,sh,css,scss,xml,vue}=vim
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+
 export CDPATH=.:~:~/Desktop
