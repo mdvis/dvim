@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 system="$(uname -s)"
-if [ $system == 'Darwin' ]
+if [ $system = 'Darwin' ]
 then
     export ZSH=/Users/deve/.oh-my-zsh
 else
