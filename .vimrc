@@ -226,8 +226,9 @@
         let g:UltiSnipsEditSplit='vertical'
     " }
     " {
-        let g:prettier#quickfix_enabled = 0
         let g:prettier#autoformat = 0
+        let g:prettier#quickfix_enabled = 0
+        let g:prettier#config#tab_width = 4
         autocmd BufWritePre,InsertLeave *.vue,*.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
