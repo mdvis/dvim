@@ -225,22 +225,24 @@
         " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit='vertical'
     " }
+    " {
+        let g:prettier#quickfix_enabled = 0
+        let g:prettier#autoformat = 0
+        autocmd BufWritePre,InsertLeave *.vue,*.css,*.less,*.scss PrettierAsync
+    " }
     " Ale {
         let g:ale_fixers = {
+                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                    \   'go':['gofmt'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
-                    \   'SCSS':['prettier'],
-                    \   'python':['autopep8','isort','yapf']
-                    \}
+                    \   'python':['autopep8', 'isort', 'yapf']}
 
         let g:ale_linters = {
-                    \   'python':['flake8','pylint'],
-                    \   'SCSS':['prettier','stylelint']
-                    \}
-        let g:ale_linter_aliases = {'CSS': 'SCSS'}
+                    \   'python':['flake8', 'pylint'],
+                    \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
-        " let g:ale_lint_on_text_changed='never'
     " }
     " Backup file {
         set nobackup
@@ -255,8 +257,7 @@
         set undodir=~/.vim/.undo//
     " }
     " Template {
-        " autocmd! BufNewFile *.js,*.jsx 0r ~/.vim/js.tpl
-        autocmd! BufNewFile *.js,*.jsx exec ":call SetTpl()"
+        autocmd! BufNewFile * exec ":call SetTpl()"
         function! SetTpl()
             call setline(1         , "/**")
             call append(line(".")  , " * 功能: 模块功能")

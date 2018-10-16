@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pip3 install flake8 pylint vim-vint autopep8 isort yapf
+
 readonly APP_NAME="dvim"
 readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
@@ -91,16 +93,16 @@ createSymlinks() {
 }
 
 setInstallPlug(){
-    [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload" 
-    [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}" 
+    [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload"
+    [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}"
     ret="$?"
     success "Vim-plug install!"
     debug
 }
 
 copyColors(){
-    [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors" 
-    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}" 
+    [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors"
+    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}"
     ret="$?"
     success "$2 Color install!"
     debug
