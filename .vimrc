@@ -256,14 +256,25 @@
         set directory=~/.vim/.swp//
         set undodir=~/.vim/.undo//
     " }
+    "
     " Template {
         autocmd! BufNewFile * exec ":call SetTpl()"
         function! SetTpl()
-            call setline(1         , "/**")
-            call append(line(".")  , " * 功能: 模块功能")
-            call append(line(".")+1, " * 作者: Deve")
-            call append(line(".")+2, " * 日期: ".strftime("%Y-%m-%d"))
-            call append(line(".")+3, " */")
+            if &filetype == 'sh' || &filetype == 'python'
+                call append(line("."),  "# 功能: 模块功能")
+                call append(line(".")+1,"# 作者: Deve")
+                call append(line(".")+2,"# 日期: ".strftime("%Y-%m-%d"))
+            endif
+            if &filetype == 'javascript'
+                call append(line("."),  "// 功能: 模块功能")
+                call append(line(".")+1,"// 作者: Deve")
+                call append(line(".")+2,"// 日期: ".strftime("%Y-%m-%d"))
+            endif
+            if &filetype == 'vim'
+                call append(line("."),  "\" 功能: 模块功能")
+                call append(line(".")+1,"\" 作者: Deve")
+                call append(line(".")+2,"\" 日期: ".strftime("%Y-%m-%d"))
+            endif
         endfunc
     " }
     " UI {
