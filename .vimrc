@@ -182,7 +182,11 @@
         let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=1
-        let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+        let g:NERDTreeIgnore=[
+                    \ '\.py[cd]$', '\~$', '\.swo$',
+                    \ '\.swp$', '^\.git$', '^\.hg$',
+                    \ '^\.svn$', '\.bzr$', '^\.DS_Store',
+                    \ 'node_modules']
         let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "*",
             \ "Staged"    : "+",
@@ -229,7 +233,7 @@
         let g:prettier#autoformat = 0
         let g:prettier#quickfix_enabled = 0
         let g:prettier#config#tab_width = 4
-        autocmd BufWritePre,InsertLeave *.vue,*.css,*.less,*.scss PrettierAsync
+        autocmd BufWritePre *.vue,*.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
         let g:ale_fixers = {
