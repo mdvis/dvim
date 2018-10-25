@@ -303,18 +303,24 @@
 " }
 " Mappings {
     let g:mapleader = ','
-    nmap <leader>sw :mksession! ~/.my.vim
-    nmap <leader>sr :source ~/.my.vim
+
+    nmap <leader>sw :mksession! ~/.my.vim<CR>
+    nmap <leader>sr :source ~/.my.vim<CR>
+
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
+
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
+
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
+
     nmap j gj
     nmap k gk
+
     nmap <leader>T :call SetTpl()<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
