@@ -3,46 +3,49 @@
 $ curl -L https://raw.githubusercontent.com/manjuist/dvim/master/install.sh -o - | sh
 ```
 # Plugins #
-* neocomplete.vim
-* neosnippet
-* neosnippet-snippets
-* YouCompleteMe
-* ultisnips
-* vim-jst
-* python.vim
-* vim-coloresque
-* vim-airline
-* vim-signify
-* vim-snippets
-* vim-haml
-* python-mode
-* vim-nerdtree-tabs
-* sessionman.vim
-* Vundle.vim
-* vim-javascript
-* nerdtree
-* vim-indent-guides
-* vim-fugitive
-* vim-signature
-* rainbow
-* HTML-AutoCloseTag
-* vim-airline-themes
-* vim-surround
-* syntastic
-* vim-distinguished
-* vim-jsdoc
-* ctrlp-funky
-* emmet-vim
-* auto-pairs
-* molokai
-* tabular
-* fonts
-* nerdcommenter
-* conflict-marker.vim
-* tagbar
-* vim-easymotion
-* vim-bufferline
-* ctrlp.vim
-* tern_for_vim
-* vim-css3-syntax
-* vim-multiple-cursors
+
+'w0rp/ale'
+'kien/tabman.vim'
+'morhetz/gruvbox'
+'SirVer/ultisnips'
+'godlygeek/tabular'
+'mhinz/vim-signify'
+'tpope/vim-surround'
+'Yggdroot/indentLine'
+'scrooloose/nerdtree'
+'jiangmiao/auto-pairs'
+'kshenoy/vim-signature'
+'jistr/vim-nerdtree-tabs'
+'scrooloose/nerdcommenter'
+'easymotion/vim-easymotion'
+'Xuyuanp/nerdtree-git-plugin'
+'terryma/vim-multiple-cursors'
+'altercation/vim-colors-solarized'
+                                                        
+'posva/vim-vue'
+'tpope/vim-haml'
+'mattn/emmet-vim'
+'tpope/vim-fireplace'
+'luochen1990/rainbow'
+'heavenshell/vim-jsdoc'
+'manjuist/vim-snippets'
+'pangloss/vim-javascript'
+'gorodinskiy/vim-coloresque'
+'leafgarland/typescript-vim'
+                                                        
+'powerline/fonts'
+'vim-airline/vim-airline'
+'vim-airline/vim-airline-themes'
+                                                        
+'fatih/vim-go'
+                                                        
+'ternjs/tern_for_vim'
+                                                        
+'Valloric/YouCompleteMe'
+                                                        
+'junegunn/fzf.vim'
+'junegunn/fzf'
+                                                        
+'nsf/gocode'
+                                                        
+'prettier/vim-prettier'
