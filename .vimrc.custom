@@ -1,0 +1,23 @@
+" Template {
+    autocmd! BufNewFile * exec ":call SetTpl()"
+    function! SetTpl()
+        if &filetype == 'sh' || &filetype == 'python'
+            call setline(line("."), "# 功能: 模块功能")
+            call append(line("."), "# 作者: Deve")
+            call append(line(".")+1, "# 日期: ".strftime("%Y-%m-%d"))
+        endif
+        if &filetype == 'javascript'
+            call setline(line("."), "/**")
+            call append(line("."), " * 功能: 模块功能")
+            call append(line(".")+1, " * 作者: Deve")
+            call append(line(".")+2, " * 日期: ".strftime("%Y-%m-%d"))
+            call append(line(".")+3, " */")
+        endif
+        if &filetype == 'vim'
+            call setline(line("."), "\" 功能: 模块功能")
+            call append(line("."),"\" 作者: Deve")
+            call append(line(".")+1,"\" 日期: ".strftime("%Y-%m-%d"))
+        endif
+    endfunc
+" }
+"

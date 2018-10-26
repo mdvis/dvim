@@ -87,6 +87,7 @@ createSymlinks() {
 
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
     lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
+    lnif "$source_path/.vimrc.custom" "$target_path/.vimrc.custom"
     ret="$?"
     success "Link complete!"
     debug
@@ -111,6 +112,7 @@ copyColors(){
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins"
+                "$HOME/.vimrc.custom"
 
 copyColors      "/colors/" \
                 "gruvbox.vim"
