@@ -103,7 +103,7 @@ setInstallPlug(){
 
 copyColors(){
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors"
-    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}"
+    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH/${1}${2}" "$APP_PATH/colors/${2}"
     ret="$?"
     success "$2 Color install!"
     debug
