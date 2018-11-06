@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-pip3 install flake8 pylint vim-vint autopep8 isort yapf
-
 readonly APP_NAME="dvim"
 readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
@@ -42,6 +40,7 @@ exiseBackup(){
             backup $i
         fi
     done
+    ret="$?"
     debug
  }
 
@@ -111,11 +110,8 @@ copyColors(){
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
-                "$HOME/.vimrc.plugins"
+                "$HOME/.vimrc.plugins" \
                 "$HOME/.vimrc.custom"
-
-copyColors      "/colors/" \
-                "gruvbox.vim"
 
 syncRepo        "$REPO_PATH" \
                 "$REPO_URI"
@@ -126,4 +122,9 @@ createSymlinks  "$REPO_PATH" \
 setInstallPlug  "/vim-plug/" \
                 "plug.vim"
 
+copyColors      "/colors/" \
+                "gruvbox.vim"
+
 installPlugins
+
+pip3 install flake8 pylint vim-vint autopep8 isort yapf
