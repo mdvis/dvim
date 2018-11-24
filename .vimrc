@@ -273,13 +273,13 @@
             set guioptions=
             " Fonts {
             if LINUX()
-                set guifont=Source\ Code\ Pro\ 16
+                set guifont=Source\ Code\ Pro\ 12
                 set guifontwide=YouYuan\ 16
             elseif OSX()
                 set guifont=Source\ Code\ Pro:h16
                 set guifontwide=YouYuan:h16
             elseif WINDOWS()
-                set guifont=Source_Code_Pro:h16
+                set guifont=Source_Code_Pro:h12
                 set guifontwide=YouYuan:h16
             endif
             " }
