@@ -242,6 +242,7 @@
         autocmd BufWritePre *.vue,*.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
+    " pip3 install flake8 pylint vim-vint autopep8 isort yapf
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'go':['gofmt'],

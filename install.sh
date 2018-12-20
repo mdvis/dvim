@@ -126,5 +126,3 @@ copyColors      "/colors/" \
                 "gruvbox.vim"
 
 installPlugins
-
-pip3 install flake8 pylint vim-vint autopep8 isort yapf
