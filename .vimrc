@@ -263,23 +263,29 @@
         set nowritebackup
         " 结尾的//表示生成的文件名带有绝对路径
         " 路径中用%替换目录分隔符，这样可以防止文件重名
-        set backupdir=~/.vim/.backup//
-        set directory=~/.vim/.swp//
-        set undodir=~/.vim/.undo//
+        if WINDOWS()
+            set backupdir=c:\backup\\
+            set directory=c:\swp\\
+            set undodir=c:\undo\\
+        else
+            set backupdir=~/.backup//
+            set directory=~/.swp//
+            set undodir=~/.undo//
+        endif
     " }
     " UI {
         if has('gui_running')
             set guicursor=a:block-blinkon0
             set guioptions=
-            " Fonts {
+            " Fonts { Source\ Code\ Pro\ 16
             if LINUX()
-                set guifont=Source\ Code\ Pro\ 16
+                set guifont=SauceCodePro\ Nerd\ Font\ 16
                 set guifontwide=YouYuan\ 16
             elseif OSX()
-                set guifont=Source\ Code\ Pro:h16
+                set guifont=SauceCodePro\ Nerd\ Font:h16
                 set guifontwide=YouYuan:h16
             elseif WINDOWS()
-                set guifont=Source_Code_Pro:h16
+                set guifont=SauceCodePro_Nerd_Font:h16
                 set guifontwide=YouYuan:h16
             endif
             " }

@@ -17,6 +17,7 @@
     Plug 'scrooloose/nerdtree'
     Plug 'jiangmiao/auto-pairs'
     Plug 'kshenoy/vim-signature'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
