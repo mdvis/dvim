@@ -16,6 +16,7 @@ IF NOT EXIST "%APP_PATH%" (
 
 call mklink "%HOME%\.vimrc" "%APP_PATH%\.vimrc"
 call mklink "%HOME%\.vimrc.plugins" "%APP_PATH%\.vimrc.plugins"
+call mklink "%HOME%\.vimrc.custom" "%APP_PATH%\.vimrc.custom"
 call mklink /J "%HOME%\.vim" "%APP_PATH%\"
 call mklink /J "%HOME%\vimfiles" "%APP_PATH%\"
 
