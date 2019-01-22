@@ -30,7 +30,7 @@
     " Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'altercation/vim-colors-solarized'
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
@@ -43,7 +43,6 @@
     Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
     Plug 'leafgarland/typescript-vim'
 
-    Plug 'powerline/fonts'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
