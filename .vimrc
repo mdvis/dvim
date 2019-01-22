@@ -315,6 +315,8 @@
 
     nmap <leader>T :call SetTpl()<CR>
 
+    nmap <F8> :TagbarToggle<CR>
+
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
