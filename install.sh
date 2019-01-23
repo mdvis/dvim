@@ -23,7 +23,7 @@ error() {
 }
 
 debug() {
-    if [[ "$ret" -gt "1" ]]; then
+    if [ "$ret" -gt "1" ]; then
         msg "$FUNCNAME/$BASH_LINENO"
     fi
 }
@@ -36,7 +36,7 @@ backup(){
 
 exiseBackup(){
     for i in $@; do
-        if [[ -e "$i" ]]; then
+        if [ -e "$i" ]; then
             backup $i
         fi
     done
