@@ -283,8 +283,8 @@
                 set guifont=SauceCodePro\ Nerd\ Font\ 16
                 set guifontwide=YouYuan\ 16
             elseif OSX()
-                set guifont=SauceCodePro\ Nerd\ Font:h16
-                set guifontwide=YouYuan:h16
+                set guifont=SauceCodePro\ Nerd\ Font:h18
+                set guifontwide=YouYuan:h18
             elseif WINDOWS()
                 set guifont=SauceCodePro_Nerd_Font:h16
                 set guifontwide=YouYuan:h16

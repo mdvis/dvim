@@ -7,14 +7,13 @@
     call plug#begin(g:Plug_dir)
 
     Plug 'w0rp/ale'
-    Plug 'kien/tabman.vim'
     Plug 'morhetz/gruvbox'
     Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-repeat'
     Plug 'godlygeek/tabular' "test filtering and alignment
     Plug 'mhinz/vim-signify'
     Plug 'majutsushi/tagbar'
-    " Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
     Plug 'roman/golden-ratio' "automatic resizing
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
@@ -27,15 +26,13 @@
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'easymotion/vim-easymotion'
-    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'altercation/vim-colors-solarized'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-fireplace'
     Plug 'luochen1990/rainbow'
     Plug 'heavenshell/vim-jsdoc'
     Plug 'manjuist/vim-snippets'
