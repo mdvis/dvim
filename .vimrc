@@ -340,4 +340,8 @@
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
     " }
+    " IndentLine {
+        let g:indentLine_concealcursor=''
+        let g:indentLine_conceallevel=2
+    " }
 " }
