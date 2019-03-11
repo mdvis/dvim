@@ -10,12 +10,14 @@ readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-pl
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
 
+is_debug="0"
+
 msg() {
     printf '%b\n' "$1" >&2
 }
 
 success() {
-    if [ "$ret" -eq '0' ]; then
+    if [ "$ret" -eq "0" ]; then
         msg "\033[32m[✔]\033[0m ${1}${2}"
     fi
 }
@@ -26,7 +28,7 @@ error() {
 }
 
 debug() {
-    if [ "$ret" -gt "1" ]; then
+    if [ "$is_debug" -eq "1" ] && [ "$ret" -gt "1" ]; then
         msg "$FUNCNAME/$BASH_LINENO"
     fi
 }
