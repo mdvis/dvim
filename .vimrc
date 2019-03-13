@@ -301,6 +301,7 @@
 
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
+    nmap <leader>J :JsDoc<CR>
 
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
