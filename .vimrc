@@ -325,10 +325,6 @@
         map <Leader><leader>l <Plug>(easymotion-lineforward)
         map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
-    " Tabman {
-        map <leader>t :TMToggle<CR>
-        map <leader>ft :TMFocus<CR>
-    " }
     " Nerdtree {
         map <leader>e :NERDTreeFind<CR>
         map <leader>n :NERDTreeTabsToggle<CR>
