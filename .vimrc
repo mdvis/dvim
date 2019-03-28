@@ -315,6 +315,7 @@
     nmap k gk
 
     nmap <leader>T :call SetTpl()<CR>
+    nmap <leader><leader><leader> :call SplitComma()<CR>
 
     nmap <F8> :TagbarToggle<CR>
 

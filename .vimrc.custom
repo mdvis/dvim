@@ -20,4 +20,8 @@
         endif
     endfunc
 " }
-"
+" Split Comma {
+function! SplitComma()
+    exec ":s/,/\r/g"
+endfunc
+" }
