@@ -39,18 +39,19 @@
         set mousehide
     " }
     set nospell
-    " set tildeop "~motion
+    set tildeop                   "~motion
     " set iskeyword=
-    " set virtualedit=onemore                       " Allow for cursor beyond last character
-    set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
-    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+    " set virtualedit=onemore     " Allow for cursor beyond last character
+    set shortmess+=filmnrxoOtT    " Abbrev. of messages (avoids 'hit enter')
+    " Better Unix / Windows compatibility
+    set viewoptions=folds,options,cursor,unix,slash
 " }
 
 " UI {
-    set showmode         " Display the current mode
+    set showmode       " Display the current mode
     set showcmd
-    set cursorline       " Highlight current line
-    set cursorcolumn   " Highlight current line
+    set cursorline     " Highlight current line
+    set cursorcolumn   " Highlight current column
     set colorcolumn=80
     set listchars=tab:>-,trail:-
     set list
@@ -72,15 +73,15 @@
         set foldlevel=0
         set scrolloff=3
         set splitbelow
-        " set foldenable                  " Auto fold code
+        " set foldenable        " Auto fold code
         set splitright
-        set autoindent                  " Indent at the same level of the previous line
-        set ignorecase                  " Case insensitive search
-        set expandtab                   " Tabs are spaces, not tabs
-        set tabstop=4                   " An indentation every four columns
-        set incsearch                   " Find as you type search
-        set smartcase                   " Case sensitive when uc present
-        set showmatch                   " Show matching brackets/parenthesis
+        set autoindent          " Indent at the same level of the previous line
+        set ignorecase          " Case insensitive search
+        set expandtab           " Tabs are spaces, not tabs
+        set tabstop=4           " An indentation every four columns
+        set incsearch           " Find as you type search
+        set smartcase           " Case sensitive when uc present
+        set showmatch           " Show matching brackets/parenthesis
         set autochdir
         set autoread
         set hlsearch
@@ -98,7 +99,8 @@
     set background=dark
 
     set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+    set wildmode=list:longest,full  " Command <Tab> completion, list matches,
+                                    " then longest common part, then all.
     " Colors {
         if filereadable(expand('~/.vim/colors/gruvbox.vim'))
             let g:gruvbox_contrast_dark='hard'
@@ -219,8 +221,10 @@
         " enable completion from tags
         let g:ycm_collect_identifiers_from_tags_files = 1
         " Enable omni completion.
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType html,markdown
+                    \ setlocal omnifunc=htmlcomplete#CompleteTags
+        " autocmd FileType javascript
+        "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
         autocmd FileType javascript setlocal omnifunc=tern#Complete
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -229,11 +233,9 @@
         autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     " }
     " Ultisnips {
-        " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
         let g:UltiSnipsExpandTrigger='<leader><tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
-        " If you want :UltiSnipsEdit to split your window.
         let g:UltiSnipsEditSplit='vertical'
     " }
     " {
