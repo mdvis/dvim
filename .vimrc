@@ -51,6 +51,7 @@
     set showcmd
     set cursorline       " Highlight current line
     set cursorcolumn   " Highlight current line
+    set colorcolumn=80
     set listchars=tab:>-,trail:-
     set list
     if has('statusline')
