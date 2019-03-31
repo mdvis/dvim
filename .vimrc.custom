@@ -22,6 +22,6 @@
 " }
 " Split Comma {
 function! SplitComma()
-    exec ":s/,/\r/g"
+    exec ":s/,/,\r/g"
 endfunc
 " }
