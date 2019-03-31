@@ -1,4 +1,4 @@
-"Plugins Beginning{
+" Plugins Beginning {
     set nocompatible
     let g:Plug_dir = '~/.vim/plugged/'
 
@@ -11,17 +11,14 @@
     Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-repeat'
     Plug 'godlygeek/tabular' "test filtering and alignment
-    Plug 'mhinz/vim-signify'
     Plug 'majutsushi/tagbar'
-    Plug 'tpope/vim-fugitive'
     Plug 'roman/golden-ratio' "automatic resizing
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'kshenoy/vim-signature'
+    Plug 'kshenoy/vim-signature' "toggle and display marks
     Plug 'ryanoasis/vim-devicons'
-    Plug 'airblade/vim-gitgutter'
     Plug 'junegunn/vim-easy-align'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
@@ -29,6 +26,10 @@
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+    " Plug 'mhinz/vim-signify' "show a diff
+    Plug 'tpope/vim-fugitive' "show a diff(only git)
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
@@ -63,4 +64,4 @@
         \ 'for': ['vue', 'css', 'less', 'scss'] }
 
     call plug#end()
-"}
+" }

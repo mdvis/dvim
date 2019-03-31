@@ -238,14 +238,18 @@
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
     " }
-    " {
+    " IndentLine {
+        let g:indentLine_concealcursor=''
+        let g:indentLine_conceallevel=2
+    " }
+    " Prettier{
         let g:prettier#autoformat = 0
         let g:prettier#quickfix_enabled = 0
         let g:prettier#config#tab_width = 4
         autocmd BufWritePre *.vue,*.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
-    " pip3 install flake8 pylint vim-vint autopep8 isort yapf
+        " pip3 install flake8 pylint vim-vint autopep8 isort yapf
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'go':['gofmt'],
@@ -283,14 +287,14 @@
             set guioptions=
             " Fonts { Source\ Code\ Pro\ 16
             if LINUX()
-                set guifont=SauceCodePro\ Nerd\ Font\ 16
-                set guifontwide=YouYuan\ 16
+                set guifont=SauceCodePro\ Nerd\ Font\ 12
+                set guifontwide=YouYuan\ 12
             elseif OSX()
-                set guifont=SauceCodePro\ Nerd\ Font:h18
-                set guifontwide=YouYuan:h18
-            elseif WINDOWS()
-                set guifont=SauceCodePro_Nerd_Font:h16
+                set guifont=SauceCodePro\ Nerd\ Font:h16
                 set guifontwide=YouYuan:h16
+            elseif WINDOWS()
+                set guifont=SauceCodePro_Nerd_Font:h12
+                set guifontwide=YouYuan:h12
             endif
             " }
         endif
@@ -341,8 +345,5 @@
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
     " }
-    " IndentLine {
-        let g:indentLine_concealcursor=''
-        let g:indentLine_conceallevel=2
-    " }
+    silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 " }
