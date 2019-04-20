@@ -287,14 +287,14 @@
             set guioptions=
             " Fonts { Source\ Code\ Pro\ 16
             if LINUX()
-                set guifont=SauceCodePro\ Nerd\ Font\ 12
-                set guifontwide=YouYuan\ 12
+                set guifont=SauceCodePro\ Nerd\ Font\ 16
+                set guifontwide=YouYuan\ 16
             elseif OSX()
                 set guifont=SauceCodePro\ Nerd\ Font:h16
                 set guifontwide=YouYuan:h16
             elseif WINDOWS()
-                set guifont=SauceCodePro_Nerd_Font:h12
-                set guifontwide=YouYuan:h12
+                set guifont=SauceCodePro_Nerd_Font:h16
+                set guifontwide=YouYuan:h16
             endif
             " }
         endif
