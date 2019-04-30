@@ -208,6 +208,9 @@
             \ 'Ignored'   : '☒',
             \ "Unknown"   : "?" }
     " }
+    " NerdCommenter {
+        let g:NERDCommentEmptyLines = 1
+    " }
     " fzf {
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
