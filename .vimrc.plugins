@@ -12,7 +12,7 @@
     Plug 'tpope/vim-repeat'
     Plug 'godlygeek/tabular' "test filtering and alignment
     Plug 'majutsushi/tagbar'
-    " Plug 'roman/golden-ratio' "automatic resizing
+    Plug 'roman/golden-ratio' "automatic resizing
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
@@ -27,9 +27,8 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-    " Plug 'mhinz/vim-signify' "show a diff
-    Plug 'tpope/vim-fugitive' "show a diff(only git)
-    Plug 'airblade/vim-gitgutter'
+    Plug 'mhinz/vim-signify' "show a diff
+    Plug 'tpope/vim-fugitive'
 
     Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
