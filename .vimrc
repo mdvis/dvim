@@ -63,6 +63,7 @@
         set backspace=indent,eol,start  " Backspace for dummies
         set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
         set formatoptions+=mM
+        set formatoptions-=c
         set foldmethod=marker
         set foldmarker={,}
         set softtabstop=4               " Let backspace delete indent
@@ -209,9 +210,6 @@
             \ 'Ignored'   : '☒',
             \ "Unknown"   : "?" }
     " }
-    " NerdCommenter {
-        let g:NERDCommentEmptyLines = 1
-    " }
     " fzf {
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
@@ -348,6 +346,21 @@
     " FZF {
         nmap <C-p> :Files<CR>
         nmap <C-e> :Buffers<CR>
+    " }
+    " Signify {
+        " this first setting decides in which order try to guess your current vcs
+        " UPDATE it to reflect your preferences, it will speed up opening files
+        let g:signify_vcs_list = [ 'git' ]
+        " mappings to jump to changed blocks
+        nmap <leader>sn <plug>(signify-next-hunk)
+        nmap <leader>sp <plug>(signify-prev-hunk)
+        " nicer colors
+        highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+        highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+        highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+        highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+        highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+        highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
     silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 " }

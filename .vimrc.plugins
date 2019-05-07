@@ -33,9 +33,10 @@
     Plug 'posva/vim-vue'
     Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
+    Plug 'honza/vim-snippets'
     Plug 'luochen1990/rainbow'
     Plug 'heavenshell/vim-jsdoc'
-    Plug 'honza/vim-snippets'
+    Plug 'plasticboy/vim-markdown'
     Plug 'pangloss/vim-javascript'
     Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
     Plug 'leafgarland/typescript-vim'
