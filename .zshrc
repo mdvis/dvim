@@ -34,13 +34,9 @@ export LANG=en_US.UTF-8
 alias c='clear'
 alias rm="rm -i"
 alias mv="mv -i"
-alias l='ls -F'
-alias ll='ls -lF'
-alias la='ls -AF'
-alias lla='ls -lAF'
-alias lo="ls -lF | awk '{if (NR > 1) {print \$9}}'"
-alias code="cd /home/deve/Desktop/Comp/"
-alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(bold yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
+alias l="ls -lhAF | awk '{if (NR > 1) {print \$9}}'"
+alias ll='ls -lhAF'
+alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
 alias -s {js,html,css,scss,xml,vue}=vim
 
 export NVM_DIR="$HOME/.nvm"
@@ -50,4 +46,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
-export CDPATH=.:~:~/Desktop
+export CDPATH=.:~:~/Desktop:~/Code
