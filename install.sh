@@ -113,6 +113,27 @@ copyColors(){
     debug
 }
 
+hasCommand(){
+	for m in $@; do
+		type $m>/dev/null 2>&1
+		ret="$?"
+		if [ $ret != "0" ]; then
+			echo "$m was not installed!"
+			exit 1
+		fi
+	done
+	ret="$?"
+}
+
+hasCommand      node \
+                flake8 \
+                pylint \
+                vim-vint \
+                autopep8 \
+                isort \
+                yapf
+
+
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins" \
