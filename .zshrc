@@ -1,10 +1,11 @@
 # Path to your oh-my-zsh installation.
 system="$(uname -s)"
+username="$(whoami)"
 if [ $system = 'Darwin' ]
 then
-    export ZSH=/Users/deve/.oh-my-zsh
+    export ZSH=/Users/$username/.oh-my-zsh
 else
-    export ZSH=/home/deve/.oh-my-zsh
+    export ZSH=/home/$username/.oh-my-zsh
 fi
 
 ZSH_THEME="robbyrussell"
