@@ -1,4 +1,4 @@
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
 " Environment {
     " Basics {
@@ -42,6 +42,7 @@
     set tildeop                   "~motion
     " set iskeyword=
     " set virtualedit=onemore     " Allow for cursor beyond last character
+    set clipboard=unnamed
     set shortmess+=filmnrxoOtT    " Abbrev. of messages (avoids 'hit enter')
     " Better Unix / Windows compatibility
     set viewoptions=folds,options,cursor,unix,slash
@@ -66,9 +67,9 @@
         set formatoptions-=c
         set foldmethod=marker
         set foldmarker={,}
-        set softtabstop=4               " Let backspace delete indent
+        set softtabstop=2               " Let backspace delete indent
         set scrolljump=5
-        set shiftwidth=4
+        set shiftwidth=2
         set nofoldenable
         set textwidth=80
         set foldlevel=0
@@ -80,7 +81,7 @@
         set autoindent          " Indent at the same level of the previous line
         set ignorecase          " Case insensitive search
         set expandtab           " Tabs are spaces, not tabs
-        set tabstop=4           " An indentation every four columns
+        set tabstop=2           " An indentation every four columns
         set incsearch           " Find as you type search
         set smartcase           " Case sensitive when uc present
         set showmatch           " Show matching brackets/parenthesis
