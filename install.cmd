@@ -1,6 +1,18 @@
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
+IF NOT EXIST "c:\backup" (
+    call mkdir "c:\backup"
+)
+
+IF NOT EXIST "c:\swp" (
+    call mkdir "c:\swp"
+)
+
+IF NOT EXIST "c:\undo" (
+    call mkdir "c:\undo"
+)
+
 @set APP_NAME=dvim
 @set APP_PATH=%HOME%\%APP_NAME%
 IF NOT EXIST "%APP_PATH%" (

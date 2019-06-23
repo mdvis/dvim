@@ -266,12 +266,18 @@
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
     " }
+    " Vim-repeat {
+      silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+    " }
     " Backup file {
-        set nobackup
-        set noswapfile
+        set backup
+        set swapfile
         set undofile
+        set writebackup
+        "set nobackup
+        "set noswapfile
         "set noundofile
-        set nowritebackup
+        "set nowritebackup
         " 结尾的//表示生成的文件名带有绝对路径
         " 路径中用%替换目录分隔符，这样可以防止文件重名
         if WINDOWS()
@@ -303,32 +309,24 @@
         endif
     " }
 " }
+let g:mapleader = ','
 " Mappings {
-    let g:mapleader = ','
-
     nmap <leader>sw :mksession! ~/.my.vim<CR>
     nmap <leader>sr :source ~/.my.vim<CR>
-
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
     nmap <leader>J :JsDoc<CR>
-
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
-
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
-
     nmap j gj
     nmap k gk
-
     nmap <leader>T :call SetTpl()<CR>
     nmap <leader><leader><leader> :call SplitComma()<CR>
-
-    nmap <F8> :TagbarToggle<CR>
-
+    nmap <leader>t :TagbarToggle<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
@@ -363,5 +361,4 @@
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
-    silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 " }
