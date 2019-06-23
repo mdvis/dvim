@@ -40,7 +40,7 @@
     " }
     set nospell
     set tildeop                   "~motion
-    " set iskeyword=
+    set iskeyword=@,%,#,.
     " set virtualedit=onemore     " Allow for cursor beyond last character
     set clipboard=unnamed
     set shortmess+=filmnrxoOtT    " Abbrev. of messages (avoids 'hit enter')
@@ -49,6 +49,7 @@
 " }
 
 " UI {
+    set shortmess=atI
     set showmode       " Display the current mode
     set showcmd
     set cursorline     " Highlight current line
@@ -61,15 +62,17 @@
         " set statusline=
     endif
     " Behavior {
+        set expandtab           " Tabs are spaces, not tabs
+        set tabstop=2           " An indentation every four columns
+        set shiftwidth=2
+        set softtabstop=2               " Let backspace delete indent
         set backspace=indent,eol,start  " Backspace for dummies
         set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
         set formatoptions+=mM
         set formatoptions-=c
         set foldmethod=marker
         set foldmarker={,}
-        set softtabstop=2               " Let backspace delete indent
         set scrolljump=5
-        set shiftwidth=2
         set nofoldenable
         set textwidth=80
         set foldlevel=0
@@ -80,8 +83,6 @@
         set splitright
         set autoindent          " Indent at the same level of the previous line
         set ignorecase          " Case insensitive search
-        set expandtab           " Tabs are spaces, not tabs
-        set tabstop=2           " An indentation every four columns
         set incsearch           " Find as you type search
         set smartcase           " Case sensitive when uc present
         set showmatch           " Show matching brackets/parenthesis
