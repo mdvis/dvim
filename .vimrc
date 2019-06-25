@@ -328,6 +328,7 @@ let g:mapleader = ','
     nmap <leader>T :call SetTpl()<CR>
     nmap <leader><leader><leader> :call SplitComma()<CR>
     nmap <leader>t :TagbarToggle<CR>
+    map <leader>9 :cd /Users/deve/Code/pc-huazhu/src<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
