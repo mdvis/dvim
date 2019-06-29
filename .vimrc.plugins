@@ -27,6 +27,7 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+    Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify' "show a diff
     Plug 'tpope/vim-fugitive'
 
@@ -41,8 +42,8 @@
     Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
     Plug 'leafgarland/typescript-vim'
 
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    "Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline-themes'
 
     Plug 'editorconfig/editorconfig-vim'
 

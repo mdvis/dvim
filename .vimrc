@@ -19,18 +19,6 @@
     " }
 " }
 
-" Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
-    endif
-" }
-
-" Custom method {
-    if filereadable(expand('~/.vimrc.custom'))
-        source ~/.vimrc.custom
-    endif
-" }
-
 " General {
     " File {
         filetype plugin indent on
@@ -325,8 +313,6 @@ let g:mapleader = ','
     nmap <leader>l <c-w>l
     nmap j gj
     nmap k gk
-    nmap <leader>T :call SetTpl()<CR>
-    nmap <leader><leader><leader> :call SplitComma()<CR>
     nmap <leader>t :TagbarToggle<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
@@ -362,4 +348,16 @@ let g:mapleader = ','
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
+" }
+
+" Vim-plug {
+    if filereadable(expand('~/.vimrc.plugins'))
+        source ~/.vimrc.plugins
+    endif
+" }
+
+" Custom method {
+    if filereadable(expand('~/.vimrc.custom'))
+        source ~/.vimrc.custom
+    endif
 " }
