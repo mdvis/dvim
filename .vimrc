@@ -175,7 +175,7 @@
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
     " NerdTree {
-        let g:NERDTreeWinSize=30
+        " let g:NERDTreeWinSize=30
         let g:NERDTreeChDirMode=1
         let g:NERDTreeMouseMode=2
         let g:NERDTreeQuitOnOpen=1
@@ -199,6 +199,8 @@
             \ "Clean"     : "✔︎",
             \ 'Ignored'   : '☒',
             \ "Unknown"   : "?" }
+        let g:NERDTreeDirArrowExpandable = '+'
+        let g:NERDTreeDirArrowCollapsible = '-'
     " }
     " fzf {
         let g:fzf_action = {
@@ -263,10 +265,10 @@
         set swapfile
         set undofile
         set writebackup
-        "set nobackup
-        "set noswapfile
-        "set noundofile
-        "set nowritebackup
+        " set nobackup
+        " set noswapfile
+        " set noundofile
+        " set nowritebackup
         " 结尾的//表示生成的文件名带有绝对路径
         " 路径中用%替换目录分隔符，这样可以防止文件重名
         if WINDOWS()
@@ -314,6 +316,7 @@ let g:mapleader = ','
     nmap j gj
     nmap k gk
     nmap <leader>t :TagbarToggle<CR>
+    map <leader>9 :cd /Users/deve/Code/pc-huazhu/src<CR>
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
