@@ -45,10 +45,6 @@
     set colorcolumn=80
     set listchars=tab:>-,trail:-
     set list
-    if has('statusline')
-        set laststatus=2
-        " set statusline=
-    endif
     " Behavior {
         set expandtab           " Tabs are spaces, not tabs
         set tabstop=2           " An indentation every four columns
@@ -141,32 +137,6 @@
 
     " Rainbow {
         let g:rainbow_active=1
-    " }
-
-    " airline {
-        let g:airline_theme='molokai'
-        let g:airline_powerline_fonts=1
-        let g:airline#extensions#tabline#enabled=1
-        let g:airline#extensions#bufferline#enabled = 0
-        let g:airline#extensions#tabline#left_sep = ' '
-        let g:airline#extensions#tabline#left_alt_sep = '|'
-        let g:airline#extensions#tabline#formatter = 'unique_tail'
-        " unicode symbols
-        if !exists('g:airline_symbols')
-            let g:airline_symbols = {}
-        endif
-        let g:airline_left_sep = '▶'
-        let g:airline_right_sep = '◀'
-        let g:airline_left_alt_sep = '❯'
-        let g:airline_right_alt_sep = '❮'
-        let g:airline_symbols.paste = '∥'
-        let g:airline_symbols.spell = 'Ꞩ'
-        let g:airline_symbols.crypt = '🔒'
-        let g:airline_symbols.linenr = '☰'
-        let g:airline_symbols.branch = '⎇'
-        let g:airline_symbols.maxlinenr = '㏑'
-        let g:airline_symbols.notexists = '∄'
-        let g:airline_symbols.whitespace = 'Ξ'
     " }
     " Easemotion {
         let g:EasyMotion_smartcase = 1
