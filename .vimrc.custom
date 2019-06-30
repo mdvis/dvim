@@ -30,25 +30,21 @@ endfunc
   function! GetBufTotalNum()
     return len(filter(range(1,bufnr('$')),'buflisted(v:val)'))
   endfunction
-  hi User1 cterm=bold ctermfg=34 ctermbg=234
-  hi User2 cterm=None ctermfg=55 ctermbg=240
-  hi User3 cterm=None ctermfg=214 ctermbg=237
-  hi User4 cterm=bold ctermfg=25 ctermbg=243
-  hi User5 cterm=None ctermfg=3 ctermbg=232
-  hi User6 cterm=None ctermfg=124 ctermbg=238
-  hi User7 cterm=None ctermfg=250 ctermbg=235
-  hi User8 cterm=None ctermfg=249 ctermbg=241
 
-  set statusline=%<
-  set statusline+=%1*\ %m\ %*
-  set statusline+=%2*\ %{GetBufTotalNum()}-%n\ %*
-  set statusline+=%3*\ %f\ %*
-  set statusline+=%4*\ %y\ %*
-  set statusline+=%=
-  set statusline+=%5*\ [ln\/cl]:[%l\/%c]\ %*
-  set statusline+=%6*\ %{&ff}\ %*
-  set statusline+=%7*\ %P\ %*
-  set statusline+=%8*\ %r\ %*
+  hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+  hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+  hi User3 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+  hi User4 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+  hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+
+  set statusline=%1*%F%*
+  set statusline+=%5*%m\ %*
+  set statusline+=%2*\ %{&ff}\ %*
+  set statusline+=%3*\ %y\ %*
+  set statusline+=%=%4*\ %P\ %*
+  set statusline+=%3*\ %{GetBufTotalNum()}-%n\ %*
+  set statusline+=%2*\ %l:%c\ %*
+  set statusline+=%1*\ %r\ %*
 " }
 
 autocmd! BufNewFile * exec ":call SetTpl()"

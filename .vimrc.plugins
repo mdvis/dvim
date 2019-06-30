@@ -42,9 +42,6 @@
     Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
     Plug 'leafgarland/typescript-vim'
 
-    "Plug 'vim-airline/vim-airline'
-    "Plug 'vim-airline/vim-airline-themes'
-
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
