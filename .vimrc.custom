@@ -51,6 +51,27 @@ endfunc
   endif
 " }
 
+" Buffet {
+  function! g:BuffetSetCustomColors()
+    "let g:buffet_separator = ""
+    "let g:buffet_use_devicons = 1
+    "let g:buffet_tab_icon = "#"
+    "let g:buffet_new_buffer_name = "*"
+    "let g:buffet_modified_icon = "+"
+    "let g:buffet_left_trunc_icon = "<"
+    "let g:buffet_right_trunc_icon = ">"
+    hi! BuffetCurrentBuffer cterm=NONE ctermbg=236 ctermfg=226 guibg=#303030 guifg=#ffff00
+    hi! BuffetBuffer cterm=NONE ctermbg=236 ctermfg=246 guibg=#303030 guifg=#949494
+    hi! BuffetTab cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+
+    "hi! BuffetTrunc cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+    "hi! BuffetModBuffer cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+    "hi! BuffetModCurrentBuffer cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+    "hi! BuffetModActiveBuffer cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+    "hi! BuffetActiveBuffer cterm=NONE ctermbg=238 ctermfg=129 guibg=#444444 guifg=#af00ff
+  endfunction
+" }
+
 autocmd! BufNewFile * exec ":call SetTpl()"
 nmap <leader>T :call SetTpl()<CR>
 nmap <leader><leader><leader> :call SplitComma()<CR>

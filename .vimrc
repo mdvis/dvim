@@ -393,14 +393,14 @@ let g:mapleader = ','
     " }
 " }
 
-" Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
-    endif
-" }
-
 " Custom method {
     if filereadable(expand('~/.vimrc.custom'))
         source ~/.vimrc.custom
+    endif
+" }
+
+" Vim-plug {
+    if filereadable(expand('~/.vimrc.plugins'))
+        source ~/.vimrc.plugins
     endif
 " }
