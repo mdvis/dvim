@@ -42,11 +42,12 @@ endfunc
     set statusline=%1*%F%*
     set statusline+=%<%5*%m\ %*
     set statusline+=%2*\ %{&ff}\ %*
-    set statusline+=%3*\ %y\ %*
-    set statusline+=%=%4*\ %P\ %*
-    set statusline+=%3*\ %{GetBufTotalNum()}-%n\ %*
-    set statusline+=%2*\ %l:%c\ %*
-    set statusline+=%1*\ %r\ %*
+    set statusline+=%3*\ %{&fenc}\ %*
+    set statusline+=%4*\ %y\ %*
+    set statusline+=%=%3*\ %P\ %*
+    set statusline+=%2*\ %{GetBufTotalNum()}-%n\ %*
+    set statusline+=%1*\ %l:%c\ %*
+    set statusline+=%2*\ %r\ %*
   endif
 " }
 

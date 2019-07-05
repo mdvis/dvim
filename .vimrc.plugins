@@ -11,8 +11,10 @@
     Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-repeat'
     Plug 'godlygeek/tabular' "test filtering and alignment
+    Plug 'bagrat/vim-buffet'
     Plug 'majutsushi/tagbar'
     Plug 'roman/golden-ratio' "automatic resizing
+    Plug 'mhinz/vim-startify'
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
     Plug 'scrooloose/nerdtree'
@@ -26,6 +28,10 @@
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+    Plug 'roxma/nvim-yarp'
+    Plug 'Shougo/defx.nvim'
+    Plug 'roxma/vim-hug-neovim-rpc'
 
     Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify' "show a diff
