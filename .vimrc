@@ -287,6 +287,9 @@ let g:mapleader = ','
     nmap k gk
     nmap <leader>t :TagbarToggle<CR>
     nmap <leader>D :Defx<CR>
+    " Gitv {
+      nmap <leader>g :Gitv<CR>
+    " }
     " Easemotion {
         map <Leader><Leader>j <Plug>(easymotion-j)
         map <Leader><Leader>k <Plug>(easymotion-k)
