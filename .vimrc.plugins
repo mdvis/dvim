@@ -8,7 +8,6 @@
 
     Plug 'w0rp/ale'
     Plug 'morhetz/gruvbox'
-    Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-repeat'
     Plug 'godlygeek/tabular' "test filtering and alignment
     Plug 'bagrat/vim-buffet'
@@ -37,16 +36,19 @@
     Plug 'mhinz/vim-signify' "show a diff
     Plug 'tpope/vim-fugitive'
 
-    Plug 'posva/vim-vue'
-    Plug 'tpope/vim-haml'
     Plug 'mattn/emmet-vim'
+
+    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'luochen1990/rainbow'
+
+    Plug 'mxu/vim-jsx'
+    Plug 'posva/vim-vue'
     Plug 'heavenshell/vim-jsdoc'
-    Plug 'plasticboy/vim-markdown'
     Plug 'pangloss/vim-javascript'
-    Plug 'gorodinskiy/vim-coloresque' " gko/vim-coloresque
     Plug 'leafgarland/typescript-vim'
+
+    Plug 'luochen1990/rainbow'
+    Plug 'gorodinskiy/vim-coloresque' " css/less/sass/html color preview
 
     Plug 'editorconfig/editorconfig-vim'
 
@@ -62,10 +64,6 @@
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
         \ 'do': './install --all' }
-
-    Plug 'nsf/gocode', {
-                \ 'rtp': 'vim',
-                \ 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',

@@ -421,13 +421,12 @@ let g:mapleader = ','
         let g:buffet_left_trunc_icon = "\uf0a8"
         let g:buffet_right_trunc_icon = "\uf0a9"
         hi! BuffetCurrentBuffer cterm=NONE ctermbg=236 ctermfg=226 guibg=#303030 guifg=#ffff00
-        hi! BuffetActiveBuffer cterm=NONE ctermbg=236 ctermfg=75 guibg=#444444 guifg=#af00ff
+        hi! BuffetActiveBuffer cterm=NONE ctermbg=236 ctermfg=75 guibg=#303030 guifg=#5fafff
         hi! BuffetBuffer cterm=NONE ctermbg=236 ctermfg=246 guibg=#303030 guifg=#949494
         hi! BuffetTab cterm=NONE ctermbg=238 ctermfg=236 guibg=#444444 guifg=#303030
-        hi! BuffetTrunc cterm=NONE ctermbg=240 ctermfg=99 guibg=#444444 guifg=#af00ff
-
+        hi! BuffetTrunc cterm=NONE ctermbg=240 ctermfg=99 guibg=#585858 guifg=#875fff
+        hi! BuffetModCurrentBuffer cterm=NONE ctermbg=236 ctermfg=226 guibg=#303030 guifg=#ffff00
         "hi! BuffetModBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
-        "hi! BuffetModCurrentBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
         "hi! BuffetModActiveBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
       endfunction
     " }
