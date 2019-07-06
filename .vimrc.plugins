@@ -16,16 +16,17 @@
     Plug 'mhinz/vim-startify'
     Plug 'tpope/vim-surround'
     Plug 'Yggdroot/indentLine'
-    Plug 'scrooloose/nerdtree'
     Plug 'jiangmiao/auto-pairs'
     Plug 'kshenoy/vim-signature' "toggle and display marks
     Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/vim-easy-align'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'terryma/vim-multiple-cursors'
+
+    Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'easymotion/vim-easymotion'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'roxma/nvim-yarp'
@@ -41,7 +42,6 @@
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 
-    Plug 'mxu/vim-jsx'
     Plug 'posva/vim-vue'
     Plug 'heavenshell/vim-jsdoc'
     Plug 'pangloss/vim-javascript'

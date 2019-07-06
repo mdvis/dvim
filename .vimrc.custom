@@ -1,31 +1,38 @@
 " Template {
-    function! SetTpl()
+  let g:sh_comment_start_symbol="#"
+  let g:sh_comment_symbol="#"
+  let g:sh_comment_end_symbol="#"
+
+  let g:js_comment_start_symbol="/**"
+  let g:js_comment_symbol="*"
+  let g:js_comment_end_symbol="*/"
+
+  let g:vi_comment_start_symbol="\""
+  let g:vi_comment_symbol="\""
+  let g:vi_comment_end_symbol="\""
+
+  function! Tpl(start, mid, end)
+    let start = a:start
+    let mid = a:mid
+    let end = a:end
+    let str="".start."\n".mid." 功能: 模块功能\n".mid." 作者: Deve\n".mid." 日期: ".strftime("%Y-%m-%d")."\n".end
+    echom str
+    put!=str
+  endfunc
+
+  function! SetTpl()
         if &filetype == 'sh' || &filetype == 'python'
-            call setline(line("."), "# 功能: 模块功能")
-            call append(line("."), "# 作者: Deve")
-            call append(line(".")+1, "# 日期: ".strftime("%Y-%m-%d"))
+          call Tpl(g:sh_comment_start_symbol,g:sh_comment_symbol,g:sh_comment_end_symbol)
         endif
         if &filetype == 'javascript'
-            call setline(line("."), "/**")
-            call append(line("."), " * 功能: 模块功能")
-            call append(line(".")+1, " * 作者: Deve")
-            call append(line(".")+2, " * 日期: ".strftime("%Y-%m-%d"))
-            call append(line(".")+3, " */")
+          call Tpl(g:js_comment_start_symbol,g:js_comment_symbol,g:js_comment_end_symbol)
         endif
         if &filetype == 'vim'
-            call setline(line("."), "\" 功能: 模块功能")
-            call append(line("."),"\" 作者: Deve")
-            call append(line(".")+1,"\" 日期: ".strftime("%Y-%m-%d"))
+          call Tpl(g:vi_comment_start_symbol,g:vi_comment_symbol,g:vi_comment_end_symbol)
         endif
     endfunc
 " }
 
-" Split Comma {
-function! SplitComma()
-    exec ":s/,/,\r/g"
-endfunc
-" }
-
 autocmd! BufNewFile * exec ":call SetTpl()"
+
 nmap <leader>T :call SetTpl()<CR>
-nmap <leader><leader><leader> :call SplitComma()<CR>
