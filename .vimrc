@@ -126,10 +126,6 @@
     endif
 " }
 
-" Auto load vimrc {
-    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-" }
-
 " Plugin Config Start {
     " js {
         let g:javascript_plugin_jsdoc=1
@@ -391,6 +387,50 @@ let g:mapleader = ','
         \ defx#do_action('change_vim_cwd')
       endfunction
     " }
+    " Status Line {
+      if has('statusline')
+        set laststatus=2
+        function! GetBufTotalNum()
+          return len(filter(range(1,bufnr('$')),'buflisted(v:val)'))
+        endfunction
+
+        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+        hi User3 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+        hi User4 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+        hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+
+        set statusline=%1*%F%*
+        set statusline+=%<%5*%m\ %*
+        set statusline+=%2*\ %{&ff}\ %*
+        set statusline+=%3*\ %{&fenc}\ %*
+        set statusline+=%4*\ %y\ %*
+        set statusline+=%=%3*\ %P\ %*
+        set statusline+=%2*\ %{GetBufTotalNum()}-%n\ %*
+        set statusline+=%1*\ %l:%c\ %*
+        set statusline+=%2*\ %r\ %*
+      endif
+    " }
+    " Buffet {
+      function! g:BuffetSetCustomColors()
+        "let g:buffet_separator = ''
+        let g:buffet_use_devicons = 1
+        let g:buffet_modified_icon = "+"
+        let g:buffet_tab_icon = "\uf00a"
+        let g:buffet_new_buffer_name = "*"
+        let g:buffet_left_trunc_icon = "\uf0a8"
+        let g:buffet_right_trunc_icon = "\uf0a9"
+        hi! BuffetCurrentBuffer cterm=NONE ctermbg=236 ctermfg=226 guibg=#303030 guifg=#ffff00
+        hi! BuffetActiveBuffer cterm=NONE ctermbg=236 ctermfg=75 guibg=#444444 guifg=#af00ff
+        hi! BuffetBuffer cterm=NONE ctermbg=236 ctermfg=246 guibg=#303030 guifg=#949494
+        hi! BuffetTab cterm=NONE ctermbg=238 ctermfg=236 guibg=#444444 guifg=#303030
+        hi! BuffetTrunc cterm=NONE ctermbg=240 ctermfg=99 guibg=#444444 guifg=#af00ff
+
+        "hi! BuffetModBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
+        "hi! BuffetModCurrentBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
+        "hi! BuffetModActiveBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
+      endfunction
+    " }
 " }
 
 " Custom method {
@@ -403,4 +443,8 @@ let g:mapleader = ','
     if filereadable(expand('~/.vimrc.plugins'))
         source ~/.vimrc.plugins
     endif
+" }
+
+" Auto load vimrc {
+    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " }
