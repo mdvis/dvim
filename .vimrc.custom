@@ -1,22 +1,21 @@
 " Template {
-  let g:sh_comment_start_symbol="#"
+  let g:sh_comment_start_symbol="# ------"
   let g:sh_comment_symbol="#"
-  let g:sh_comment_end_symbol="#"
+  let g:sh_comment_end_symbol="# ------"
 
   let g:js_comment_start_symbol="/**"
   let g:js_comment_symbol="*"
   let g:js_comment_end_symbol="*/"
 
-  let g:vi_comment_start_symbol="\""
+  let g:vi_comment_start_symbol="\" ------"
   let g:vi_comment_symbol="\""
-  let g:vi_comment_end_symbol="\""
+  let g:vi_comment_end_symbol="\" ------"
 
   function! Tpl(start, mid, end)
     let start = a:start
     let mid = a:mid
     let end = a:end
     let str="".start."\n".mid." 功能: 模块功能\n".mid." 作者: Deve\n".mid." 日期: ".strftime("%Y-%m-%d")."\n".end
-    echom str
     put!=str
   endfunc
 
@@ -33,6 +32,6 @@
     endfunc
 " }
 
-autocmd! BufNewFile * exec ":call SetTpl()"
+autocmd BufNewFile * call SetTpl()
 
 nmap <leader>T :call SetTpl()<CR>

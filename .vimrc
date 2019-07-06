@@ -445,5 +445,5 @@ let g:mapleader = ','
 " }
 
 " Auto load vimrc {
-    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " }
