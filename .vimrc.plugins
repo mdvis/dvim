@@ -6,41 +6,49 @@
 
     call plug#begin(g:Plug_dir)
 
-    Plug 'w0rp/ale'
-    Plug 'morhetz/gruvbox'
-    Plug 'tpope/vim-repeat'
-    Plug 'godlygeek/tabular' "test filtering and alignment
-    Plug 'bagrat/vim-buffet'
-    Plug 'majutsushi/tagbar'
-    Plug 'roman/golden-ratio' "automatic resizing
-    Plug 'mhinz/vim-startify'
-    Plug 'tpope/vim-surround'
-    Plug 'Yggdroot/indentLine'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'kshenoy/vim-signature' "toggle and display marks
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'terryma/vim-multiple-cursors'
+    Plug 'w0rp/ale'                     " Check syntax and fix
+    Plug 'morhetz/gruvbox'              " colorscheme
+    Plug 'bagrat/vim-buffet'            " switching and managing buffers
+    Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
+    Plug 'roman/golden-ratio'           " automatic resizing
+    Plug 'mhinz/vim-startify'           " start screen
+    Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
+    Plug 'Yggdroot/indentLine'          " display the indention levels
+    Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
+    Plug 'kshenoy/vim-signature'        " display and navigate marks
+    Plug 'ryanoasis/vim-devicons'       " file type icon
+    Plug 'junegunn/vim-easy-align'      " alignment
+    Plug 'easymotion/vim-easymotion'    " motions
+    Plug 'terryma/vim-multiple-cursors' " multiple selections
 
-    Plug 'scrooloose/nerdtree'
-    Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'scrooloose/nerdtree'                     " explorer
+    Plug 'jistr/vim-nerdtree-tabs'                 " NERDTree and tabs together in Vim
+    Plug 'scrooloose/nerdcommenter'                " commenter
+    Plug 'Xuyuanp/nerdtree-git-plugin'             " show git status flags
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree files
 
-    Plug 'roxma/nvim-yarp'
-    Plug 'Shougo/defx.nvim'
-    Plug 'roxma/vim-hug-neovim-rpc'
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
+      Plug 'Shougo/defx.nvim' ,{'do': ':UpdateRemotePlugins'}
+    else
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'Shougo/defx.nvim'
+
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    Plug 'fszymanski/deoplete-emoji'
+    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
     Plug 'gregsexton/gitv'
-    Plug 'mhinz/vim-signify' "show a diff
+    Plug 'mhinz/vim-signify' " show a diff
     Plug 'tpope/vim-fugitive'
 
     Plug 'mattn/emmet-vim'
 
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    " Plug 'honza/vim-snippets'
 
     Plug 'posva/vim-vue'
     Plug 'heavenshell/vim-jsdoc'
@@ -52,13 +60,7 @@
 
     Plug 'editorconfig/editorconfig-vim'
 
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-
-    Plug 'ycm-core/YouCompleteMe',{
-          \ 'do':'./install.py --ts-completer --go-completer'
-          \ }
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {

@@ -126,6 +126,12 @@
     endif
 " }
 
+" Vim-plug {
+    if filereadable(expand('~/.vimrc.plugins'))
+        source ~/.vimrc.plugins
+    endif
+" }
+
 " Plugin Config Start {
     " js {
         let g:javascript_plugin_jsdoc=1
@@ -283,6 +289,10 @@ let g:mapleader = ','
     nmap k gk
     nmap <leader>t :TagbarToggle<CR>
     nmap <leader>D :Defx<CR>
+    " Easy align {
+      xmap ga <Plug>(EasyAlign)
+      nmap ga <Plug>(EasyAlign)
+    " }
     " Gitv {
       nmap <leader>g :Gitv<CR>
     " }
@@ -430,17 +440,14 @@ let g:mapleader = ','
         "hi! BuffetModActiveBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
       endfunction
     " }
+    " Deoplete {
+      let g:deoplete#enable_at_startup = 1
+    " }
 " }
 
 " Custom method {
     if filereadable(expand('~/.vimrc.custom'))
         source ~/.vimrc.custom
-    endif
-" }
-
-" Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
     endif
 " }
 
