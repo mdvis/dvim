@@ -133,10 +133,12 @@
 " }
 
 " Plugin Config Start {
+    " deoplete {
+        let g:deoplete#enable_at_startup = 1
+    " }
     " js {
         let g:javascript_plugin_jsdoc=1
     " }
-
     " Rainbow {
         let g:rainbow_active=1
     " }
@@ -230,7 +232,7 @@
         let g:ale_fix_on_save=1
     " }
     " Vim-repeat {
-      silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+        silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
     " }
     " Backup file {
         set backup
@@ -439,9 +441,6 @@ let g:mapleader = ','
         "hi! BuffetModBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
         "hi! BuffetModActiveBuffer cterm=NONE ctermbg=9 ctermfg=12 guibg=#444444 guifg=#af00ff
       endfunction
-    " }
-    " Deoplete {
-      let g:deoplete#enable_at_startup = 1
     " }
 " }
 

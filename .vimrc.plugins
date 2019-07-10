@@ -38,8 +38,6 @@
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
     Plug 'fszymanski/deoplete-emoji'
-    Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
     Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify' " show a diff
@@ -48,7 +46,7 @@
     Plug 'mattn/emmet-vim'
 
     Plug 'SirVer/ultisnips'
-    " Plug 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
 
     Plug 'posva/vim-vue'
     Plug 'heavenshell/vim-jsdoc'
@@ -61,6 +59,7 @@
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
