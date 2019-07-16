@@ -38,6 +38,8 @@
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
     Plug 'fszymanski/deoplete-emoji'
+    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
     Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
