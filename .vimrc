@@ -183,23 +183,6 @@
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
     " }
-    " YouCompleteMe {
-        set completeopt-=preview
-        let g:acp_enableAtStartup = 0
-        " enable completion from tags
-        let g:ycm_collect_identifiers_from_tags_files = 1
-        " Enable omni completion.
-        autocmd FileType html,markdown
-                    \ setlocal omnifunc=htmlcomplete#CompleteTags
-        " autocmd FileType javascript
-        "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType javascript setlocal omnifunc=tern#Complete
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-    " }
     " Ultisnips {
         let g:UltiSnipsExpandTrigger='<leader><tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
