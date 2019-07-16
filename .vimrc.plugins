@@ -61,7 +61,7 @@
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
+    " Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
 
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
