@@ -37,6 +37,7 @@
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
+    Plug 'kristijanhusak/defx-icons'
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }

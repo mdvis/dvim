@@ -213,8 +213,6 @@
                     \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
-        let g:ale_sign_error = '❌'
-        let g:ale_sign_warning = '⚠️'
     " }
     " Backup file {
         set backup
@@ -315,6 +313,9 @@ let g:mapleader = ','
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
     " Defx {
+    call defx#custom#option('_', {
+            \ 'columns': 'icons:mark:indent:icon:filename:type:size:time',
+            \ })
     autocmd FileType defx call s:defx_my_settings()
       function! s:defx_my_settings() abort
         " Define mappings
