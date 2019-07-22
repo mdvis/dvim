@@ -27,7 +27,7 @@
         set mousehide
     " }
     set nospell
-    set tildeop                   "~motion
+    " set tildeop                 "~motion
     set iskeyword=@,%,#,.
     " set virtualedit=onemore     " Allow for cursor beyond last character
     set clipboard=unnamed
@@ -80,7 +80,7 @@
         set number
         " set relativenumber
         set noerrorbells " no error bell
-        set visualbell " visual error bell
+        set visualbell   " visual error bell
     " }
     set linespace=0                 " No extra spaces between rows
     set winminheight=0              " Windows can be 0 line high
@@ -184,7 +184,7 @@
                     \ 'ctrl-v': 'vsplit' }
     " }
     " Ultisnips {
-        let g:UltiSnipsExpandTrigger='<leader><tab>'
+        let g:UltiSnipsExpandTrigger='<tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
@@ -215,9 +215,6 @@
         let g:ale_fix_on_save=1
         let g:ale_sign_error = '❌'
         let g:ale_sign_warning = '⚠️'
-    " }
-    " Vim-repeat {
-        silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
     " }
     " Backup file {
         set backup
