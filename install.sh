@@ -127,6 +127,7 @@ hasCommand      node \
                 pylint \
                 autopep8 \
                 isort \
+                ag \
                 yapf
 
 

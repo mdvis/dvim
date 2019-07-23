@@ -27,20 +27,27 @@
     Plug 'Xuyuanp/nerdtree-git-plugin'             " show git status flags
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree files
 
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
-      Plug 'Shougo/defx.nvim' ,{'do': ':UpdateRemotePlugins'}
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'Shougo/defx.nvim'
-
+    if !has('nvim')
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
-    Plug 'kristijanhusak/defx-icons'
+
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
+    else
+      Plug 'Shougo/deoplete.nvim'
+    endif
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+    if has('nvim')
+      Plug 'Shougo/defx.nvim' ,{'do': ':UpdateRemotePlugins'}
+    else
+      Plug 'Shougo/defx.nvim'
+    endif
+    Plug 'kristijanhusak/defx-git'
+    Plug 'kristijanhusak/defx-icons'
 
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
@@ -60,6 +67,8 @@
 
     "Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
+    " the_silver_searcher
+    Plug 'rking/ag.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
