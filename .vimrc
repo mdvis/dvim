@@ -136,9 +136,6 @@
     " deoplete {
         let g:deoplete#enable_at_startup = 1
     " }
-    " js {
-        "let g:javascript_plugin_jsdoc=1
-    " }
     " Rainbow {
         let g:rainbow_active=1
     " }

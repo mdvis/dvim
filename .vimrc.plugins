@@ -57,8 +57,6 @@
 
     Plug 'editorconfig/editorconfig-vim'
 
-    "Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-
     " the_silver_searcher
     Plug 'rking/ag.vim'
     Plug 'junegunn/fzf.vim'
