@@ -251,21 +251,28 @@
         endif
     " }
 " }
-let g:mapleader = ','
+
 " Mappings {
+    let g:mapleader = ','
+
     nmap <leader>sw :mksession! ~/.my.vim<CR>
     nmap <leader>sr :source ~/.my.vim<CR>
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
     nmap <leader>J :JsDoc<CR>
+
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
+    nmap <leader>x :x<CR>
+
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
+
     nmap j gj
     nmap k gk
+
     " Tagbar {
       nmap <leader>t :TagbarToggle<CR>
     " }
