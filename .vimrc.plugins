@@ -8,7 +8,6 @@
 
     Plug 'w0rp/ale'                     " Check syntax and fix
     Plug 'morhetz/gruvbox'              " colorscheme
-    Plug 'bagrat/vim-buffet'            " switching and managing buffers
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'mhinz/vim-startify'           " start screen
