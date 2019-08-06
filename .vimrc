@@ -61,7 +61,7 @@
         set textwidth=80
         set foldlevel=0
         set scrolloff=3
-        set cmdheight=4
+        set cmdheight=2
         set splitbelow
         " set foldenable        " Auto fold code
         set splitright
