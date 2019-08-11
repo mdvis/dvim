@@ -128,7 +128,8 @@ hasCommand      node \
                 autopep8 \
                 isort \
                 ag \
-                yapf
+                yapf \
+                ctags
 
 
 exiseBackup     "$HOME/.vim" \
