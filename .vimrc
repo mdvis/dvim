@@ -31,7 +31,6 @@
     set iskeyword=@,%,#,.
     " set virtualedit=onemore     " Allow for cursor beyond last character
     set clipboard=unnamed
-    set shortmess+=filmnrxoOtT    " Abbrev. of messages (avoids 'hit enter')
     " Better Unix / Windows compatibility
     set viewoptions=folds,options,cursor,unix,slash
 " }
@@ -193,7 +192,7 @@
     " Prettier{
         let g:prettier#autoformat = 0
         let g:prettier#quickfix_enabled = 0
-        let g:prettier#config#tab_width = 4
+        let g:prettier#config#tab_width = 2
         autocmd BufWritePre *.vue,*.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
@@ -313,28 +312,24 @@
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
+    " Tabline {
+        set showtabline=2
+    " }
     " Status Line {
       if has('statusline')
         set laststatus=2
-        function! GetBufTotalNum()
-          return len(filter(range(1,bufnr('$')),'buflisted(v:val)'))
-        endfunction
 
         hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
         hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
-        hi User3 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
-        hi User4 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
         hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
 
-        set statusline=%1*%F%*
-        set statusline+=%<%5*%m\ %*
-        set statusline+=%2*\ %{&ff}\ %*
-        set statusline+=%3*\ %{&fenc}\ %*
-        set statusline+=%4*\ %y\ %*
-        set statusline+=%=%3*\ %P\ %*
-        set statusline+=%2*\ %{GetBufTotalNum()}-%n\ %*
-        set statusline+=%1*\ %l:%c\ %*
-        set statusline+=%2*\ %r\ %*
+        set statusline=%5*%r              " Readonly
+        set statusline+=%1*%F             " Path
+        set statusline+=%5*%m\ %*         " Modify
+        set statusline+=%2*\ %l/%c\ %*     " Line/Coloumn
+        set statusline+=%=                " Placeholder
+        set statusline+=%1*\ %{&ff}\ %*   " Format
+        set statusline+=%2*\ %{&fenc}\ %* " Encode
       endif
     " }
 " }
