@@ -81,9 +81,6 @@
         set noerrorbells " no error bell
         set visualbell   " visual error bell
     " }
-    set linespace=0                 " No extra spaces between rows
-    set winminheight=0              " Windows can be 0 line high
-    set background=dark
 
     set wildmenu                    " Show list instead of just completing
     set wildmode=list:longest,full  " Command <Tab> completion, list matches,
@@ -92,6 +89,7 @@
         if filereadable(expand('~/.vim/colors/gruvbox.vim'))
             let g:gruvbox_contrast_dark='hard'
             colorscheme gruvbox
+            set background=dark
         endif
     " }
 " }
@@ -186,7 +184,7 @@
         let g:UltiSnipsEditSplit='vertical'
     " }
     " IndentLine {
-        let g:indentLine_concealcursor=''
+        let g:indentLine_concealcursor='inc'
         let g:indentLine_conceallevel=2
     " }
     " Prettier{
@@ -211,25 +209,10 @@
         let g:ale_fix_on_save=1
     " }
     " Backup file {
-        set backup
-        set swapfile
-        set undofile
-        set writebackup
-        " set nobackup
-        " set noswapfile
-        " set noundofile
-        " set nowritebackup
-        " 结尾的//表示生成的文件名带有绝对路径
-        " 路径中用%替换目录分隔符，这样可以防止文件重名
-        if WINDOWS()
-            set backupdir=c:\backup\\
-            set directory=c:\swp\\
-            set undodir=c:\undo\\
-        else
-            set backupdir=~/.backup//
-            set directory=~/.swp//
-            set undodir=~/.undo//
-        endif
+         set nobackup
+         set noswapfile
+         set noundofile
+         set nowritebackup
     " }
     " UI {
         if has('gui_running')
