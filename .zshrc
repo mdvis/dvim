@@ -38,7 +38,8 @@ alias mv="mv -i"
 alias l="ls -lhAF | awk '{if (NR > 1) {print \$9}}'"
 alias ll='ls -lhAF'
 alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
-alias -s {js,html,css,scss,xml,vue}=vim
+
+alias -s {ts,tsx,jsx,json,js,html,css,scss,xml,vue}=vim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
