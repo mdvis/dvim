@@ -152,6 +152,9 @@ exiseBackup     "$HOME/.vim" \
                 "$HOME/.zshrc" \
                 "$HOME/.zshrc_alias"
 
+syncRepo        "$REPO_PATH" \
+                "$REPO_URI"
+
 createSymlinks  "$REPO_PATH" \
                 "$HOME" \
                 ".vimrc" \
@@ -159,9 +162,6 @@ createSymlinks  "$REPO_PATH" \
                 ".vimrc.custom" \
                 ".zshrc" \
                 ".zshrc_alias"
-
-syncRepo        "$REPO_PATH" \
-                "$REPO_URI"
 
 setInstallPlug  "/vim-plug/" \
                 "plug.vim"
