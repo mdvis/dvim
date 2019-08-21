@@ -9,9 +9,10 @@ readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-pl
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
-[ ! -d "~/.backup" ] && mkdir ~/.backup
-[ ! -d "~/.swp" ] && mkdir ~/.swp
-[ ! -d "~/.undo" ] && mkdir ~/.undo
+
+[ ! -d ~/.backup ] && mkdir ~/.backup
+[ ! -d ~/.swp ] && mkdir ~/.swp
+[ ! -d ~/.undo ] && mkdir ~/.undo
 
 is_debug="0"
 
@@ -55,7 +56,6 @@ exiseBackup(){
 syncRepo() {
     local repo_path="$1"
     local repo_uri="$2"
-    local
 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
@@ -71,9 +71,13 @@ syncRepo() {
 
 installPlugins() {
     local systemShell="$SHELL"
+
     export SHELL='/bin/sh'
+
     vim "+PlugInstall!" "+PlugClean" "+qall"
+
     export SHELL="$systemShell"
+
     ret="$?"
     success "Install plugins complete!"
     debug
@@ -88,16 +92,18 @@ lnif() {
 }
 
 createSymlinks() {
-    local source_path="$1"
-    local target_path="$2"
-    local
+  local index=1
 
-    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/.vimrc.plugins" "$target_path/.vimrc.plugins"
-    lnif "$source_path/.vimrc.custom" "$target_path/.vimrc.custom"
-    ret="$?"
-    success "Link complete!"
-    debug
+  for linkName in "$@"
+  do
+    [ $index -eq 1 ] && local source_path=$linkName
+    [ $index -eq 2 ] && local target_path=$linkName
+    [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
+    index=$(($index+1))
+  done
+  ret="$?"
+  success "Link complete!"
+  debug
 }
 
 setInstallPlug(){
@@ -118,7 +124,7 @@ copyColors(){
 
 hasCommand(){
 	for m in $@; do
-		type $m>/dev/null 2>&1 || error "$m was not installed!"
+		type $m>/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
 	done
 }
 
@@ -129,19 +135,27 @@ hasCommand      node \
                 isort \
                 ag \
                 yapf \
-                ctags
+                ctags \
+                zsh
 
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins" \
-                "$HOME/.vimrc.custom"
+                "$HOME/.vimrc.custom" \
+                "$HOME/.zshrc" \
+                "$HOME/.zshrc_alias"
+
+createSymlinks  "$REPO_PATH" \
+                "$HOME" \
+                ".vimrc" \
+                ".vimrc.plugins" \
+                ".vimrc.custom" \
+                ".zshrc" \
+                ".zshrc_alias"
 
 syncRepo        "$REPO_PATH" \
                 "$REPO_URI"
-
-createSymlinks  "$REPO_PATH" \
-                "$HOME"
 
 setInstallPlug  "/vim-plug/" \
                 "plug.vim"
