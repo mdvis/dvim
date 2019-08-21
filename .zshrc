@@ -32,20 +32,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-alias c='clear'
-alias rm="rm -i"
-alias mv="mv -i"
-alias l="ls -lhAF | awk '{if (NR > 1) {print \$9}}'"
-alias ll='ls -lhAF'
-alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
-
-alias -s {ts,tsx,jsx,json,js,html,css,scss,xml,vue}=vim
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -f ~/.zshrc_alias ] && source ~/.zshrc_alias
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
-export CDPATH=.:~:~/Desktop:~/Code
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
