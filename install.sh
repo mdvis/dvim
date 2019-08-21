@@ -71,10 +71,17 @@ syncRepo() {
 
 installPlugins() {
     local systemShell="$SHELL"
+    local hasNvim=type nvim>/dev/null 2>&1 || echo "vim"
+    local
 
     export SHELL='/bin/sh'
 
-    vim "+PlugInstall!" "+PlugClean" "+qall"
+    if [ $hasNvim == "vim"]
+    then
+      vim "+PlugInstall!" "+PlugClean" "+qall"
+    else
+      nvim "+PlugInstall!" "+PlugClean" "+qall"
+    fi
 
     export SHELL="$systemShell"
 
@@ -137,7 +144,6 @@ hasCommand      node \
                 yapf \
                 ctags \
                 zsh
-
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
