@@ -1,6 +1,6 @@
 export CDPATH=.:~:~/Desktop:~/Code
 
-alias -s {js,html,css,scss,xml,vue}=vim
+alias -s {js,ts,jsx,tsx,json,html,xml,css,scss,vue}=vim
 
 alias ly="cd ~/Code/official_site_static"
 alias h5="cd ~/Code/official_site_h5"
