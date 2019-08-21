@@ -19,6 +19,24 @@
     " }
 " }
 
+let g:mapleader = ','
+
+" Vim-plug {
+    if filereadable(expand('~/.vimrc.plugins'))
+        source ~/.vimrc.plugins
+    endif
+" }
+
+" Custom method {
+    if filereadable(expand('~/.vimrc.custom'))
+        source ~/.vimrc.custom
+    endif
+" }
+
+" Auto load vimrc {
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" }
+
 " General {
     " File {
         filetype plugin indent on
@@ -26,10 +44,6 @@
         set mouse= " a
         set mousehide
     " }
-    set nospell
-    " set tildeop                 "~motion
-    set iskeyword=@,%,#,.
-    " set virtualedit=onemore     " Allow for cursor beyond last character
     set clipboard=unnamed
     " Better Unix / Windows compatibility
     set viewoptions=folds,options,cursor,unix,slash
@@ -37,54 +51,61 @@
 
 " UI {
     set shortmess=atI
-    set showmode       " Display the current mode
-    set showcmd
     set cursorline     " Highlight current line
     set cursorcolumn   " Highlight current column
+    set textwidth=80
     set colorcolumn=80
-    set listchars=tab:>-,trail:-
     set list
+    set listchars=tab:>-,trail:-
+    set showtabline=2
+    set laststatus=2
+    " Status Line {
+      if has('statusline')
+        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+        hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+
+        set statusline=%5*%r              " Readonly
+        set statusline+=%1*%F             " Path
+        set statusline+=%5*%m\ %*         " Modify
+        set statusline+=%2*\ %l/%c\ %*     " Line/Coloumn
+        set statusline+=%=                " Placeholder
+        set statusline+=%1*\ %{&ff}\ %*   " Format
+        set statusline+=%2*\ %{&fenc}\ %* " Encode
+      endif
+    " }
     " Behavior {
-        set expandtab           " Tabs are spaces, not tabs
-        set tabstop=2           " An indentation every four columns
-        set shiftwidth=2
-        set softtabstop=2               " Let backspace delete indent
-        set backspace=indent,eol,start  " Backspace for dummies
-        set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
-        set formatoptions+=mM
-        set formatoptions-=c
+        set showcmd
+        set expandtab             " Tabs are spaces, not tabs
+        set tabstop=2             " Number of spaces that a <Tab> in the file counts for.
+        set shiftwidth=2          " Number of spaces to use for each step of (auto)indent
+        set softtabstop=2         " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
+        set backspace=indent,eol,start
+        set whichwrap=b,s,<,>,[,] " Move to the prev/next line when the cursor is on the first/last character
+        set formatoptions=tqmM
         set foldmethod=marker
         set foldmarker={,}
-        set scrolljump=5
         set nofoldenable
-        set textwidth=80
-        set foldlevel=0
-        set scrolloff=3
-        set cmdheight=2
-        set splitbelow
-        " set foldenable        " Auto fold code
-        set splitright
-        set autoindent          " Indent at the same level of the previous line
-        set ignorecase          " Case insensitive search
-        set incsearch           " Find as you type search
-        set smartcase           " Case sensitive when uc present
-        set showmatch           " Show matching brackets/parenthesis
+        set splitbelow " splitting a window will put the new window blow of the current one
+        set splitright " splitting a window will put the new window right of the current one
+        set autoindent " Indent at the same level of the previous line
+        set ignorecase " Case insensitive search
+        set smartcase  " Case sensitive when uc present
+        set showmatch  " Show matching brackets/parenthesis
+        set incsearch  " Find as you type search
         set autochdir
         set autoread
         set hlsearch
         set nowrap
-        set linebreak
-        set wrapmargin=2
-        set sidescrolloff=8
         set number
-        " set relativenumber
-        set noerrorbells " no error bell
-        set visualbell   " visual error bell
+        set sidescrolloff=4
+        set scrolljump=4
+        set scrolloff=4
+        set cmdheight=2
+        set wildmenu                    " Show list instead of just completing
+        set wildmode=list:longest,full  " Command <Tab> completion, list matches
     " }
 
-    set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches,
-                                    " then longest common part, then all.
     " Colors {
         if filereadable(expand('~/.vim/colors/gruvbox.vim'))
             let g:gruvbox_contrast_dark='hard'
@@ -95,41 +116,44 @@
 " }
 
 " Encode {
-    if has('multi_byte')
-        " Powershell as the primary terminal, this would be utf-8
-        set termencoding=utf-8
+    set termencoding=utf-8
+    set encoding=utf-8
+    scriptencoding utf-8
+    setglobal fileencoding=utf-8
+    set fileencodings=utf-8,ucs-bom,utf-16le,cp1252,iso-8859-15
 
-        " set termencoding=cp850
-        " Let Vim use utf-8 internally, because many scripts require this
-        set encoding=utf-8
-        scriptencoding utf-8
-        setglobal fileencoding=utf-8
-
-        " Windows has traditionally used cp1252, so it's probably wise to
-        " fallback into cp1252 instead of eg. iso-8859-15.
-        " Newer Windows files might contain utf-8 or utf-16 LE so we might
-        " want to try them first.
-        set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-    endif
     if has('win32')
         source $VIMRUNTIME/vimrc_example.vim
-
         " menu error code
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
-
         " console output error code
         language messages zh_CN.utf-8
     endif
 " }
 
-" Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
-    endif
-" }
-
 " Plugin Config Start {
+    " Signify {
+        " this first setting decides in which order try to guess your current vcs
+        " UPDATE it to reflect your preferences, it will speed up opening files
+        let g:signify_vcs_list = [ 'git' ]
+        " mappings to jump to changed blocks
+        nmap <leader>sn <plug>(signify-next-hunk)
+        nmap <leader>sp <plug>(signify-prev-hunk)
+        " nicer colors
+        highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+        highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+        highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+        highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+        highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+        highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+    " }
+    " Tagbar {
+      nmap <leader>t :TagbarToggle<CR>
+    " }
+    " Easy align {
+      map ga <Plug>(EasyAlign)
+    " }
     " deoplete {
         let g:deoplete#enable_at_startup = 1
     " }
@@ -138,6 +162,12 @@
     " }
     " Easemotion {
         let g:EasyMotion_smartcase = 1
+        map <Leader><Leader>s <Plug>(easymotion-s)
+        map <Leader><Leader>j <Plug>(easymotion-j)
+        map <Leader><Leader>k <Plug>(easymotion-k)
+        map <Leader><leader>. <Plug>(easymotion-repeat)
+        map <Leader><leader>l <Plug>(easymotion-lineforward)
+        map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
@@ -169,6 +199,8 @@
             \ "Unknown"   : "?" }
         let g:NERDTreeDirArrowExpandable = '+'
         let g:NERDTreeDirArrowCollapsible = '-'
+        map <leader>e :NERDTreeFind<CR>
+        map <leader>n :NERDTreeTabsToggle<CR>
     " }
     " fzf {
         let g:fzf_action = {
@@ -176,6 +208,8 @@
                     \ 'ctrl-t': 'tab split',
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
+        nmap <C-p> :Files<CR>
+        nmap <C-e> :Buffers<CR>
     " }
     " Ultisnips {
         let g:UltiSnipsExpandTrigger='<tab>'
@@ -207,6 +241,8 @@
                     \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
     " }
     " Backup file {
          set nobackup
@@ -235,94 +271,18 @@
 " }
 
 " Mappings {
-    let g:mapleader = ','
-
     nmap <leader>sw :mksession! ~/.my.vim<CR>
     nmap <leader>sr :source ~/.my.vim<CR>
     nmap <leader>r :reg<CR>
     nmap <leader>N :noh<CR>
     nmap <leader>J :JsDoc<CR>
-
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>x :x<CR>
-
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
-
     nmap j gj
     nmap k gk
-
-    " Tagbar {
-      nmap <leader>t :TagbarToggle<CR>
-    " }
-    " Easy align {
-      map ga <Plug>(EasyAlign)
-    " }
-    " Easemotion {
-        map <Leader><Leader>j <Plug>(easymotion-j)
-        map <Leader><Leader>k <Plug>(easymotion-k)
-        map <Leader><leader>. <Plug>(easymotion-repeat)
-        map <Leader><leader>l <Plug>(easymotion-lineforward)
-        map <Leader><leader>h <Plug>(easymotion-linebackward)
-    " }
-    " Nerdtree {
-        map <leader>e :NERDTreeFind<CR>
-        map <leader>n :NERDTreeTabsToggle<CR>
-    " }
-    " Ale {
-        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <C-j> <Plug>(ale_next_wrap)
-    " }
-    " FZF {
-        nmap <C-p> :Files<CR>
-        nmap <C-e> :Buffers<CR>
-    " }
-    " Signify {
-        " this first setting decides in which order try to guess your current vcs
-        " UPDATE it to reflect your preferences, it will speed up opening files
-        let g:signify_vcs_list = [ 'git' ]
-        " mappings to jump to changed blocks
-        nmap <leader>sn <plug>(signify-next-hunk)
-        nmap <leader>sp <plug>(signify-prev-hunk)
-        " nicer colors
-        highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-        highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-        highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-        highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-        highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-        highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-    " }
-    " Tabline {
-        set showtabline=2
-    " }
-    " Status Line {
-      if has('statusline')
-        set laststatus=2
-
-        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
-        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
-        hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
-
-        set statusline=%5*%r              " Readonly
-        set statusline+=%1*%F             " Path
-        set statusline+=%5*%m\ %*         " Modify
-        set statusline+=%2*\ %l/%c\ %*     " Line/Coloumn
-        set statusline+=%=                " Placeholder
-        set statusline+=%1*\ %{&ff}\ %*   " Format
-        set statusline+=%2*\ %{&fenc}\ %* " Encode
-      endif
-    " }
-" }
-
-" Custom method {
-    if filereadable(expand('~/.vimrc.custom'))
-        source ~/.vimrc.custom
-    endif
-" }
-
-" Auto load vimrc {
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " }
