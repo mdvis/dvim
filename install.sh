@@ -76,7 +76,7 @@ installPlugins() {
 
     export SHELL='/bin/sh'
 
-    if [ $hasNvim == "vim"]
+    if [ $hasNvim == "vim" ]
     then
       vim "+PlugInstall!" "+PlugClean" "+qall"
     else
