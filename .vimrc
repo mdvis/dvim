@@ -237,6 +237,8 @@ let g:mapleader = ','
                     \   'python':['autopep8', 'isort', 'yapf']}
 
         let g:ale_linters = {
+                    \   'javascript':['eslint'],
+                    \   'typescript':['eslint'],
                     \   'python':['flake8', 'pylint'],
                     \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
