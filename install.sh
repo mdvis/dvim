@@ -157,6 +157,7 @@ syncRepo        "$REPO_PATH" \
 
 createSymlinks  "$REPO_PATH" \
                 "$HOME" \
+                ".gitmessage" \
                 ".vimrc" \
                 ".vimrc.plugins" \
                 ".vimrc.custom" \
