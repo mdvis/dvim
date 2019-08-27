@@ -12,11 +12,14 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias l="ls -1AF"
 alias ll="ls -lhAF"
-alias gba='echo "$(git branch -a)"'
-alias gco="git checkout"
-alias gc="git commit"
-alias gb="git branch"
-alias gs="git status"
-alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
 alias vim="nvim"
 alias vi="nvim"
+
+alias ga="git add"
+alias gb="git branch"
+alias gba='echo "$(git branch -a)"'
+alias gc="git commit"
+alias gco="git checkout"
+alias gd="git status"
+alias glog='git log --date=format:"%y/%m/%d %H:%M" --pretty="%C(yellow)%h %<(10)%C(red)%ad %<(10)%C(blue)%cn %C(reset)%s"'
+alias gs="git status"
