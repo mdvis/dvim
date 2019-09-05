@@ -99,8 +99,8 @@ let g:mapleader = ','
         set nowrap
         set number
         set sidescrolloff=4
-        set scrolljump=4
-        set scrolloff=4
+        set scrolloff=2
+        " set scrolljump=4
         set cmdheight=2
         set wildmenu                    " Show list instead of just completing
         set wildmode=list:longest,full  " Command <Tab> completion, list matches
