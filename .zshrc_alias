@@ -6,6 +6,7 @@ alias ly="cd ~/Code/official_site_static"
 alias h5="cd ~/Code/official_site_h5"
 alias wx="cd ~/Code/wxapp-huazhu"
 alias pc="cd ~/Code/pc-huazhu"
+alias cl="cd ~/Code/lvyue-cli"
 alias eb="cd ~/Code/ows_eb"
 
 alias c="clear"
