@@ -15,7 +15,7 @@
     let start = a:start
     let mid = a:mid
     let end = a:end
-    let str="".start."\n".mid." 功能: 模块功能\n".mid." 作者: Deve\n".mid." 日期: ".strftime("%Y-%m-%d")."\n".end
+    let str="".start."\n".mid." name: 模块功能\n".mid." author: Deve\n".mid." date: ".strftime("%Y-%m-%d")."\n".end
     put!=str
   endfunc
 
