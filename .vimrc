@@ -63,12 +63,12 @@ let g:mapleader = ','
       if has('statusline')
         hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
         hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
-        hi User5 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+        hi User3 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
 
-        set statusline=%5*%r              " Readonly
-        set statusline+=%1*%F             " Path
-        set statusline+=%5*%m\ %*         " Modify
-        set statusline+=%2*\ %l/%c\ %*     " Line/Coloumn
+        set statusline=%3*%r%*            " Readonly
+        set statusline+=%1*%F%*           " Path
+        set statusline+=%3*%m\ %*         " Modify
+        set statusline+=%2*\ %l/%c\ %*    " Line/Coloumn
         set statusline+=%=                " Placeholder
         set statusline+=%1*\ %{&ff}\ %*   " Format
         set statusline+=%2*\ %{&fenc}\ %* " Encode
