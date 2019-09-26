@@ -101,17 +101,17 @@ let g:mapleader = ','
 
     " Status Line {
       if has('statusline')
-        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
-        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
-        hi User3 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+        hi User1 cterm=None ctermfg=160 ctermbg=236 guifg=#d70000 guibg=#303030 " warning
+        hi User2 cterm=None ctermfg=236 ctermbg=240 guifg=#303030 guibg=#585858
+        hi User3 cterm=None ctermfg=240 ctermbg=236 guifg=#585858 guibg=#303030
 
-        set statusline=%<%3*%r%*          " Readonly
-        set statusline+=%1*%F%*           " Path
-        set statusline+=%<%3*%m\ %*         " Modify
+        set statusline=%<%1*%r%*          " Readonly
+        set statusline+=%1*%m%*           " Modify
+        set statusline+=%3*%F%*           " Path
         set statusline+=%2*\ %l/%c\ %*    " Line/Coloumn
-        set statusline+=%1*\ %p%%\ %*     " Line/Coloumn
+        set statusline+=%3*\ %p%%\ %*     " Line/Coloumn
         set statusline+=%=                " Placeholder
-        set statusline+=%1*\ %{&ff}\ %*   " Format
+        set statusline+=%3*\ %{&ff}\ %*   " Format
         set statusline+=%2*\ %{&fenc}\ %* " Encode
       endif
     " }
