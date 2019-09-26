@@ -50,6 +50,14 @@ let g:mapleader = ','
 " }
 
 " UI {
+    " Colors {
+        if filereadable(expand('~/.vim/colors/gruvbox.vim'))
+            let g:gruvbox_contrast_dark='hard'
+            colorscheme gruvbox
+            set background=dark
+        endif
+    " }
+
     set shortmess=atI
     set cursorline     " Highlight current line
     set cursorcolumn   " Highlight current column
@@ -59,21 +67,6 @@ let g:mapleader = ','
     set listchars=tab:>-,trail:-
     set showtabline=2
     set laststatus=2
-    " Status Line {
-      if has('statusline')
-        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
-        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
-        hi User3 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
-
-        set statusline=%3*%r%*            " Readonly
-        set statusline+=%1*%F%*           " Path
-        set statusline+=%3*%m\ %*         " Modify
-        set statusline+=%2*\ %l/%c\ %*    " Line/Coloumn
-        set statusline+=%=                " Placeholder
-        set statusline+=%1*\ %{&ff}\ %*   " Format
-        set statusline+=%2*\ %{&fenc}\ %* " Encode
-      endif
-    " }
     " Behavior {
         set showcmd
         set expandtab             " Tabs are spaces, not tabs
@@ -106,12 +99,21 @@ let g:mapleader = ','
         set wildmode=list:longest,full  " Command <Tab> completion, list matches
     " }
 
-    " Colors {
-        if filereadable(expand('~/.vim/colors/gruvbox.vim'))
-            let g:gruvbox_contrast_dark='hard'
-            colorscheme gruvbox
-            set background=dark
-        endif
+    " Status Line {
+      if has('statusline')
+        hi User1 cterm=None ctermfg=244 ctermbg=236 guifg=#808080 guibg=#303030
+        hi User2 cterm=None ctermfg=245 ctermbg=237 guifg=#8a8a8a guibg=#3a3a3a
+        hi User3 cterm=None ctermfg=172 ctermbg=236 guifg=#fd971f guibg=#303030
+
+        set statusline=%<%3*%r%*          " Readonly
+        set statusline+=%1*%F%*           " Path
+        set statusline+=%<%3*%m\ %*         " Modify
+        set statusline+=%2*\ %l/%c\ %*    " Line/Coloumn
+        set statusline+=%1*\ %p%%\ %*     " Line/Coloumn
+        set statusline+=%=                " Placeholder
+        set statusline+=%1*\ %{&ff}\ %*   " Format
+        set statusline+=%2*\ %{&fenc}\ %* " Encode
+      endif
     " }
 " }
 
