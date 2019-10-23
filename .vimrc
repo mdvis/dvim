@@ -180,7 +180,7 @@ let g:mapleader = ','
         let g:NERDTreeMouseMode=2
         let g:NERDTreeQuitOnOpen=1
         let g:NERDTreeShowHidden=1
-        let g:NERDTreeShowBookmarks=1
+        "let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=1
         let g:NERDTreeIgnore=[
@@ -290,11 +290,12 @@ let g:mapleader = ','
 " }
 
 " Mappings {
+    nmap <leader>N :noh<CR>
+    nmap <leader>J :JsDoc<CR>
+
     nmap <leader>sw :mksession! ~/.my.vim<CR>
     nmap <leader>sr :source ~/.my.vim<CR>
     nmap <leader>r :reg<CR>
-    nmap <leader>N :noh<CR>
-    nmap <leader>J :JsDoc<CR>
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>x :x<CR>
