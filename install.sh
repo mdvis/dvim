@@ -71,7 +71,7 @@ syncRepo() {
 
 installPlugins() {
     local systemShell="$SHELL"
-    local hasNvim=type nvim>/dev/null 2>&1 || echo "vim"
+    local hasNvim=$(type nvim>/dev/null 2>&1 || echo "vim")
     local
 
     export SHELL='/bin/sh'
