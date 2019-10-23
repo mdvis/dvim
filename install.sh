@@ -142,27 +142,21 @@ hasCommand      node \
                 isort \
                 ag \
                 yapf \
-                ctags \
-                zsh
+                ctags
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.vimrc.plugins" \
-                "$HOME/.vimrc.custom" \
-                "$HOME/.zshrc" \
-                "$HOME/.zshrc_alias"
+                "$HOME/.vimrc.custom"
 
 syncRepo        "$REPO_PATH" \
                 "$REPO_URI"
 
 createSymlinks  "$REPO_PATH" \
                 "$HOME" \
-                ".gitmessage" \
                 ".vimrc" \
                 ".vimrc.plugins" \
-                ".vimrc.custom" \
-                ".zshrc" \
-                ".zshrc_alias"
+                ".vimrc.custom"
 
 setInstallPlug  "/vim-plug/" \
                 "plug.vim"
