@@ -227,7 +227,7 @@ let g:mapleader = ','
         let g:prettier#autoformat = 0
         let g:prettier#quickfix_enabled = 0
         let g:prettier#config#tab_width = 2
-        autocmd BufWritePre *.vue,*.css,*.less,*.scss PrettierAsync
+        autocmd BufWritePre *.css,*.less,*.scss PrettierAsync
     " }
     " Ale {
         " pip3 install flake8 pylint vim-vint autopep8 isort yapf
