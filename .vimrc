@@ -291,6 +291,7 @@ let g:mapleader = ','
 
 " Mappings {
     nmap <leader><leader>0 :browse oldfiles<CR>
+    nmap <leader><leader>a :Ag<space>
 
     nmap <leader>N :noh<CR>
     nmap <leader>J :JsDoc<CR>
