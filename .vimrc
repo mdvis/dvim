@@ -1,5 +1,4 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
-
 " Environment {
     " Basics {
         set nocompatible
@@ -41,8 +40,8 @@ let g:mapleader = ','
     " File {
         filetype plugin indent on
         syntax on
-        set mouse= " a
-        set mousehide
+        set mouse=a
+        "set mousehide
     " }
     set clipboard=unnamed
     " Better Unix / Windows compatibility
@@ -76,8 +75,7 @@ let g:mapleader = ','
         set backspace=indent,eol,start
         set whichwrap=b,s,<,>,[,] " Move to the prev/next line when the cursor is on the first/last character
         set formatoptions=tqmM
-        set foldmethod=marker
-        set foldmarker={,}
+        set foldmethod=manual
         set nofoldenable
         set splitbelow " splitting a window will put the new window blow of the current one
         set splitright " splitting a window will put the new window right of the current one
@@ -309,3 +307,9 @@ let g:mapleader = ','
     nmap j gj
     nmap k gk
 " }
+
+:abclear
+:ab #c {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
+
+au BufRead,BufNewFile *.wxss set filetype=css
+au BufRead,BufNewFile *.wxml set filetype=html

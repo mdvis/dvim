@@ -23,7 +23,7 @@
         if &filetype == 'sh' || &filetype == 'python'
           call Tpl(g:sh_comment_start_symbol,g:sh_comment_symbol,g:sh_comment_end_symbol)
         endif
-        if &filetype == 'javascript' || &filetype=='typescript'
+        if &filetype == 'javascript' || &filetype=='typescript'|| &filetype=='css'|| &filetype=='scss'
           call Tpl(g:js_comment_start_symbol,g:js_comment_symbol,g:js_comment_end_symbol)
         endif
         if &filetype == 'vim'
