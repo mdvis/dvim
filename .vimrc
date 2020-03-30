@@ -201,6 +201,7 @@ let g:mapleader = ','
         let g:NERDTreeDirArrowCollapsible = '-'
         map <leader>e :NERDTreeFind<CR>
         map <leader>n :NERDTreeTabsToggle<CR>
+        map <leader>c :NERDTree ~/Code<CR>
     " }
     " fzf {
         let g:fzf_action = {
