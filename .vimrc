@@ -67,6 +67,8 @@ let g:mapleader = ','
     set showtabline=2
     set laststatus=2
     " Behavior {
+        set noerrorbells
+        set visualbell
         set showcmd
         set expandtab             " Tabs are spaces, not tabs
         set tabstop=2             " Number of spaces that a <Tab> in the file counts for.
