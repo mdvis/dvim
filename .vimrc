@@ -294,8 +294,8 @@ let g:mapleader = ','
     nmap <leader><leader>0 :browse oldfiles<CR>
     nmap <leader><leader>a :Ag<space>
 
-    nmap <leader>N :noh<CR>
-    nmap <leader>J :JsDoc<CR>
+    nmap <leader>nh :noh<CR>
+    nmap <leader>jd :JsDoc<CR>
 
     nmap <leader>sw :mksession! ~/.my.vim<CR>
     nmap <leader>sr :source ~/.my.vim<CR>
