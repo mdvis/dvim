@@ -62,9 +62,9 @@
         \ 'dir': '~/.fzf',
         \ 'do': './install --all' }
 
-    Plug 'prettier/vim-prettier', {
-        \ 'do': 'npm install',
-        \ 'for': ['vue', 'css', 'less', 'scss'] }
+    " Plug 'prettier/vim-prettier', {
+        " \ 'do': 'npm install',
+        " \ 'for': ['javascript','typescript','json','graphql','markdown','yaml', 'html', 'vue', 'css', 'less', 'scss'] }
 
     Plug 'itchyny/calendar.vim'
 
