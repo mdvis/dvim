@@ -328,6 +328,8 @@
 
     nmap j gj
     nmap k gk
+
+    map <leader><leader>cl :Calendar<CR>
 " }
 
 :abclear
