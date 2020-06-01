@@ -18,8 +18,6 @@
     " }
 " }
 
-let g:mapleader = ','
-
 " Vim-plug {
     if filereadable(expand('~/.vimrc.plugins'))
         source ~/.vimrc.plugins
@@ -139,9 +137,6 @@ let g:mapleader = ','
         " this first setting decides in which order try to guess your current vcs
         " UPDATE it to reflect your preferences, it will speed up opening files
         let g:signify_vcs_list = [ 'git' ]
-        " mappings to jump to changed blocks
-        nmap <leader>sn <plug>(signify-next-hunk)
-        nmap <leader>sp <plug>(signify-prev-hunk)
         " nicer colors
         highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
         highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
@@ -149,12 +144,6 @@ let g:mapleader = ','
         highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-    " }
-    " Tagbar {
-      nmap <leader>t :TagbarToggle<CR>
-    " }
-    " Easy align {
-      map ga <Plug>(EasyAlign)
     " }
     " deoplete {
         let g:deoplete#enable_at_startup = 1
@@ -164,12 +153,6 @@ let g:mapleader = ','
     " }
     " Easemotion {
         let g:EasyMotion_smartcase = 1
-        map <Leader><Leader>s <Plug>(easymotion-s)
-        map <Leader><Leader>j <Plug>(easymotion-j)
-        map <Leader><Leader>k <Plug>(easymotion-k)
-        map <Leader><leader>. <Plug>(easymotion-repeat)
-        map <Leader><leader>l <Plug>(easymotion-lineforward)
-        map <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
@@ -201,9 +184,6 @@ let g:mapleader = ','
             \ "Unknown"   : "?" }
         let g:NERDTreeDirArrowExpandable = '+'
         let g:NERDTreeDirArrowCollapsible = '-'
-        map <leader>e :NERDTreeFind<CR>
-        map <leader>n :NERDTreeTabsToggle<CR>
-        map <leader>c :NERDTree ~/Code<CR>
     " }
     " fzf {
         let g:fzf_action = {
@@ -211,8 +191,6 @@ let g:mapleader = ','
                     \ 'ctrl-t': 'tab split',
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
-        nmap <C-p> :Files<CR>
-        nmap <C-e> :Buffers<CR>
     " }
     " Ultisnips {
         let g:UltiSnipsExpandTrigger='<tab>'
@@ -225,29 +203,35 @@ let g:mapleader = ','
         let g:indentLine_conceallevel=2
     " }
     " Prettier{
-        let g:prettier#autoformat = 0
-        let g:prettier#quickfix_enabled = 0
-        let g:prettier#config#tab_width = 2
-        autocmd BufWritePre *.css,*.less,*.scss PrettierAsync
+        " let g:prettier#autoformat = 0
+        " let g:prettier#quickfix_enabled = 0
+        " let g:prettier#config#tab_width = 2
+        " autocmd TextChanged,InsertLeave
+              " \ *.js,*.jsx,*.ts,*.tsx,
+              " \ *.css,*.less,*.scss,
+              " \ *.json,*.graphql,*.md,
+              " \ *.vue,*.yaml,*.html PrettierAsync
     " }
     " Ale {
         " pip3 install flake8 pylint vim-vint autopep8 isort yapf
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'go':['gofmt'],
+                    \   'python':['autopep8', 'isort', 'yapf'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
-                    \   'python':['autopep8', 'isort', 'yapf']}
+                    \   'scss':['stylelint'],
+                    \   'css':['stylelint'],
+                    \   'go':['gofmt']}
 
         let g:ale_linters = {
+                    \   'python':['flake8', 'pylint'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
-                    \   'python':['flake8', 'pylint'],
+                    \   'scss':['stylelint'],
+                    \   'css':['stylelint'],
                     \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
-        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <C-j> <Plug>(ale_next_wrap)
     " }
     " Backup file {
         set backup
@@ -291,28 +275,63 @@ let g:mapleader = ','
 " }
 
 " Mappings {
-    nmap <leader><leader>0 :browse oldfiles<CR>
+    let g:mapleader = ','
+    " Ale {
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
+    " }
+    " fzf {
+        nmap <C-p> :Files<CR>
+        nmap <C-e> :Buffers<CR>
+    " }
+    " NerdTree {
+        map <leader>e :NERDTreeFind<CR>
+        map <leader>n :NERDTreeTabsToggle<CR>
+        map <leader>c :NERDTree ~/Code<CR>
+    " }
+    " Easemotion {
+        map <Leader><Leader>s <Plug>(easymotion-s)
+        map <Leader><Leader>j <Plug>(easymotion-j)
+        map <Leader><Leader>k <Plug>(easymotion-k)
+        map <Leader><leader>. <Plug>(easymotion-repeat)
+        map <Leader><leader>l <Plug>(easymotion-lineforward)
+        map <Leader><leader>h <Plug>(easymotion-linebackward)
+    " }
+    " Signify {
+        " mappings to jump to changed blocks
+        nmap <leader>sn <plug>(signify-next-hunk)
+        nmap <leader>sp <plug>(signify-prev-hunk)
+    " }
+    " Tagbar {
+      nmap <leader>t :TagbarToggle<CR>
+    " }
+    " Easy align {
+      map ga <Plug>(EasyAlign)
+    " }
+
+    nmap <leader><leader>o :browse oldfiles<CR>
     nmap <leader><leader>a :Ag<space>
+    nmap <leader><leader>r :reg<CR>
 
-    nmap <leader>nh :noh<CR>
     nmap <leader>jd :JsDoc<CR>
+    nmap <leader>nh :noh<CR>
 
-    nmap <leader>sw :mksession! ~/.my.vim<CR>
-    nmap <leader>sr :source ~/.my.vim<CR>
-    nmap <leader>r :reg<CR>
+
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>x :x<CR>
+
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
+
     nmap j gj
     nmap k gk
 " }
 
 :abclear
-:ab #c {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
+:ab jsxc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
 
 au BufRead,BufNewFile *.wxss set filetype=css
 au BufRead,BufNewFile *.wxml set filetype=html
