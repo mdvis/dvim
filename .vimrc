@@ -202,18 +202,7 @@
         let g:indentLine_concealcursor='inc'
         let g:indentLine_conceallevel=2
     " }
-    " Prettier{
-        " let g:prettier#autoformat = 0
-        " let g:prettier#quickfix_enabled = 0
-        " let g:prettier#config#tab_width = 2
-        " autocmd TextChanged,InsertLeave
-              " \ *.js,*.jsx,*.ts,*.tsx,
-              " \ *.css,*.less,*.scss,
-              " \ *.json,*.graphql,*.md,
-              " \ *.vue,*.yaml,*.html PrettierAsync
-    " }
     " Ale {
-        " pip3 install flake8 pylint vim-vint autopep8 isort yapf
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'python':['autopep8', 'isort', 'yapf'],
@@ -221,6 +210,7 @@
                     \   'typescript':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
+                    \   'json':['prettier'],
                     \   'go':['gofmt']}
 
         let g:ale_linters = {
@@ -229,7 +219,9 @@
                     \   'typescript':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
-                    \   'vim':['vim-vint']}
+                    \   'json':['jsonlint'],
+                    \   'vim':['vint']}
+        let g:ale_lint_on_insert_leave=1
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
     " }
