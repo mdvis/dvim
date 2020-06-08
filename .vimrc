@@ -229,6 +229,7 @@
                     \   'typescript':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
+                    \   'sh':['shellcheck'],
                     \   'vim':['vim-vint']}
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
