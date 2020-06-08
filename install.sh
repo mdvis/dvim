@@ -38,15 +38,15 @@ debug() {
 }
 
 backup(){
-    now=`date +%Y%m%d_%s`
+  now=$(date +%Y%m%d_%s)
     mv "$1" "$1.$now"
     debug
 }
 
 exiseBackup(){
-    for i in $@; do
+    for i in "$@"; do
         if [ -e "$i" ]; then
-            backup $i
+            backup "$i"
         fi
     done
     ret="$?"
@@ -70,13 +70,13 @@ syncRepo() {
 }
 
 installPlugins() {
+    type nvim>/dev/null 2>&1 || local hasNvim="vim"
     local systemShell="$SHELL"
-    local hasNvim=$(type nvim>/dev/null 2>&1 || echo "vim")
     local
 
     export SHELL='/bin/sh'
 
-    if [ $hasNvim == "vim" ]
+    if [ "$hasNvim" = "vim" ]
     then
       vim "+PlugInstall!" "+PlugClean" "+qall"
     else
@@ -106,7 +106,7 @@ createSymlinks() {
     [ $index -eq 1 ] && local source_path=$linkName
     [ $index -eq 2 ] && local target_path=$linkName
     [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
-    index=$(($index+1))
+    index=$(expr $index + 1)
   done
   ret="$?"
   success "Link complete!"
@@ -130,8 +130,8 @@ copyColors(){
 }
 
 hasCommand(){
-	for m in $@; do
-		type $m>/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
+	for m in "$@"; do
+		type "$m">/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
 	done
 }
 
