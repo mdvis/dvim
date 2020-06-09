@@ -31,7 +31,9 @@
 " }
 
 " Auto load vimrc {
+  augroup loadConf
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  augroup END
 " }
 
 " General {
@@ -172,16 +174,16 @@
                     \ '^\.svn$', '\.bzr$', '^\.DS_Store',
                     \ 'node_modules']
         let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "*",
-            \ "Staged"    : "+",
-            \ "Untracked" : "✭",
-            \ "Renamed"   : "➜",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "x",
-            \ "Dirty"     : "✗",
-            \ "Clean"     : "✔︎",
+            \ 'Modified'  : '*',
+            \ 'Staged'    : '+',
+            \ 'Untracked' : '✭',
+            \ 'Renamed'   : '➜',
+            \ 'Unmerged'  : '═',
+            \ 'Deleted'   : 'x',
+            \ 'Dirty'     : '✗',
+            \ 'Clean'     : '✔︎',
             \ 'Ignored'   : '☒',
-            \ "Unknown"   : "?" }
+            \ 'Unknown'   : '?' }
         let g:NERDTreeDirArrowExpandable = '+'
         let g:NERDTreeDirArrowCollapsible = '-'
     " }
@@ -328,5 +330,7 @@
 :abclear
 :ab jsxc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
 
-au BufRead,BufNewFile *.wxss set filetype=css
-au BufRead,BufNewFile *.wxml set filetype=html
+augroup wechat
+  au BufRead,BufNewFile *.wxss set filetype=css
+  au BufRead,BufNewFile *.wxml set filetype=html
+augroup END
