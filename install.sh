@@ -33,7 +33,7 @@ error() {
 
 debug() {
     if [ "$is_debug" -eq "1" ] && [ "$ret" -gt "1" ]; then
-        msg "$FUNCNAME/$BASH_LINENO"
+        msg "${FUNCNAME[1]}/${BASH_LINENO[1]}"
     fi
 }
 
@@ -106,7 +106,7 @@ createSymlinks() {
     [ $index -eq 1 ] && local source_path=$linkName
     [ $index -eq 2 ] && local target_path=$linkName
     [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
-    index=$(expr $index + 1)
+    index=$(index + 1)
   done
   ret="$?"
   success "Link complete!"
