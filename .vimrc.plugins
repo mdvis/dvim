@@ -1,28 +1,30 @@
 " Plugins Beginning {
     set nocompatible
+
     let g:Plug_dir = '~/.vim/plugged/'
 
     filetype off
 
     call plug#begin(g:Plug_dir)
 
-    Plug 'morhetz/gruvbox'                                             " colorscheme
-    Plug 'majutsushi/tagbar'                                           " browse the tags of the current file and get an overview
-    Plug 'roman/golden-ratio'                                          " automatic resizing
-    Plug 'tpope/vim-surround'                                          " mappings to easily delete, change and add such surroundings in pairs
-    Plug 'Yggdroot/indentLine'                                         " display the indention levels
-    Plug 'jiangmiao/auto-pairs'                                        " insert or delete brackets, parens, quotes in pair
-    Plug 'kshenoy/vim-signature'                                       " display and navigate marks
-    Plug 'ryanoasis/vim-devicons'                                      " file type icon
-    Plug 'junegunn/vim-easy-align'                                     " alignment
-    Plug 'easymotion/vim-easymotion'                                   " motions
-    Plug 'terryma/vim-multiple-cursors'                                " multiple selections
+    Plug 'morhetz/gruvbox'              " colorscheme
+    Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
+    Plug 'roman/golden-ratio'           " automatic resizing
+    Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
+    Plug 'Yggdroot/indentLine'          " display the indention levels
+    Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
+    Plug 'kshenoy/vim-signature'        " display and navigate marks
+    Plug 'junegunn/vim-easy-align'      " alignment
+    Plug 'easymotion/vim-easymotion'    " motions
+    Plug 'terryma/vim-multiple-cursors' " multiple selections
 
-    Plug 'scrooloose/nerdtree'                                         " explorer
-    Plug 'jistr/vim-nerdtree-tabs'                                     " NERDTree and tabs together in Vim
-    Plug 'scrooloose/nerdcommenter'                                    " commenter
-    Plug 'Xuyuanp/nerdtree-git-plugin'                                 " show git status flags
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                     " highlight for nerdtree files
+    Plug 'scrooloose/nerdtree'          " explorer
+    Plug 'jistr/vim-nerdtree-tabs'      " NERDTree and tabs together in Vim
+    Plug 'scrooloose/nerdcommenter'     " commenter
+    Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
+
+    "Plug 'ryanoasis/vim-devicons'                  " file type icon
+    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree files
 
     if !has('nvim')
       Plug 'roxma/nvim-yarp'
@@ -30,17 +32,16 @@
     endif
 
     if has('nvim')
-      Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
+      Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     else
       Plug 'Shougo/deoplete.nvim'
     endif
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'carlitux/deoplete-ternjs', {
-          \'do': 'npm install -g tern' }
+    Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}
 
-    Plug 'mhinz/vim-signify'                                           " show a diff
-    Plug 'tpope/vim-fugitive'                                          " git wrapper
+    Plug 'mhinz/vim-signify'  " show a diff
+    Plug 'tpope/vim-fugitive' " git wrapper
 
     Plug 'mattn/emmet-vim'
 
@@ -51,19 +52,19 @@
     Plug 'heavenshell/vim-jsdoc'
 
     Plug 'luochen1990/rainbow'
-    Plug 'gorodinskiy/vim-coloresque'                                  " css/less/sass/html color preview
+    Plug 'gorodinskiy/vim-coloresque' " css/less/sass/html color preview
 
     Plug 'editorconfig/editorconfig-vim'
 
-    Plug 'rking/ag.vim'                                                " the_silver_searcher
+    Plug 'rking/ag.vim'               " the_silver_searcher
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
         \ 'dir': '~/.fzf',
-        \ 'do': './install --all' }
+        \ 'do': './install --all'}
 
     Plug 'dense-analysis/ale', {
           \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
-          \ pip3 install flake8 pylint vim-vint autopep8 isort yapf' } " Check syntax and fix
+          \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'}      " Check syntax and fix
 
     Plug 'itchyny/calendar.vim'
 

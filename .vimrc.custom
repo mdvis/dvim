@@ -1,37 +1,47 @@
+scriptencoding utf-8
+
 " Template {
-  let g:sh_comment_start_symbol="# ------"
-  let g:sh_comment_symbol="#"
-  let g:sh_comment_end_symbol="# ------"
+  let g:sh_comment_start_symbol='# ------'
+  let g:sh_comment_symbol='#'
+  let g:sh_comment_end_symbol='# ------'
 
-  let g:js_comment_start_symbol="/**"
-  let g:js_comment_symbol="*"
-  let g:js_comment_end_symbol="*/"
+  let g:js_comment_start_symbol='/**'
+  let g:js_comment_symbol='*'
+  let g:js_comment_end_symbol='*/'
 
-  let g:vi_comment_start_symbol="\" ------"
-  let g:vi_comment_symbol="\""
-  let g:vi_comment_end_symbol="\" ------"
+  let g:vi_comment_start_symbol='" ------'
+  let g:vi_comment_symbol='"'
+  let g:vi_comment_end_symbol='" ------'
 
   function! Tpl(start, mid, end)
     let start = a:start
     let mid = a:mid
     let end = a:end
-    let str="".start."\n".mid." name: 模块功能\n".mid." author: Deve\n".mid." date: ".strftime("%Y-%m-%d")."\n".end
+    let str=''.start."\n".mid." name: 模块功能\n"
+          \.mid." author: Deve\n".mid.' date: '
+          \.strftime('%Y-%m-%d')."\n".end
     put!=str
   endfunc
 
   function! SetTpl()
-        if &filetype == 'sh' || &filetype == 'python'
-          call Tpl(g:sh_comment_start_symbol,g:sh_comment_symbol,g:sh_comment_end_symbol)
+        if &filetype ==# 'sh' || &filetype ==# 'python'
+          call Tpl(g:sh_comment_start_symbol, g:sh_comment_symbol
+                \,g:sh_comment_end_symbol)
         endif
-        if &filetype == 'javascript' || &filetype=='typescript'|| &filetype=='css'|| &filetype=='scss'
-          call Tpl(g:js_comment_start_symbol,g:js_comment_symbol,g:js_comment_end_symbol)
+        if &filetype ==# 'javascript' || &filetype==#'typescript'
+              \|| &filetype==#'css' || &filetype==#'scss'
+          call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
+                \,g:js_comment_end_symbol)
         endif
-        if &filetype == 'vim'
-          call Tpl(g:vi_comment_start_symbol,g:vi_comment_symbol,g:vi_comment_end_symbol)
+        if &filetype ==# 'vim'
+          call Tpl(g:vi_comment_start_symbol, g:vi_comment_symbol
+                \,g:vi_comment_end_symbol)
         endif
     endfunc
 " }
 
-autocmd BufNewFile * call SetTpl()
+augroup Tpl
+  autocmd BufNewFile * call SetTpl()
+augroup End
 
 nmap <leader>T :call SetTpl()<CR>

@@ -44,7 +44,7 @@
         "set mousehide
     " }
     set clipboard=unnamed
-    " Better Unix / Windows compatibility
+    " Better Unix/Windows compatibility
     set viewoptions=folds,options,cursor,unix,slash
 " }
 
@@ -70,22 +70,22 @@
         set noerrorbells
         set visualbell
         set showcmd
-        set expandtab                  " Tabs are spaces, not tabs
-        set tabstop=2                  " Number of spaces that a <Tab> in the file counts for.
-        set shiftwidth=2               " Number of spaces to use for each step of (auto)indent
-        set softtabstop=2              " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
+        set expandtab             " Tabs are spaces, not tabs
+        set tabstop=2             " Number of spaces that a <Tab> in the file counts for.
+        set shiftwidth=2          " Number of spaces to use for each step of (auto)indent
+        set softtabstop=2         " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
+        set whichwrap=b,s,<,>,[,] " Move to the prev/next line when the cursor is on the first/last character
         set backspace=indent,eol,start
-        set whichwrap=b,s,<,>,[,]      " Move to the prev/next line when the cursor is on the first/last character
         set formatoptions=tqmM
         set foldmethod=manual
         set nofoldenable
-        set splitbelow                 " splitting a window will put the new window blow of the current one
-        set splitright                 " splitting a window will put the new window right of the current one
-        set autoindent                 " Indent at the same level of the previous line
-        set ignorecase                 " Case insensitive search
-        set smartcase                  " Case sensitive when uc present
-        set showmatch                  " Show matching brackets/parenthesis
-        set incsearch                  " Find as you type search
+        set splitbelow " splitting a window will put the new window blow of the current one
+        set splitright " splitting a window will put the new window right of the current one
+        set autoindent " Indent at the same level of the previous line
+        set ignorecase " Case insensitive search
+        set smartcase  " Case sensitive when uc present
+        set showmatch  " Show matching brackets/parenthesis
+        set incsearch  " Find as you type search
         set autochdir
         set autoread
         set hlsearch
@@ -93,8 +93,8 @@
         set number
         set sidescrolloff=4
         set scrolloff=2
-        " set scrolljump=4
-        set cmdheight=2
+        set scrolljump=2
+        set cmdheight=4
         set wildmenu                   " Show list instead of just completing
         set wildmode=list:longest,full " Command <Tab> completion, list matches
     " }
