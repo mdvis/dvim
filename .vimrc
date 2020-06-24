@@ -208,14 +208,16 @@
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'python':['autopep8', 'isort', 'yapf'],
+                    \   'go':['gofmt', 'goimports'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
                     \   'json':['prettier'],
-                    \   'go':['gofmt']}
+                    \   'rust':['rustfmt']}
 
         let g:ale_linters = {
+                    \   'go':['gometalinter', 'gofmt'],
                     \   'python':['flake8', 'pylint'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
@@ -223,6 +225,7 @@
                     \   'css':['stylelint'],
                     \   'sh':['shellcheck'],
                     \   'json':['jsonlint'],
+                    \   'rust':['rustc'],
                     \   'vim':['vint']}
         let g:ale_lint_on_insert_leave=1
         let g:ale_lint_on_enter=1
