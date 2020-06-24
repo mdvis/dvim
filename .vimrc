@@ -256,16 +256,13 @@
         if has('gui_running')
             set guicursor=a:block-blinkon0
             set guioptions=
-            " Fonts { Source\ Code\ Pro\ 16
+            " Fonts {
             if LINUX()
-                set guifont=SauceCodePro\ Nerd\ Font\ 16
-                set guifontwide=YouYuan\ 16
+                set guifont=Fira\ Code\ 16, SauceCodePro\ Nerd\ Font\ 16
             elseif OSX()
-                set guifont=SauceCodePro\ Nerd\ Font:h16
-                set guifontwide=YouYuan:h16
+                set guifont=Fira\ Code:h16, SauceCodePro\ Nerd\ Font:h16
             elseif WINDOWS()
-                set guifont=SauceCodePro_Nerd_Font:h16
-                set guifontwide=YouYuan:h16
+                set guifont=Fira_Code:h16, SauceCodePro_Nerd_Font:h16
             endif
             " }
         endif
