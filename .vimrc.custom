@@ -1,47 +1,72 @@
 scriptencoding utf-8
 
-" Template {
-  let g:sh_comment_start_symbol='# ------'
-  let g:sh_comment_symbol='#'
-  let g:sh_comment_end_symbol='# ------'
+function! FirstLineHasContent()
+  let firstline=getline(1)
+  return len(firstline)
+endfunc
 
-  let g:js_comment_start_symbol='/**'
-  let g:js_comment_symbol='*'
-  let g:js_comment_end_symbol='*/'
+let g:sh_comment_start_symbol='# ------'
+let g:sh_comment_symbol='#'
+let g:sh_comment_end_symbol='# ------'
+let g:js_comment_start_symbol='/**'
+let g:js_comment_symbol=' *'
+let g:js_comment_end_symbol=' */'
+let g:vi_comment_start_symbol='" ------'
+let g:vi_comment_symbol='"'
+let g:vi_comment_end_symbol='" ------'
+let g:py_comment_start_symbol='#! /usr/bin/env python3'
+let g:py_comment_symbol='# -*- coding: utf-8 -*-'
+let g:py_comment_end_symbol="'''"
 
-  let g:vi_comment_start_symbol='" ------'
-  let g:vi_comment_symbol='"'
-  let g:vi_comment_end_symbol='" ------'
+function! PyTpl(start, mid, end)
+  let start = a:start
+  let mid = a:mid
+  let end = a:end
+  let str=''.start."\n".mid."\n"
+        \."'''date: ".strftime('%Y-%m-%d')."\n"
+        \.end
+  put!=str
+endfunc
+function! Tpl(start, mid, end)
+  let start = a:start
+  let mid = a:mid
+  let end = a:end
+  let str=''.start."\n".mid." name: 模块功能\n"
+        \.mid." author: Deve\n".mid.' date: '
+        \.strftime('%Y-%m-%d')."\n".end
+  put!=str
+endfunc
 
-  function! Tpl(start, mid, end)
-    let start = a:start
-    let mid = a:mid
-    let end = a:end
-    let str=''.start."\n".mid." name: 模块功能\n"
-          \.mid." author: Deve\n".mid.' date: '
-          \.strftime('%Y-%m-%d')."\n".end
-    put!=str
-  endfunc
+function! SetTpl()
+  if &filetype ==# 'python'
+    call PyTpl(g:py_comment_start_symbol, g:py_comment_symbol
+          \,g:py_comment_end_symbol)
+  endif
+  if &filetype ==# 'sh'
+    call Tpl(g:sh_comment_start_symbol, g:sh_comment_symbol
+          \,g:sh_comment_end_symbol)
+  endif
+  if &filetype ==# 'javascript' || &filetype==#'typescript'
+        \|| &filetype==#'css' || &filetype==#'scss'
+    call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
+          \,g:js_comment_end_symbol)
+  endif
+  if &filetype ==# 'vim'
+    call Tpl(g:vi_comment_start_symbol, g:vi_comment_symbol
+          \,g:vi_comment_end_symbol)
+  endif
+endfunc
 
-  function! SetTpl()
-        if &filetype ==# 'sh' || &filetype ==# 'python'
-          call Tpl(g:sh_comment_start_symbol, g:sh_comment_symbol
-                \,g:sh_comment_end_symbol)
-        endif
-        if &filetype ==# 'javascript' || &filetype==#'typescript'
-              \|| &filetype==#'css' || &filetype==#'scss'
-          call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
-                \,g:js_comment_end_symbol)
-        endif
-        if &filetype ==# 'vim'
-          call Tpl(g:vi_comment_start_symbol, g:vi_comment_symbol
-                \,g:vi_comment_end_symbol)
-        endif
-    endfunc
-" }
+function! ShouldTpl()
+  let flhc = FirstLineHasContent()
+  if !flhc
+     call SetTpl()
+  endif
+endfunc
 
 augroup Tpl
-  autocmd BufNewFile * call SetTpl()
+  autocmd!
+  autocmd BufEnter * call ShouldTpl()
 augroup End
 
 nmap <leader>T :call SetTpl()<CR>
