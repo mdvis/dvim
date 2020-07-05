@@ -92,9 +92,9 @@
         set nowrap
         set number
         set sidescrolloff=4
-        set scrolloff=2
         set scrolljump=2
-        set cmdheight=4
+        set scrolloff=2
+        set cmdheight=2
         set wildmenu                   " Show list instead of just completing
         set wildmode=list:longest,full " Command <Tab> completion, list matches
     " }
@@ -285,12 +285,12 @@
         map <leader>c :NERDTree ~/Code<CR>
     " }
     " Easemotion {
-        map <Leader><Leader>s <Plug>(easymotion-s)
-        map <Leader><Leader>j <Plug>(easymotion-j)
-        map <Leader><Leader>k <Plug>(easymotion-k)
-        map <Leader><leader>. <Plug>(easymotion-repeat)
-        map <Leader><leader>l <Plug>(easymotion-lineforward)
-        map <Leader><leader>h <Plug>(easymotion-linebackward)
+        nmap <Leader><Leader>s <Plug>(easymotion-s)
+        nmap <Leader><Leader>j <Plug>(easymotion-j)
+        nmap <Leader><Leader>k <Plug>(easymotion-k)
+        nmap <Leader><leader>. <Plug>(easymotion-repeat)
+        nmap <Leader><leader>l <Plug>(easymotion-lineforward)
+        nmap <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Signify {
         " mappings to jump to changed blocks
@@ -301,7 +301,7 @@
       nmap <leader>t :TagbarToggle<CR>
     " }
     " Easy align {
-      map ga <Plug>(EasyAlign)
+      vmap ga <Plug>(EasyAlign)
     " }
 
     nmap <leader><leader>o :browse oldfiles<CR>
@@ -331,6 +331,22 @@
 :ab jsxc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
 
 augroup wechat
-  au BufRead,BufNewFile *.wxss set filetype=css
-  au BufRead,BufNewFile *.wxml set filetype=html
+  autocmd!
+  autocmd BufRead,BufNewFile *.wxss set filetype=css
+  autocmd BufRead,BufNewFile *.wxml set filetype=html
 augroup END
+" multiple_cursors compatible deoplete {
+    func! Multiple_cursors_before()
+      if deoplete#is_enabled()
+        call deoplete#disable()
+        let g:deoplete_is_enable_before_multi_cursors = 1
+      else
+        let g:deoplete_is_enable_before_multi_cursors = 0
+      endif
+    endfunc
+    func! Multiple_cursors_after()
+      if g:deoplete_is_enable_before_multi_cursors
+        call deoplete#enable()
+      endif
+    endfunc
+" }
