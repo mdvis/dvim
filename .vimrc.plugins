@@ -26,15 +26,12 @@
     "Plug 'ryanoasis/vim-devicons'                  " file type icon
     "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree files
 
-    if !has('nvim')
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-
     if has('nvim')
       Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     else
       Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
     endif
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
