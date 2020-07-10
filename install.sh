@@ -106,7 +106,7 @@ createSymlinks() {
     [ $index -eq 1 ] && local source_path=$linkName
     [ $index -eq 2 ] && local target_path=$linkName
     [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
-    index=$(index + 1)
+    index=$((index + 1))
   done
   ret="$?"
   success "Link complete!"
