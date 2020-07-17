@@ -18,7 +18,7 @@
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
 
-    Plug 'scrooloose/nerdtree'          " explorer
+    Plug 'preservim/nerdtree'           " explorer
     Plug 'jistr/vim-nerdtree-tabs'      " NERDTree and tabs together in Vim
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
