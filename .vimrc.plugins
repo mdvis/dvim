@@ -56,8 +56,7 @@
     Plug 'rking/ag.vim'               " the_silver_searcher
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
-        \ 'dir': '~/.fzf',
-        \ 'do': './install --all'}
+          \ 'do': { -> fzf#install() }}
 
     Plug 'dense-analysis/ale', {
           \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
