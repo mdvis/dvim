@@ -173,7 +173,7 @@
                     \ '\.swp$', '^\.git$', '^\.hg$',
                     \ '^\.svn$', '\.bzr$', '^\.DS_Store',
                     \ 'node_modules']
-        let g:NERDTreeIndicatorMapCustom = {
+        let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ 'Modified'  : '*',
             \ 'Staged'    : '+',
             \ 'Untracked' : '✭',
