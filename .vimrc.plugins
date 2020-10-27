@@ -23,19 +23,7 @@
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
 
-    "Plug 'ryanoasis/vim-devicons'                  " file type icon
-    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " highlight for nerdtree files
-
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    Plug 'fszymanski/deoplete-emoji'
-    Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}
+    Plug 'mhinz/vim-startify'           " start screen
 
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
@@ -63,6 +51,14 @@
           \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'}      " Check syntax and fix
 
     Plug 'itchyny/calendar.vim'
+
+    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
+
+
+    Plug 'prettier/vim-prettier', {
+        \ 'do': 'npm install',
+        \ 'for': ['vue', 'css', 'less', 'scss'] }
 
     call plug#end()
 " }

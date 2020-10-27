@@ -147,9 +147,6 @@
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
-    " deoplete {
-        let g:deoplete#enable_at_startup = 1
-    " }
     " Rainbow {
         let g:rainbow_active=1
     " }
@@ -195,7 +192,7 @@
                     \ 'ctrl-v': 'vsplit' }
     " }
     " Ultisnips {
-        let g:UltiSnipsExpandTrigger='<tab>'
+        let g:UltiSnipsExpandTrigger='<leader><tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
@@ -231,6 +228,23 @@
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
     " }
+    " YouCompleteMe {
+        set completeopt-=preview
+        let g:acp_enableAtStartup = 0
+        " enable completion from tags
+        let g:ycm_collect_identifiers_from_tags_files = 1
+        " Enable omni completion.
+        autocmd FileType html,markdown
+                    \ setlocal omnifunc=htmlcomplete#CompleteTags
+        " autocmd FileType javascript
+        "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType javascript setlocal omnifunc=tern#Complete
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+    " }
     " Backup file {
         set backup
         set swapfile
@@ -258,19 +272,23 @@
             set guioptions=
             " Fonts {
             if LINUX()
-                set guifont=Fira\ Code\ 16, SauceCodePro\ Nerd\ Font\ 16
+                set guifont=Fira\ Code\ 24, SauceCodePro\ Nerd\ Font\ 24
             elseif OSX()
-                set guifont=Fira\ Code:h16, SauceCodePro\ Nerd\ Font:h16
+                set guifont=Fira\ Code:h24, SauceCodePro\ Nerd\ Font:h24
             elseif WINDOWS()
-                set guifont=Fira_Code:h16, SauceCodePro_Nerd_Font:h16
+                set guifont=Fira_Code:h24, SauceCodePro_Nerd_Font:h24
             endif
             " }
+        endif
+        if exists('g:GuiLoaded')
+            set guifont=Fira\ Code:h24
         endif
     " }
 " }
 
 " Mappings {
     let g:mapleader = ','
+    map <silent> <Leader>s :source $MYVIMRC<CR>
     " Ale {
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -335,18 +353,3 @@ augroup wechat
   autocmd BufRead,BufNewFile *.wxss set filetype=css
   autocmd BufRead,BufNewFile *.wxml set filetype=html
 augroup END
-" multiple_cursors compatible deoplete {
-    func! Multiple_cursors_before()
-      if deoplete#is_enabled()
-        call deoplete#disable()
-        let g:deoplete_is_enable_before_multi_cursors = 1
-      else
-        let g:deoplete_is_enable_before_multi_cursors = 0
-      endif
-    endfunc
-    func! Multiple_cursors_after()
-      if g:deoplete_is_enable_before_multi_cursors
-        call deoplete#enable()
-      endif
-    endfunc
-" }
