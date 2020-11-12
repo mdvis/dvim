@@ -162,14 +162,14 @@
         let g:NERDTreeMouseMode=2
         let g:NERDTreeQuitOnOpen=1
         let g:NERDTreeShowHidden=1
-        "let g:NERDTreeShowBookmarks=1
+        let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=1
         let g:NERDTreeIgnore=[
                     \ '\.py[cd]$', '\~$', '\.swo$',
                     \ '\.swp$', '^\.git$', '^\.hg$',
                     \ '^\.svn$', '\.bzr$', '^\.DS_Store',
-                    \ 'node_modules']
+                    \ 'node_modules', '\.meta$', '\.fire$']
         let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ 'Modified'  : '*',
             \ 'Staged'    : '+',
@@ -300,7 +300,10 @@
     " NerdTree {
         map <leader>e :NERDTreeFind<CR>
         map <leader>n :NERDTreeTabsToggle<CR>
+
+        " custom
         map <leader>c :NERDTree ~/Code<CR>
+        map <leader>i :NERDTree ~/ipalfish<CR>
     " }
     " Easemotion {
         nmap <Leader><Leader>s <Plug>(easymotion-s)
