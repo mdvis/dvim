@@ -34,7 +34,10 @@
     Plug 'honza/vim-snippets'
 
     Plug 'sheerun/vim-polyglot'
-    Plug 'heavenshell/vim-jsdoc'
+    Plug 'heavenshell/vim-jsdoc', {
+          \ 'for': ['javascript', 'javascript.jsx', 'typescript'],
+          \ 'do': 'make install'
+          \}
 
     Plug 'luochen1990/rainbow'
     Plug 'gorodinskiy/vim-coloresque' " css/less/sass/html color preview
@@ -44,11 +47,13 @@
     Plug 'rking/ag.vim'               " the_silver_searcher
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
-          \ 'do': { -> fzf#install() }}
+          \ 'do': { -> fzf#install() }
+          \}
 
     Plug 'dense-analysis/ale', {
           \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
-          \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'}      " Check syntax and fix
+          \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'
+          \}      " Check syntax and fix
 
     Plug 'itchyny/calendar.vim'
 
@@ -58,7 +63,8 @@
 
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
-        \ 'for': ['vue', 'css', 'less', 'scss'] }
+        \ 'for': ['vue', 'css', 'less', 'scss']
+        \}
 
     call plug#end()
 " }
