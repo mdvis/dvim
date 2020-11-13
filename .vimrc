@@ -329,7 +329,7 @@
     nmap <leader><leader>a :Ag<space>
     nmap <leader><leader>r :reg<CR>
 
-    nmap <leader>jd :JsDoc<CR>
+    nmap <silent> <leader>jd <Plug>(jsdoc)
     nmap <leader>nh :noh<CR>
 
 
