@@ -328,6 +328,7 @@
     nmap <leader><leader>o :browse oldfiles<CR>
     nmap <leader><leader>a :Ag<space>
     nmap <leader><leader>r :reg<CR>
+    nmap <leader>s :term<CR>
 
     nmap <silent> <leader>jd <Plug>(jsdoc)
     nmap <leader>nh :noh<CR>
