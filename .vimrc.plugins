@@ -43,10 +43,10 @@
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'rking/ag.vim'               " the_silver_searcher
-    Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', {
           \ 'do': { -> fzf#install() }
           \}
+    Plug 'junegunn/fzf.vim'
 
     Plug 'dense-analysis/ale', {
           \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
