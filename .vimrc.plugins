@@ -8,6 +8,7 @@
     call plug#begin(g:Plug_dir)
 
     Plug 'morhetz/gruvbox'              " colorscheme
+    Plug 'junegunn/goyo.vim'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
@@ -23,6 +24,14 @@
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
 
+    if has('nvim')
+      Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Plug 'Shougo/defx.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
 
@@ -33,7 +42,7 @@
 
     Plug 'sheerun/vim-polyglot'
     Plug 'heavenshell/vim-jsdoc', {
-          \ 'for': ['javascript', 'javascript.jsx', 'typescript'],
+          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'vue'],
           \ 'do': 'make install'
           \}
 
