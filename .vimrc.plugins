@@ -24,14 +24,6 @@
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
 
-    if has('nvim')
-      Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Plug 'Shougo/defx.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
 
@@ -51,7 +43,7 @@
 
     Plug 'editorconfig/editorconfig-vim'
 
-    Plug 'rking/ag.vim'               " the_silver_searcher
+    Plug 'mileszs/ack.vim'
     Plug 'junegunn/fzf', {
           \ 'do': { -> fzf#install() }
           \}
