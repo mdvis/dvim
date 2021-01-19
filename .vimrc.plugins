@@ -1,6 +1,4 @@
 " Plugins Beginning {
-    set nocompatible
-
     let g:Plug_dir = '~/.vim/plugged/'
 
     filetype off
@@ -8,14 +6,12 @@
     call plug#begin(g:Plug_dir)
 
     Plug 'morhetz/gruvbox'              " colorscheme
-    Plug 'junegunn/goyo.vim'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'Yggdroot/indentLine'          " display the indention levels
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
     Plug 'kshenoy/vim-signature'        " display and navigate marks
-    Plug 'junegunn/vim-easy-align'      " alignment
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
 
@@ -53,8 +49,6 @@
           \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
           \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'
           \}      " Check syntax and fix
-
-    Plug 'itchyny/calendar.vim'
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
     Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }

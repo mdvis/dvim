@@ -135,14 +135,15 @@ hasCommand(){
 	done
 }
 
-hasCommand      node \
+hasCommand      ag \
+                ack \
+                node \
+                yapf \
+                isort \
+                ctags \
                 flake8 \
                 pylint \
-                autopep8 \
-                isort \
-                ag \
-                yapf \
-                ctags
+                autopep8
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \

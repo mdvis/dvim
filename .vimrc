@@ -1,8 +1,5 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 " Environment {
-    " Basics {
-        set nocompatible
-    " }
     " Identify platform {
         silent function! OSX()
             return has('macunix')
@@ -204,15 +201,14 @@
     " Ale {
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'python':['autopep8', 'isort', 'yapf'],
                     \   'go':['gofmt', 'goimports'],
+                    \   'python':['autopep8', 'isort', 'yapf'],
                     \   'javascript':['eslint'],
                     \   'typescript':['eslint'],
                     \   'vue':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
-                    \   'json':['prettier'],
-                    \   'rust':['rustfmt']}
+                    \   'json':['prettier']}
 
         let g:ale_linters = {
                     \   'go':['gometalinter', 'gofmt'],
@@ -222,9 +218,8 @@
                     \   'vue':['eslint'],
                     \   'scss':['stylelint'],
                     \   'css':['stylelint'],
-                    \   'sh':['shellcheck'],
                     \   'json':['jsonlint'],
-                    \   'rust':['rustc'],
+                    \   'sh':['shellcheck'],
                     \   'vim':['vint']}
         let g:ale_lint_on_insert_leave=1
         let g:ale_lint_on_enter=1
@@ -236,20 +231,16 @@
         " enable completion from tags
         let g:ycm_collect_identifiers_from_tags_files = 1
         " Enable omni completion.
-        autocmd FileType html,markdown
-                    \ setlocal omnifunc=htmlcomplete#CompleteTags
-        " autocmd FileType javascript
-        "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType javascript setlocal omnifunc=tern#Complete
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-    " }
-    " Goyo {
-        let g:goyo_width=80
-        let g:goyo_height="100%"
+        augroup YCM
+          autocmd FileType html,markdown
+                      \ setlocal omnifunc=htmlcomplete#CompleteTags
+          " autocmd FileType javascript
+          "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
+          autocmd FileType javascript setlocal omnifunc=tern#Complete
+          autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+          autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+          autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        augroup end
     " }
     " Ack {
         let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -297,7 +288,7 @@
 
 " Mappings {
     let g:mapleader = ','
-    map <silent> <Leader>s :source $MYVIMRC<CR>
+    map <silent> <Leader>S :source $MYVIMRC<CR>
     " Ale {
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -318,7 +309,6 @@
         nmap <Leader><Leader>s <Plug>(easymotion-s)
         nmap <Leader><Leader>j <Plug>(easymotion-j)
         nmap <Leader><Leader>k <Plug>(easymotion-k)
-        nmap <Leader><leader>. <Plug>(easymotion-repeat)
         nmap <Leader><leader>l <Plug>(easymotion-lineforward)
         nmap <Leader><leader>h <Plug>(easymotion-linebackward)
     " }
@@ -330,36 +320,24 @@
     " Tagbar {
         nmap <leader>t :TagbarToggle<CR>
     " }
-    " Easy align {
-        vmap ga <Plug>(EasyAlign)
-    " }
-    " Goyo{
-        nmap <leader>g :Goyo<CR>
-    " }
-    nmap <leader><leader>t :tabs<CR>
+    nmap <silent> <leader>jd <Plug>(jsdoc)
+    nmap <leader><leader>a :Ack<space>
+    nmap <leader><leader>A :Ag<space>
 
     nmap <leader><leader>o :browse oldfiles<CR>
-    nmap <leader><leader>a :Ack<space>
+    nmap <leader><leader>t :tabs<CR>
     nmap <leader><leader>r :reg<CR>
-    nmap <leader>s :term<CR>
-
-    nmap <silent> <leader>jd <Plug>(jsdoc)
     nmap <leader>nh :noh<CR>
-
-
+    nmap <leader>s :term<CR>
     nmap <leader>w :w<CR>
     nmap <leader>q :q<CR>
     nmap <leader>x :x<CR>
-
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
-
     nmap j gj
     nmap k gk
-
-    map <leader><leader>cl :Calendar<CR>
 " }
 
 :abclear
