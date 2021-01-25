@@ -28,9 +28,9 @@
 " }
 
 " Auto load vimrc {
-  augroup loadConf
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-  augroup END
+  "augroup loadConf
+    "autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  "augroup END
 " }
 
 " General {
@@ -288,29 +288,28 @@
 
 " Mappings {
     let g:mapleader = ','
-    map <silent> <Leader>S :source $MYVIMRC<CR>
+
     " Ale {
-        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <C-j> <Plug>(ale_next_wrap)
+        nmap <C-k> <Plug>(ale_previous_wrap)
+        nmap <C-j> <Plug>(ale_next_wrap)
     " }
     " fzf {
-        nmap <C-p> :Files<CR>
-        nmap <C-e> :Buffers<CR>
+        nmap <silent> <C-p> :Files<CR>
+        nmap <silent> <C-e> :Buffers<CR>
     " }
     " NerdTree {
-        map <leader>e :NERDTreeFind<CR>
-        map <leader>n :NERDTreeTabsToggle<CR>
-
+        map <silent> <leader>e :NERDTreeFind<CR>
+        map <silent> <leader>n :NERDTreeTabsToggle<CR>
         " custom
-        map <leader>c :NERDTree ~/Code<CR>
-        map <leader>i :NERDTree ~/ipalfish<CR>
+        map <silent> <leader>c :NERDTree ~/Code<CR>
+        map <silent> <leader>i :NERDTree ~/ipalfish<CR>
     " }
     " Easemotion {
-        nmap <Leader><Leader>s <Plug>(easymotion-s)
-        nmap <Leader><Leader>j <Plug>(easymotion-j)
-        nmap <Leader><Leader>k <Plug>(easymotion-k)
-        nmap <Leader><leader>l <Plug>(easymotion-lineforward)
-        nmap <Leader><leader>h <Plug>(easymotion-linebackward)
+        nmap <leader><leader>s <Plug>(easymotion-s)
+        nmap <leader><leader>j <Plug>(easymotion-j)
+        nmap <leader><leader>k <Plug>(easymotion-k)
+        nmap <leader><leader>l <Plug>(easymotion-lineforward)
+        nmap <leader><leader>h <Plug>(easymotion-linebackward)
     " }
     " Signify {
         " mappings to jump to changed blocks
@@ -318,30 +317,33 @@
         nmap <leader>sp <plug>(signify-prev-hunk)
     " }
     " Tagbar {
-        nmap <leader>t :TagbarToggle<CR>
+        nmap <silent> <leader>t :TagbarToggle<CR>
     " }
-    nmap <silent> <leader>jd <Plug>(jsdoc)
-    nmap <leader><leader>a :Ack<space>
-    nmap <leader><leader>A :Ag<space>
-
-    nmap <leader><leader>o :browse oldfiles<CR>
-    nmap <leader><leader>t :tabs<CR>
-    nmap <leader><leader>r :reg<CR>
-    nmap <leader>nh :noh<CR>
-    nmap <leader>s :term<CR>
-    nmap <leader>w :w<CR>
-    nmap <leader>q :q<CR>
-    nmap <leader>x :x<CR>
+    " tools
+    nmap <silent> <leader>a :Ag<CR>
+    nmap <leader>jd <Plug>(jsdoc)
+    nmap <leader>s :Ack<space>
+    " origin
+    nmap <silent> <leader>S :source $MYVIMRC<CR>
+    nmap <silent> <leader>o :browse oldfiles<CR>
+    nmap <silent> <leader><leader>t :tabs<CR>
+    nmap <silent> <leader>nh :noh<CR>
+    nmap <silent> <leader>r :reg<CR>
+    nmap <silent> <leader>w :w<CR>
+    nmap <silent> <leader>q :q<CR>
+    nmap <silent> <leader>x :x<CR>
+    " change pane
     nmap <leader>h <c-w>h
     nmap <leader>j <c-w>j
     nmap <leader>k <c-w>k
     nmap <leader>l <c-w>l
+    " move
     nmap j gj
     nmap k gk
 " }
 
 :abclear
-:ab jsxc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
+:ab jccc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
 
 augroup wechat
   autocmd!
