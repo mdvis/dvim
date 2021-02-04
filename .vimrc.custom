@@ -1,4 +1,22 @@
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 scriptencoding utf-8
+
+" Environment {
+    " Identify platform {
+        silent function! OSX()
+            return has('macunix')
+        endfunction
+
+        silent function! LINUX()
+            return has('unix') && !has('macunix') && !has('win32unix')
+        endfunction
+
+        silent function! WINDOWS()
+            return  (has('win32') || has('win64'))
+        endfunction
+    " }
+" }
+
 
 function! FirstLineHasContent()
   let firstline=getline(1)
@@ -70,3 +88,12 @@ augroup Tpl
 augroup End
 
 nmap <leader>T :call SetTpl()<CR>
+
+:abclear
+:ab jccc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
+
+augroup wechat
+  autocmd!
+  autocmd BufRead,BufNewFile *.wxss set filetype=css
+  autocmd BufRead,BufNewFile *.wxml set filetype=html
+augroup END
