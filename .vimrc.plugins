@@ -8,28 +8,31 @@ scriptencoding utf-8
 
     call plug#begin(g:Plug_dir)
 
-    Plug 'morhetz/gruvbox'              " colorscheme
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'Yggdroot/indentLine'          " display the indention levels
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
     Plug 'kshenoy/vim-signature'        " display and navigate marks
+    Plug 'junegunn/vim-easy-align'
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
 
     Plug 'preservim/nerdtree'           " explorer
-    Plug 'jistr/vim-nerdtree-tabs'      " NERDTree and tabs together in Vim
+    Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
 
     Plug 'mattn/emmet-vim'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     Plug 'sheerun/vim-polyglot'
     Plug 'heavenshell/vim-jsdoc', {
@@ -54,7 +57,7 @@ scriptencoding utf-8
           \}      " Check syntax and fix
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --go-completer' }
 
 
     Plug 'prettier/vim-prettier', {
@@ -95,7 +98,6 @@ scriptencoding utf-8
         let g:NERDTreeShowHidden=1
         let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
-        let g:nerdtree_tabs_open_on_gui_startup=1
         let g:NERDTreeIgnore=[
                     \ '\.py[cd]$', '\~$', '\.swo$',
                     \ '\.swp$', '^\.git$', '^\.hg$',
@@ -162,22 +164,17 @@ scriptencoding utf-8
     " YouCompleteMe {
         set completeopt-=preview
         let g:acp_enableAtStartup = 0
-        " enable completion from tags
-        let g:ycm_collect_identifiers_from_tags_files = 1
-        " Enable omni completion.
-        augroup YCM
-          autocmd FileType html,markdown
-                      \ setlocal omnifunc=htmlcomplete#CompleteTags
-          " autocmd FileType javascript
-          "            \ setlocal omnifunc=javascriptcomplete#CompleteJS
-          autocmd FileType javascript setlocal omnifunc=tern#Complete
-          autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-          autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-          autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        augroup end
     " }
     " Ack {
         let g:ackprg = 'ag --nogroup --nocolor --column'
+    " }
+    " Easy align{
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+    " }
+    " nerdtree syntax highlight{
+        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
     " Backup file {
         set backup
