@@ -17,7 +17,6 @@ scriptencoding utf-8
         map <silent> <leader>n :NERDTreeToggle<CR>
         " custom
         map <silent> <leader>c :NERDTree ~/Code<CR>
-        map <silent> <leader>i :NERDTree ~/ipalfish<CR>
     " }
     " Easemotion {
         nmap <leader><leader>s <Plug>(easymotion-s)
@@ -56,4 +55,3 @@ scriptencoding utf-8
     nmap j gj
     nmap k gk
 " }
-
