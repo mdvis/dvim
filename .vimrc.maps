@@ -9,7 +9,7 @@ scriptencoding utf-8
         nmap <C-j> <Plug>(ale_next_wrap)
     " }
     " fzf {
-        nmap <silent> <C-p> :Files<CR>
+        nmap <silent> <C-p> :Files ~/Code<CR>
         nmap <silent> <C-e> :Buffers<CR>
     " }
     " NerdTree {
