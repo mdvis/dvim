@@ -45,6 +45,7 @@ scriptencoding utf-8
     nmap <silent> <leader>r :reg<CR>
     nmap <silent> <leader>w :w<CR>
     nmap <silent> <leader>q :q<CR>
+    nmap <silent> <leader><leader>q :q!<CR>
     nmap <silent> <leader>x :x<CR>
     " change pane
     nmap <leader>h <c-w>h
