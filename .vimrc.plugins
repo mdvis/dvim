@@ -166,144 +166,48 @@ scriptencoding utf-8
                     \   'typescript':['eslint'],
                     \   'vue':['eslint'],
                     \   'scss':['stylelint'],
+                    \   'less':['stylelint'],
                     \   'css':['stylelint'],
                     \   'json':['jsonlint'],
                     \   'sh':['shellcheck'],
                     \   'vim':['vint']}
-        "let g:ale_lint_on_insert_leave=1
+        let g:ale_lint_on_insert_leave=1
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
-        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
     " }
-    "" YouCompleteMe {
-        "set completeopt-=preview
-        "let g:acp_enableAtStartup = 0
-    "" }
+
     " deoplete {
         let g:deoplete#enable_at_startup = 1
         call deoplete#custom#option('num_processes', 4)
     " }
-    "" Defx {
-      "nmap <leader>d :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
-      "call defx#custom#option('_', {
-              "\ 'columns': 'icons:git:mark:indent:icon:filename:type:size:time',
-              "\ 'split': 'vertical',
-              "\ })
-      "autocmd FileType defx call s:defx_my_settings()
-        "function! s:defx_my_settings() abort
-          "" Define mappings
-          "nnoremap <silent><buffer><expr> <CR>
-          "\ defx#do_action('open')
-          "nnoremap <silent><buffer><expr> c
-          "\ defx#do_action('copy')
-          "nnoremap <silent><buffer><expr> m
-          "\ defx#do_action('move')
-          "nnoremap <silent><buffer><expr> p
-          "\ defx#do_action('paste')
-          "nnoremap <silent><buffer><expr> l
-          "\ defx#do_action('open')
-          "nnoremap <silent><buffer><expr> E
-          "\ defx#do_action('open', 'vsplit')
-          "nnoremap <silent><buffer><expr> P
-          "\ defx#do_action('open', 'pedit')
-          "nnoremap <silent><buffer><expr> o
-          "\ defx#do_action('open_or_close_tree')
-          "nnoremap <silent><buffer><expr> K
-          "\ defx#do_action('new_directory')
-          "nnoremap <silent><buffer><expr> N
-          "\ defx#do_action('new_file')
-          "nnoremap <silent><buffer><expr> M
-          "\ defx#do_action('new_multiple_files')
-          "nnoremap <silent><buffer><expr> C
-          "\ defx#do_action('toggle_columns',
-          "\                'mark:indent:icon:filename:type:size:time')
-          "nnoremap <silent><buffer><expr> S
-          "\ defx#do_action('toggle_sort', 'time')
-          "nnoremap <silent><buffer><expr> d
-          "\ defx#do_action('remove')
-          "nnoremap <silent><buffer><expr> r
-          "\ defx#do_action('rename')
-          "nnoremap <silent><buffer><expr> !
-          "\ defx#do_action('execute_command')
-          "nnoremap <silent><buffer><expr> x
-          "\ defx#do_action('execute_system')
-          "nnoremap <silent><buffer><expr> yy
-          "\ defx#do_action('yank_path')
-          "nnoremap <silent><buffer><expr> .
-          "\ defx#do_action('toggle_ignored_files')
-          "nnoremap <silent><buffer><expr> ;
-          "\ defx#do_action('repeat')
-          "nnoremap <silent><buffer><expr> h
-          "\ defx#do_action('cd', ['..'])
-          "nnoremap <silent><buffer><expr> ~
-          "\ defx#do_action('cd')
-          "nnoremap <silent><buffer><expr> q
-          "\ defx#do_action('quit')
-          "nnoremap <silent><buffer><expr> <Space>
-          "\ defx#do_action('toggle_select') . 'j'
-          "nnoremap <silent><buffer><expr> *
-          "\ defx#do_action('toggle_select_all')
-          "nnoremap <silent><buffer><expr> j
-          "\ line('.') == line('$') ? 'gg' : 'j'
-          "nnoremap <silent><buffer><expr> k
-          "\ line('.') == 1 ? 'G' : 'k'
-          "nnoremap <silent><buffer><expr> <C-l>
-          "\ defx#do_action('redraw')
-          "nnoremap <silent><buffer><expr> <C-g>
-          "\ defx#do_action('print')
-          "nnoremap <silent><buffer><expr> cd
-          "\ defx#do_action('change_vim_cwd')
-        "endfunction
-    "" }
+
     " Ack {
         let g:ackprg = 'ag --nogroup --nocolor --column'
     " }
-    " Easy align{
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
-    " }
+
     " nerdtree syntax highlight{
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
-    " Backup file {
-        set backup
-        set swapfile
-        set undofile
-        set writebackup
-        " set nobackup
-        " set noswapfile
-        " set noundofile
-        " set nowritebackup
-        " 结尾的//表示生成的文件名带有绝对路径
-        " 路径中用%替换目录分隔符，这样可以防止文件重名
-        if WINDOWS()
-            set backupdir=c:\backup\\
-            set directory=c:\swp\\
-            set undodir=c:\undo\\
-        else
-            set backupdir=~/.backup//
-            set directory=~/.swp//
-            set undodir=~/.undo//
-        endif
+
+    " vim-multiple-cursors {
+
+        func! Multiple_cursors_before()
+          if deoplete#is_enabled()
+            call deoplete#disable()
+            let g:deoplete_is_enable_before_multi_cursors = 1
+          else
+            let g:deoplete_is_enable_before_multi_cursors = 0
+          endif
+        endfunc
+
+        func! Multiple_cursors_after()
+          if g:deoplete_is_enable_before_multi_cursors
+            call deoplete#enable()
+          endif
+        endfunc
+
     " }
-    " UI {
-        if has('gui_running')
-            set guicursor=a:block-blinkon0
-            set guioptions=
-            " Fonts {
-            if LINUX()
-                set guifont=Fira\ Code\ 24, SauceCodePro\ Nerd\ Font\ 24
-            elseif OSX()
-                set guifont=Fira\ Code:h24, SauceCodePro\ Nerd\ Font:h24
-            elseif WINDOWS()
-                set guifont=Fira_Code:h24, SauceCodePro_Nerd_Font:h24
-            endif
-            " }
-        endif
-        if exists('g:GuiLoaded')
-            set guifont=Fira\ Code:h24
-        endif
-    " }
+
 " }
