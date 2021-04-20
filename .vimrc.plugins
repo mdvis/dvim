@@ -34,14 +34,11 @@
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    Plug 'sheerun/vim-polyglot'
+    Plug 'sheerun/vim-polyglot' " highlight
     Plug 'heavenshell/vim-jsdoc', {
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'vue'],
           \ 'do': 'make install'
           \}
-
-    Plug 'luochen1990/rainbow'
-    Plug 'gorodinskiy/vim-coloresque' " css/less/sass/html color preview
 
     Plug 'editorconfig/editorconfig-vim'
 
@@ -56,17 +53,12 @@
           \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'
           \}      " Check syntax and fix
 
-    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-
-    if !has('nvim')
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-
     if has('nvim')
       Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
     else
       Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
     endif
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
@@ -94,10 +86,6 @@
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
-    " }
-
-    " Rainbow {
-        let g:rainbow_active=1
     " }
 
     " Easemotion {
