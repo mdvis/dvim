@@ -1,7 +1,7 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
-scriptencoding utf-8
 
 " Plugins Beginning {
+
     let g:Plug_dir = '~/.vim/plugged/'
 
     filetype off
@@ -93,29 +93,37 @@ scriptencoding utf-8
         highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
     " }
+
     " Rainbow {
         let g:rainbow_active=1
     " }
+
     " Easemotion {
         let g:EasyMotion_smartcase = 1
     " }
+
     " Emmet {
         let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
     " }
+
     " NerdTree {
-        " let g:NERDTreeWinSize=30
+
+        let g:NERDTreeWinSize=40
         let g:NERDTreeChDirMode=1
         let g:NERDTreeMouseMode=2
         let g:NERDTreeQuitOnOpen=1
         let g:NERDTreeShowHidden=1
         let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
+
         let g:NERDTreeIgnore=[
                     \ '\.py[cd]$', '\~$', '\.swo$',
                     \ '\.swp$', '^\.git$', '^\.hg$',
                     \ '^\.svn$', '\.bzr$', '^\.DS_Store',
                     \ 'node_modules', '\.meta$', '\.fire$']
+
         let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ 'Modified'  : '*',
             \ 'Staged'    : '+',
@@ -127,27 +135,38 @@ scriptencoding utf-8
             \ 'Clean'     : '✔︎',
             \ 'Ignored'   : '☒',
             \ 'Unknown'   : '?' }
+
         let g:NERDTreeDirArrowExpandable = '+'
         let g:NERDTreeDirArrowCollapsible = '-'
+
     " }
+
     " fzf {
+
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
                     \ 'ctrl-t': 'tab split',
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
+
     " }
+
     " Ultisnips {
+
         let g:UltiSnipsExpandTrigger='<leader><tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
+
     " }
+
     " IndentLine {
         let g:indentLine_concealcursor='inc'
         let g:indentLine_conceallevel=2
     " }
+
     " Ale {
+
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'go':['gofmt', 'goimports'],
@@ -156,6 +175,7 @@ scriptencoding utf-8
                     \   'typescript':['eslint'],
                     \   'vue':['eslint'],
                     \   'scss':['stylelint'],
+                    \   'less':['stylelint'],
                     \   'css':['stylelint'],
                     \   'json':['prettier']}
 
