@@ -1,4 +1,4 @@
 # Linux, *nix, Mac OSX Installation #
 ```
-$ curl -L https://raw.githubusercontent.com/manjuist/dvim/master/install.sh -o - | sh
+$ curl -L https://raw.githubusercontent.com/mdvis/dvim/master/install.sh -o - | sh
 ```

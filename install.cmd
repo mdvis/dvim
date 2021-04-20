@@ -16,7 +16,7 @@ IF NOT EXIST "c:\undo" (
 @set APP_NAME=dvim
 @set APP_PATH=%HOME%\%APP_NAME%
 IF NOT EXIST "%APP_PATH%" (
-    call git clone -b 3.0 https://github.com/manjuist/%APP_NAME%.git "%APP_PATH%"
+    call git clone -b 3.0 https://github.com/mdvis/%APP_NAME%.git "%APP_PATH%"
 ) ELSE (
     @set ORIGINAL_DIR=%CD%
     echo updating %APP_NAME%

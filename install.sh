@@ -8,7 +8,7 @@ readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-pl
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
-[ -z "$REPO_URI" ] && REPO_URI="https://github.com/manjuist/$APP_NAME.git"
+[ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
 [ ! -d ~/.backup ] && mkdir ~/.backup
 [ ! -d ~/.swp ] && mkdir ~/.swp
