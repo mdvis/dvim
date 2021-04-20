@@ -57,7 +57,6 @@ scriptencoding utf-8
           \}      " Check syntax and fix
 
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-    "Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --go-completer' }
 
     if !has('nvim')
       Plug 'roxma/nvim-yarp'
@@ -73,15 +72,6 @@ scriptencoding utf-8
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-    "if has('nvim')
-      "Plug 'Shougo/defx.nvim' ,{'do': ':UpdateRemotePlugins'}
-    "else
-      "Plug 'Shougo/defx.nvim'
-    "endif
-    "Plug 'kristijanhusak/defx-git'
-    "Plug 'kristijanhusak/defx-icons'
-
-
     Plug 'prettier/vim-prettier', {
         \ 'do': 'npm install',
         \ 'for': ['vue', 'css', 'less', 'scss']
@@ -91,6 +81,7 @@ scriptencoding utf-8
 " }
 
 " Plugin Config Start {
+
     " Signify {
         " this first setting decides in which order try to guess your current vcs
         " UPDATE it to reflect your preferences, it will speed up opening files
