@@ -136,7 +136,6 @@ hasCommand(){
 }
 
 hasCommand      ag \
-                ack \
                 node \
                 yapf \
                 isort \
