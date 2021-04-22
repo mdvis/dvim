@@ -137,7 +137,6 @@ hasCommand(){
 
 hasCommand      ag \
                 ack \
-                ctags \
                 node \
                 yapf \
                 isort \
