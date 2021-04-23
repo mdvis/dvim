@@ -50,12 +50,11 @@
     " }
 
     " tools
-    nmap <silent> <leader>a :Ag<CR>
     nmap <leader>jd <Plug>(jsdoc)
     nmap <leader>s :Ack<space>
 
     " origin
-    nmap <silent> <leader>S :source $MYVIMRC<CR>
+    nmap <silent> <leader>ss :source $MYVIMRC<CR>
     nmap <silent> <leader>o :browse oldfiles<CR>
     nmap <silent> <leader><leader>t :tabs<CR>
     nmap <silent> <leader>nh :noh<CR>
@@ -75,4 +74,6 @@
     nmap j gj
     nmap k gk
 
+    " tpl
+    nmap <leader><leader>t :call SetTpl()<CR>
 " }

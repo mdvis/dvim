@@ -90,8 +90,6 @@
     autocmd BufEnter * call ShouldTpl()
   augroup End
 
-  nmap <leader>T :call SetTpl()<CR>
-
 " }
 
 " jsx comment {
