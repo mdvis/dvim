@@ -1,4 +1,5 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+scriptencoding utf-8
 
 " Plugins Beginning {
 
@@ -155,28 +156,58 @@
 
     " Ale {
 
-        let g:ale_fixers = {
-                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'go':['gofmt', 'goimports'],
-                    \   'python':['autopep8', 'isort', 'yapf'],
-                    \   'javascript':['eslint'],
-                    \   'typescript':['eslint'],
-                    \   'vue':['eslint'],
-                    \   'scss':['stylelint'],
-                    \   'less':['stylelint'],
-                    \   'css':['stylelint'],
-                    \   'json':['prettier']}
+        augroup FiletypeGroup
+            autocmd!
+            au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+            au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
+        augroup END
 
-        let g:ale_linters = {
-                    \   'go':['gometalinter', 'gofmt'],
-                    \   'python':['flake8', 'pylint'],
-                    \   'javascript':['eslint'],
-                    \   'typescript':['eslint'],
-                    \   'vue':['eslint'],
+        let g:ale_fixers = {
+                    \   'cpp':['uncrustify'],
+                    \   'c':['uncrustify'],
                     \   'scss':['stylelint'],
                     \   'less':['stylelint'],
                     \   'css':['stylelint'],
+                    \   'go':['gofmt'],
+                    \   'graphqls':['eslint'],
+                    \   'html':['tidy'],
+                    \   'javascript':['eslint'],
+                    \   'typescript':['eslint'],
+                    \   'jsx':['eslint'],
+                    \   'tsx':['eslint'],
+                    \   'vue':['eslint'],
+                    \   'markdown':['proselint'],
+                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                    \   'python':['autopep8', 'isort', 'yapf'],
+                    \   'json':['prettier'],
+                    \   'swift':['swiftformat'],
+                    \   'sh':['shfmt'],
+                    \   'yaml':['prettier']}
+
+        let g:ale_linter_aliases = {
+                    \ 'jsx': ['css', 'javascript'],
+                    \ 'tsx': ['css', 'javascript'],
+                    \ 'vue': ['vue', 'javascript']
+                    \ }
+        let g:ale_linters = {
+                    \   'scss':['stylelint'],
+                    \   'less':['stylelint'],
+                    \   'css':['stylelint'],
+                    \   'cpp':['ccls'],
+                    \   'c':['ccls'],
+                    \   'go':['gofmt'],
+                    \   'graphqls':['prettier'],
+                    \   'html':['tidy'],
+                    \   'javascript':['eslint'],
+                    \   'typescript':['eslint'],
+                    \   'jsx':['stylelint', 'eslint'],
+                    \   'tsx':['stylelint', 'eslint'],
+                    \   'vue':['eslint'],
+                    \   'markdown':['proselint'],
+                    \   'python':['flake8', 'pylint'],
                     \   'json':['jsonlint'],
+                    \   'swift':['swiftlint'],
+                    \   'yaml':['yamllint'],
                     \   'sh':['shellcheck'],
                     \   'vim':['vint']}
         let g:ale_lint_on_insert_leave=1
