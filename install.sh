@@ -136,16 +136,18 @@ hasCommand(){
 }
 
 hasCommand      ag \
+                ack \
                 node \
                 yapf \
                 isort \
-                ctags \
                 flake8 \
                 pylint \
                 autopep8
 
 exiseBackup     "$HOME/.vim" \
                 "$HOME/.vimrc" \
+                "$HOME/.vimrc.conf" \
+                "$HOME/.vimrc.maps" \
                 "$HOME/.vimrc.plugins" \
                 "$HOME/.vimrc.custom"
 
@@ -155,6 +157,8 @@ syncRepo        "$REPO_PATH" \
 createSymlinks  "$REPO_PATH" \
                 "$HOME" \
                 ".vimrc" \
+                ".vimrc.conf" \
+                ".vimrc.maps" \
                 ".vimrc.plugins" \
                 ".vimrc.custom"
 
