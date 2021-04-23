@@ -37,7 +37,7 @@ scriptencoding utf-8
 
     Plug 'sheerun/vim-polyglot' " highlight
     Plug 'heavenshell/vim-jsdoc', {
-          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'vue'],
+          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
           \ 'do': 'make install'
           \}
 
@@ -49,10 +49,9 @@ scriptencoding utf-8
           \}
     Plug 'junegunn/fzf.vim'
 
+    " Check syntax and fix
     Plug 'dense-analysis/ale', {
-          \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard;
-          \ pip3 install flake8 pylint vim-vint autopep8 isort yapf'
-          \}      " Check syntax and fix
+          \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard'}
 
     if has('nvim')
       Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
