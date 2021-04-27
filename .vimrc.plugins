@@ -2,7 +2,6 @@
 scriptencoding utf-8
 
 " Plugins Beginning {
-
     let g:Plug_dir = '~/.vim/plugged/'
 
     filetype off
@@ -18,12 +17,13 @@ scriptencoding utf-8
     Plug 'junegunn/vim-easy-align'
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
-
-    Plug 'preservim/nerdtree'           " explorer
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'scrooloose/nerdcommenter'     " commenter
-    Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'sheerun/vim-polyglot' " highlight
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'heavenshell/vim-jsdoc', {
+          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
+          \ 'do': 'make install' }
 
     Plug 'mhinz/vim-signify'  " show a diff
     Plug 'tpope/vim-fugitive' " git wrapper
@@ -32,29 +32,31 @@ scriptencoding utf-8
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
+    " file
+    Plug 'preservim/nerdtree'           " explorer
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'scrooloose/nerdcommenter'     " commenter
+    Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-    Plug 'sheerun/vim-polyglot' " highlight
-    Plug 'heavenshell/vim-jsdoc', {
-          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
-          \ 'do': 'make install'
-          \}
-
-    Plug 'editorconfig/editorconfig-vim'
-
-    Plug 'mileszs/ack.vim'
-    Plug 'junegunn/fzf', {
-          \ 'do': { -> fzf#install() }
-          \}
+    " search
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'mileszs/ack.vim'
 
-    " Check syntax and fix
+    " syntax and fix
     Plug 'dense-analysis/ale', {
-          \ 'do':'npm i -g jsonlint prettier stylelint stylelint-config-standard'}
+          \ 'do':'
+          \ npm i -g jsonlint prettier stylelint stylelint-config-standard;
+          \ pip install yapf isort flake8 pylint autopep8 vim-vint
+          \ '}
 
+    " deoplete
     if has('nvim')
-      Plug 'Shougo/deoplete.nvim' ,{'do': ':UpdateRemotePlugins'}
+      Plug 'Shougo/deoplete.nvim' ,{ 'do': '
+            \ pip install pynvim neovim;
+            \ :UpdateRemotePlugins
+            \ '}
     else
       Plug 'Shougo/deoplete.nvim'
       Plug 'roxma/nvim-yarp'
@@ -62,12 +64,9 @@ scriptencoding utf-8
     endif
     Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'deoplete-plugins/deoplete-clang'
+    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-    Plug 'prettier/vim-prettier', {
-        \ 'do': 'npm install',
-        \ 'for': ['vue', 'css', 'less', 'scss']
-        \}
 
     call plug#end()
 " }
@@ -162,25 +161,25 @@ scriptencoding utf-8
         augroup END
 
         let g:ale_fixers = {
-                    \   'cpp':['uncrustify'],
+                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'c':['uncrustify'],
-                    \   'scss':['stylelint'],
-                    \   'less':['stylelint'],
+                    \   'cpp':['uncrustify'],
                     \   'css':['stylelint'],
                     \   'go':['gofmt'],
                     \   'graphqls':['eslint'],
                     \   'html':['tidy'],
                     \   'javascript':['eslint'],
-                    \   'typescript':['eslint'],
                     \   'jsx':['eslint'],
+                    \   'json':['prettier'],
+                    \   'less':['stylelint'],
+                    \   'markdown':['prettier'],
+                    \   'python':['autopep8', 'isort', 'yapf'],
+                    \   'scss':['stylelint'],
+                    \   'sh':['shfmt'],
+                    \   'swift':['swiftformat'],
+                    \   'typescript':['eslint'],
                     \   'tsx':['eslint'],
                     \   'vue':['eslint'],
-                    \   'markdown':['prettier'],
-                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'python':['autopep8', 'isort', 'yapf'],
-                    \   'json':['prettier'],
-                    \   'swift':['swiftformat'],
-                    \   'sh':['shfmt'],
                     \   'yaml':['prettier']}
 
         let g:ale_linter_aliases = {
@@ -189,21 +188,21 @@ scriptencoding utf-8
                     \ 'vue': ['vue', 'javascript']
                     \ }
         let g:ale_linters = {
-                    \   'scss':['stylelint'],
-                    \   'less':['stylelint'],
+                    \   'c':['ccls'],
                     \   'css':['stylelint'],
                     \   'cpp':['ccls'],
-                    \   'c':['ccls'],
                     \   'go':['gofmt'],
                     \   'graphqls':['prettier'],
                     \   'html':['tidy'],
                     \   'javascript':['eslint'],
-                    \   'typescript':['eslint'],
                     \   'jsx':['stylelint', 'eslint'],
+                    \   'json':['jsonlint'],
+                    \   'less':['stylelint'],
+                    \   'scss':['stylelint'],
+                    \   'typescript':['eslint'],
                     \   'tsx':['stylelint', 'eslint'],
                     \   'vue':['eslint'],
                     \   'python':['flake8', 'pylint'],
-                    \   'json':['jsonlint'],
                     \   'swift':['swiftlint'],
                     \   'yaml':['yamllint'],
                     \   'sh':['shellcheck'],
@@ -211,7 +210,6 @@ scriptencoding utf-8
         let g:ale_lint_on_insert_leave=1
         let g:ale_lint_on_enter=1
         let g:ale_fix_on_save=1
-
     " }
 
     " deoplete {
@@ -229,7 +227,6 @@ scriptencoding utf-8
     " }
 
     " vim-multiple-cursors {
-
         func! Multiple_cursors_before()
           if deoplete#is_enabled()
             call deoplete#disable()
@@ -244,7 +241,5 @@ scriptencoding utf-8
             call deoplete#enable()
           endif
         endfunc
-
     " }
-
 " }
