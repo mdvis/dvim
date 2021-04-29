@@ -69,6 +69,7 @@
     endif
     if &filetype ==# 'javascript' || &filetype==#'typescript'
           \|| &filetype==#'css' || &filetype==#'scss'
+          \|| &filetype==#'javascript.jsx' || &filetype==#'typescript.tsx'
       call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
             \,g:js_comment_end_symbol)
     endif
