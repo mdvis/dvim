@@ -9,6 +9,7 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
+    Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'Yggdroot/indentLine'          " display the indention levels
