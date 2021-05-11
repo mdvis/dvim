@@ -8,6 +8,7 @@ scriptencoding utf-8
 
     call plug#begin(g:Plug_dir)
 
+    Plug 'gcmt/taboo.vim'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
@@ -127,6 +128,10 @@ scriptencoding utf-8
         let g:NERDTreeDirArrowExpandable = '+'
         let g:NERDTreeDirArrowCollapsible = '-'
 
+    " }
+
+    " taboo.vim {
+        let g:taboo_tab_format=' %P/%f(%N)%m '
     " }
 
     " fzf {
