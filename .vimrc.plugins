@@ -69,7 +69,6 @@ scriptencoding utf-8
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-    Plug 'jreybert/vimagit'
     Plug 'mbbill/undotree'
 
     call plug#end()
