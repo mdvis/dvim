@@ -52,7 +52,7 @@
     let start = a:start
     let mid = a:mid
     let end = a:end
-    let str=''.start."\n".mid." name: ".expand('%:t')."\n"
+    let str=''.start."\n".mid.' name: '.expand('%:t')."\n"
           \.mid." author: Deve\n".mid.' date: '
           \.strftime('%Y-%m-%d')."\n".end
     put!=str
@@ -106,4 +106,12 @@
     autocmd BufRead,BufNewFile *.wxml set filetype=html
   augroup END
 
+" }
+
+" edit $MYVIMRC {
+  command! -nargs=0 EConf :call conf#EditConf()
+" }
+
+" source $MYVIMRC {
+  command! -nargs=0 SConf :call conf#SourceConf()
 " }
