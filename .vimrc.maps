@@ -51,6 +51,15 @@
         nmap <silent> <leader>t :TagbarToggle<CR>
     " }
 
+    " undotree {
+        nnoremap <leader>u :UndotreeToggle<CR>
+    " }
+
+    " vimagit {
+        nnoremap <leader>g :Magit<CR>
+    " }
+
+
     " tools
     nmap <leader>jd <Plug>(jsdoc)
     nmap <leader>s :Ack<space>
