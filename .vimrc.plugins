@@ -70,6 +70,7 @@ scriptencoding utf-8
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
     Plug 'mbbill/undotree'
+    Plug 'vim-ctrlspace/vim-ctrlspace'
 
     call plug#end()
 " }
