@@ -134,7 +134,7 @@ scriptencoding utf-8
     " }
 
     " taboo.vim {
-        let g:taboo_tab_format=' %P/%f(%N)%m '
+        let g:taboo_tab_format=' %N)%P/%f%m '
     " }
 
     " fzf {
