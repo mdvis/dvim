@@ -4,12 +4,16 @@ let g:mapleader = ','
 
 " Mappings {
     " Ack {
-        nnoremap <silent> <leader>s :Ack<space>
+        nnoremap <leader>ss :Ack<space>
     " }
 
     " Ale {
         nmap <C-k> <Plug>(ale_previous_wrap)
         nmap <C-j> <Plug>(ale_next_wrap)
+    " }
+
+    " CtrlSpace {
+        nnoremap <silent> <leader>cs :CtrlSpace<CR>
     " }
 
     " Easemotion {
@@ -44,7 +48,7 @@ let g:mapleader = ','
         nnoremap <silent> <leader>o :browse oldfiles<CR>
         nnoremap <silent> <leader><leader>t :tabs<CR>
         nnoremap <silent> <leader><leader>q :q!<CR>
-        nnoremap <silent> <leader>nh :noh<CR>
+        nnoremap <silent> <leader><CR> :noh<CR>
         nnoremap <silent> <leader>r :reg<CR>
         nnoremap <silent> <leader>w :w<CR>
         nnoremap <silent> <leader>q :q<CR>
@@ -56,6 +60,7 @@ let g:mapleader = ','
         inoremap jj <Esc>
         nnoremap j gj
         nnoremap k gk
+        nnoremap 0 ^
     " }
 
     " Signify {

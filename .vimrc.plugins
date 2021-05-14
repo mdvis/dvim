@@ -99,7 +99,7 @@ scriptencoding utf-8
     " }
 
     " Emmet {
-        let g:user_emmet_expandabbr_key='<leader><Leader><tab>'
+        let g:user_emmet_expandabbr_key='<leader><tab>'
     " }
 
     " NerdTree {
@@ -145,7 +145,7 @@ scriptencoding utf-8
     " }
 
     " Ultisnips {
-        let g:UltiSnipsExpandTrigger='<leader><tab>'
+        let g:UltiSnipsExpandTrigger='<tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
@@ -175,7 +175,7 @@ scriptencoding utf-8
               \ 'active': {
               \   'left': [ [ 'mode', 'paste' ],
               \             [ 'gitbranch' ],
-              \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ],
+              \             [ 'readonly', 'filename' ] ],
               \   'right': [ [ 'lineinfo' ],
               \              [ 'percent' ],
               \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]

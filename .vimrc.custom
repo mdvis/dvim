@@ -103,3 +103,19 @@
   "source
   command! -nargs=0 SConf :call conf#SourceConf()
 " }
+"
+" Return to last edit position when opening files (You want this!)
+augroup lastModPos
+  autocmd!
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" autoread {
+augroup chkt
+  au FocusGained,BufEnter * checktime
+augroup END
+" }
