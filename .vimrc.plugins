@@ -9,51 +9,53 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     Plug 'gcmt/taboo.vim'
+    Plug 'mbbill/undotree'
+    Plug 'mattn/emmet-vim'
+    Plug 'jreybert/vimagit'
+    Plug 'SirVer/ultisnips'
+    Plug 'junegunn/goyo.vim'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
+    Plug 'mhinz/vim-signify'            " show a diff
+    Plug 'tpope/vim-fugitive'           " git wrapper
+    Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'Yggdroot/indentLine'          " display the indention levels
+    Plug 'sheerun/vim-polyglot'         " highlight
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
     Plug 'kshenoy/vim-signature'        " display and navigate marks
+    Plug 'itchyny/lightline.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'easymotion/vim-easymotion'    " motions
+    Plug 'vim-ctrlspace/vim-ctrlspace'
     Plug 'terryma/vim-multiple-cursors' " multiple selections
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'sheerun/vim-polyglot' " highlight
     Plug 'editorconfig/editorconfig-vim'
-    Plug 'heavenshell/vim-jsdoc', {
-          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
-          \ 'do': 'make install' }
 
-    Plug 'mhinz/vim-signify'  " show a diff
-    Plug 'tpope/vim-fugitive' " git wrapper
-
-    Plug 'mattn/emmet-vim'
+    " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
-    " file
+    " File
     Plug 'preservim/nerdtree'           " explorer
     Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-    " search
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    " Search
     Plug 'mileszs/ack.vim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-    " syntax and fix
+    " Syntax and Fix
     Plug 'dense-analysis/ale', {
           \ 'do':'
           \ npm i -g jsonlint prettier stylelint stylelint-config-standard;
           \ pip install yapf isort flake8 pylint autopep8 vim-vint
           \ '}
 
-    " deoplete
+    " Deoplete
     if has('nvim')
       Plug 'Shougo/deoplete.nvim' ,{ 'do': '
             \ pip install pynvim neovim;
@@ -69,9 +71,10 @@ scriptencoding utf-8
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-    Plug 'jreybert/vimagit'
-    Plug 'mbbill/undotree'
-    Plug 'vim-ctrlspace/vim-ctrlspace'
+
+    Plug 'heavenshell/vim-jsdoc', {
+          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
+          \ 'do': 'make install' }
 
     call plug#end()
 " }
@@ -89,7 +92,6 @@ scriptencoding utf-8
         highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-
     " }
 
     " Easemotion {
@@ -101,7 +103,6 @@ scriptencoding utf-8
     " }
 
     " NerdTree {
-
         let g:NERDTreeWinSize=40
         let g:NERDTreeChDirMode=1
         let g:NERDTreeMouseMode=2
@@ -109,6 +110,8 @@ scriptencoding utf-8
         let g:NERDTreeShowHidden=1
         let g:NERDTreeShowBookmarks=1
         let g:NERDTreeKeepTreeInNewTab=1
+        let g:NERDTreeDirArrowExpandable = '+'
+        let g:NERDTreeDirArrowCollapsible = '-'
 
         let g:NERDTreeIgnore=[
                     \ '\.py[cd]$', '\~$', '\.swo$',
@@ -127,10 +130,6 @@ scriptencoding utf-8
             \ 'Clean'     : '✔︎',
             \ 'Ignored'   : '☒',
             \ 'Unknown'   : '?' }
-
-        let g:NERDTreeDirArrowExpandable = '+'
-        let g:NERDTreeDirArrowCollapsible = '-'
-
     " }
 
     " taboo.vim {
@@ -138,22 +137,18 @@ scriptencoding utf-8
     " }
 
     " fzf {
-
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
                     \ 'ctrl-t': 'tab split',
                     \ 'ctrl-x': 'split',
                     \ 'ctrl-v': 'vsplit' }
-
     " }
 
     " Ultisnips {
-
         let g:UltiSnipsExpandTrigger='<leader><tab>'
         let g:UltiSnipsJumpBackwardTrigger='<c-j>'
         let g:UltiSnipsJumpForwardTrigger='<c-k>'
         let g:UltiSnipsEditSplit='vertical'
-
     " }
 
     " IndentLine {
@@ -161,7 +156,43 @@ scriptencoding utf-8
         let g:indentLine_conceallevel=2
     " }
 
+    " Lightline.vim {
+        let g:lightline = {
+              \ 'mode_map': {
+              \     'n' : 'NOR',
+              \     'i' : 'INS',
+              \     'R' : 'REP',
+              \     'v' : 'VIS',
+              \     'V' : 'V-LN',
+              \     "\<C-v>": 'V-BK',
+              \     'c' : 'CMD',
+              \     's' : 'SEL',
+              \     'S' : 'S-LN',
+              \     "\<C-s>": 'S-BK',
+              \     't': 'TERM',
+              \ },
+              \ 'colorscheme': 'jellybeans',
+              \ 'active': {
+              \   'left': [ [ 'mode', 'paste' ],
+              \             [ 'gitbranch' ],
+              \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ],
+              \   'right': [ [ 'lineinfo' ],
+              \              [ 'percent' ],
+              \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+              \ },
+              \ 'component': {
+              \   'charvaluehex': '0x%B'
+              \ },
+              \ 'component_function': {
+              \   'gitbranch': 'FugitiveHead'
+              \ },
+              \ }
+    " }
+
     " Ale {
+        let g:ale_fix_on_save=1
+        let g:ale_lint_on_enter=1
+        let g:ale_lint_on_insert_leave=1
 
         augroup FiletypeGroup
             autocmd!
@@ -197,6 +228,7 @@ scriptencoding utf-8
                     \ 'tsx': ['css', 'javascript'],
                     \ 'vue': ['vue', 'javascript']
                     \ }
+
         let g:ale_linters = {
                     \   'c':['ccls'],
                     \   'css':['stylelint'],
@@ -218,9 +250,6 @@ scriptencoding utf-8
                     \   'yaml':['yamllint'],
                     \   'sh':['shellcheck'],
                     \   'vim':['vint']}
-        let g:ale_lint_on_insert_leave=1
-        let g:ale_lint_on_enter=1
-        let g:ale_fix_on_save=1
     " }
 
     " deoplete {

@@ -2,7 +2,6 @@
 
 " Environment {
     " Identify platform {
-
         silent function! OSX()
             return has('macunix')
         endfunction
@@ -14,12 +13,10 @@
         silent function! WINDOWS()
             return  (has('win32') || has('win64'))
         endfunction
-
     " }
 " }
 
 " custom comment {
-
   function! FirstLineHasContent()
     let firstline=getline(1)
     return len(firstline)
@@ -90,28 +87,19 @@
     autocmd!
     autocmd BufEnter * call ShouldTpl()
   augroup End
-
 " }
 
-" jsx comment {
-  :abclear
-  :ab jccc {/* !cursor! */}<Esc>:call search('!cursor!','b')<CR>cf!
-" }
-
-" wechat app filetype {
-
+" Wechat Filetype {
   augroup wechat
     autocmd!
     autocmd BufRead,BufNewFile *.wxss set filetype=css
     autocmd BufRead,BufNewFile *.wxml set filetype=html
   augroup END
-
 " }
 
-" edit $MYVIMRC {
+" $MYVIMRC {
+  " edit
   command! -nargs=0 EConf :call conf#EditConf()
-" }
-
-" source $MYVIMRC {
+  "source
   command! -nargs=0 SConf :call conf#SourceConf()
 " }

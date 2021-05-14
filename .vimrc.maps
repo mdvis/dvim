@@ -1,13 +1,10 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
+let g:mapleader = ','
+
 " Mappings {
-    let g:mapleader = ','
-
-    inoremap jj <Esc>
-
-    " Easy align{
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
+    " Ack {
+        nnoremap <silent> <leader>s :Ack<space>
     " }
 
     " Ale {
@@ -15,76 +12,70 @@
         nmap <C-j> <Plug>(ale_next_wrap)
     " }
 
-    " fzf {
-        nmap <silent> <C-p> :Files ~/Code<CR>
-        nmap <silent> <C-e> :Buffers<CR>
-    " }
-
-    " NerdTree {
-
-        map <silent> <leader>e :NERDTreeFind<CR>
-        map <silent> <leader>n :NERDTreeToggle<CR>
-        " custom
-        map <silent> <leader>c :NERDTree ~/Code<CR>
-
-    " }
-
     " Easemotion {
-
         nmap <leader><leader>s <Plug>(easymotion-s)
         nmap <leader><leader>j <Plug>(easymotion-j)
         nmap <leader><leader>k <Plug>(easymotion-k)
         nmap <leader><leader>l <Plug>(easymotion-lineforward)
         nmap <leader><leader>h <Plug>(easymotion-linebackward)
+    " }
 
+    " Easy align{
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+    " }
+
+    " FZF {
+        nmap <silent> <C-p> :Files ~/Code<CR>
+        nmap <silent> <C-e> :Buffers<CR>
+    " }
+
+    " JsDoc {
+        nmap <leader>jd <Plug>(jsdoc)
+    " }
+
+    " NerdTree {
+        map <silent> <leader>e :NERDTreeFind<CR>
+        map <silent> <leader>n :NERDTreeToggle<CR>
+        map <silent> <leader>c :NERDTree ~/Code<CR>
+    " }
+
+    " Self {
+        nnoremap <silent> <leader>o :browse oldfiles<CR>
+        nnoremap <silent> <leader><leader>t :tabs<CR>
+        nnoremap <silent> <leader><leader>q :q!<CR>
+        nnoremap <silent> <leader>nh :noh<CR>
+        nnoremap <silent> <leader>r :reg<CR>
+        nnoremap <silent> <leader>w :w<CR>
+        nnoremap <silent> <leader>q :q<CR>
+        nnoremap <silent> <leader>x :x<CR>
+        nnoremap <leader>h <c-w>h
+        nnoremap <leader>j <c-w>j
+        nnoremap <leader>k <c-w>k
+        nnoremap <leader>l <c-w>l
+        inoremap jj <Esc>
+        nnoremap j gj
+        nnoremap k gk
     " }
 
     " Signify {
-
-        " mappings to jump to changed blocks
         nmap <leader>sn <plug>(signify-next-hunk)
         nmap <leader>sp <plug>(signify-prev-hunk)
-
     " }
 
     " Tagbar {
         nmap <silent> <leader>t :TagbarToggle<CR>
     " }
 
-    " undotree {
-        nnoremap <leader>u :UndotreeToggle<CR>
+    " TPL {
+        nmap <silent> <leader><leader>t :call SetTpl()<CR>
     " }
 
-    " vimagit {
-        nnoremap <leader>g :Magit<CR>
+    " Undotree {
+        nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }
 
-
-    " tools
-    nmap <leader>jd <Plug>(jsdoc)
-    nmap <leader>s :Ack<space>
-
-    " origin
-    nmap <silent> <leader>ss :source $MYVIMRC<CR>
-    nmap <silent> <leader>o :browse oldfiles<CR>
-    nmap <silent> <leader><leader>t :tabs<CR>
-    nmap <silent> <leader>nh :noh<CR>
-    nmap <silent> <leader>r :reg<CR>
-    nmap <silent> <leader>w :w<CR>
-    nmap <silent> <leader>q :q<CR>
-    nmap <silent> <leader><leader>q :q!<CR>
-    nmap <silent> <leader>x :x<CR>
-
-    " change pane
-    nmap <leader>h <c-w>h
-    nmap <leader>j <c-w>j
-    nmap <leader>k <c-w>k
-    nmap <leader>l <c-w>l
-
-    " move
-    nmap j gj
-    nmap k gk
-
-    " tpl
-    nmap <leader><leader>t :call SetTpl()<CR>
+    " ViMagit {
+        nnoremap <silent> <leader>g :Magit<CR>
+    " }
 " }
