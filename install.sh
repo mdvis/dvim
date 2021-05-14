@@ -10,10 +10,6 @@ readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-pl
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
-[ ! -d ~/.backup ] && mkdir ~/.backup
-[ ! -d ~/.swp ] && mkdir ~/.swp
-[ ! -d ~/.undo ] && mkdir ~/.undo
-
 is_debug="0"
 
 msg() {
@@ -37,13 +33,13 @@ debug() {
     fi
 }
 
-backup(){
-  now=$(date +%Y%m%d_%s)
+backup() {
+    now=$(date +%Y%m%d_%s)
     mv "$1" "$1.$now"
     debug
 }
 
-exiseBackup(){
+exiseBackup() {
     for i in "$@"; do
         if [ -e "$i" ]; then
             backup "$i"
@@ -51,7 +47,7 @@ exiseBackup(){
     done
     ret="$?"
     debug
- }
+}
 
 syncRepo() {
     local repo_path="$1"
@@ -70,17 +66,16 @@ syncRepo() {
 }
 
 installPlugins() {
-    type nvim>/dev/null 2>&1 || local hasNvim="vim"
+    type nvim >/dev/null 2>&1 || local hasNvim="vim"
     local systemShell="$SHELL"
     local
 
     export SHELL='/bin/sh'
 
-    if [ "$hasNvim" = "vim" ]
-    then
-      vim "+PlugInstall!" "+PlugClean" "+qall"
+    if [ "$hasNvim" = "vim" ]; then
+        vim "+PlugInstall!" "+PlugClean" "+qall"
     else
-      nvim "+PlugInstall!" "+PlugClean" "+qall"
+        nvim "+PlugInstall!" "+PlugClean" "+qall"
     fi
 
     export SHELL="$systemShell"
@@ -99,21 +94,20 @@ lnif() {
 }
 
 createSymlinks() {
-  local index=1
+    local index=1
 
-  for linkName in "$@"
-  do
-    [ $index -eq 1 ] && local source_path=$linkName
-    [ $index -eq 2 ] && local target_path=$linkName
-    [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
-    index=$((index + 1))
-  done
-  ret="$?"
-  success "Link complete!"
-  debug
+    for linkName in "$@"; do
+        [ $index -eq 1 ] && local source_path=$linkName
+        [ $index -eq 2 ] && local target_path=$linkName
+        [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
+        index=$((index + 1))
+    done
+    ret="$?"
+    success "Link complete!"
+    debug
 }
 
-setInstallPlug(){
+setInstallPlug() {
     [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload"
     [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}"
     ret="$?"
@@ -121,7 +115,7 @@ setInstallPlug(){
     debug
 }
 
-copyColors(){
+copyColors() {
     [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors"
     [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}"
     ret="$?"
@@ -129,43 +123,43 @@ copyColors(){
     debug
 }
 
-hasCommand(){
-	for m in "$@"; do
-		type "$m">/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
-	done
+hasCommand() {
+    for m in "$@"; do
+        type "$m" >/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
+    done
 }
 
-hasCommand      ag \
-                ack \
-                node \
-                yapf \
-                isort \
-                flake8 \
-                pylint \
-                autopep8
+hasCommand ag \
+    ack \
+    node \
+    yapf \
+    isort \
+    flake8 \
+    pylint \
+    autopep8
 
-exiseBackup     "$HOME/.vim" \
-                "$HOME/.vimrc" \
-                "$HOME/.vimrc.conf" \
-                "$HOME/.vimrc.maps" \
-                "$HOME/.vimrc.plugins" \
-                "$HOME/.vimrc.custom"
+exiseBackup "$HOME/.vim" \
+    "$HOME/.vimrc" \
+    "$HOME/.vimrc.conf" \
+    "$HOME/.vimrc.maps" \
+    "$HOME/.vimrc.plugins" \
+    "$HOME/.vimrc.custom"
 
-syncRepo        "$REPO_PATH" \
-                "$REPO_URI"
+syncRepo "$REPO_PATH" \
+    "$REPO_URI"
 
-createSymlinks  "$REPO_PATH" \
-                "$HOME" \
-                ".vimrc" \
-                ".vimrc.conf" \
-                ".vimrc.maps" \
-                ".vimrc.plugins" \
-                ".vimrc.custom"
+createSymlinks "$REPO_PATH" \
+    "$HOME" \
+    ".vimrc" \
+    ".vimrc.conf" \
+    ".vimrc.maps" \
+    ".vimrc.plugins" \
+    ".vimrc.custom"
 
-setInstallPlug  "/vim-plug/" \
-                "plug.vim"
+setInstallPlug "/vim-plug/" \
+    "plug.vim"
 
-copyColors      "/colors/" \
-                "gruvbox.vim"
+copyColors "/colors/" \
+    "gruvbox.vim"
 
 installPlugins
