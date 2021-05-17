@@ -4,6 +4,7 @@ set -e
 set -o pipefail
 
 readonly APP_NAME="dvim"
+readonly NVIM_PATH="$HOME/.config/nvim"
 readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
@@ -129,24 +130,32 @@ hasCommand() {
     done
 }
 
-hasCommand ag \
-    ack \
-    node \
-    yapf \
-    isort \
-    flake8 \
-    pylint \
-    autopep8
+nvmConf() {
+    [ ! -d "$NVIM_PATH" ] && mkdir -p "$NVIM_PATH"
+    [ -d "$NVIM_PATH" ] && ln -sf "$REPO_PATH/init.vim" "$NVIM_PATH/init.vim"
+}
+
+#hasCommand ag \
+#ack \
+#node \
+#yapf \
+#isort \
+#flake8 \
+#pylint \
+#autopep8
 
 exiseBackup "$HOME/.vim" \
     "$HOME/.vimrc" \
     "$HOME/.vimrc.conf" \
     "$HOME/.vimrc.maps" \
     "$HOME/.vimrc.plugins" \
-    "$HOME/.vimrc.custom"
+    "$HOME/.vimrc.custom" \
+    "$NVIM_PATH/init.vim"
 
 syncRepo "$REPO_PATH" \
     "$REPO_URI"
+
+nvmConf
 
 createSymlinks "$REPO_PATH" \
     "$HOME" \
