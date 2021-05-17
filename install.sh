@@ -124,25 +124,10 @@ copyColors() {
     debug
 }
 
-hasCommand() {
-    for m in "$@"; do
-        type "$m" >/dev/null 2>&1 || error "\"$m\" was not installed! Dependence \"$*\""
-    done
-}
-
 nvmConf() {
     [ ! -d "$NVIM_PATH" ] && mkdir -p "$NVIM_PATH"
     [ -d "$NVIM_PATH" ] && ln -sf "$REPO_PATH/init.vim" "$NVIM_PATH/init.vim"
 }
-
-#hasCommand ag \
-#ack \
-#node \
-#yapf \
-#isort \
-#flake8 \
-#pylint \
-#autopep8
 
 exiseBackup "$HOME/.vim" \
     "$HOME/.vimrc" \
