@@ -4,11 +4,11 @@ set -e
 set -o pipefail
 
 readonly APP_NAME="dvim"
-readonly NVIM_PATH="$HOME/.config/nvim"
 readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
+[ -z "$NVIM_PATH" ] && NVIM_PATH="$HOME/.config/nvim"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
 is_debug="0"
@@ -100,7 +100,7 @@ createSymlinks() {
     for linkName in "$@"; do
         [ $index -eq 1 ] && local source_path=$linkName
         [ $index -eq 2 ] && local target_path=$linkName
-        [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/$linkName"
+        [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/.$linkName"
         index=$((index + 1))
     done
     ret="$?"
@@ -126,7 +126,7 @@ copyColors() {
 
 nvmConf() {
     [ ! -d "$NVIM_PATH" ] && mkdir -p "$NVIM_PATH"
-    [ -d "$NVIM_PATH" ] && ln -sf "$REPO_PATH/init.vim" "$NVIM_PATH/init.vim"
+    [ -d "$NVIM_PATH" ] && lnif "$REPO_PATH/init.vim" "$NVIM_PATH/init.vim"
 }
 
 exiseBackup "$HOME/.vim" \
@@ -144,11 +144,11 @@ nvmConf
 
 createSymlinks "$REPO_PATH" \
     "$HOME" \
-    ".vimrc" \
-    ".vimrc.conf" \
-    ".vimrc.maps" \
-    ".vimrc.plugins" \
-    ".vimrc.custom"
+    "vimrc" \
+    "vimrc.conf" \
+    "vimrc.maps" \
+    "vimrc.plugins" \
+    "vimrc.custom"
 
 setInstallPlug "/vim-plug/" \
     "plug.vim"
