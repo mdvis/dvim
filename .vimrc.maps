@@ -13,7 +13,7 @@ let g:mapleader = ','
     " }
 
     " CtrlSpace {
-        nnoremap <silent> <leader>cs :CtrlSpace<CR>
+        nnoremap <silent> <leader><leader>cs :CtrlSpace<CR>
     " }
 
     " Easemotion {
