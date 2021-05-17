@@ -13,7 +13,6 @@ scriptencoding utf-8
     Plug 'mattn/emmet-vim'
     Plug 'jreybert/vimagit'
     Plug 'SirVer/ultisnips'
-    Plug 'junegunn/goyo.vim'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-signify'            " show a diff
     Plug 'tpope/vim-fugitive'           " git wrapper
@@ -80,7 +79,6 @@ scriptencoding utf-8
 " }
 
 " Plugin Config Start {
-
     " Signify {
         " this first setting decides in which order try to guess your current vcs
         " UPDATE it to reflect your preferences, it will speed up opening files
