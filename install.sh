@@ -11,9 +11,9 @@ readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-pl
 [ -z "$NVIM_PATH" ] && NVIM_PATH="$HOME/.config/nvim"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
-[ ! -d ~/.backup ] && mkdir ~/.backup
-[ ! -d ~/.swp ] && mkdir ~/.swp
-[ ! -d ~/.undo ] && mkdir ~/.undo
+[ ! -d "$HOME/.swp" ] && mkdir "$HOME/.swp"
+[ ! -d "$HOME/.undo" ] && mkdir "$HOME/.undo"
+[ ! -d "$HOME/.backup" ] && mkdir "$HOME/.backup"
 
 is_debug="0"
 
