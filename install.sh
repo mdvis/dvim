@@ -4,18 +4,19 @@ set -e
 set -o pipefail
 
 readonly APP_NAME="dvim"
-readonly PLUGINS_MANAGER_PATH="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
 [ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
 [ -z "$NVIM_PATH" ] && NVIM_PATH="$HOME/.config/nvim"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
-[ ! -d "$HOME/.swp" ] && mkdir "$HOME/.swp"
-[ ! -d "$HOME/.undo" ] && mkdir "$HOME/.undo"
-[ ! -d "$HOME/.backup" ] && mkdir "$HOME/.backup"
-
 is_debug="0"
+
+debug() {
+    if [ "$is_debug" -eq "1" ] && [ "$ret" -gt "1" ]; then
+        msg "${FUNCNAME[1]}/${BASH_LINENO[1]}"
+    fi
+}
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -32,25 +33,59 @@ error() {
     exit 1
 }
 
-debug() {
-    if [ "$is_debug" -eq "1" ] && [ "$ret" -gt "1" ]; then
-        msg "${FUNCNAME[1]}/${BASH_LINENO[1]}"
-    fi
-}
-
 backup() {
     now=$(date +%Y%m%d_%s)
-    mv "$1" "$1.$now"
+    fileName="$1"
+
+    [ -e "$fileName" ] && mv "$fileName" "$fileName.$now"
+
+    ret="$?"
+    success "$fileName was backuped!"
     debug
 }
 
-exiseBackup() {
-    for i in "$@"; do
-        if [ -e "$i" ]; then
-            backup "$i"
-        fi
+initWorkDir() {
+    dirList="$*"
+
+    for fileName in $dirList; do
+        [ -d "$fileName" ] || mkdir "$fileName"
+
+        ret="$?"
+        success "$fileName was created!"
+        debug
     done
+}
+
+copyFile() {
+    fileName="$1"
+    sourceDir="$2"
+    targetDir="$3"
+
+    [ ! -d "$targetDir" ] && mkdir -p "$targetDir"
+
+    cp "${sourceDir}${fileName}" "${targetDir}${fileName}"
+
     ret="$?"
+    success "$sourceDir was copied!"
+    debug
+}
+
+lnif() {
+    fileName=$1
+    sourceDir=$2
+    targetDir=$3
+    sourcePrefix=$4
+    targetPrefix=$5
+
+    sourcePath="$sourceDir/$sourcePrefix$fileName"
+    targetPath="$targetDir/$targetPrefix$fileName"
+
+    if [ -e "$sourcePath" ]; then
+        ln -sf "$sourcePath" "$targetPath"
+    fi
+
+    ret="$?"
+    success "$sourcePath was linked!"
     debug
 }
 
@@ -61,19 +96,18 @@ syncRepo() {
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
         git clone "$repo_uri" "$repo_path"
-        ret="$?"
     else
         cd "$repo_path" && git pull origin master
-        ret="$?"
     fi
-    success "Download success!"
+
+    ret="$?"
+    success "Dvim clone done!"
     debug
 }
 
 installPlugins() {
     type nvim >/dev/null 2>&1 || local hasNvim="vim"
     local systemShell="$SHELL"
-    local
 
     export SHELL='/bin/sh'
 
@@ -86,78 +120,71 @@ installPlugins() {
     export SHELL="$systemShell"
 
     ret="$?"
-    success "Install plugins complete!"
+    success "Plugins setup done!"
     debug
 }
 
-lnif() {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-    ret="$?"
-    debug
-}
+backup "$HOME/.vim"
+backup "$HOME/.vimrc"
+backup "$HOME/.vimrc.conf"
+backup "$HOME/.vimrc.maps"
+backup "$HOME/.vimrc.custom"
+backup "$NVIM_PATH/init.vim"
+backup "$HOME/.vimrc.plugins"
 
-createSymlinks() {
-    local index=1
-
-    for linkName in "$@"; do
-        [ $index -eq 1 ] && local source_path=$linkName
-        [ $index -eq 2 ] && local target_path=$linkName
-        [ $index -ge 3 ] && lnif "$source_path/$linkName" "$target_path/.$linkName"
-        index=$((index + 1))
-    done
-    ret="$?"
-    success "Link complete!"
-    debug
-}
-
-setInstallPlug() {
-    [ ! -d "$APP_PATH/autoload" ] && mkdir -p "$APP_PATH/autoload"
-    [ -d "$APP_PATH/autoload" ] && curl -sSL "$PLUGINS_MANAGER_PATH" -o "$APP_PATH/autoload/${2}"
-    ret="$?"
-    success "Vim-plug install!"
-    debug
-}
-
-copyColors() {
-    [ ! -d "$APP_PATH/colors" ] && mkdir -p "$APP_PATH/colors"
-    [ -d "$APP_PATH/colors" ] && cp "$REPO_PATH${1}${2}" "$APP_PATH/colors/${2}"
-    ret="$?"
-    success "$2 Color install!"
-    debug
-}
-
-nvmConf() {
-    [ ! -d "$NVIM_PATH" ] && mkdir -p "$NVIM_PATH"
-    [ -d "$NVIM_PATH" ] && lnif "$REPO_PATH/init.vim" "$NVIM_PATH/init.vim"
-}
-
-exiseBackup "$HOME/.vim" \
-    "$HOME/.vimrc" \
-    "$HOME/.vimrc.conf" \
-    "$HOME/.vimrc.maps" \
-    "$HOME/.vimrc.plugins" \
-    "$HOME/.vimrc.custom" \
-    "$NVIM_PATH/init.vim"
+initWorkDir "$HOME/.swp" \
+    "$HOME/.backup" \
+    "$HOME/.undo" \
+    "$NVIM_PATH" \
+    "$APP_PATH"
 
 syncRepo "$REPO_PATH" \
     "$REPO_URI"
 
-nvmConf
+copyFile "plug.vim" \
+    "$REPO_PATH/autoload/" \
+    "$APP_PATH/autoload/"
 
-createSymlinks "$REPO_PATH" \
+copyFile "conf.vim" \
+    "$REPO_PATH/autoload/" \
+    "$APP_PATH/autoload/"
+
+copyFile "gruvbox.vim" \
+    "$REPO_PATH/colors/" \
+    "$APP_PATH/colors/"
+
+lnif "vimrc" \
+    "$REPO_PATH" \
     "$HOME" \
-    "vimrc" \
-    "vimrc.conf" \
-    "vimrc.maps" \
-    "vimrc.plugins" \
-    "vimrc.custom"
+    "" \
+    "."
 
-setInstallPlug "/vim-plug/" \
-    "plug.vim"
+lnif "init.vim" \
+    "$REPO_PATH" \
+    "$NVIM_PATH"
 
-copyColors "/colors/" \
-    "gruvbox.vim"
+lnif "vimrc.conf" \
+    "$REPO_PATH" \
+    "$HOME" \
+    "" \
+    "."
+
+lnif "vimrc.maps" \
+    "$REPO_PATH" \
+    "$HOME" \
+    "" \
+    "."
+
+lnif "vimrc.custom" \
+    "$REPO_PATH" \
+    "$HOME" \
+    "" \
+    "."
+
+lnif "vimrc.plugins" \
+    "$REPO_PATH" \
+    "$HOME" \
+    "" \
+    "."
 
 installPlugins
