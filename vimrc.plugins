@@ -209,7 +209,7 @@ scriptencoding utf-8
                     \   'javascript':['eslint'],
                     \   'jsx':['eslint'],
                     \   'json':['prettier'],
-                    \   'less':['stylelint'],
+                    \   'less':['prettier'],
                     \   'markdown':['prettier'],
                     \   'python':['autopep8', 'isort', 'yapf'],
                     \   'rust':['rustfmt'],
