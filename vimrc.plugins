@@ -27,7 +27,6 @@ scriptencoding utf-8
     Plug 'itchyny/lightline.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'easymotion/vim-easymotion'    " motions
-    Plug 'vim-ctrlspace/vim-ctrlspace'
     Plug 'terryma/vim-multiple-cursors' " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
