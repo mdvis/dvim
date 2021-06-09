@@ -4,16 +4,12 @@ let g:mapleader = ','
 
 " Mappings {
     " Ack {
-        nnoremap <leader>ss :Ack<space>
+        nnoremap <leader>s :Ack<space>
     " }
 
     " Ale {
         nmap <C-k> <Plug>(ale_previous_wrap)
         nmap <C-j> <Plug>(ale_next_wrap)
-    " }
-
-    " CtrlSpace {
-        "nnoremap <silent> <leader><leader>cs :CtrlSpace<CR>
     " }
 
     " Easemotion {
@@ -35,7 +31,7 @@ let g:mapleader = ','
     " }
 
     " JsDoc {
-        nmap <leader>jd <Plug>(jsdoc)
+        nmap <leader>d <Plug>(jsdoc)
     " }
 
     " NerdTree {
@@ -46,10 +42,10 @@ let g:mapleader = ','
 
     " Self {
         nnoremap <silent> <leader>o :browse oldfiles<CR>
-        nnoremap <silent> <leader><leader>t :tabs<CR>
-        nnoremap <silent> <leader><leader>q :q!<CR>
         nnoremap <silent> <leader><CR> :noh<CR>
+        nnoremap <silent> <leader>T :tabs<CR>
         nnoremap <silent> <leader>r :reg<CR>
+        nnoremap <silent> <leader>Q :q!<CR>
         nnoremap <silent> <leader>w :w<CR>
         nnoremap <silent> <leader>q :q<CR>
         nnoremap <silent> <leader>x :x<CR>
@@ -64,8 +60,8 @@ let g:mapleader = ','
     " }
 
     " Signify {
-        nmap <leader>sn <plug>(signify-next-hunk)
-        nmap <leader>sp <plug>(signify-prev-hunk)
+        nmap <leader>N <plug>(signify-next-hunk)
+        nmap <leader>P <plug>(signify-prev-hunk)
     " }
 
     " Tagbar {
