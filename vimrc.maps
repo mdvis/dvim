@@ -45,7 +45,7 @@ let g:mapleader = ','
         nnoremap <silent> <leader><CR> :noh<CR>
         nnoremap <silent> <leader>T :tabs<CR>
         nnoremap <silent> <leader>r :reg<CR>
-        nnoremap <silent> <leader>Q :q!<CR>
+        nnoremap <silent> <leader><leader>q :q!<CR>
         nnoremap <silent> <leader>w :w<CR>
         nnoremap <silent> <leader>q :q<CR>
         nnoremap <silent> <leader>x :x<CR>
