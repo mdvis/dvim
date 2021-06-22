@@ -4,11 +4,12 @@ set -e
 set -o pipefail
 
 readonly APP_NAME="dvim"
-
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.vim"
-[ -z "$REPO_PATH" ] && REPO_PATH="$HOME/.$APP_NAME"
-[ -z "$NVIM_PATH" ] && NVIM_PATH="$HOME/.config/nvim"
-[ -z "$REPO_URI" ] && REPO_URI="https://github.com/mdvis/$APP_NAME.git"
+readonly APP_SETUP_NAME=".vim"
+readonly APP_PATH="$HOME/$APP_SETUP_NAME"
+readonly REPO_PATH="$HOME/$APP_SETUP_NAME"
+readonly CONFIG_PATH="$HOME/$APP_SETUP_NAME/config"
+readonly NVIM_PATH="$HOME/.config/nvim"
+readonly REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
 is_debug="0"
 
@@ -33,17 +34,6 @@ error() {
     exit 1
 }
 
-backup() {
-    now=$(date +%Y%m%d_%s)
-    fileName="$1"
-
-    [ -e "$fileName" ] && mv "$fileName" "$fileName.$now"
-
-    ret="$?"
-    success "$fileName was backuped!"
-    debug
-}
-
 initWorkDir() {
     dirList="$*"
 
@@ -56,37 +46,10 @@ initWorkDir() {
     done
 }
 
-copyFile() {
-    fileName="$1"
-    sourceDir="$2"
-    targetDir="$3"
-
-    [ ! -d "$targetDir" ] && mkdir -p "$targetDir"
-
-    cp "${sourceDir}${fileName}" "${targetDir}${fileName}"
-
-    ret="$?"
-    success "$sourceDir was copied!"
-    debug
-}
-
 lnif() {
-    fileName=$1
-    sourceDir=$2
-    targetDir=$3
-    sourcePrefix=$4
-    targetPrefix=$5
-
-    sourcePath="$sourceDir/$sourcePrefix$fileName"
-    targetPath="$targetDir/$targetPrefix$fileName"
-
-    if [ -e "$sourcePath" ]; then
-        ln -sf "$sourcePath" "$targetPath"
+    if [ -e "$1" ]; then
+        ln -sf "$1" "$2"
     fi
-
-    ret="$?"
-    success "$sourcePath was linked!"
-    debug
 }
 
 syncRepo() {
@@ -124,67 +87,36 @@ installPlugins() {
     debug
 }
 
-backup "$HOME/.vim"
-backup "$HOME/.vimrc"
-backup "$HOME/.vimrc.conf"
-backup "$HOME/.vimrc.maps"
-backup "$HOME/.vimrc.custom"
-backup "$NVIM_PATH/init.vim"
-backup "$HOME/.vimrc.plugins"
+getFile() {
+    local dir_name=$1
+    dir_list=$(/usr/bin/find "${dir_name}" -depth 1)
+}
+
+handler() {
+    local dir
+    local file
+    local path_name="$1"
+    local target_dir="$2"
+    getFile "${path_name}"
+    for i in ${dir_list}; do
+        dir=$(dirname "$i")
+        file=$(basename "$i")
+        echo "${dir}/${file} ---> ${target_dir}${file}"
+        echo "${dir}/${file} ++ ${target_dir}${file%.sh}"
+        lnif "${dir}/${file}" "${target_dir}${file%.sh}"
+    done
+}
 
 initWorkDir "$HOME/.swp" \
     "$HOME/.backup" \
     "$HOME/.undo" \
     "$NVIM_PATH" \
-    "$APP_PATH"
 
 syncRepo "$REPO_PATH" \
     "$REPO_URI"
 
-copyFile "plug.vim" \
-    "$REPO_PATH/autoload/" \
-    "$APP_PATH/autoload/"
+handler "${CONFIG_PATH}" "$HOME/."
 
-copyFile "conf.vim" \
-    "$REPO_PATH/autoload/" \
-    "$APP_PATH/autoload/"
-
-copyFile "gruvbox.vim" \
-    "$REPO_PATH/colors/" \
-    "$APP_PATH/colors/"
-
-lnif "vimrc" \
-    "$REPO_PATH" \
-    "$HOME" \
-    "" \
-    "."
-
-lnif "init.vim" \
-    "$REPO_PATH" \
-    "$NVIM_PATH"
-
-lnif "vimrc.conf" \
-    "$REPO_PATH" \
-    "$HOME" \
-    "" \
-    "."
-
-lnif "vimrc.maps" \
-    "$REPO_PATH" \
-    "$HOME" \
-    "" \
-    "."
-
-lnif "vimrc.custom" \
-    "$REPO_PATH" \
-    "$HOME" \
-    "" \
-    "."
-
-lnif "vimrc.plugins" \
-    "$REPO_PATH" \
-    "$HOME" \
-    "" \
-    "."
+lnif "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
 
 installPlugins
