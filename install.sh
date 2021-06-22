@@ -89,7 +89,7 @@ installPlugins() {
 
 getFile() {
     local dir_name=$1
-    dir_list=$(/usr/bin/find "${dir_name}" -depth 1)
+    dir_list=$(/usr/bin/find "${dir_name}" -maxdepth 1)
 }
 
 handler() {
