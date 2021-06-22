@@ -47,22 +47,9 @@ initWorkDir() {
 }
 
 lnif() {
-    fileName=$1
-    sourceDir=$2
-    targetDir=$3
-    sourcePrefix=$4
-    targetPrefix=$5
-
-    sourcePath="$sourceDir/$sourcePrefix$fileName"
-    targetPath="$targetDir/$targetPrefix$fileName"
-
-    if [ -e "$sourcePath" ]; then
-        ln -sf "$sourcePath" "$targetPath"
+    if [ -e "$1" ]; then
+        ln -sf "$1" "$2"
     fi
-
-    ret="$?"
-    success "$sourcePath was linked!"
-    debug
 }
 
 syncRepo() {
@@ -115,6 +102,7 @@ handler() {
         dir=$(dirname "$i")
         file=$(basename "$i")
         echo "${dir}/${file} ---> ${target_dir}${file}"
+        echo "${dir}/${file} ++ ${target_dir}${file%.sh}"
         lnif "${dir}/${file}" "${target_dir}${file%.sh}"
     done
 }
@@ -128,5 +116,7 @@ syncRepo "$REPO_PATH" \
     "$REPO_URI"
 
 handler "${CONFIG_PATH}" "$HOME/."
+
+cp "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
 
 installPlugins
