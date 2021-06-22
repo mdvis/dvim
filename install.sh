@@ -44,6 +44,10 @@ initWorkDir() {
         success "$fileName was created!"
         debug
     done
+
+    ret="$?"
+    success "Init dir done!"
+    debug
 }
 
 lnif() {
@@ -64,7 +68,7 @@ syncRepo() {
     fi
 
     ret="$?"
-    success "Dvim clone done!"
+    success "Clone done!"
     debug
 }
 
@@ -89,7 +93,8 @@ installPlugins() {
 
 getFile() {
     local dir_name=$1
-    dir_list=$(/usr/bin/find "${dir_name}" -maxdepth 1)
+    # dir_list=$(/usr/bin/find "${dir_name}" -maxdepth 1)
+    dir_list=$(ls "${dir_name}")
 }
 
 handler() {
@@ -101,10 +106,12 @@ handler() {
     for i in ${dir_list}; do
         dir=$(dirname "$i")
         file=$(basename "$i")
-        echo "${dir}/${file} ---> ${target_dir}${file}"
-        echo "${dir}/${file} ++ ${target_dir}${file%.sh}"
         lnif "${dir}/${file}" "${target_dir}${file%.sh}"
     done
+
+    ret="$?"
+    success "Link done!"
+    debug
 }
 
 initWorkDir "$HOME/.swp" \
@@ -115,8 +122,8 @@ initWorkDir "$HOME/.swp" \
 syncRepo "$REPO_PATH" \
     "$REPO_URI"
 
-handler "${CONFIG_PATH}" "$HOME/."
-
 lnif "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
+
+handler "${CONFIG_PATH}" "$HOME/."
 
 installPlugins
