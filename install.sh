@@ -98,15 +98,13 @@ getFile() {
 }
 
 handler() {
-    local dir
     local file
     local path_name="$1"
     local target_dir="$2"
     getFile "${path_name}"
     for i in ${dir_list}; do
-        dir=$(dirname "$i")
         file=$(basename "$i")
-        lnif "${dir}/${file}" "${target_dir}${file%.sh}"
+        lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
     done
 
     ret="$?"
