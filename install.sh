@@ -117,6 +117,6 @@ syncRepo "$REPO_PATH" \
 
 handler "${CONFIG_PATH}" "$HOME/."
 
-cp "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
+lnif "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
 
 installPlugins
