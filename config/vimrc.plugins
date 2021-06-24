@@ -50,7 +50,7 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale', {
           \ 'do':'
           \ npm i -g jsonlint prettier stylelint stylelint-config-standard;
-          \ pip install yapf isort flake8 pylint autopep8 vim-vint jedi
+          \ pip install yapf isort flake8 pylint autopep8 vim-vint jedi pynvim neovim
           \ '}
 
     " Deoplete
