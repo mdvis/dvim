@@ -60,8 +60,8 @@ syncRepo() {
     local repo_uri="$2"
 
     if [ ! -e "$repo_path" ]; then
-        mkdir -p "$repo_path"
-        git clone "$repo_uri" "$repo_path"
+        # mkdir -p "$repo_path"
+        git clone --depth 1 "$repo_uri" "$repo_path"
     else
         cd "$repo_path" && git pull origin master
     fi
