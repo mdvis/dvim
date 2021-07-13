@@ -40,25 +40,6 @@ let g:mapleader = ','
         map <silent> <leader>c :NERDTree ~/Code<CR>
     " }
 
-    " Self {
-        nnoremap <silent> <leader>o :browse oldfiles<CR>
-        nnoremap <silent> <leader><CR> :noh<CR>
-        nnoremap <silent> <leader>T :tabs<CR>
-        nnoremap <silent> <leader>r :reg<CR>
-        nnoremap <silent> <leader><leader>q :q!<CR>
-        nnoremap <silent> <leader>w :w<CR>
-        nnoremap <silent> <leader>q :q<CR>
-        nnoremap <silent> <leader>x :x<CR>
-        nnoremap <leader>h <c-w>h
-        nnoremap <leader>j <c-w>j
-        nnoremap <leader>k <c-w>k
-        nnoremap <leader>l <c-w>l
-        inoremap jj <Esc>
-        nnoremap j gj
-        nnoremap k gk
-        nnoremap 0 ^
-    " }
-
     " Signify {
         nmap <leader>N <plug>(signify-next-hunk)
         nmap <leader>P <plug>(signify-prev-hunk)
@@ -78,5 +59,25 @@ let g:mapleader = ','
 
     " ViMagit {
         nnoremap <silent> <leader>g :Magit<CR>
+    " }
+
+    " Self {
+        nnoremap <silent> <leader><leader>r :vertical-resize<space>
+        nnoremap <silent> <leader>o :browse oldfiles<CR>
+        nnoremap <silent> <leader><CR> :noh<CR>
+        nnoremap <silent> <leader>T :tabs<CR>
+        nnoremap <silent> <leader>r :reg<CR>
+        nnoremap <silent> <leader><leader>q :q!<CR>
+        nnoremap <silent> <leader>w :w<CR>
+        nnoremap <silent> <leader>q :q<CR>
+        nnoremap <silent> <leader>x :x<CR>
+        nnoremap <leader>h <c-w>h
+        nnoremap <leader>j <c-w>j
+        nnoremap <leader>k <c-w>k
+        nnoremap <leader>l <c-w>l
+        inoremap jj <Esc>
+        nnoremap j gj
+        nnoremap k gk
+        nnoremap 0 ^
     " }
 " }
