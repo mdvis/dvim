@@ -12,6 +12,7 @@ scriptencoding utf-8
     Plug 'mattn/emmet-vim'
     Plug 'jreybert/vimagit'
     Plug 'SirVer/ultisnips'
+    Plug 'Yggdroot/LeaderF'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-signify'            " show a diff
     Plug 'tpope/vim-fugitive'           " git wrapper
@@ -262,6 +263,7 @@ scriptencoding utf-8
     " airline {
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#formatter = 'short_path'
+        let g:airline_theme='molokai'
         let g:airline_mode_map = {
           \ '__'     : '-',
           \ 'c'      : 'CMD',
