@@ -46,6 +46,8 @@ scriptencoding utf-8
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
     " Syntax and Fix
     Plug 'dense-analysis/ale', {
           \ 'do':'
@@ -262,6 +264,7 @@ scriptencoding utf-8
     " airline {
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#formatter = 'short_path'
+        let g:airline_theme='molokai'
         let g:airline_mode_map = {
           \ '__'     : '-',
           \ 'c'      : 'CMD',

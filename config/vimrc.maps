@@ -61,6 +61,14 @@ let g:mapleader = ','
         nnoremap <silent> <leader>g :Magit<CR>
     " }
 
+    " LeaderF {
+        let g:Lf_WindowPosition = 'popup'
+        let g:Lf_PreviewInPopup = 1
+        let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+        let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+        let g:Lf_ShortcutF = "<leader>ff"
+    " }
+
     " Self {
         nnoremap <silent> <leader><leader>r :vertical-resize<space>
         nnoremap <silent> <leader>o :browse oldfiles<CR>
