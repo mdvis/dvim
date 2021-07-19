@@ -23,7 +23,6 @@ scriptencoding utf-8
     Plug 'Yggdroot/indentLine'          " display the indention levels
     Plug 'sheerun/vim-polyglot'         " highlight
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
-    Plug 'pechorin/any-jump.vim'
     Plug 'kshenoy/vim-signature'        " display and navigate marks
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -295,9 +294,5 @@ scriptencoding utf-8
         let g:Lf_PreviewInPopup = 1
         let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
         let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-    " }
-
-    " Any-Jump {
-        let g:any_jump_disable_default_keybindings = 1
     " }
 " }

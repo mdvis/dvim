@@ -69,10 +69,6 @@ let g:mapleader = ','
         "let g:Lf_ShortcutF = "<leader>ff"
     " }
 
-    " anyjump {
-        nnoremap <leader>aj :AnyJump<CR>
-    " }
-
     " Self {
         nnoremap <silent> <leader><leader>r :vertical-resize<space>
         nnoremap <silent> <leader>o :browse oldfiles<CR>
