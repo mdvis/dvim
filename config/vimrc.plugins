@@ -132,7 +132,7 @@ scriptencoding utf-8
             \ 'Unknown'   : '?' }
     " }
 
-    " fzf {
+    " FZF {
         let g:fzf_action = {
                     \ 'ctrl-e': 'edit',
                     \ 'ctrl-t': 'tab split',
@@ -220,7 +220,7 @@ scriptencoding utf-8
                     \   'vim':['vint']}
     " }
 
-    " deoplete {
+    " Deoplete {
         if OSX()
           let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/'
                       \.'Contents/Developer/Toolchains/XcodeDefault.xctoolchain/'
@@ -241,12 +241,12 @@ scriptencoding utf-8
         let g:ackprg = 'ag --nogroup --nocolor --column'
     " }
 
-    " nerdtree syntax highlight{
+    " Nerdtree syntax highlight {
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
 
-    " vim-multiple-cursors {
+    " Multiple cursors {
         func! Multiple_cursors_before()
           if deoplete#is_enabled()
             call deoplete#disable()
@@ -262,7 +262,8 @@ scriptencoding utf-8
           endif
         endfunc
     " }
-    " airline {
+
+    " Airline {
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#formatter = 'short_path'
         let g:airline_theme='molokai'
@@ -286,5 +287,16 @@ scriptencoding utf-8
           \ 'V'      : 'VIS',
           \ ''     : 'VIS',
           \ }
+    " }
+
+    " LeaderF {
+        let g:Lf_WindowPosition = 'popup'
+        let g:Lf_PreviewInPopup = 1
+        let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+        let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+    " }
+
+    " Any-Jump {
+        let g:any_jump_disable_default_keybindings = 1
     " }
 " }

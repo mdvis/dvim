@@ -2,6 +2,8 @@
 
 let g:mapleader = ','
 
+" verbose nnoremap <leader>j
+
 " Mappings {
     " Ack {
         nnoremap <leader>s :Ack<space>
@@ -62,11 +64,11 @@ let g:mapleader = ','
     " }
 
     " LeaderF {
-        let g:Lf_WindowPosition = 'popup'
-        let g:Lf_PreviewInPopup = 1
-        let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-        let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-        let g:Lf_ShortcutF = "<leader>ff"
+        "let g:Lf_ShortcutF = "<leader>ff"
+    " }
+
+    " anyjump {
+        nnoremap <leader>aj :AnyJump<CR>
     " }
 
     " Self {
