@@ -2,6 +2,8 @@
 
 let g:mapleader = ','
 
+" verbose nnoremap <leader>j
+
 " Mappings {
     " Ack {
         nnoremap <leader>s :Ack<space>
@@ -38,25 +40,8 @@ let g:mapleader = ','
         map <silent> <leader>e :NERDTreeFind<CR>
         map <silent> <leader>n :NERDTreeToggle<CR>
         map <silent> <leader>c :NERDTree ~/Code<CR>
-    " }
-
-    " Self {
-        nnoremap <silent> <leader>o :browse oldfiles<CR>
-        nnoremap <silent> <leader><CR> :noh<CR>
-        nnoremap <silent> <leader>T :tabs<CR>
-        nnoremap <silent> <leader>r :reg<CR>
-        nnoremap <silent> <leader><leader>q :q!<CR>
-        nnoremap <silent> <leader>w :w<CR>
-        nnoremap <silent> <leader>q :q<CR>
-        nnoremap <silent> <leader>x :x<CR>
-        nnoremap <leader>h <c-w>h
-        nnoremap <leader>j <c-w>j
-        nnoremap <leader>k <c-w>k
-        nnoremap <leader>l <c-w>l
-        inoremap jj <Esc>
-        nnoremap j gj
-        nnoremap k gk
-        nnoremap 0 ^
+        map <silent> <leader>m :NERDTree ~/.myprofile<CR>
+        map <silent> <leader>d :NERDTree ~/.vim<CR>
     " }
 
     " Signify {
@@ -78,5 +63,29 @@ let g:mapleader = ','
 
     " ViMagit {
         nnoremap <silent> <leader>g :Magit<CR>
+    " }
+
+    " LeaderF {
+        "let g:Lf_ShortcutF = "<leader>ff"
+    " }
+
+    " Self {
+        nnoremap <silent> <leader><leader>r :vertical-resize<space>
+        nnoremap <silent> <leader>o :browse oldfiles<CR>
+        nnoremap <silent> <leader><CR> :noh<CR>
+        nnoremap <silent> <leader>T :tabs<CR>
+        nnoremap <silent> <leader>r :reg<CR>
+        nnoremap <silent> <leader><leader>q :q!<CR>
+        nnoremap <silent> <leader>w :w<CR>
+        nnoremap <silent> <leader>q :q<CR>
+        nnoremap <silent> <leader>x :x<CR>
+        nnoremap <leader>h <c-w>h
+        nnoremap <leader>j <c-w>j
+        nnoremap <leader>k <c-w>k
+        nnoremap <leader>l <c-w>l
+        inoremap jj <Esc>
+        nnoremap j gj
+        nnoremap k gk
+        nnoremap 0 ^
     " }
 " }
