@@ -37,7 +37,7 @@ initWorkDir() {
     dirList="$*"
 
     for fileName in $dirList; do
-        [ -d "$fileName" ] || mkdir "$fileName"
+        [ -d "$fileName" ] || mkdir -p "$fileName"
 
         ret="$?"
         success "$fileName was created!"
