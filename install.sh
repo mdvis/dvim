@@ -103,7 +103,7 @@ handler() {
     getFile "${path_name}"
     for i in ${dir_list}; do
         file=$(basename "$i")
-        lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
+        [[ ! "$i" =~ "init" ]] && lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
     done
 
     ret="$?"
