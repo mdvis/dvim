@@ -119,3 +119,21 @@ augroup chkt
   au FocusGained,BufEnter * checktime
 augroup END
 " }
+
+function! PrevLinePos()
+  let currentLine = line(".")
+  let pos = [0, currentLine, 1, 0]
+  call setpos('.', pos)
+endfunction
+
+function! AddComment()
+  call PrevLinePos()
+  let content="{/**/}"
+  put!=content
+endfunction
+
+function! AddEsLintDisable()
+  call PrevLinePos()
+  let content="/* eslint-disable *//* eslint-enable */"
+  put!=content
+endfunction
