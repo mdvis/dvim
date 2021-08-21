@@ -37,7 +37,7 @@ initWorkDir() {
     dirList="$*"
 
     for fileName in $dirList; do
-        [ -d "$fileName" ] || mkdir "$fileName"
+        [ -d "$fileName" ] || mkdir -p "$fileName"
 
         ret="$?"
         success "$fileName was created!"
@@ -103,7 +103,7 @@ handler() {
     getFile "${path_name}"
     for i in ${dir_list}; do
         file=$(basename "$i")
-        lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
+        [[ ! "$i" =~ "init" ]] && lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
     done
 
     ret="$?"

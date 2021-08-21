@@ -57,6 +57,14 @@ let g:mapleader = ','
         nmap <silent> <leader><leader>t :call SetTpl()<CR>
     " }
 
+    " React Comment{
+        nmap <silent> <leader><leader>c :call AddComment()<CR>
+    " }
+
+    " eslint disable{
+        nmap <silent> <leader><leader>d :call AddEsLintDisable()<CR>
+    " }
+
     " Undotree {
         nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }

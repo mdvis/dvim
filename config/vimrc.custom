@@ -105,10 +105,10 @@
 " }
 "
 " Return to last edit position when opening files (You want this!)
-augroup lastModPos
-  autocmd!
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-augroup END
+"augroup lastModPos
+  "autocmd!
+  "au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"augroup END
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -119,3 +119,21 @@ augroup chkt
   au FocusGained,BufEnter * checktime
 augroup END
 " }
+
+function! PrevLinePos()
+  let currentLine = line(".")
+  let pos = [0, currentLine, 1, 0]
+  call setpos('.', pos)
+endfunction
+
+function! AddComment()
+  call PrevLinePos()
+  let content="{/**/}"
+  put!=content
+endfunction
+
+function! AddEsLintDisable()
+  call PrevLinePos()
+  let content="/* eslint-disable *//* eslint-enable */"
+  put!=content
+endfunction
