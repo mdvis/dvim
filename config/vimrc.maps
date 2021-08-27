@@ -61,7 +61,7 @@ let g:mapleader = ','
         nmap <silent> <leader><leader>c :call AddComment()<CR>
     " }
 
-    " eslint disable{
+    " Eslint Disable{
         nmap <silent> <leader><leader>d :call AddEsLintDisable()<CR>
     " }
 
@@ -75,6 +75,10 @@ let g:mapleader = ','
 
     " LeaderF {
         "let g:Lf_ShortcutF = "<leader>ff"
+    " }
+
+    " Blamer{
+        nnoremap <silent> <leader>bl :BlamerToggle<CR>
     " }
 
     " Self {

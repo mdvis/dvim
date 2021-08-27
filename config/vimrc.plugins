@@ -21,6 +21,7 @@ scriptencoding utf-8
     Plug 'roman/golden-ratio'           " automatic resizing
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'Yggdroot/indentLine'          " display the indention levels
+    Plug 'APZelos/blamer.nvim'
     Plug 'sheerun/vim-polyglot'         " highlight
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
     Plug 'kshenoy/vim-signature'        " display and navigate marks
