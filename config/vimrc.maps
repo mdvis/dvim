@@ -78,7 +78,7 @@ let g:mapleader = ','
     " }
 
     " Blamer{
-        nnoremap <silent> <leader><leader>bl :BlamerToggle<CR>
+        nnoremap <silent> <leader>a :BlamerToggle<CR>
     " }
 
     " Self {
