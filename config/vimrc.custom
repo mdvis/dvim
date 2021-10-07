@@ -134,7 +134,9 @@ endfunction
 
 function! AddEsLintDisable()
   call PrevLinePos()
-  let content='/* eslint-disable *//* eslint-enable */'
+  let content='/* eslint-disable */'
+        \."\n/* eslint-enable */"
+        \."\n/* eslint-disable-next-line */"
   put!=content
 endfunction
 
