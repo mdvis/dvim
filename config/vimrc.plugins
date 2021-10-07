@@ -66,11 +66,13 @@ scriptencoding utf-8
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
-    Plug 'fszymanski/deoplete-emoji'
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'fszymanski/deoplete-emoji'
+
+    Plug 'junegunn/vim-emoji'
 
     Plug 'heavenshell/vim-jsdoc', {
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
@@ -80,6 +82,9 @@ scriptencoding utf-8
 " }
 
 " Plugin Config Start {
+    " Emoji{
+        set completefunc=emoji#complete
+    " }
     " Signify {
         " this first setting decides in which order try to guess your current vcs
         " UPDATE it to reflect your preferences, it will speed up opening files
