@@ -53,13 +53,13 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale', {
           \ 'do':'
           \ npm i -g jsonlint prettier stylelint stylelint-config-standard neovim;
-          \ pip install yapf isort flake8 pylint autopep8 vim-vint
+          \ pip3 install yapf isort flake8 pylint autopep8 vim-vint
           \ '}
 
     " Deoplete
     if has('nvim')
       Plug 'Shougo/deoplete.nvim' ,{ 'do': '
-            \ pip install pynvim neovim jedi;
+            \ pip3 install pynvim neovim jedi;
             \ :UpdateRemotePlugins
             \ '}
     else
