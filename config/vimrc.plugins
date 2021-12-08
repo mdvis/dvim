@@ -182,53 +182,45 @@ scriptencoding utf-8
 
         let g:ale_fixers = {
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                    \   'c':['uncrustify'],
-                    \   'cpp':['uncrustify'],
                     \   'css':['prettier'],
                     \   'go':['gofmt'],
                     \   'graphqls':['eslint'],
                     \   'html':['tidy'],
+                    \   'xml':['xmllint'],
                     \   'javascript':['eslint'],
-                    \   'jsx':['eslint'],
+                    \   'javascript.jsx':['eslint'],
                     \   'json':['prettier'],
                     \   'less':['prettier'],
-                    \   'markdown':['prettier'],
                     \   'python':['autopep8', 'isort', 'yapf'],
                     \   'rust':['rustfmt'],
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
                     \   'swift':['swiftformat'],
                     \   'typescript':['eslint'],
-                    \   'tsx':['eslint'],
+                    \   'javascript.tsx':['eslint'],
                     \   'vue':['eslint'],
                     \   'yaml':['prettier']}
 
-        let g:ale_linter_aliases = {
-                    \ 'jsx': ['css', 'javascript'],
-                    \ 'tsx': ['css', 'javascript'],
-                    \ 'vue': ['vue', 'javascript']
-                    \ }
-
         let g:ale_linters = {
-                    \   'c':['gcc'],
+                    \   'sql':['sql-lint'],
                     \   'css':['stylelint'],
-                    \   'cpp':['gcc'],
                     \   'go':['gofmt'],
                     \   'graphqls':['prettier'],
                     \   'html':['tidy'],
+                    \   'xml':['xmllint'],
                     \   'javascript':['eslint'],
-                    \   'jsx':['stylelint', 'eslint'],
+                    \   'javascript.jsx':['stylelint', 'eslint'],
                     \   'json':['jsonlint'],
                     \   'less':['stylelint'],
+                    \   'python':['flake8', 'pylint'],
                     \   'rust':['analyzer', 'cargo', 'rustc'],
                     \   'scss':['stylelint'],
-                    \   'typescript':['eslint'],
-                    \   'tsx':['stylelint', 'eslint'],
-                    \   'vue':['eslint'],
-                    \   'python':['flake8', 'pylint'],
-                    \   'swift':['swiftlint'],
-                    \   'yaml':['yamllint'],
                     \   'sh':['shellcheck'],
+                    \   'swift':['swiftlint'],
+                    \   'typescript':['eslint'],
+                    \   'javascript.tsx':['stylelint', 'eslint'],
+                    \   'vue':['eslint'],
+                    \   'yaml':['yamllint'],
                     \   'vim':['vint']}
     " }
 
