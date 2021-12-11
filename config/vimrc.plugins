@@ -78,14 +78,6 @@ scriptencoding utf-8
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
           \ 'do': 'make install' }
 
-    "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    "Plug 'vim-syntastic/syntastic'
-
-    "Plug 'ycm-core/YouCompleteMe'
-
     call plug#end()
 " }
 
