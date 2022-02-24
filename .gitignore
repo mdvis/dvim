@@ -1,8 +1,6 @@
 *.swp
 .DS_Store
-autoload
-colors
 ftplugin
 plugged
-**/gocomplete
+**/gocomplete.vim
 .netrwhist
