@@ -52,23 +52,17 @@ scriptencoding utf-8
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
     " Syntax and Fix
-    Plug 'dense-analysis/ale', {
-          \ 'do':'
-          \ npm i -g jsonlint prettier stylelint stylelint-config-standard neovim;
-          \ pip3 install yapf isort flake8 pylint autopep8 vim-vint
-          \ '}
+    Plug 'dense-analysis/ale'
 
     " Deoplete
     if has('nvim')
-      Plug 'Shougo/deoplete.nvim' ,{ 'do': '
-            \ pip3 install pynvim neovim jedi;
-            \ :UpdateRemotePlugins
-            \ '}
+      Plug 'Shougo/deoplete.nvim' ,{ 'do': ':UpdateRemotePlugins'}
     else
       Plug 'Shougo/deoplete.nvim'
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
+
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
