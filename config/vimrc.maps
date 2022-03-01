@@ -74,7 +74,7 @@ let g:mapleader = ','
     " }
 
     " LeaderF {
-        "let g:Lf_ShortcutF = "<leader>ff"
+        " let g:Lf_ShortcutF = "<leader>ff"
     " }
 
     " Blamer{
