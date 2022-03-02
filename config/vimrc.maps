@@ -40,8 +40,6 @@ let g:mapleader = ','
         map <silent> <leader>e :NERDTreeFind<CR>
         map <silent> <leader>n :NERDTreeToggle<CR>
         map <silent> <leader>c :NERDTree ~/Code<CR>
-        map <silent> <leader>m :NERDTree ~/.myprofile<CR>
-        map <silent> <leader>d :NERDTree ~/.vim<CR>
     " }
 
     " Signify {
