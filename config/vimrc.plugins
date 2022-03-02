@@ -238,8 +238,7 @@ scriptencoding utf-8
     " }
 
     " Ack {
-        " let g:ackprg = 'ag --nocolor --column --nogroup'
-        let g:ackprg = 'ag --nocolor --column --group'
+        let g:ackprg = 'ag --nocolor --column --nogroup'
     " }
 
     " Nerdtree syntax highlight {
