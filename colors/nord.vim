@@ -48,8 +48,8 @@ let s:nord13_term = "3"
 let s:nord14_term = "2"
 let s:nord15_term = "5"
 
-let s:columncolor= "232"
-let s:rowcolor= "232"
+let s:columncolor= "236"
+let s:rowcolor= "236"
 let s:selectcolor= "8"
 let s:cursorcolor= "5"
 
