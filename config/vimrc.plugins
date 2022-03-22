@@ -10,13 +10,12 @@ scriptencoding utf-8
 
     " Plug 'gcmt/taboo.vim'
     " Plug 'ctrlpvim/ctrlp.vim'
+
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
-    Plug 'jreybert/vimagit'
     Plug 'SirVer/ultisnips'
     Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-signify'            " show a diff
-    Plug 'tpope/vim-fugitive'           " git wrapper
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
@@ -32,12 +31,12 @@ scriptencoding utf-8
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
     Plug 'editorconfig/editorconfig-vim'
+
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-    "'~/.config/nvim/plugged/gocode/nvim/symlink.sh'
     Plug 'nsf/gocode', { 'rtp': 'nvim',
           \ 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
+
     " File
     Plug 'preservim/nerdtree'           " explorer
     Plug 'ryanoasis/vim-devicons'
@@ -49,7 +48,6 @@ scriptencoding utf-8
     Plug 'mileszs/ack.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
     " Syntax and Fix
@@ -63,17 +61,15 @@ scriptencoding utf-8
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
-
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-    " Plug 'landaire/deoplete-swift'
-    " Plug 'autozimu/LanguageClient-neovim', {
-      "\ 'branch': 'next',
-      "\ 'do': 'bash install.sh',
-      "\ }
+
+    " Rust
     Plug 'racer-rust/vim-racer'
+
+    " Database
     Plug 'tpope/vim-dadbod'
     Plug 'kristijanhusak/vim-dadbod-completion'
 
@@ -321,7 +317,7 @@ scriptencoding utf-8
         " let g:racer_insert_paren = 1
     " }
 
-    " SQL {
+    " Database {
         function! PackagerInit() abort
           packadd vim-packager
           call packager#init()
