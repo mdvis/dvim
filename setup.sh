@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # ------
 # name: setup.sh
 # author: Deve
@@ -16,6 +17,7 @@ error() {
 hasCmd() {
     type "$1" >/dev/null 2>&1 || error "\"no $1\""
 }
+
 hasCmd npm
 npm i -g jsonlint prettier stylelint stylelint-config-standard neovim
 
