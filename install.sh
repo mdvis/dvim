@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# ------
+# name: install.sh
+# author: Deve
+# date: 2022-03-27
+# ------
+
 set -e
 set -o pipefail
 
