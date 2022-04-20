@@ -72,11 +72,11 @@ let g:mapleader = ','
     " }
 
     " LeaderF {
-        " let g:Lf_ShortcutF = "<leader>ff"
+        " let g:Lf_ShortcutF = '<leader>f'
     " }
 
     " Blamer{
-        nnoremap <silent> <leader>a :BlamerToggle<CR>
+        " nnoremap <silent> <leader>a :BlamerToggle<CR>
     " }
 
     " Self {

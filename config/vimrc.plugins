@@ -342,4 +342,8 @@ scriptencoding utf-8
         " Useful if there's a lot of camel case items
         let g:completion_matching_ignore_case = 1
     " }
+
+    " Blamer {
+        let g:blamer_enabled = 1
+    " }
 " }
