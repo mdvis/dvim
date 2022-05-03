@@ -9,6 +9,10 @@
 set -e
 set -o pipefail
 
+msg() {
+    printf '%b\n' "$1" >&2
+}
+
 error() {
     msg "\033[31m[✘]\033[0m ${1}${2}"
     exit 1
