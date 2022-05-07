@@ -135,4 +135,5 @@ function! GetStr(string, times)
   echo l:newString
 endfunction
 
-" highlight Normal ctermbg=none " ctermfg=
+" highlight Normal ctermbg=none
+highlight ColorColumn ctermbg=black
