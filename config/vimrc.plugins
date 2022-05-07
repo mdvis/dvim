@@ -39,9 +39,9 @@ scriptencoding utf-8
 
     " File
     Plug 'preservim/nerdtree'           " explorer
-    Plug 'ryanoasis/vim-devicons'
+    "Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
-    Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
+    "Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     " Search
