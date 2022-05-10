@@ -136,4 +136,4 @@ function! GetStr(string, times)
 endfunction
 
 " highlight Normal ctermbg=none
-highlight ColorColumn ctermbg=black
+highlight ColorColumn ctermbg=96
