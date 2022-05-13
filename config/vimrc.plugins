@@ -178,7 +178,7 @@ scriptencoding utf-8
                     \   'css':['prettier'],
                     \   'go':['gofmt'],
                     \   'graphqls':['eslint'],
-                    \   'html':['tidy'],
+                    \   'html':['prettier'],
                     \   'xml':['xmllint'],
                     \   'javascript':['eslint'],
                     \   'javascript.jsx':['eslint'],
