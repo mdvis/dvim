@@ -10,7 +10,6 @@ scriptencoding utf-8
 
     " Plug 'gcmt/taboo.vim'
     " Plug 'ctrlpvim/ctrlp.vim'
-
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
     Plug 'SirVer/ultisnips'
@@ -197,7 +196,7 @@ scriptencoding utf-8
         let g:ale_linters = {
                     \   'sql':['sql-lint'],
                     \   'css':['stylelint'],
-                    \   'go':['gofmt'],
+                    \   'go':['govet'],
                     \   'graphqls':['prettier'],
                     \   'html':['tidy'],
                     \   'xml':['xmllint'],
