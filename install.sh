@@ -16,22 +16,12 @@ readonly CONFIG_PATH="$HOME/$APP_SETUP_NAME/config"
 readonly NVIM_PATH="$HOME/.config/nvim"
 readonly REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
-is_debug="0"
-
-debug() {
-    if [ "$is_debug" -eq "1" ] && [ "$ret" -gt "1" ]; then
-        msg "${FUNCNAME[1]}/${BASH_LINENO[1]}"
-    fi
-}
-
 msg() {
     printf '%b\n' "$1" >&2
 }
 
 success() {
-    if [ "$ret" -eq "0" ]; then
-        msg "\033[32m[✔]\033[0m ${1}${2}"
-    fi
+    msg "\033[32m[✔]\033[0m ${1}${2}"
 }
 
 error() {
@@ -45,14 +35,10 @@ initWorkDir() {
     for fileName in $dirList; do
         [ -d "$fileName" ] || mkdir -p "$fileName"
 
-        ret="$?"
         success "$fileName was created!"
-        debug
     done
 
-    ret="$?"
     success "Init dir done!"
-    debug
 }
 
 lnif() {
@@ -72,9 +58,9 @@ syncRepo() {
         cd "$repo_path" && git pull origin master
     fi
 
-    ret="$?"
-    success "Clone done!"
-    debug
+    name=$(basename "${repo_uri%.git}")
+
+    success "Clone $name done!"
 }
 
 installPlugins() {
@@ -91,9 +77,7 @@ installPlugins() {
 
     export SHELL="$systemShell"
 
-    ret="$?"
     success "Plugins setup done!"
-    debug
 }
 
 getFile() {
@@ -110,11 +94,10 @@ handler() {
     for i in ${dir_list}; do
         file=$(basename "$i")
         [[ ! "$i" =~ "init" ]] && lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
+        success "Link $file!"
     done
 
-    ret="$?"
     success "Link done!"
-    debug
 }
 
 initWorkDir "$HOME/.swp" \
