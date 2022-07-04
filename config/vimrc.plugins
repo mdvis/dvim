@@ -74,6 +74,7 @@ scriptencoding utf-8
 
     " Rust
     Plug 'racer-rust/vim-racer'
+    Plug 'rust-lang/rust.vim'
 
     " Database
     Plug 'tpope/vim-dadbod'
