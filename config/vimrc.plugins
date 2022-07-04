@@ -9,7 +9,6 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plug 'gcmt/taboo.vim'
-    " Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
     Plug 'SirVer/ultisnips'
@@ -45,12 +44,16 @@ scriptencoding utf-8
 
     " Search
     Plug 'mileszs/ack.vim'
+    Plug 'dyng/ctrlsf.vim'
     Plug 'junegunn/fzf.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
     " Syntax and Fix
     Plug 'dense-analysis/ale'
+    Plug 'vim-syntastic/syntastic'
 
     " Deoplete
     if has('nvim')
@@ -64,6 +67,10 @@ scriptencoding utf-8
     Plug 'deoplete-plugins/deoplete-clang'
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    Plug 'ycm-core/YouCompleteMe'
 
     " Rust
     Plug 'racer-rust/vim-racer'
@@ -82,9 +89,25 @@ scriptencoding utf-8
 " }
 
 " Plugin Config Start {
+    " syntastic {
+      set statusline+=%#warningmsg#
+      set statusline+=%{SyntasticStatuslineFlag()}
+      set statusline+=%*
+
+      let g:syntastic_always_populate_loc_list = 1
+      let g:syntastic_auto_loc_list = 1
+      let g:syntastic_check_on_open = 1
+      let g:syntastic_check_on_wq = 0
+    " }
+
+    " AutoJump{
+      let g:any_jump_disable_default_keybindings = 1
+    " }
+
     " Emoji{
         set completefunc=emoji#complete
     " }
+
     " Signify {
         " this first setting decides in which order try to guess your current vcs
         " UPDATE it to reflect your preferences, it will speed up opening files
