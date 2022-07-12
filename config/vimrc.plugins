@@ -46,7 +46,7 @@ scriptencoding utf-8
     Plug 'mileszs/ack.vim'
     Plug 'dyng/ctrlsf.vim'
     Plug 'junegunn/fzf.vim'
-    Plug 'ctrlpvim/ctrlp.vim'
+    "Plug 'ctrlpvim/ctrlp.vim'
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -70,7 +70,7 @@ scriptencoding utf-8
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    Plug 'ycm-core/YouCompleteMe'
+    "Plug 'ycm-core/YouCompleteMe'
 
     " Rust
     Plug 'racer-rust/vim-racer'
