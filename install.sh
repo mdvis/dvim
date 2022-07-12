@@ -64,6 +64,7 @@ syncRepo() {
 }
 
 installPlugins() {
+    echo "install plugins ..."
     type nvim >/dev/null 2>&1 || local hasNvim="vim"
     local systemShell="$SHELL"
 
