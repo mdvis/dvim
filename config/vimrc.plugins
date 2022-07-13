@@ -8,7 +8,7 @@ scriptencoding utf-8
 
     call plug#begin(g:Plug_dir)
 
-    " Plug 'gcmt/taboo.vim'
+    Plug 'gcmt/taboo.vim'
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
     Plug 'SirVer/ultisnips'
@@ -37,16 +37,15 @@ scriptencoding utf-8
 
     " File
     Plug 'preservim/nerdtree'           " explorer
-    "Plug 'ryanoasis/vim-devicons'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
-    "Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
+    Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     " Search
     Plug 'mileszs/ack.vim'
     Plug 'dyng/ctrlsf.vim'
     Plug 'junegunn/fzf.vim'
-    "Plug 'ctrlpvim/ctrlp.vim'
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -55,22 +54,9 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale'
     Plug 'vim-syntastic/syntastic'
 
-    " Deoplete
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim' ,{ 'do': ':UpdateRemotePlugins'}
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'deoplete-plugins/deoplete-clang'
-    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    "Plug 'ycm-core/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe'
 
     " Rust
     Plug 'racer-rust/vim-racer'
@@ -110,10 +96,8 @@ scriptencoding utf-8
     " }
 
     " Signify {
-        " this first setting decides in which order try to guess your current vcs
-        " UPDATE it to reflect your preferences, it will speed up opening files
         let g:signify_vcs_list = [ 'git' ]
-        " nicer colors
+
         highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
         highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
         highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
@@ -240,25 +224,6 @@ scriptencoding utf-8
                     \   'vim':['vint']}
     " }
 
-    " Deoplete {
-        if OSX()
-          let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/'
-                      \.'Contents/Developer/Toolchains/XcodeDefault.xctoolchain/'
-                      \.'usr/lib/libclang.dylib'
-        endif
-
-        if LINUX()
-          let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-11/lib/libclang.so'
-        endif
-
-        " let g:deoplete#sources#clang#clang_header='/opt/homebrew/Cellar/'
-                    "\.'llvm/11.1.0_1/lib/clang'
-        let g:deoplete#enable_at_startup = 1
-        if isdirectory(expand(g:Plug_dir.'deoplete.nvim'))
-          call deoplete#custom#option('num_processes', 4)
-        endif
-    " }
-
     " Ack {
         let g:ackprg = 'ag --nocolor --column --nogroup'
     " }
@@ -268,27 +233,9 @@ scriptencoding utf-8
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
 
-    " Multiple cursors {
-        func! Multiple_cursors_before()
-          if deoplete#is_enabled()
-            call deoplete#disable()
-            let g:deoplete_is_enable_before_multi_cursors = 1
-          else
-            let g:deoplete_is_enable_before_multi_cursors = 0
-          endif
-        endfunc
-
-        func! Multiple_cursors_after()
-          if g:deoplete_is_enable_before_multi_cursors
-            call deoplete#enable()
-          endif
-        endfunc
-    " }
-
     " Airline {
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#formatter = 'short_path'
-        " let g:airline_theme='base16'
         let g:airline_theme='fruit_punch'
         let g:airline_mode_map = {
           \ '__'     : '-',
@@ -368,5 +315,14 @@ scriptencoding utf-8
 
     " Blamer {
         let g:blamer_enabled = 1
+    " }
+
+    " YCM {
+        let g:ycm_key_invoke_completion = '<C-z>'
+        let g:ycm_key_list_select_completion = ['<Down>']
+        let g:ycm_key_list_previous_completion = ['<Up>']
+
+        set completeopt=menu,menuone
+        let g:ycm_add_preview_to_completeopt = 0
     " }
 " }
