@@ -8,6 +8,7 @@ scriptencoding utf-8
 
     call plug#begin(g:Plug_dir)
 
+    " Plugins list {
     Plug 'gcmt/taboo.vim'
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
@@ -23,12 +24,13 @@ scriptencoding utf-8
     Plug 'sheerun/vim-polyglot'         " highlight
     Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
     Plug 'kshenoy/vim-signature'        " display and navigate marks
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/vim-easy-align'
     Plug 'easymotion/vim-easymotion'    " motions
     Plug 'terryma/vim-multiple-cursors' " multiple selections
     Plug 'editorconfig/editorconfig-vim'
+
+    Plug 'itchyny/lightline.vim'
+    Plug 'itchyny/vim-gitbranch'
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -37,6 +39,7 @@ scriptencoding utf-8
 
     " File
     Plug 'preservim/nerdtree'           " explorer
+    Plug 'voldikss/vim-floaterm'
     Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
@@ -71,11 +74,25 @@ scriptencoding utf-8
     Plug 'heavenshell/vim-jsdoc', {
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
           \ 'do': 'make install' }
+    " }
 
     call plug#end()
 " }
 
 " Plugin Config Start {
+    " syntastic {
+    let g:lightline = {
+        \ 'colorscheme': 'wombat',
+        \ 'active': {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component_function': {
+            \ 'gitbranch': 'gitbranch#name'
+        \ },
+    \ }
+    " }
+
     " syntastic {
       set statusline+=%#warningmsg#
       set statusline+=%{SyntasticStatuslineFlag()}
@@ -231,47 +248,6 @@ scriptencoding utf-8
     " Nerdtree syntax highlight {
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-    " }
-
-    " Airline {
-        let g:airline#extensions#tabline#enabled = 1
-        let g:airline#extensions#tabline#formatter = 'short_path'
-        let g:airline_theme='fruit_punch'
-        let g:airline_mode_map = {
-          \ '__'     : '-',
-          \ 'c'      : 'CMD',
-          \ 'i'      : 'INS',
-          \ 'ic'     : 'INS',
-          \ 'ix'     : 'INS',
-          \ 'n'      : 'NOR',
-          \ 'multi'  : 'MUL',
-          \ 'ni'     : 'NOR',
-          \ 'no'     : 'NOR',
-          \ 'R'      : 'REP',
-          \ 'Rv'     : 'REP',
-          \ 's'      : 'S',
-          \ 'S'      : 'S',
-          \ ''     : 'S',
-          \ 't'      : 'T',
-          \ 'v'      : 'VIS',
-          \ 'V'      : 'VIS',
-          \ ''     : 'VIS',
-          \ }
-        " powerline symbols {
-          if !exists('g:airline_symbols')
-            let g:airline_symbols = {}
-          endif
-          let g:airline_left_sep = ''
-          let g:airline_left_alt_sep = ''
-          let g:airline_right_sep = ''
-          let g:airline_right_alt_sep = ''
-          let g:airline_symbols.branch = ''
-          let g:airline_symbols.colnr = ' COL:'
-          let g:airline_symbols.readonly = ''
-          let g:airline_symbols.linenr = ' ROW:'
-          let g:airline_symbols.maxlinenr = '☰ '
-          let g:airline_symbols.dirty='⚡'
-        " }
     " }
 
     " LeaderF {
