@@ -40,7 +40,7 @@ scriptencoding utf-8
     " File
     Plug 'preservim/nerdtree'           " explorer
     Plug 'voldikss/vim-floaterm'
-    Plug 'ryanoasis/vim-devicons'
+    "Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -55,7 +55,6 @@ scriptencoding utf-8
 
     " Syntax and Fix
     Plug 'dense-analysis/ale'
-    Plug 'vim-syntastic/syntastic'
 
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -80,32 +79,8 @@ scriptencoding utf-8
 " }
 
 " Plugin Config Start {
-    " syntastic {
-    let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'active': {
-            \ 'left': [ [ 'mode', 'paste' ],
-            \ [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ]
-        \ },
-        \ 'component_function': {
-            \ 'gitbranch': 'gitbranch#name'
-        \ },
-    \ }
-    " }
-
-    " syntastic {
-      set statusline+=%#warningmsg#
-      set statusline+=%{SyntasticStatuslineFlag()}
-      set statusline+=%*
-
-      let g:syntastic_always_populate_loc_list = 1
-      let g:syntastic_auto_loc_list = 1
-      let g:syntastic_check_on_open = 1
-      let g:syntastic_check_on_wq = 0
-    " }
-
     " AutoJump{
-      let g:any_jump_disable_default_keybindings = 1
+        let g:any_jump_disable_default_keybindings = 1
     " }
 
     " Emoji{
