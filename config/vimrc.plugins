@@ -33,8 +33,6 @@ scriptencoding utf-8
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'nsf/gocode', { 'rtp': 'nvim',
-          \ 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
 
     " File
     Plug 'preservim/nerdtree'           " explorer
@@ -191,7 +189,7 @@ scriptencoding utf-8
         let g:ale_linters = {
                     \   'sql':['sql-lint'],
                     \   'css':['stylelint'],
-                    \   'go':['govet'],
+                    \   'go':['gopls'],
                     \   'graphqls':['prettier'],
                     \   'html':['tidy'],
                     \   'xml':['xmllint'],
@@ -245,5 +243,10 @@ scriptencoding utf-8
 
         set completeopt=menu,menuone
         let g:ycm_add_preview_to_completeopt = 0
+    " }
+
+    " vim-go {
+        let g:go_def_mode='gopls'
+        let g:go_info_mode='gopls'
     " }
 " }
