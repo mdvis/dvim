@@ -9,11 +9,10 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
-    Plug 'gcmt/taboo.vim'
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
     Plug 'SirVer/ultisnips'
-    Plug 'majutsushi/tagbar'            " browse the tags of the current file and get an overview
+    Plug 'preservim/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-signify'            " show a diff
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
@@ -34,16 +33,14 @@ scriptencoding utf-8
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'nsf/gocode', { 'rtp': 'nvim',
-          \ 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
 
     " File
     Plug 'preservim/nerdtree'           " explorer
-    Plug 'voldikss/vim-floaterm'
-    "Plug 'ryanoasis/vim-devicons'
+    Plug 'voldikss/vim-floaterm'        " terminal manager
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "Plug 'ryanoasis/vim-devicons'
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -56,20 +53,16 @@ scriptencoding utf-8
     " Syntax and Fix
     Plug 'dense-analysis/ale'
 
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    " Complete
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ycm-core/YouCompleteMe'
+    Plug 'junegunn/vim-emoji'
 
     " Rust
     Plug 'racer-rust/vim-racer'
     Plug 'rust-lang/rust.vim'
 
-    " Database
-    Plug 'tpope/vim-dadbod'
-    Plug 'kristijanhusak/vim-dadbod-completion'
-
-    Plug 'junegunn/vim-emoji'
-
+    " Doc
     Plug 'heavenshell/vim-jsdoc', {
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
           \ 'do': 'make install' }
@@ -196,7 +189,7 @@ scriptencoding utf-8
         let g:ale_linters = {
                     \   'sql':['sql-lint'],
                     \   'css':['stylelint'],
-                    \   'go':['govet'],
+                    \   'go':['gopls'],
                     \   'graphqls':['prettier'],
                     \   'html':['tidy'],
                     \   'xml':['xmllint'],
@@ -222,47 +215,22 @@ scriptencoding utf-8
     " }
 
     " Nerdtree syntax highlight {
-        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+        "let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+        "let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
 
     " LeaderF {
         let g:Lf_WindowPosition = 'popup'
-        let g:Lf_PreviewInPopup = 1
-        let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': 'DejaVu Sans Mono for Powerline' }
-        let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+        let g:Lf_ShowDevIcons = 0
+        "let g:Lf_PreviewInPopup = 1
+        "let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': 'DejaVu Sans Mono for Powerline' }
+        "let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
     " }
 
     " Rust {
         let g:racer_cmd='~/.cargo/bin/racer'
         " let g:racer_experimental_completer = 1
         " let g:racer_insert_paren = 1
-    " }
-
-    " Database {
-        function! PackagerInit() abort
-          packadd vim-packager
-          call packager#init()
-          call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-          call packager#add('tpope/vim-dadbod')
-          call packager#add('kristijanhusak/vim-dadbod-completion')
-          call packager#add('Shougo/deoplete.nvim')
-        endfunction
-
-        " Source is automatically added,
-        " you just need to include it
-        " in the chain complete list
-        let g:completion_chain_complete_list = {
-              \   'sql': [
-                \    {'complete_items': ['vim-dadbod-completion']},
-                \   ],
-                \ }
-        " Make sure `substring` is part of this list.
-        " Other items are optional for this completion
-        " source
-        let g:completion_matching_strategy_list = ['exact', 'substring']
-        " Useful if there's a lot of camel case items
-        let g:completion_matching_ignore_case = 1
     " }
 
     " Blamer {
@@ -276,5 +244,10 @@ scriptencoding utf-8
 
         set completeopt=menu,menuone
         let g:ycm_add_preview_to_completeopt = 0
+    " }
+
+    " vim-go {
+        let g:go_def_mode='gopls'
+        let g:go_info_mode='gopls'
     " }
 " }

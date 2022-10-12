@@ -87,7 +87,7 @@
   " source
   command! -nargs=0 SConf :call conf#SourceConf()
 
-  command! NNN FloatermNew nnn
+  command! NN FloatermNew nnn
   command! SH FloatermNew
   command! JP AnyJump
 " }
