@@ -87,6 +87,16 @@ getFile() {
     dir_list=$(ls "${dir_name}")
 }
 
+backup() {
+    list="$*"
+    time=$(date +%s)
+    for i in $list; do
+        [[ -d "${i}" ]] && mv "${i}" "${i}"."${time}"
+
+        success "Buckup $i success!"
+    done
+}
+
 handler() {
     local file
     local path_name="$1"
@@ -94,6 +104,7 @@ handler() {
     getFile "${path_name}"
     for i in ${dir_list}; do
         file=$(basename "$i")
+        backup "${target_dir}${file%.sh}"
         [[ ! "$i" =~ "init" ]] && lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
         success "Link $file!"
     done
