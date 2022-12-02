@@ -42,8 +42,8 @@ scriptencoding utf-8
     Plug 'voldikss/vim-floaterm'        " terminal manager
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
-    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    "Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'ryanoasis/vim-devicons'
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -57,7 +57,7 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale'
 
     " Complete
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ycm-core/YouCompleteMe'
     Plug 'junegunn/vim-emoji'
 
