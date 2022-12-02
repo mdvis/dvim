@@ -218,8 +218,8 @@ scriptencoding utf-8
     " }
 
     " Nerdtree syntax highlight {
-        "let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-        "let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
 
     " LeaderF {
