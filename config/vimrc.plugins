@@ -11,13 +11,16 @@ scriptencoding utf-8
     " Plugins list {
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
+    Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
     Plug 'preservim/tagbar'            " browse the tags of the current file and get an overview
     Plug 'mhinz/vim-signify'            " show a diff
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
+    Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
+    Plug 'luochen1990/rainbow'
     Plug 'Yggdroot/indentLine'          " display the indention levels
     Plug 'APZelos/blamer.nvim'
     Plug 'sheerun/vim-polyglot'         " highlight
@@ -39,8 +42,8 @@ scriptencoding utf-8
     Plug 'voldikss/vim-floaterm'        " terminal manager
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
-    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    "Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'ryanoasis/vim-devicons'
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -54,7 +57,7 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale'
 
     " Complete
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ycm-core/YouCompleteMe'
     Plug 'junegunn/vim-emoji'
 
@@ -215,8 +218,8 @@ scriptencoding utf-8
     " }
 
     " Nerdtree syntax highlight {
-        "let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-        "let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
     " }
 
     " LeaderF {
@@ -249,5 +252,8 @@ scriptencoding utf-8
     " vim-go {
         let g:go_def_mode='gopls'
         let g:go_info_mode='gopls'
+    " }
+    " rainbow {
+        let g:rainbow_active = 0 "1
     " }
 " }
