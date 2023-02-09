@@ -11,6 +11,7 @@ scriptencoding utf-8
     " Plugins list {
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
+    Plug 'ap/vim-css-color'
     Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
     Plug 'preservim/tagbar'            " browse the tags of the current file and get an overview
@@ -42,7 +43,6 @@ scriptencoding utf-8
     Plug 'voldikss/vim-floaterm'        " terminal manager
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'ryanoasis/vim-devicons'
 
     " Search
