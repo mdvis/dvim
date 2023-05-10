@@ -11,11 +11,10 @@ scriptencoding utf-8
     " Plugins list {
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
-    Plug 'ap/vim-css-color'
+    "Plug 'ap/vim-css-color'
     Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
-    Plug 'preservim/tagbar'            " browse the tags of the current file and get an overview
-    Plug 'mhinz/vim-signify'            " show a diff
+    Plug 'preservim/tagbar'             " browse the tags of the current file and get an overview
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
     Plug 'roman/golden-ratio'           " automatic resizing
@@ -47,6 +46,7 @@ scriptencoding utf-8
     Plug 'scrooloose/nerdcommenter'     " commenter
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'ryanoasis/vim-devicons'
+    Plug 'nvim-tree/nvim-tree.lua'
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -55,6 +55,7 @@ scriptencoding utf-8
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
     " Syntax and Fix
     Plug 'dense-analysis/ale'
@@ -72,10 +73,33 @@ scriptencoding utf-8
     Plug 'heavenshell/vim-jsdoc', {
           \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
           \ 'do': 'make install' }
-    " }
+
+    " UI
+    Plug 'rcarriga/nvim-notify'
+    Plug 'nvimdev/dashboard-nvim'
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    Plug 'norcalli/nvim-colorizer.lua'
+
+    " git
+    "Plug 'mhinz/vim-signify'            " show a diff
+    Plug 'lewis6991/gitsigns.nvim'            " show a diff
+
+    " diff
+    Plug 'sindrets/diffview.nvim'
+
+    " deps
+    Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'nvim-lua/plenary.nvim'
+
+    " oth
+    Plug 'iamcco/markdown-preview.nvim'
+    Plug 'mrjones2014/smart-splits.nvim'
+
+    " Plugins list End }
 
     call plug#end()
-" }
+" Plugins End }
 
 " Plugin Config Start {
     " AutoJump{
@@ -259,4 +283,4 @@ scriptencoding utf-8
     " rainbow {
         let g:rainbow_active = 0 "1
     " }
-" }
+" Plugin Config End }
