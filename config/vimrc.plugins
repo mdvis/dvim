@@ -61,7 +61,7 @@ scriptencoding utf-8
     Plug 'dense-analysis/ale'
 
     " Complete
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ycm-core/YouCompleteMe'
     Plug 'junegunn/vim-emoji'
 
