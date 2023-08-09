@@ -128,6 +128,15 @@ function! AddEsLintDisable()
   put!=content
 endfunction
 
+function! AddConsole()
+  call PrevLinePos()
+  let content="console.log('==== start ====');\n"
+        \."console.log('==== end ====');\n"
+        \."console.log('-------------');\n"
+  put!=content
+endfunction
+
+
 function! GetStr(string, times)
   let l:newString=''
   let l:times=a:times
