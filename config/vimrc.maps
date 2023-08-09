@@ -65,6 +65,10 @@ let g:mapleader = ','
         nmap <silent> <leader><leader>d :call AddEsLintDisable()<CR>
     " }
 
+    " add console {
+        nmap <silent> <leader><leader><leader>c :call AddConsole()<CR>
+    " }
+
     " Undotree {
         nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }
