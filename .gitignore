@@ -4,3 +4,4 @@ ftplugin
 plugged
 **/gocomplete.vim
 .netrwhist
+/session
