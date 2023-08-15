@@ -130,9 +130,9 @@ endfunction
 
 function! AddConsole()
   call PrevLinePos()
-  let content="console.log('==== start ====');\n"
-        \."console.log('==== end ====');\n"
-        \."console.log('-------------');\n"
+  let content="console.log('=== start =====================================');\n"
+        \."console.log();\n"
+        \."console.log('- end -');\n"
   put!=content
 endfunction
 
