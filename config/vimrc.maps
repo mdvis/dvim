@@ -15,11 +15,19 @@ let g:mapleader = ','
     " }
 
     " Easemotion {
-        nmap <leader><leader>s <Plug>(easymotion-s)
-        nmap <leader><leader>j <Plug>(easymotion-j)
-        nmap <leader><leader>k <Plug>(easymotion-k)
-        nmap <leader><leader>l <Plug>(easymotion-lineforward)
-        nmap <leader><leader>h <Plug>(easymotion-linebackward)
+        "nmap F :HopWord<CR>
+        nmap f :HopChar1<CR>
+        "nmap F :HopChar2<CR>
+        nmap F :HopPattern<CR>
+        "nmap F :HopAnywhere<CR>
+        "nmap F :HopLine<CR>
+        "nmap F :HopLineStart<CR>
+        "nmap <leader><leader>f <Plug>(easymotion-s)
+        "nmap <leader><leader>s <Plug>(easymotion-s)
+        "nmap <leader><leader>j <Plug>(easymotion-j)
+        "nmap <leader><leader>k <Plug>(easymotion-k)
+        "nmap <leader><leader>l <Plug>(easymotion-lineforward)
+        "nmap <leader><leader>h <Plug>(easymotion-linebackward)
     " }
 
     " Easy align{
@@ -42,6 +50,11 @@ let g:mapleader = ','
         map <silent> <leader>c :NERDTree ~/Code<CR>
         map <silent> <leader>v :NERDTree ~/.vim<CR>
         map <silent> <leader>p :NERDTree ~/.myprofile<CR>
+    " }
+
+    " nvim-tree {
+        map <silent> <leader>ve :NvimTreeFindFile<CR>
+        map <silent> <leader>vn :NvimTreeToggle<CR>
     " }
 
     " Signify {
@@ -80,6 +93,13 @@ let g:mapleader = ','
     " LeaderF {
         " let g:Lf_ShortcutF = '<leader>f'
     " }
+
+    " Telescope {
+        nnoremap <leader>ff <cmd>Telescope find_files<cr>
+        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+        nnoremap <leader>fb <cmd>Telescope buffers<cr>
+        nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+        "}
 
     " Blamer{
         nnoremap <silent> <leader>a :BlamerToggle<CR>

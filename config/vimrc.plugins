@@ -14,28 +14,32 @@ scriptencoding utf-8
     "Plug 'ap/vim-css-color'
     Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
-    Plug 'preservim/tagbar'             " browse the tags of the current file and get an overview
+    Plug 'preservim/tagbar'                     " browse the tags of the current file and get an overview
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
-    Plug 'roman/golden-ratio'           " automatic resizing
+    Plug 'roman/golden-ratio'                   " automatic resizing
     Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-surround'           " mappings to easily delete, change and add such surroundings in pairs
+    Plug 'tpope/vim-surround'                   " mappings to easily delete, change and add such surroundings in pairs
     Plug 'luochen1990/rainbow'
-    Plug 'Yggdroot/indentLine'          " display the indention levels
+    "Plug 'Yggdroot/indentLine'                  " display the indention levels
+    Plug 'lukas-reineke/indent-blankline.nvim'  " display the indention levels
     Plug 'APZelos/blamer.nvim'
-    Plug 'sheerun/vim-polyglot'         " highlight
-    Plug 'jiangmiao/auto-pairs'         " insert or delete brackets, parens, quotes in pair
-    Plug 'kshenoy/vim-signature'        " display and navigate marks
+    Plug 'sheerun/vim-polyglot'                 " highlight
+    Plug 'jiangmiao/auto-pairs'                 " insert or delete brackets, parens, quotes in pair
+    Plug 'kshenoy/vim-signature'                " display and navigate marks
     Plug 'junegunn/vim-easy-align'
-    Plug 'easymotion/vim-easymotion'    " motions
-    Plug 'terryma/vim-multiple-cursors' " multiple selections
+    "Plug 'easymotion/vim-easymotion'            " motions
+    Plug 'phaazon/hop.nvim'                     " motions
+    Plug 'terryma/vim-multiple-cursors'         " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
     "Plug 'itchyny/lightline.vim'
     "Plug 'itchyny/vim-gitbranch'
 
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    "Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'nvim-lualine/lualine.nvim'
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -92,18 +96,55 @@ scriptencoding utf-8
     Plug 'nvim-tree/nvim-web-devicons'
     Plug 'nvim-lua/plenary.nvim'
 
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    Plug 'liuchengxu/vista.vim'
+
+    Plug 'kevinhwang91/nvim-bqf'
+
     " oth
-    " Plug 'iamcco/markdown-preview.nvim'
     " Plug 'mrjones2014/smart-splits.nvim'
     " Plug 'neovim/nvim-lspconfig'
     " Plug 'williamboman/mason.nvim'
     " Plug 'hrsh7th/nvim-cmp'
     " Plug 'nvim-treesitter/nvim-treesitter'
     " Plug 'windwp/nvim-autopairs'
-    " Plug 'lukas-reineke/indent-blankline.nvim'
     " Plug 'rafamadriz/friendly-snippets'
     " Plug 'L3MON4D3/LuaSnip'
     " Plug 'folke/which-key.nvim'
+
+    " Plug 'onsails/lspkind.nvim'
+    " Plug 'hrsh7th/nvim-cmp'
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'folke/which-key.nvim'
+    " Plug 'rebelot/kanagawa.nvim'
+    " Plug 'olimorris/onedarkpro.nvim'
+    " Plug 'liuchengxu/vista.vim'
+    " Plug 'Raimondi/delimitMate'
+    " Plug 'tpope/vim-commentary'
+
+    " Plug 'tpope/vim-eunuch'
+    " Plug 'tpope/vim-repeat'
+    " Plug 'sbdchd/neoformat'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'preservim/vim-markdown'
+    " Plug 'godlygeek/tabular'
+    " Plug 'folke/zen-mode.nvim'
+    " Plug 'rhysd/vim-grammarous'
+    " Plug 'wellle/targets.vim'
+    " Plug 'machakann/vim-sandwich'
+    " Plug 'lervag/vimtex'
+    " Plug 'andymass/vim-matchup'
+    " Plug 'skywind3000/asyncrun.vim'
+    " Plug 'tpope/vim-obsession'
+    " Plug 'gelguy/wilder.nvim'
+    " Plug 'j-hui/fidget.nvim'
+    " Plug 'tpope/vim-eunuch'
+
+    " colorscheme
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'EdenEast/nightfox.nvim'
+    Plug 'sainnhe/everforest'
 
     " Plugins list End }
 
@@ -131,7 +172,7 @@ scriptencoding utf-8
     " }
 
     " Easemotion {
-        let g:EasyMotion_smartcase = 1
+        "let g:EasyMotion_smartcase = 1
     " }
 
     " Emmet {
@@ -184,8 +225,8 @@ scriptencoding utf-8
     " }
 
     " IndentLine {
-        let g:indentLine_concealcursor='inc'
-        let g:indentLine_conceallevel=2
+        "let g:indentLine_concealcursor='inc'
+        "let g:indentLine_conceallevel=2
     " }
 
     " Ale {
@@ -330,7 +371,9 @@ scriptencoding utf-8
                     \ {'vv':'~/.vimrc'},
                     \ {'vc':'~/.vimrc.conf'},
                     \ {'vm':'~/.vimrc.maps'},
+                    \ {'vp':'~/.vimrc.plugins'},
                     \ {'vvc':'~/.vimrc.custom'},
+                    \ {'vi':'~/.vim/config/init.vim'},
                     \]
 
         "let g:startify_commands= [
