@@ -364,6 +364,7 @@ scriptencoding utf-8
                     \ {'vm':'~/.vimrc.maps'},
                     \ {'vp':'~/.vimrc.plugins'},
                     \ {'vvc':'~/.vimrc.custom'},
+                    \ {'vb':'~/.NERDTreeBookmarks'},
                     \ {'vi':'~/.vim/config/init.vim'},
                     \]
 
