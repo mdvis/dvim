@@ -61,6 +61,12 @@ require("indent_blankline").setup {
   show_current_context_start = true,
 }
 
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+require("which-key").setup {
+}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "c", "c_sharp", "csv", "css", "diff", "cmake", "lua", "vim",

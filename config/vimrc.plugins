@@ -102,29 +102,26 @@ scriptencoding utf-8
 
     Plug 'kevinhwang91/nvim-bqf'
 
+    " colorscheme
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'EdenEast/nightfox.nvim'
+    Plug 'sainnhe/everforest'
+
+    Plug 'folke/which-key.nvim'
+
     " oth
     " Plug 'mrjones2014/smart-splits.nvim'
-    " Plug 'neovim/nvim-lspconfig'
     " Plug 'williamboman/mason.nvim'
-    " Plug 'hrsh7th/nvim-cmp'
-    " Plug 'nvim-treesitter/nvim-treesitter'
     " Plug 'windwp/nvim-autopairs'
     " Plug 'rafamadriz/friendly-snippets'
     " Plug 'L3MON4D3/LuaSnip'
-    " Plug 'folke/which-key.nvim'
-
     " Plug 'onsails/lspkind.nvim'
     " Plug 'hrsh7th/nvim-cmp'
     " Plug 'neovim/nvim-lspconfig'
-    " Plug 'folke/which-key.nvim'
     " Plug 'rebelot/kanagawa.nvim'
-    " Plug 'olimorris/onedarkpro.nvim'
-    " Plug 'liuchengxu/vista.vim'
     " Plug 'Raimondi/delimitMate'
     " Plug 'tpope/vim-commentary'
-
     " Plug 'tpope/vim-eunuch'
-    " Plug 'tpope/vim-repeat'
     " Plug 'sbdchd/neoformat'
     " Plug 'tpope/vim-fugitive'
     " Plug 'preservim/vim-markdown'
@@ -139,12 +136,6 @@ scriptencoding utf-8
     " Plug 'tpope/vim-obsession'
     " Plug 'gelguy/wilder.nvim'
     " Plug 'j-hui/fidget.nvim'
-    " Plug 'tpope/vim-eunuch'
-
-    " colorscheme
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-    Plug 'EdenEast/nightfox.nvim'
-    Plug 'sainnhe/everforest'
 
     " Plugins list End }
 
