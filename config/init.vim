@@ -14,11 +14,11 @@ lua << END
 vim.opt.termguicolors = true
 
 require('hop').setup()
-require('lualine').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
 require('nvim-tree').setup { view = { width = 30 } }
 require('bufferline').setup()
+require("nvim-autopairs").setup {}
 require('dashboard').setup{
   theme = 'hyper',
   config = {
@@ -61,12 +61,6 @@ require("indent_blankline").setup {
   show_current_context_start = true,
 }
 
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-
-require("which-key").setup {
-}
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "c", "c_sharp", "csv", "css", "diff", "cmake", "lua", "vim",
@@ -84,6 +78,54 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+vim.cmd([[
+    hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
+    hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
+    hi BqfPreviewThumb guibg=#3e8e2d ctermbg=71
+    hi link BqfPreviewRange Search
+]])
+
+require('bqf').setup({
+    auto_enable = true,
+    auto_resize_height = true, -- highly recommended enable
+    preview = {
+        win_height = 12,
+        win_vheight = 12,
+        delay_syntax = 80,
+        border = {'┏', '━', '┓', '┃', '┛', '━', '┗', '┃'},
+        show_title = false,
+        should_preview_cb = function(bufnr, qwinid)
+            local ret = true
+            local bufname = vim.api.nvim_buf_get_name(bufnr)
+            local fsize = vim.fn.getfsize(bufname)
+            if fsize > 100 * 1024 then
+                -- skip file size greater than 100k
+                ret = false
+            elseif bufname:match('^fugitive://') then
+                -- skip fugitive buffer
+                ret = false
+            end
+            return ret
+        end
+    },
+    -- make `drop` and `tab drop` to become preferred
+    func_map = {
+        drop = 'o',
+        openc = 'O',
+        split = '<C-s>',
+        tabdrop = '<C-t>',
+        -- set to empty string to disable
+        tabc = '',
+        ptogglemode = 'z,',
+    },
+    filter = {
+        fzf = {
+            action_for = {['ctrl-s'] = 'split', ['ctrl-t'] = 'tab drop'},
+            extra_opts = {'--bind', 'ctrl-o:toggle-all', '--prompt', '> '}
+        }
+    }
+})
 
 vim.notify = require("notify")
 END

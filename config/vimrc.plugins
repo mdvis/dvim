@@ -11,7 +11,6 @@ scriptencoding utf-8
     " Plugins list {
     Plug 'mbbill/undotree'
     Plug 'mattn/emmet-vim'
-    "Plug 'ap/vim-css-color'
     Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
     Plug 'preservim/tagbar'                     " browse the tags of the current file and get an overview
@@ -21,25 +20,23 @@ scriptencoding utf-8
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'                   " mappings to easily delete, change and add such surroundings in pairs
     Plug 'luochen1990/rainbow'
-    "Plug 'Yggdroot/indentLine'                  " display the indention levels
+    "Plug 'Yggdroot/indentLine'                 " display the indention levels
     Plug 'lukas-reineke/indent-blankline.nvim'  " display the indention levels
     Plug 'APZelos/blamer.nvim'
     Plug 'sheerun/vim-polyglot'                 " highlight
-    Plug 'jiangmiao/auto-pairs'                 " insert or delete brackets, parens, quotes in pair
+    "Plug 'jiangmiao/auto-pairs'                 " insert or delete brackets, parens, quotes in pair
+    Plug 'windwp/nvim-autopairs'
+    "Plug 'Raimondi/delimitMate'
     Plug 'kshenoy/vim-signature'                " display and navigate marks
     Plug 'junegunn/vim-easy-align'
-    "Plug 'easymotion/vim-easymotion'            " motions
+    Plug 'godlygeek/tabular'
+    "Plug 'easymotion/vim-easymotion'           " motions
     Plug 'phaazon/hop.nvim'                     " motions
     Plug 'terryma/vim-multiple-cursors'         " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
-    "Plug 'itchyny/lightline.vim'
-    "Plug 'itchyny/vim-gitbranch'
-
-    "Plug 'vim-airline/vim-airline'
-    "Plug 'vim-airline/vim-airline-themes'
-
-    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -48,18 +45,19 @@ scriptencoding utf-8
     Plug 'preservim/nerdtree'           " explorer
     Plug 'voldikss/vim-floaterm'        " terminal manager
     Plug 'scrooloose/nerdcommenter'     " commenter
+    Plug 'tpope/vim-commentary'
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'ryanoasis/vim-devicons'
     Plug 'nvim-tree/nvim-tree.lua'
 
     " Search
     Plug 'mileszs/ack.vim'
-    Plug 'dyng/ctrlsf.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'kevinhwang91/nvim-bqf'
 
     " Syntax and Fix
     Plug 'dense-analysis/ale'
@@ -81,13 +79,21 @@ scriptencoding utf-8
     " UI
     Plug 'rcarriga/nvim-notify'
     Plug 'nvimdev/dashboard-nvim'
-    Plug 'nvim-lualine/lualine.nvim'
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    "Plug 'ap/vim-css-color'
     Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " highlight
+
+    " colorscheme
+    Plug 'folke/tokyonight.nvim'
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'rebelot/kanagawa.nvim'
+    Plug 'EdenEast/nightfox.nvim'
 
     " git
-    "Plug 'mhinz/vim-signify'            " show a diff
-    Plug 'lewis6991/gitsigns.nvim'            " show a diff
+    "Plug 'mhinz/vim-signify'        " show a diff
+    Plug 'lewis6991/gitsigns.nvim'   " show a diff
+    Plug 'tpope/vim-fugitive'
 
     " diff
     Plug 'sindrets/diffview.nvim'
@@ -96,46 +102,19 @@ scriptencoding utf-8
     Plug 'nvim-tree/nvim-web-devicons'
     Plug 'nvim-lua/plenary.nvim'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'lervag/vimtex'
 
-    Plug 'liuchengxu/vista.vim'
+    Plug 'wellle/targets.vim'
 
-    Plug 'kevinhwang91/nvim-bqf'
+    Plug 'preservim/vim-markdown'
 
-    " colorscheme
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-    Plug 'EdenEast/nightfox.nvim'
-    Plug 'sainnhe/everforest'
+    Plug 'williamboman/mason.nvim'
+    Plug 'L3MON4D3/LuaSnip'
 
-    Plug 'folke/which-key.nvim'
-
-    " oth
-    " Plug 'mrjones2014/smart-splits.nvim'
-    " Plug 'williamboman/mason.nvim'
-    " Plug 'windwp/nvim-autopairs'
-    " Plug 'rafamadriz/friendly-snippets'
-    " Plug 'L3MON4D3/LuaSnip'
-    " Plug 'onsails/lspkind.nvim'
-    " Plug 'hrsh7th/nvim-cmp'
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'rebelot/kanagawa.nvim'
-    " Plug 'Raimondi/delimitMate'
-    " Plug 'tpope/vim-commentary'
-    " Plug 'tpope/vim-eunuch'
-    " Plug 'sbdchd/neoformat'
-    " Plug 'tpope/vim-fugitive'
-    " Plug 'preservim/vim-markdown'
-    " Plug 'godlygeek/tabular'
-    " Plug 'folke/zen-mode.nvim'
-    " Plug 'rhysd/vim-grammarous'
-    " Plug 'wellle/targets.vim'
-    " Plug 'machakann/vim-sandwich'
-    " Plug 'lervag/vimtex'
-    " Plug 'andymass/vim-matchup'
-    " Plug 'skywind3000/asyncrun.vim'
-    " Plug 'tpope/vim-obsession'
-    " Plug 'gelguy/wilder.nvim'
-    " Plug 'j-hui/fidget.nvim'
+    Plug 'onsails/lspkind.nvim'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'j-hui/fidget.nvim'
 
     " Plugins list End }
 
