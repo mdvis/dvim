@@ -48,7 +48,6 @@ scriptencoding utf-8
     Plug 'tpope/vim-commentary'
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'ryanoasis/vim-devicons'
-    Plug 'nvim-tree/nvim-tree.lua'
 
     " Search
     Plug 'mileszs/ack.vim'

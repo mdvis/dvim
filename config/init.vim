@@ -18,7 +18,6 @@ vim.opt.termguicolors = true
 require('hop').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
-require('nvim-tree').setup { view = { width = 30 } }
 require('bufferline').setup()
 require("nvim-autopairs").setup {}
 
