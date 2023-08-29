@@ -78,7 +78,6 @@ scriptencoding utf-8
 
     " UI
     Plug 'rcarriga/nvim-notify'
-    Plug 'nvimdev/dashboard-nvim'
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
     "Plug 'ap/vim-css-color'
     Plug 'norcalli/nvim-colorizer.lua'
@@ -284,7 +283,7 @@ scriptencoding utf-8
     " }
 
     " Blamer {
-        let g:blamer_enabled = 0
+        let g:blamer_enabled = 1
     " }
 
     " YCM {
@@ -318,7 +317,7 @@ scriptencoding utf-8
 
         " startify#pad(split(system('fortune | cowsay -f stegosaurus'), '\n'))
 
-        let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
+        let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 
         let g:startify_session_dir = '~/.vim/session'
         let g:startify_session_autoload = 1
@@ -328,9 +327,9 @@ scriptencoding utf-8
         let g:startify_lists = [
               \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
               \ { 'type': 'sessions',  'header': ['   Sessions']},
+              \ { 'type': 'commands',  'header': ['   Commands']},
               \ { 'type': 'files',     'header': ['   MRU']},
               \ { 'type': 'dir',       'header': ['   MRU'. getcwd()]},
-              \ { 'type': 'commands',  'header': ['   Commands']},
               \ ]
         let g:startify_skiplist = [
               \ '.*/node_modules',
@@ -341,15 +340,16 @@ scriptencoding utf-8
                     \ {'vv':'~/.vimrc'},
                     \ {'vc':'~/.vimrc.conf'},
                     \ {'vm':'~/.vimrc.maps'},
+                    \ {'vt':'~/.vimrc.custom'},
                     \ {'vp':'~/.vimrc.plugins'},
-                    \ {'vvc':'~/.vimrc.custom'},
                     \ {'vb':'~/.NERDTreeBookmarks'},
                     \ {'vi':'~/.vim/config/init.vim'},
                     \]
 
-        "let g:startify_commands= [
-                    "\ {'n':':new'},
-                    "\ ':new'
-                    "\]
+        let g:startify_commands= [
+                    \ {'ud':':PlugUpdate'},
+                    \ {'ug':':PlugUpgrade'},
+                    \ {'cs':'Telescope colorscheme'},
+                    \]
     " }
 " Plugin Config End }
