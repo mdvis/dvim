@@ -83,9 +83,6 @@ scriptencoding utf-8
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " highlight
 
     " colorscheme
-    Plug 'folke/tokyonight.nvim'
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-    Plug 'rebelot/kanagawa.nvim'
     Plug 'EdenEast/nightfox.nvim'
 
     " git
