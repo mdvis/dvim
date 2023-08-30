@@ -1,3 +1,5 @@
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+scriptencoding utf-8
 " .config/nvim/init.vim
 "
 " ~/.vimrc
@@ -16,40 +18,8 @@ vim.opt.termguicolors = true
 require('hop').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
-require('nvim-tree').setup { view = { width = 30 } }
 require('bufferline').setup()
 require("nvim-autopairs").setup {}
-require('dashboard').setup{
-  theme = 'hyper',
-  config = {
-    week_header = {
-      enable = true,
-    },
-    shortcut = {
-      { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
-      {
-        icon = ' ',
-        icon_hl = '@variable',
-        desc = 'Files',
-        group = 'Label',
-        action = 'Telescope find_files',
-        key = 'f',
-      },
-      {
-        desc = ' Apps',
-        group = 'DiagnosticHint',
-        action = 'Telescope app',
-        key = 'a',
-      },
-      {
-        desc = ' dotfiles',
-        group = 'Number',
-        action = 'Telescope dotfiles',
-        key = 'd',
-      },
-    },
-  },
-}
 
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"

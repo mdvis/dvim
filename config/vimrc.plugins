@@ -48,7 +48,6 @@ scriptencoding utf-8
     Plug 'tpope/vim-commentary'
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'ryanoasis/vim-devicons'
-    Plug 'nvim-tree/nvim-tree.lua'
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -78,16 +77,12 @@ scriptencoding utf-8
 
     " UI
     Plug 'rcarriga/nvim-notify'
-    Plug 'nvimdev/dashboard-nvim'
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
     "Plug 'ap/vim-css-color'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " highlight
 
     " colorscheme
-    Plug 'folke/tokyonight.nvim'
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-    Plug 'rebelot/kanagawa.nvim'
     Plug 'EdenEast/nightfox.nvim'
 
     " git
@@ -284,7 +279,7 @@ scriptencoding utf-8
     " }
 
     " Blamer {
-        let g:blamer_enabled = 0
+        let g:blamer_enabled = 1
     " }
 
     " YCM {
@@ -304,52 +299,35 @@ scriptencoding utf-8
         let g:rainbow_active = 0 "1
     " }
     " startify{
-        "let g:startify_custom_header = []
-        "let g:startify_custom_footer = []
-        "let g:startify_custom_header = ''
-        "let g:startify_custom_footer = ''
-
-        " startify#fortune#quote()
-        " startify#fortune#boxed(...)
-        " startify#fortune#cowsay(...)
-
-        " startify#pad([strings])
-        " startify#center([strings])
-
-        " startify#pad(split(system('fortune | cowsay -f stegosaurus'), '\n'))
-
-        let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
-
         let g:startify_session_dir = '~/.vim/session'
         let g:startify_session_autoload = 1
+        let g:startify_files_number = 11
+        let g:startify_custom_header = ''
+        let g:startify_custom_footer = ''
 
         let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 
         let g:startify_lists = [
-              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
-              \ { 'type': 'sessions',  'header': ['   Sessions']},
-              \ { 'type': 'files',     'header': ['   MRU']},
               \ { 'type': 'dir',       'header': ['   MRU'. getcwd()]},
+              \ { 'type': 'files',     'header': ['   MRU']},
+              \ { 'type': 'sessions',  'header': ['   Sessions']},
+              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
               \ { 'type': 'commands',  'header': ['   Commands']},
               \ ]
+
         let g:startify_skiplist = [
               \ '.*/node_modules',
               \ ]
-        let g:startify_files_number = 6
 
         let g:startify_bookmarks = [
-                    \ {'vv':'~/.vimrc'},
-                    \ {'vc':'~/.vimrc.conf'},
-                    \ {'vm':'~/.vimrc.maps'},
-                    \ {'vp':'~/.vimrc.plugins'},
-                    \ {'vvc':'~/.vimrc.custom'},
-                    \ {'vb':'~/.NERDTreeBookmarks'},
+                    \ {'rt':'~/Code/web-center/config/constants.js'},
+                    \ {'bk':'~/.NERDTreeBookmarks'},
                     \ {'vi':'~/.vim/config/init.vim'},
                     \]
 
-        "let g:startify_commands= [
-                    "\ {'n':':new'},
-                    "\ ':new'
-                    "\]
+        let g:startify_commands= [
+                    \ {'ud':':PlugUpdate'},
+                    \ {'ug':':PlugUpgrade'},
+                    \]
     " }
 " Plugin Config End }

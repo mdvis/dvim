@@ -1,4 +1,5 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+scriptencoding utf-8
 
 let g:mapleader = ','
 
@@ -52,11 +53,6 @@ let g:mapleader = ','
         map <silent> <leader>p :NERDTree ~/.myprofile<CR>
     " }
 
-    " nvim-tree {
-        map <silent> <leader>ve :NvimTreeFindFile<CR>
-        map <silent> <leader>vn :NvimTreeToggle<CR>
-    " }
-
     " Signify {
         nmap <leader>N <plug>(signify-next-hunk)
         nmap <leader>P <plug>(signify-prev-hunk)
@@ -86,10 +82,6 @@ let g:mapleader = ','
         nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }
 
-    " ViMagit {
-        nnoremap <silent> <leader>g :Magit<CR>
-    " }
-
     " LeaderF {
         " let g:Lf_ShortcutF = '<leader>f'
     " }
@@ -99,10 +91,11 @@ let g:mapleader = ','
         nnoremap <leader>fg <cmd>Telescope live_grep<cr>
         nnoremap <leader>fb <cmd>Telescope buffers<cr>
         nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+        nnoremap <leader>fs <cmd>Telescope git_status<cr>
         "}
 
     " Blamer{
-        nnoremap <silent> <leader>a :BlamerToggle<CR>
+        "nnoremap <silent> <leader>a :BlamerToggle<CR>
     " }
 
     " Self {
