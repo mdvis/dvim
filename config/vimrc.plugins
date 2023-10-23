@@ -63,7 +63,7 @@ scriptencoding utf-8
 
     " Complete
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'ycm-core/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe', { 'do': 'npm install -g tern neovim; pip install neovim' }
     Plug 'junegunn/vim-emoji'
 
     " Rust
@@ -308,8 +308,6 @@ scriptencoding utf-8
         let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 
         let g:startify_lists = [
-              \ { 'type': 'dir',       'header': ['   MRU'. getcwd()]},
-              \ { 'type': 'files',     'header': ['   MRU']},
               \ { 'type': 'sessions',  'header': ['   Sessions']},
               \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
               \ { 'type': 'commands',  'header': ['   Commands']},
