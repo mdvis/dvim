@@ -318,14 +318,14 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
-                    \ {'rt':'~/Code/web-center/config/constants.js'},
-                    \ {'bk':'~/.NERDTreeBookmarks'},
-                    \ {'vi':'~/.vim/config/init.vim'},
+                    \ {'b':'~/.NERDTreeBookmarks'},
+                    \ {'i':'~/.vim/config/init.vim'},
+                    \ {'p':'~/.vim/config/vimrc.plugins'},
                     \]
 
         let g:startify_commands= [
-                    \ {'ud':':PlugUpdate'},
-                    \ {'ug':':PlugUpgrade'},
+                    \ {'d':':PlugUpdate'},
+                    \ {'g':':PlugUpgrade'},
                     \]
     " }
 " Plugin Config End }
