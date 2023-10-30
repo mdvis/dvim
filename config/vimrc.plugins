@@ -63,7 +63,7 @@ scriptencoding utf-8
 
     " Complete
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'ycm-core/YouCompleteMe', { 'do': 'npm install -g tern neovim; pip install neovim' }
+    Plug 'ycm-core/YouCompleteMe'
     Plug 'junegunn/vim-emoji'
 
     " Rust
