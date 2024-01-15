@@ -13,26 +13,26 @@ scriptencoding utf-8
     Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-repeat'
     Plug 'SirVer/ultisnips'
-    Plug 'preservim/tagbar'                     " browse the tags of the current file and get an overview
+    Plug 'preservim/tagbar'                             " browse the tags of the current file and get an overview
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
-    Plug 'roman/golden-ratio'                   " automatic resizing
+    Plug 'roman/golden-ratio'                           " automatic resizing
     Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-surround'                   " mappings to easily delete, change and add such surroundings in pairs
+    Plug 'tpope/vim-surround'                           " mappings to easily delete, change and add such surroundings in pairs
     Plug 'luochen1990/rainbow'
-    "Plug 'Yggdroot/indentLine'                 " display the indention levels
-    Plug 'lukas-reineke/indent-blankline.nvim'  " display the indention levels
+    "Plug 'Yggdroot/indentLine'                         " display the indention levels
+    Plug 'lukas-reineke/indent-blankline.nvim'          " display the indention levels
     Plug 'APZelos/blamer.nvim'
-    Plug 'sheerun/vim-polyglot'                 " highlight
-    "Plug 'jiangmiao/auto-pairs'                 " insert or delete brackets, parens, quotes in pair
+    Plug 'sheerun/vim-polyglot'                         " highlight
+    "Plug 'jiangmiao/auto-pairs'                        " insert or delete brackets, parens, quotes in pair
     Plug 'windwp/nvim-autopairs'
     "Plug 'Raimondi/delimitMate'
-    Plug 'kshenoy/vim-signature'                " display and navigate marks
+    Plug 'kshenoy/vim-signature'                        " display and navigate marks
     Plug 'junegunn/vim-easy-align'
     Plug 'godlygeek/tabular'
-    "Plug 'easymotion/vim-easymotion'           " motions
-    Plug 'phaazon/hop.nvim'                     " motions
-    Plug 'terryma/vim-multiple-cursors'         " multiple selections
+    "Plug 'easymotion/vim-easymotion'                   " motions
+    Plug 'phaazon/hop.nvim'                             " motions
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'vim-airline/vim-airline'
