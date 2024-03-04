@@ -289,6 +289,8 @@ scriptencoding utf-8
 
         set completeopt=menu,menuone
         let g:ycm_add_preview_to_completeopt = 0
+
+        let g:ycm_show_diagnostics_ui = 0
     " }
 
     " vim-go {
