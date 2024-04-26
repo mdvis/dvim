@@ -37,7 +37,7 @@ let g:mapleader = ','
     " }
 
     " FZF {
-        nmap <silent> <C-p> :Files ~/<CR>
+        nmap <silent> <C-p> :Files ~/Code<CR>
         nmap <silent> <C-e> :Buffers<CR>
     " }
 
