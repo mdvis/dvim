@@ -67,15 +67,15 @@ let g:mapleader = ','
     " }
 
     " React Comment{
-        nmap <silent> <leader><leader>c :call AddComment()<CR>
+        nmap <silent> <leader>com :call AddComment()<CR>
     " }
 
     " Eslint Disable{
-        nmap <silent> <leader><leader>d :call AddEsLintDisable()<CR>
+        nmap <silent> <leader>es :call AddEsLintDisable()<CR>
     " }
 
     " add console {
-        nmap <silent> <leader><leader><leader>c :call AddConsole()<CR>
+        nmap <silent> <leader>log :call AddConsole()<CR>
     " }
 
     " Undotree {

@@ -132,9 +132,9 @@ endfunction
 
 function! AddConsole()
   call PrevLinePos()
-  let content="console.log('=== start =====================================');\n"
+  let content="console.log(`${String(new Date().getTime()).slice(7)} start ======================================`);\n"
         \."console.log();\n"
-        \."console.log('- end -');\n"
+        \."console.log(`${String(new Date().getTime()).slice(7)} end --`);\n"
   put!=content
 endfunction
 
