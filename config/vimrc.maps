@@ -67,15 +67,15 @@ let g:mapleader = ','
     " }
 
     " React Comment{
-        nmap <silent> <leader>com :call AddComment()<CR>
+        nmap <silent> <leader><leader>c :call AddComment()<CR>
     " }
 
     " Eslint Disable{
-        nmap <silent> <leader>es :call AddEsLintDisable()<CR>
+        nmap <silent> <leader><leader>e :call AddEsLintDisable()<CR>
     " }
 
     " add console {
-        nmap <silent> <leader>log :call AddConsole()<CR>
+        nmap <silent> <leader><leader>l :call AddConsole()<CR>
     " }
 
     " Undotree {
@@ -101,7 +101,7 @@ let g:mapleader = ','
 
     " Self {
         nnoremap <silent> <leader><leader>r :vertical-resize<space>
-        nnoremap <silent> <leader>o :browse oldfiles<CR>
+        nnoremap <silent> <leader><leader>o :browse oldfiles<CR>
         nnoremap <silent> <leader><CR> :noh<CR>
         nnoremap <silent> <leader>T :tabs<CR>
         nnoremap <silent> <leader>r :reg<CR>
