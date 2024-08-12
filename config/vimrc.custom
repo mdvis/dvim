@@ -10,15 +10,22 @@ scriptencoding utf-8
   let g:sh_comment_start_symbol='# ------'
   let g:sh_comment_symbol='#'
   let g:sh_comment_end_symbol='# ------'
+
   let g:js_comment_start_symbol='/**'
   let g:js_comment_symbol=' *'
   let g:js_comment_end_symbol=' */'
+
   let g:vi_comment_start_symbol='" ------'
   let g:vi_comment_symbol='"'
   let g:vi_comment_end_symbol='" ------'
+
   let g:py_comment_start_symbol='#! /usr/bin/env python3'
   let g:py_comment_symbol='# -*- coding: utf-8 -*-'
   let g:py_comment_end_symbol="'''"
+
+  let g:go_comment_start_symbol='// ------'
+  let g:go_comment_symbol='//'
+  let g:go_comment_end_symbol='// ------'
 
   function! PyTpl(start, mid, end)
     let start = a:start
@@ -44,10 +51,12 @@ scriptencoding utf-8
     if &filetype ==# 'python'
       call PyTpl(g:py_comment_start_symbol, g:py_comment_symbol
             \,g:py_comment_end_symbol)
+      return
     endif
     if &filetype ==# 'sh'
       call Tpl(g:sh_comment_start_symbol, g:sh_comment_symbol
             \,g:sh_comment_end_symbol)
+      return
     endif
     if &filetype ==# 'javascript' || &filetype==#'typescript'
           \|| &filetype==#'css' || &filetype==#'scss'
@@ -55,10 +64,17 @@ scriptencoding utf-8
           \|| &filetype==#'javascript.tsx'
       call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
             \,g:js_comment_end_symbol)
+      return
     endif
     if &filetype ==# 'vim'
       call Tpl(g:vi_comment_start_symbol, g:vi_comment_symbol
             \,g:vi_comment_end_symbol)
+      return
+    endif
+    if &filetype ==# 'go'
+      call Tpl(g:go_comment_start_symbol, g:go_comment_symbol
+            \,g:go_comment_end_symbol)
+      return
     endif
   endfunc
 
