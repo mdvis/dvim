@@ -214,11 +214,11 @@ scriptencoding utf-8
                     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'css':['prettier'],
                     \   'go':['gofmt'],
-                    \   'graphqls':['eslint'],
+                    \   'graphqls':['prettier'],
                     \   'html':['prettier'],
                     \   'xml':['xmllint'],
-                    \   'javascript':['eslint'],
-                    \   'javascript.jsx':['eslint'],
+                    \   'javascript':['prettier'],
+                    \   'javascript.jsx':['prettier'],
                     \   'json':['prettier'],
                     \   'less':['prettier'],
                     \   'python':['autopep8', 'isort', 'yapf'],
@@ -226,9 +226,9 @@ scriptencoding utf-8
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
                     \   'swift':['swiftformat'],
-                    \   'typescript':['eslint'],
-                    \   'javascript.tsx':['eslint'],
-                    \   'vue':['eslint'],
+                    \   'typescript':['prettier'],
+                    \   'javascript.tsx':['prettier'],
+                    \   'vue':['prettier'],
                     \   'yaml':['prettier']}
 
         let g:ale_linters = {
