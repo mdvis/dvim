@@ -208,52 +208,57 @@ scriptencoding utf-8
         let g:ale_c_cppcheck_options = ''
         let g:ale_cpp_cppcheck_options = ''
 
-        augroup FiletypeGroup
-            autocmd!
-            au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-            au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
-        augroup END
-
         let g:ale_fixers = {
-                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
                     \   'sql':['sqlfluff'],
+                    \   'c':['uncrustify'],
+                    \   'cpp':['uncrustify'],
                     \   'css':['prettier'],
+                    \   'dockerfile':['dprint'],
                     \   'go':['gofmt'],
                     \   'graphqls':['prettier'],
                     \   'html':['prettier'],
                     \   'javascript':['eslint'],
-                    \   'javascript.jsx':['eslint'],
-                    \   'javascript.tsx':['eslint'],
+                    \   'javascriptreact':['eslint'],
+                    \   'typescriptreact':['eslint'],
                     \   'typescript':['eslint'],
                     \   'json':['eslint'],
                     \   'less':['prettier'],
+                    \   'lua':['stylua'],
+                    \   'markdown':['prettier'],
                     \   'python':['ruff-format'],
                     \   'rust':['rustfmt'],
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
                     \   'swift':['swiftformat'],
-                    \   'vim':[],
+                    \   'vim':['remove_trailing_lines', 'trim_whitespace'],
+                    \   'vue':['prettier'],
                     \   'xml':['xmllint'],
                     \   'yaml':['prettier']}
 
         let g:ale_linters = {
                     \   'sql':['sqlfluff'],
+                    \   'c':['cc','gcc','clang', 'cspell'],
+                    \   'cpp':['cc','gcc','clang', 'cspell'],
                     \   'css':['stylelint', 'cspell'],
+                    \   'dockerfile':['hadolint'],
                     \   'go':['gopls', 'cspell'],
-                    \   'graphqls':['prettier'],
+                    \   'graphqls':['eslint'],
                     \   'html':['alex', 'cspell'],
                     \   'javascript':['eslint', 'cspell'],
-                    \   'javascript.jsx':['eslint', 'cspell'],
-                    \   'javascript.tsx':['eslint', 'cspell'],
+                    \   'javascriptreact':['eslint', 'cspell'],
+                    \   'typescriptreact':['eslint', 'cspell'],
                     \   'typescript':['eslint', 'cspell'],
                     \   'json':['eslint', 'cspell'],
                     \   'less':['stylelint'],
+                    \   'lua':['luac', 'cspell'],
+                    \   'markdown':['alex', 'cspell'],
                     \   'python':['ruff', 'cspell'],
                     \   'rust':['analyzer', 'cargo', 'rustc', 'cspell'],
                     \   'scss':['stylelint'],
-                    \   'sh':['shellcheck'],
+                    \   'sh':['shellcheck', 'cspell'],
                     \   'swift':['swiftlint', 'cspell'],
                     \   'vim':['vint'],
+                    \   'vue':['vls', 'cspell'],
                     \   'xml':['xmllint'],
                     \   'yaml':['yamllint']}
     " }
