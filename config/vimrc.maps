@@ -45,9 +45,14 @@ let g:mapleader = ','
         nmap <leader>d <Plug>(jsdoc)
     " }
 
+    " nvim-tree {
+        map <silent> <leader>e :NvimTreeFindFile!<CR>
+        map <silent> <leader>n :NvimTreeToggle<CR>
+    " }
+
     " NerdTree {
-        map <silent> <leader>e :NERDTreeFind<CR>
-        map <silent> <leader>n :NERDTreeToggle<CR>
+        "map <silent> <leader>e :NERDTreeFind<CR>
+        "map <silent> <leader>n :NERDTreeToggle<CR>
         map <silent> <leader>c :NERDTree ~/Code<CR>
         map <silent> <leader>v :NERDTree ~/.vim<CR>
         map <silent> <leader>p :NERDTree ~/.myprofile<CR>
