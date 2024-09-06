@@ -31,7 +31,8 @@ scriptencoding utf-8
     Plug 'junegunn/vim-easy-align'
     Plug 'godlygeek/tabular'
     "Plug 'easymotion/vim-easymotion'                   " motions
-    Plug 'phaazon/hop.nvim'                             " motions
+    "Plug 'phaazon/hop.nvim'                            " motions
+    Plug 'ggandor/leap.nvim'                            " motions
     Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
