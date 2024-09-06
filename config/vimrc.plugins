@@ -49,6 +49,8 @@ scriptencoding utf-8
     Plug 'tpope/vim-commentary'
     Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status flags
     Plug 'ryanoasis/vim-devicons'
+    "Plug 'nvim-tree/nvim-tree.lua'
+
 
     " Search
     Plug 'mileszs/ack.vim'
@@ -111,9 +113,6 @@ scriptencoding utf-8
     Plug 'hrsh7th/nvim-cmp'
     Plug 'neovim/nvim-lspconfig'
     Plug 'j-hui/fidget.nvim'
-
-    Plug 'nvim-tree/nvim-web-devicons' " optional
-    Plug 'nvim-tree/nvim-tree.lua'
 
     " Plugins list End }
 
