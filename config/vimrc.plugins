@@ -111,6 +111,9 @@ scriptencoding utf-8
     Plug 'neovim/nvim-lspconfig'
     Plug 'j-hui/fidget.nvim'
 
+    Plug 'nvim-tree/nvim-web-devicons' " optional
+    Plug 'nvim-tree/nvim-tree.lua'
+
     " Plugins list End }
 
     call plug#end()
