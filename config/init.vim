@@ -21,6 +21,9 @@ require('colorizer').setup()
 -- require("nvim-tree").setup()
 require('bufferline').setup()
 require("nvim-autopairs").setup {}
+require('lspsaga').setup()
+require('trouble').setup()
+require('cmp').setup()
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
