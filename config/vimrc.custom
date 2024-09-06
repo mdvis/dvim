@@ -60,8 +60,7 @@ scriptencoding utf-8
     endif
     if &filetype ==# 'javascript' || &filetype==#'typescript'
           \|| &filetype==#'css' || &filetype==#'scss'
-          \|| &filetype==#'javascript.jsx' || &filetype==#'typescript.tsx'
-          \|| &filetype==#'javascript.tsx'
+          \|| &filetype==#'javascriptreact' || &filetype==#'typescriptreact'
       call Tpl(g:js_comment_start_symbol, g:js_comment_symbol
             \,g:js_comment_end_symbol)
       return
