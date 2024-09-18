@@ -32,7 +32,8 @@ scriptencoding utf-8
     Plug 'godlygeek/tabular'
     "Plug 'easymotion/vim-easymotion'                   " motions
     "Plug 'phaazon/hop.nvim'                            " motions
-    Plug 'ggandor/leap.nvim'                            " motions
+    Plug 'smoka7/hop.nvim'                              " motions
+    "Plug 'ggandor/leap.nvim'                           " motions
     Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multiple selections
     Plug 'editorconfig/editorconfig-vim'
 
@@ -210,10 +211,15 @@ scriptencoding utf-8
         "let g:indentLine_concealcursor='inc'
         "let g:indentLine_conceallevel=2
     " }
+    "augroup FiletypeGroup
+        "autocmd!
+        "au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+        "au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
+    "augroup END
 
     " Ale {
         let g:ale_fix_on_save=1
-        let g:ale_lint_on_enter=1
+        let g:ale_lint_on_enter=0 " 1
         let g:ale_lint_on_insert_leave=1
 
         let g:ale_c_gcc_options = '-Wall -O2 -std=c99'

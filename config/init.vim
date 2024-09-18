@@ -15,7 +15,7 @@ source ~/.vimrc
 lua << END
 vim.opt.termguicolors = true
 
--- require('hop').setup()
+require('hop').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
 -- require("nvim-tree").setup()
@@ -121,6 +121,6 @@ require("ibl").setup { indent = { highlight = highlight } }
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('leap').create_default_mappings()
+-- require('leap').create_default_mappings()
 
 END

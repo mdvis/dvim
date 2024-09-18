@@ -17,9 +17,10 @@ let g:mapleader = ','
 
     " Easemotion {
         "nmap F :HopWord<CR>
-        nmap f :HopChar1<CR>
+        "nmap f :HopChar1<CR>
         "nmap F :HopChar2<CR>
-        nmap F :HopPattern<CR>
+        nmap f :HopChar2<CR>
+        "nmap F :HopPattern<CR>
         "nmap F :HopAnywhere<CR>
         "nmap F :HopLine<CR>
         "nmap F :HopLineStart<CR>
