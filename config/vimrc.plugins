@@ -350,13 +350,17 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
-                    \ {'b':'~/.NERDTreeBookmarks'},
-                    \ {'i':'~/.vim/config/init.vim'},
-                    \ {'p':'~/.vim/config/vimrc.plugins'},
+                    \ {'cv':'~/.vim/config/vimrc'},
+                    \ {'ci':'~/.vim/config/init.vim'},
+                    \ {'cf':'~/.vim/config/vimrc.conf'},
+                    \ {'cm':'~/.vim/config/vimrc.maps'},
+                    \ {'cc':'~/.vim/config/vimrc.custom'},
+                    \ {'cp':'~/.vim/config/vimrc.plugins'},
                     \]
 
         let g:startify_commands= [
                     \ {'d':':PlugUpdate'},
+                    \ {'i':':PlugInstall'},
                     \ {'g':':PlugUpgrade'},
                     \]
     " }
