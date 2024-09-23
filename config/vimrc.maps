@@ -6,6 +6,23 @@ let g:mapleader = ','
 " verbose nnoremap <leader>j
 
 " Mappings {
+    " Fzf {
+        nmap <silent> <C-p> :Files ~/Code<CR>
+        nmap <silent> <C-e> :Buffers<CR>
+    " }
+
+    " LeaderF {
+      " let g:Lf_ShortcutF = "<leader>ff"
+    " }
+
+    " Telescope {
+        " nnoremap <leader>ff <cmd>Telescope find_files<cr>
+        " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+        " nnoremap <leader>fb <cmd>Telescope buffers<cr>
+        " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+        " nnoremap <leader>fs <cmd>Telescope git_status<cr>
+    " }
+
     " Ack {
         nnoremap <leader>s :Ack<space>
     " }
@@ -15,48 +32,23 @@ let g:mapleader = ','
         nmap <C-j> <Plug>(ale_next_wrap)
     " }
 
-    " Easemotion {
-        "nmap F :HopWord<CR>
-        "nmap f :HopChar1<CR>
-        "nmap F :HopChar2<CR>
-        nmap f :HopChar2<CR>
-        "nmap F :HopPattern<CR>
-        "nmap F :HopAnywhere<CR>
-        "nmap F :HopLine<CR>
-        "nmap F :HopLineStart<CR>
-        "nmap <leader><leader>f <Plug>(easymotion-s)
-        "nmap <leader><leader>s <Plug>(easymotion-s)
-        "nmap <leader><leader>j <Plug>(easymotion-j)
-        "nmap <leader><leader>k <Plug>(easymotion-k)
-        "nmap <leader><leader>l <Plug>(easymotion-lineforward)
-        "nmap <leader><leader>h <Plug>(easymotion-linebackward)
-    " }
-
-    " Easy align{
+    " Easy Align{
         xmap ga <Plug>(EasyAlign)
         nmap ga <Plug>(EasyAlign)
-    " }
-
-    " FZF {
-        nmap <silent> <C-p> :Files ~/Code<CR>
-        nmap <silent> <C-e> :Buffers<CR>
     " }
 
     " JsDoc {
         nmap <leader>d <Plug>(jsdoc)
     " }
 
-    " nvim-tree {
-        "map <silent> <leader>e :NvimTreeFindFile!<CR>
-        "map <silent> <leader>n :NvimTreeToggle<CR>
+    " Nvim Tree {
+        " map <silent> <leader>e :NvimTreeFindFile!<CR>
+        " map <silent> <leader>n :NvimTreeToggle<CR>
     " }
 
     " NerdTree {
         map <silent> <leader>e :NERDTreeFind<CR>
         map <silent> <leader>n :NERDTreeToggle<CR>
-        map <silent> <leader>c :NERDTree ~/Code<CR>
-        map <silent> <leader>v :NERDTree ~/.vim<CR>
-        map <silent> <leader>p :NERDTree ~/.myprofile<CR>
     " }
 
     " Signify {
@@ -66,6 +58,10 @@ let g:mapleader = ','
 
     " Tagbar {
         nmap <silent> <leader>t :TagbarToggle<CR>
+    " }
+
+    " Undotree {
+        nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }
 
     " TPL {
@@ -82,27 +78,6 @@ let g:mapleader = ','
 
     " add console {
         nmap <silent> <leader><leader>l :call AddConsole()<CR>
-    " }
-
-    " Undotree {
-        nnoremap <silent> <leader>u :UndotreeToggle<CR>
-    " }
-
-    " LeaderF {
-        " let g:Lf_ShortcutF = '<leader>f'
-    " }
-
-    " Telescope {
-        nnoremap <leader>ff <cmd>Telescope find_files<cr>
-        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-        nnoremap <leader>fb <cmd>Telescope buffers<cr>
-        nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-        nnoremap <leader>fs <cmd>Telescope git_status<cr>
-        nnoremap <leader>g <cmd>Telescope git_status<cr>
-        "}
-
-    " Blamer{
-        "nnoremap <silent> <leader>a :BlamerToggle<CR>
     " }
 
     " Self {
