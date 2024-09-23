@@ -15,16 +15,18 @@ source ~/.vimrc
 lua << END
 vim.opt.termguicolors = true
 
--- require('hop').setup()
+require('cmp').setup()
+require('mason').setup()
+require('fidget').setup()
+require('lspsaga').setup()
+require("notify")("万事如意")
 require('gitsigns').setup()
 require('colorizer').setup()
--- require("nvim-tree").setup()
 require('bufferline').setup()
-require("nvim-autopairs").setup {}
-require('lspsaga').setup()
-require('trouble').setup()
-require('cmp').setup()
+require('mason-lspconfig').setup()
+require('leap').create_default_mappings()
 
+-- Treesitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "c", "c_sharp", "csv", "css", "diff", "cmake", "lua", "vim",
@@ -42,7 +44,9 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+-- End
 
+-- Bqf
 vim.cmd([[
     hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
     hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
@@ -90,9 +94,9 @@ require('bqf').setup({
         }
     }
 })
+-- End
 
-vim.notify = require("notify")
-
+-- Indent Blankline
 local highlight = {
     "RainbowRed",
     "RainbowYellow",
@@ -117,10 +121,12 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup { indent = { highlight = highlight } }
+-- End
 
+-- Nvim Tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('leap').create_default_mappings()
-
+require("nvim-tree").setup()
+-- END
 END
