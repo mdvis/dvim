@@ -356,10 +356,10 @@ scriptencoding utf-8
                     \]
 
         let g:startify_commands= [
-                    \ {'r':':PlugClean'},
-                    \ {'d':':PlugUpdate'},
-                    \ {'i':':PlugInstall'},
-                    \ {'g':':PlugUpgrade'},
+                    \ {'pc':':PlugClean'},
+                    \ {'pd':':PlugUpdate'},
+                    \ {'pi':':PlugInstall'},
+                    \ {'pg':':PlugUpgrade'},
                     \]
     " }
 " Plugin Config End }
