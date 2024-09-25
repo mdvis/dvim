@@ -67,8 +67,7 @@ scriptencoding utf-8
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-    " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
     " End
 
     " Syntax and Fix
@@ -279,15 +278,11 @@ scriptencoding utf-8
     " }
 
     " FZF {
-        " let g:fzf_action = {
-        "             \ 'ctrl-e': 'edit',
-        "             \ 'ctrl-t': 'tab split',
-        "             \ 'ctrl-x': 'split',
-        "             \ 'ctrl-v': 'vsplit' }
-    " }
-
-    " LeaderF {
-        " let g:Lf_WindowPosition = 'popup'
+        let g:fzf_action = {
+                    \ 'ctrl-e': 'edit',
+                    \ 'ctrl-t': 'tab split',
+                    \ 'ctrl-x': 'split',
+                    \ 'ctrl-v': 'vsplit' }
     " }
 
     " Rooter {
