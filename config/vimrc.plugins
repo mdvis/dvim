@@ -67,7 +67,7 @@ scriptencoding utf-8
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'pechorin/any-jump.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
     " End
 
     " Syntax and Fix
@@ -275,6 +275,11 @@ scriptencoding utf-8
     " Nerdtree syntax highlight {
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+    " }
+
+    "LeaderF {
+      let g:Lf_ShortcutF = "<leader>ff"
+      let g:Lf_WindowPosition = 'popup'
     " }
 
     " FZF {

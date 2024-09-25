@@ -11,12 +11,12 @@ let g:mapleader = ','
         nmap <silent> <C-e> :Buffers<CR>
     " }
 
-    " Telescope {
-        nnoremap <leader>ff <cmd>Telescope find_files<cr>
-        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-        nnoremap <leader>fb <cmd>Telescope buffers<cr>
-        nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-        nnoremap <leader>fs <cmd>Telescope git_status<cr>
+    " LeaderF {
+        noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+        noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+        noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+        noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+        noremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
     " }
 
     " Ack {
