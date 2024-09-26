@@ -52,6 +52,7 @@ scriptencoding utf-8
     " End
 
     " File
+    Plug 'vifm/vifm.vim'
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-commentary'
     Plug 'voldikss/vim-floaterm'       " Terminal
@@ -347,6 +348,7 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
+                    \ {'bm':'~/.NERDTreeBookmarks'},
                     \ {'cv':'~/.vim/config/vimrc'},
                     \ {'ci':'~/.vim/config/init.vim'},
                     \ {'cf':'~/.vim/config/vimrc.conf'},
