@@ -214,6 +214,7 @@ scriptencoding utf-8
         let g:ale_cpp_cppcheck_options = ''
 
         let g:ale_fixers = {
+                    \   '*':['remove_trailing_lines', 'trim_whitespace'],
                     \   'sql':['sqlfluff'],
                     \   'c':['uncrustify'],
                     \   'cpp':['uncrustify'],
@@ -235,7 +236,6 @@ scriptencoding utf-8
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
                     \   'swift':['swiftformat'],
-                    \   'vim':['remove_trailing_lines', 'trim_whitespace'],
                     \   'vue':['prettier'],
                     \   'xml':['xmllint'],
                     \   'yaml':['prettier']}
