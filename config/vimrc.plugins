@@ -104,6 +104,7 @@ scriptencoding utf-8
 
     " Git
     Plug 'lewis6991/gitsigns.nvim'
+    Plug 'tpope/vim-fugitive'
     " End
 
     " Diff

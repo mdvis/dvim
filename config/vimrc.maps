@@ -60,6 +60,10 @@ let g:mapleader = ','
         nnoremap <silent> <leader>u :UndotreeToggle<CR>
     " }
 
+    " Fugitive {
+        nmap <silent> <leader>g :G<CR>
+    " }
+
     " TPL {
         nmap <silent> <leader><leader>t :call SetTpl()<CR>
     " }
