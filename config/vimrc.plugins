@@ -215,6 +215,7 @@ scriptencoding utf-8
         let g:ale_cpp_cppcheck_options = ''
 
         let g:ale_linter_aliases = {
+                    \   'vue':['vue', 'javascript'],
                     \   'jsx':['css', 'javascript'],
                     \   'tsx':['css', 'typescript']}
 
@@ -272,7 +273,7 @@ scriptencoding utf-8
                     \   'sh':['shellcheck', 'cspell'],
                     \   'swift':['swiftlint', 'cspell'],
                     \   'vim':['vint'],
-                    \   'vue':['vls', 'cspell'],
+                    \   'vue':['eslint', 'vls', 'cspell'],
                     \   'xml':['xmllint'],
                     \   'yaml':['yamllint']}
     " }
