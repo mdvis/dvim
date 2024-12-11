@@ -199,11 +199,11 @@ scriptencoding utf-8
     " }
 
     " Ale {
-        "augroup FiletypeGroup
-            "autocmd!
-            "au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-            "au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
-        "augroup END
+        augroup FiletypeGroup
+            autocmd!
+            au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+            au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
+        augroup END
 
         let g:ale_fix_on_save=1
         let g:ale_lint_on_enter=0 " 1
@@ -213,6 +213,10 @@ scriptencoding utf-8
         let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
         let g:ale_c_cppcheck_options = ''
         let g:ale_cpp_cppcheck_options = ''
+
+        let g:ale_linter_aliases = {
+                    \   'jsx':['css', 'javascript'],
+                    \   'tsx':['css', 'typescript']}
 
         let g:ale_fixers = {
                     \   '*':['remove_trailing_lines', 'trim_whitespace'],
@@ -224,6 +228,8 @@ scriptencoding utf-8
                     \   'go':['gofmt'],
                     \   'graphqls':['prettier'],
                     \   'html':['prettier'],
+                    \   'jsx':['prettier', 'eslint'],
+                    \   'tsx':['prettier', 'eslint'],
                     \   'javascript':['eslint'],
                     \   'javascriptreact':['eslint'],
                     \   'typescriptreact':['eslint'],
@@ -250,6 +256,8 @@ scriptencoding utf-8
                     \   'go':['gopls', 'cspell'],
                     \   'graphqls':['eslint'],
                     \   'html':['alex', 'cspell'],
+                    \   'jsx':['stylelint', 'eslint', 'cspell'],
+                    \   'tsx':['stylelint', 'eslint', 'cspell'],
                     \   'javascript':['eslint', 'cspell'],
                     \   'javascriptreact':['eslint', 'cspell'],
                     \   'typescriptreact':['eslint', 'cspell'],
