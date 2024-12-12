@@ -99,6 +99,10 @@ scriptencoding utf-8
     " End
 
     " Colorscheme
+    Plug 'morhetz/gruvbox'
+    Plug 'folke/tokyonight.nvim'
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'rebelot/kanagawa.nvim'
     Plug 'EdenEast/nightfox.nvim'
     " End
 
