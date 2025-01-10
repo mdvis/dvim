@@ -248,6 +248,7 @@ scriptencoding utf-8
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
                     \   'swift':['swiftformat'],
+                    \   'toml':['dprint'],
                     \   'vue':['prettier'],
                     \   'xml':['xmllint'],
                     \   'yaml':['prettier']}
