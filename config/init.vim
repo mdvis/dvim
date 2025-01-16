@@ -19,12 +19,21 @@ require('cmp').setup()
 require('mason').setup()
 require('fidget').setup()
 require('lspsaga').setup()
-require("notify")("🧨🧨🧨🏮万事如意🏮🧨🧨🧨💰按时发薪💰🧨🧨🧨")
 require('gitsigns').setup()
 require('colorizer').setup()
 require('bufferline').setup()
 require('mason-lspconfig').setup()
 require('leap').create_default_mappings()
+
+notify = require("notify")
+notify.setup({
+  render = "compact",
+  stages = "slide",
+  timeout = 500,
+})
+notify("💰按时发薪💰  🧨🧨", "info", {
+  title="🧨🧨  🏮万事如意🏮"
+})
 
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
