@@ -134,6 +134,10 @@ scriptencoding utf-8
     Plug 'hrsh7th/vim-vsnip'
     " End
 
+    " LLM
+    Plug 'ggml-org/llama.vim'
+    " End
+
     " Plugins list End }
 
     call plug#end()
