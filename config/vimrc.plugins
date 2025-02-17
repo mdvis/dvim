@@ -245,7 +245,7 @@ scriptencoding utf-8
                     \   'less':['prettier'],
                     \   'lua':['stylua'],
                     \   'markdown':['prettier'],
-                    \   'python':['ruff-format'],
+                    \   'python':['ruff'],
                     \   'rust':['rustfmt'],
                     \   'scss':['prettier'],
                     \   'sh':['shfmt'],
