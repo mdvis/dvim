@@ -2,6 +2,8 @@
 scriptencoding utf-8
 
 " Environment {
+    let g:python3_host_prog = '~/nvim_venv/bin/python'
+
     " Identify platform {
         silent function! OSX()
             return has('macunix')
