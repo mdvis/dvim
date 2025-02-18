@@ -31,8 +31,8 @@ notify.setup({
   stages = "slide",
   timeout = 500,
 })
-notify("💰按时发薪💰  🧨🧨", "info", {
-  title="🧨🧨  🏮万事如意🏮"
+notify("💰按时发薪💰", "info", {
+  title="🏮万事如意🏮"
 })
 
 -- Treesitter
