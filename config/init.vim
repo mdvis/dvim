@@ -44,7 +44,7 @@ require'nvim-treesitter.configs'.setup {
     "markdown_inline", "lua", "lua", "luadoc", "luap", "luau", "dockerfile",
     "go", "gomod", "gosum", "gowork", "graphql", "html", "http", "java",
     "javascript", "jsdoc", "json", "json5", "git_config", "git_rebase",
-    "gitcommit", "gitignore"
+    "gitcommit", "gitignore", "gpg"
   },
   sync_install = false,
   auto_install = true,
@@ -52,6 +52,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  indent = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
 }
 -- End
 
