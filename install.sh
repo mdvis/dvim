@@ -34,11 +34,9 @@ initWorkDir() {
 
     for fileName in $dirList; do
         [ -d "$fileName" ] || mkdir -p "$fileName"
-
-        success "$fileName was created!"
     done
 
-    success "Init dir done!"
+    success "Init done!"
 }
 
 lnif() {
@@ -60,7 +58,7 @@ syncRepo() {
 
     name=$(basename "${repo_uri%.git}")
 
-    success "Clone $name done!"
+    success "Sync done!"
 }
 
 installPlugins() {
@@ -78,7 +76,7 @@ installPlugins() {
 
     export SHELL="$systemShell"
 
-    success "Plugins setup done!"
+    success "Plugin done!"
 }
 
 getFile() {
@@ -92,9 +90,9 @@ backup() {
     time=$(date +%s)
     for i in $list; do
         [[ -d "${i}" ]] && mv "${i}" "${i}"."${time}"
-
-        success "Buckup $i success!"
     done
+
+    success "Buckup done!"
 }
 
 handler() {
@@ -106,7 +104,6 @@ handler() {
         file=$(basename "$i")
         backup "${target_dir}${file%.sh}"
         [[ ! "$i" =~ "init" ]] && lnif "${path_name}/${file}" "${target_dir}${file%.sh}"
-        success "Link $file!"
     done
 
     success "Link done!"
