@@ -135,7 +135,7 @@ scriptencoding utf-8
     " End
 
     " LLM
-    Plug 'ggml-org/llama.vim'
+    Plug 'augmentcode/augment.vim'
     " End
 
     " coc
@@ -147,6 +147,9 @@ scriptencoding utf-8
 " Plugins End }
 
 " Plugin Config Start {
+    " Augment {
+      let g:augment_workspace_folders = ['~/Code']
+    " }
     " AutoJump{
         let g:any_jump_disable_default_keybindings = 1
     " }
