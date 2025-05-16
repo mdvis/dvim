@@ -16,13 +16,11 @@ lua << END
 vim.opt.termguicolors = true
 
 require('cmp').setup()
-require('mason').setup()
 require('fidget').setup()
 require('lspsaga').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
 require('bufferline').setup()
-require('mason-lspconfig').setup()
 require('leap').create_default_mappings()
 
 notify = require("notify")

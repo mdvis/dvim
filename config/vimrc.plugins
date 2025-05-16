@@ -113,10 +113,6 @@ scriptencoding utf-8
     Plug 'sindrets/diffview.nvim'
     " End
 
-    " LSP
-    Plug 'williamboman/mason.nvim'
-    Plug 'williamboman/mason-lspconfig.nvim'
-
     Plug 'nvimdev/lspsaga.nvim'
     Plug 'j-hui/fidget.nvim'
     " End
