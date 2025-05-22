@@ -15,9 +15,7 @@ source ~/.vimrc
 lua << END
 vim.opt.termguicolors = true
 
-require('cmp').setup()
 require('fidget').setup()
-require('lspsaga').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
 require('bufferline').setup()
@@ -132,11 +130,4 @@ end)
 
 require("ibl").setup { indent = { highlight = highlight } }
 -- End
-
--- Nvim Tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-require("nvim-tree").setup()
--- END
 END

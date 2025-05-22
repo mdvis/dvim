@@ -9,135 +9,119 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
+        " Deps {
+            Plug 'nvim-lua/plenary.nvim'                                                " for gitsigns.nvim, trouble.nvim
+            Plug 'nvim-tree/nvim-web-devicons'                                          " for fidget.nvim
+        " }
 
-    " Deps
-    Plug 'nvim-tree/nvim-web-devicons'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    " End
+        Plug 'roman/golden-ratio'                                                       " Automatic Resizing
+        Plug 'mhinz/vim-startify'
+        Plug 'APZelos/blamer.nvim'
+        Plug 'sheerun/vim-polyglot'                                                     " Highlight
+        Plug 'editorconfig/editorconfig-vim'
+        Plug 'lukas-reineke/indent-blankline.nvim'                                      " Indent Guides
 
-    Plug 'preservim/tagbar'                    " Tags
-    Plug 'roman/golden-ratio'                  " Automatic Resizing
-    Plug 'lukas-reineke/indent-blankline.nvim' " Indent Guides
-    Plug 'sheerun/vim-polyglot'                " Highlight
-    Plug 'kshenoy/vim-signature'               " Marks
-    Plug 'godlygeek/tabular'                   " Text Filtering/Alignment
-    Plug 'ggandor/leap.nvim'                   " Motions
 
-    Plug 'mbbill/undotree'
-    Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-repeat'
-    Plug 'mhinz/vim-startify'
-    Plug 'tpope/vim-surround'
-    Plug 'luochen1990/rainbow'
-    Plug 'APZelos/blamer.nvim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+        Plug 'mattn/emmet-vim'
+        Plug 'mbbill/undotree'
+        Plug 'tpope/vim-repeat'
+        Plug 'preservim/tagbar'                                                         " Tags
+        Plug 'ggandor/leap.nvim'                                                        " Motions
+        Plug 'kshenoy/vim-signature'                                                    " Marks
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-    " Status/Tabline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " End
+        Plug 'tpope/vim-surround'
+        Plug 'luochen1990/rainbow'
+        Plug 'jiangmiao/auto-pairs'
 
-    " Snippet
-    Plug 'SirVer/ultisnips'                                                 " snippet solution
-    Plug 'honza/vim-snippets'                                               " snippets
-    Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " snippet engine
-    " End
+        Plug 'godlygeek/tabular'                                                        " Text Filtering/Alignment
+        Plug 'junegunn/vim-easy-align'
 
-    " Golang
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    " End
+        " Status/Tabline {
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
+        " }
 
-    " File
-    Plug 'vifm/vifm.vim'
-    Plug 'preservim/nerdtree'
-    Plug 'tpope/vim-commentary'
-    Plug 'voldikss/vim-floaterm'       " Terminal
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'nvim-tree/nvim-tree.lua'
-    Plug 'Xuyuanp/nerdtree-git-plugin' " Status/Flags
-    " End
+        " Snippet {
+            if has('nvim')
+                Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " snippet engine
+                Plug 'rafamadriz/friendly-snippets'                                     " snippets
+            else
+                Plug 'SirVer/ultisnips'                                                 " snippet solution
+                Plug 'honza/vim-snippets'                                               " snippets
+            endif
+        " }
 
-    " Search
-    Plug 'mileszs/ack.vim'
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-    Plug 'kevinhwang91/nvim-bqf'
-    Plug 'pechorin/any-jump.vim'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-    " End
+        " Golang {
+            Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " }
 
-    " Syntax and Fix
-    Plug 'dense-analysis/ale'
-    " End
+        " File {
+            Plug 'preservim/nerdtree'
+            Plug 'tpope/vim-commentary'
+            Plug 'voldikss/vim-floaterm'                                                " Terminal
+            Plug 'ryanoasis/vim-devicons'
+            Plug 'Xuyuanp/nerdtree-git-plugin'                                          " Status/Flags
+        " }
 
-    " Complete
-    Plug 'ycm-core/YouCompleteMe'
-    Plug 'junegunn/vim-emoji'
-    " End
+        " Search {
+            Plug 'mileszs/ack.vim'
+            Plug 'junegunn/fzf.vim'
+            Plug 'airblade/vim-rooter'
+            Plug 'kevinhwang91/nvim-bqf'
+            Plug 'pechorin/any-jump.vim'
+            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+            Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+        " }
 
-    " Rust
-    Plug 'racer-rust/vim-racer'
-    Plug 'rust-lang/rust.vim'
-    " End
+        " Syntax and Fix {
+            Plug 'dense-analysis/ale'
+        " }
 
-    " Doc
-    Plug 'heavenshell/vim-jsdoc', {
-          \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
-          \ 'do': 'make install' }
-    " End
+        " Complete {
+            Plug 'ycm-core/YouCompleteMe'
+            Plug 'junegunn/vim-emoji'
+        " }
 
-    " UI
-    Plug 'rcarriga/nvim-notify'
-    Plug 'norcalli/nvim-colorizer.lua'
-    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " highlight
-    " End
+        " Rust {
+            Plug 'racer-rust/vim-racer'
+            Plug 'rust-lang/rust.vim'
+        " }
 
-    " Colorscheme
-    Plug 'morhetz/gruvbox'
-    Plug 'rebelot/kanagawa.nvim'
-    Plug 'EdenEast/nightfox.nvim'
-    " End
+        " Doc {
+            Plug 'heavenshell/vim-jsdoc', {
+                  \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
+                  \ 'do': 'make install' }
+        " }
 
-    " Git
-    Plug 'lewis6991/gitsigns.nvim'
-    Plug 'tpope/vim-fugitive'
-    " End
+        " UI {
+            Plug 'j-hui/fidget.nvim'
+            Plug 'folke/trouble.nvim'
+            Plug 'rcarriga/nvim-notify'
+            Plug 'norcalli/nvim-colorizer.lua'
+            Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+            Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                 " highlight
+        " }
 
-    " Diff
-    Plug 'sindrets/diffview.nvim'
-    " End
+        " Colorscheme {
+            Plug 'morhetz/gruvbox'
+            Plug 'rebelot/kanagawa.nvim'
+            Plug 'EdenEast/nightfox.nvim'
+        " }
 
-    Plug 'nvimdev/lspsaga.nvim'
-    Plug 'j-hui/fidget.nvim'
-    " End
+        " Git {
+            Plug 'lewis6991/gitsigns.nvim'
+            Plug 'tpope/vim-fugitive'
+        " }
 
-    " Plug 'folke/trouble.nvim'
+        " Diff {
+            Plug 'sindrets/diffview.nvim'
+        " }
 
-    " Cmp
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/nvim-cmp'
-    " For vsnip users.
-    Plug 'hrsh7th/cmp-vsnip'
-    Plug 'hrsh7th/vim-vsnip'
-    " End
-
-    " LLM
-    Plug 'augmentcode/augment.vim'
-    " End
-
-    " coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    " Plugins list End }
+        " LLM {
+            Plug 'augmentcode/augment.vim'
+        " }
+    " }
 
     call plug#end()
 " Plugins End }
@@ -320,7 +304,12 @@ scriptencoding utf-8
     " }
 
     " Rooter {
-        let g:rooter_patterns = ['.git', 'Makefile', 'package.json']
+        let g:rooter_patterns = [
+                    \ 'package.json', 'setup.py', 'pyproject.toml',
+                    \ 'requirements.txt', 'MANIFEST.in', 'manage.py',
+                    \ 'pom.xml', 'build.gradle', 'go.mod', 'go.sum', 'Gemfile',
+                    \ 'Gemfile.lock', 'composer.json', 'composer.lock',
+                    \ 'Makefile', 'CMakeLists.txt', 'Cargo.toml' ]
         let g:rooter_ignore = 1
     " }
 
