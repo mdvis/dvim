@@ -117,10 +117,6 @@ scriptencoding utf-8
         " Diff {
             Plug 'sindrets/diffview.nvim'
         " }
-
-        " LLM {
-            Plug 'augmentcode/augment.vim'
-        " }
     " }
 
     call plug#end()
