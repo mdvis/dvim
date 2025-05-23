@@ -129,6 +129,11 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup { indent = { highlight = highlight } }
-require("toggleterm").setup()
+require("toggleterm").setup({
+  size = 55,
+  open_mapping = [[<c-\>]],
+  shade_filetypes = {},
+  direction = 'vertical'
+})
 -- End
 END
