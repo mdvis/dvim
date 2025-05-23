@@ -10,7 +10,7 @@ scriptencoding utf-8
 
     " Plugins list {
         " Deps {
-            Plug 'nvim-lua/plenary.nvim'                                                " for gitsigns.nvim, trouble.nvim
+            Plug 'nvim-lua/plenary.nvim'                                                " for gitsigns.nvim, trouble.nvim, telescope.nvim
             Plug 'nvim-tree/nvim-web-devicons'                                          " for fidget.nvim
         " }
 
@@ -62,6 +62,7 @@ scriptencoding utf-8
             Plug 'voldikss/vim-floaterm'                                                " Terminal
             Plug 'ryanoasis/vim-devicons'
             Plug 'Xuyuanp/nerdtree-git-plugin'                                          " Status/Flags
+            Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
         " }
 
         " Search {
@@ -71,6 +72,7 @@ scriptencoding utf-8
             Plug 'kevinhwang91/nvim-bqf'
             Plug 'pechorin/any-jump.vim'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+            Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
             Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
         " }
 
@@ -376,5 +378,13 @@ scriptencoding utf-8
                     \ {'pi':':PlugInstall'},
                     \ {'pg':':PlugUpgrade'},
                     \]
+    " }
+
+    " Telescope {
+        " Find files using Telescope command-line sugar.
+        nnoremap <leader>ff <cmd>Telescope find_files<cr>
+        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+        nnoremap <leader>fb <cmd>Telescope buffers<cr>
+        nnoremap <leader>fh <cmd>Telescope help_tags<cr>
     " }
 " Plugin Config End }
