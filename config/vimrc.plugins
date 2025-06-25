@@ -73,6 +73,7 @@ scriptencoding utf-8
             Plug 'pechorin/any-jump.vim'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+            Plug 'skim-rs/skim', { 'dir': '~/.skim', 'do': './install' }
             Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
         " }
 
