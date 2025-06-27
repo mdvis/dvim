@@ -43,13 +43,8 @@ scriptencoding utf-8
         " }
 
         " Snippet {
-            if has('nvim')
-                Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " snippet engine
-                Plug 'rafamadriz/friendly-snippets'                                     " snippets
-            else
-                Plug 'SirVer/ultisnips'                                                 " snippet solution
-                Plug 'honza/vim-snippets'                                               " snippets
-            endif
+            Plug 'SirVer/ultisnips'                                                 " snippet solution
+            Plug 'honza/vim-snippets'                                               " snippets
         " }
 
         " Golang {
