@@ -82,7 +82,6 @@ scriptencoding utf-8
 
         " Colorscheme {
             Plug 'morhetz/gruvbox'
-            Plug 'EdenEast/nightfox.nvim'
         " }
 
         " Git {
