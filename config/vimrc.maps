@@ -19,14 +19,6 @@ let g:mapleader = ','
         noremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
     " }
 
-    " Telescope {
-        " Find files using Telescope command-line sugar.
-        nnoremap <leader>ff <cmd>Telescope find_files<cr>
-        nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-        nnoremap <leader>fb <cmd>Telescope buffers<cr>
-        nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    " }
-
     " Ack {
         nnoremap <leader>s :Ack<space>
     " }
@@ -43,11 +35,6 @@ let g:mapleader = ','
 
     " JsDoc {
         nmap <leader>d <Plug>(jsdoc)
-    " }
-
-    " Nvim Tree {
-        " map <silent> <leader>e :NvimTreeFindFile!<CR>
-        " map <silent> <leader>n :NvimTreeToggle<CR>
     " }
 
     " NerdTree {

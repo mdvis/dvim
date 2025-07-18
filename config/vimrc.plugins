@@ -9,24 +9,17 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
-        " Deps {
-            Plug 'nvim-lua/plenary.nvim'                                                " for gitsigns.nvim, trouble.nvim, telescope.nvim
-            Plug 'nvim-tree/nvim-web-devicons'                                          " for fidget.nvim
-        " }
-
-        Plug 'roman/golden-ratio'                                                       " Automatic Resizing
         Plug 'mhinz/vim-startify'
         Plug 'APZelos/blamer.nvim'
         Plug 'sheerun/vim-polyglot'                                                     " Highlight
         Plug 'editorconfig/editorconfig-vim'
-        Plug 'lukas-reineke/indent-blankline.nvim'                                      " Indent Guides
-
+        Plug 'yggdroot/indentline'                                                      " Indent Guides
 
         Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree'
         Plug 'tpope/vim-repeat'
         Plug 'preservim/tagbar'                                                         " Tags
-        Plug 'ggandor/leap.nvim'                                                        " Motions
+        Plug 'justinmk/vim-sneak'                                                       " Motions
         Plug 'kshenoy/vim-signature'                                                    " Marks
         Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
@@ -34,7 +27,6 @@ scriptencoding utf-8
         Plug 'luochen1990/rainbow'
         Plug 'jiangmiao/auto-pairs'
 
-        Plug 'godlygeek/tabular'                                                        " Text Filtering/Alignment
         Plug 'junegunn/vim-easy-align'
 
         " Status/Tabline {
@@ -57,18 +49,14 @@ scriptencoding utf-8
             Plug 'voldikss/vim-floaterm'                                                " Terminal
             Plug 'ryanoasis/vim-devicons'
             Plug 'Xuyuanp/nerdtree-git-plugin'                                          " Status/Flags
-            Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
         " }
 
         " Search {
             Plug 'mileszs/ack.vim'
             Plug 'junegunn/fzf.vim'
             Plug 'airblade/vim-rooter'
-            Plug 'kevinhwang91/nvim-bqf'
             Plug 'pechorin/any-jump.vim'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-            Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-            Plug 'skim-rs/skim', { 'dir': '~/.skim', 'do': './install' }
             Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
         " }
 
@@ -92,28 +80,13 @@ scriptencoding utf-8
                   \ 'do': 'make install' }
         " }
 
-        " UI {
-            Plug 'j-hui/fidget.nvim'
-            Plug 'folke/trouble.nvim'
-            Plug 'rcarriga/nvim-notify'
-            Plug 'norcalli/nvim-colorizer.lua'
-            Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-            Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                 " highlight
-        " }
-
         " Colorscheme {
             Plug 'morhetz/gruvbox'
-            Plug 'rebelot/kanagawa.nvim'
             Plug 'EdenEast/nightfox.nvim'
         " }
 
         " Git {
-            Plug 'lewis6991/gitsigns.nvim'
             Plug 'tpope/vim-fugitive'
-        " }
-
-        " Diff {
-            Plug 'sindrets/diffview.nvim'
         " }
     " }
 
@@ -124,23 +97,13 @@ scriptencoding utf-8
     " Augment {
       let g:augment_workspace_folders = ['~/Code']
     " }
+
     " AutoJump{
         let g:any_jump_disable_default_keybindings = 1
     " }
 
     " Emoji{
         set completefunc=emoji#complete
-    " }
-
-    " Signify {
-        let g:signify_vcs_list = [ 'git' ]
-
-        highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-        highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-        highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-        highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-        highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-        highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
 
     " Emmet {
@@ -285,7 +248,7 @@ scriptencoding utf-8
     " }
 
     "LeaderF {
-      let g:Lf_ShortcutF = "<leader>FF"
+      let g:Lf_ShortcutF = "<leader>ff"
       let g:Lf_WindowPosition = 'popup'
     " }
 
