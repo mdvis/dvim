@@ -9,6 +9,7 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
+        Plug 'roman/golden-ratio'                                                       " Automatic Resizing
         Plug 'mhinz/vim-startify'
         Plug 'APZelos/blamer.nvim'
         Plug 'sheerun/vim-polyglot'                                                     " Highlight
@@ -28,6 +29,8 @@ scriptencoding utf-8
         Plug 'jiangmiao/auto-pairs'
 
         Plug 'junegunn/vim-easy-align'
+
+        Plug 'ap/vim-css-color'
 
         " Status/Tabline {
             Plug 'vim-airline/vim-airline'
