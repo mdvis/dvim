@@ -27,6 +27,10 @@ scriptencoding utf-8
   let g:go_comment_symbol='//'
   let g:go_comment_end_symbol='// ------'
 
+  let g:rs_comment_start_symbol='/**'
+  let g:rs_comment_symbol=' *'
+  let g:rs_comment_end_symbol=' */'
+
   function! PyTpl(start, mid, end)
     let start = a:start
     let mid = a:mid
@@ -73,6 +77,11 @@ scriptencoding utf-8
     if &filetype ==# 'go'
       call Tpl(g:go_comment_start_symbol, g:go_comment_symbol
             \,g:go_comment_end_symbol)
+      return
+    endif
+    if &filetype ==# 'rust'
+      call Tpl(g:rs_comment_start_symbol, g:rs_comment_symbol
+            \,g:rs_comment_end_symbol)
       return
     endif
   endfunc
@@ -154,16 +163,6 @@ function! AddConsole()
 endfunction
 
 
-function! GetStr(string, times)
-  let l:newString=''
-  let l:times=a:times
-  let l:string=a:string
-  while l:times>0
-    let l:newString=l:newString.l:string
-    let l:times-=1
-  endwhile
-  echo l:newString
-endfunction
 
 " highlight Normal ctermbg=none
 highlight ColorColumn ctermbg=96
