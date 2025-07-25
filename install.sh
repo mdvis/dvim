@@ -13,7 +13,6 @@ readonly APP_NAME="dvim"
 readonly APP_SETUP_NAME=".vim"
 readonly REPO_PATH="$HOME/$APP_SETUP_NAME"
 readonly CONFIG_PATH="$HOME/$APP_SETUP_NAME/config"
-readonly NVIM_PATH="$HOME/.config/nvim"
 readonly REPO_URI="https://github.com/mdvis/$APP_NAME.git"
 
 msg() {
@@ -111,12 +110,9 @@ handler() {
 
 initWorkDir "$HOME/.swp" \
     "$HOME/.backup" \
-    "$HOME/.undo" \
-    "$NVIM_PATH"
+    "$HOME/.undo"
 
 syncRepo "$REPO_PATH" "$REPO_URI"
-
-lnif "${CONFIG_PATH}/init.vim" "${NVIM_PATH}/init.vim"
 
 handler "${CONFIG_PATH}" "$HOME/."
 
