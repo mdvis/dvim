@@ -328,6 +328,7 @@ scriptencoding utf-8
                     \ {'cm':'~/.vim/config/vimrc.maps'},
                     \ {'cc':'~/.vim/config/vimrc.custom'},
                     \ {'cp':'~/.vim/config/vimrc.plugins'},
+                    \ {'wd':'~/MyDocuments/Documents/Words.txt'},
                     \]
 
         let g:startify_commands= [
