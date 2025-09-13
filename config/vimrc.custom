@@ -113,6 +113,8 @@ scriptencoding utf-8
   " source
   command! -nargs=0 SConf :call conf#SourceConf()
 
+  command! Gemini FloatermNew gemini
+  command! Qwen FloatermNew qwen
   command! YZ FloatermNew yazi
   command! SH FloatermNew
   command! JP AnyJump
