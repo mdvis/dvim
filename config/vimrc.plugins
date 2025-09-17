@@ -320,18 +320,18 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
-                    \ {'bm':'~/.NERDTreeBookmarks'},
-                    \ {'cm':'~/.vim/config/vimrc.maps'},
-                    \ {'cc':'~/.vim/config/vimrc.custom'},
-                    \ {'cp':'~/.vim/config/vimrc.plugins'},
-                    \ {'wd':'~/MyDocuments/Documents/Words.txt'},
+                    \ {'b':'~/.NERDTreeBookmarks'},
+                    \ {'m':'~/.vim/config/vimrc.maps'},
+                    \ {'c':'~/.vim/config/vimrc.custom'},
+                    \ {'p':'~/.vim/config/vimrc.plugins'},
+                    \ {'w':'~/MyDocuments/Documents/Words.txt'},
                     \]
 
         let g:startify_commands= [
-                    \ {'pc':':PlugClean'},
-                    \ {'pd':':PlugUpdate'},
-                    \ {'pi':':PlugInstall'},
-                    \ {'pg':':PlugUpgrade'},
+                    \ {'C':':PlugClean'},
+                    \ {'u':':PlugUpdate'},
+                    \ {'i':':PlugInstall'},
+                    \ {'U':':PlugUpgrade'},
                     \]
     " }
 " Plugin Config End }
