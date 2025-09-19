@@ -180,11 +180,12 @@ scriptencoding utf-8
                     \   'jsx':['prettier', 'eslint'],
                     \   'tsx':['prettier', 'eslint'],
                     \   'java':['javac'],
-                    \   'javascript':['eslint'],
-                    \   'javascriptreact':['eslint'],
-                    \   'typescriptreact':['eslint'],
-                    \   'typescript':['eslint'],
-                    \   'json':['prettier'],
+                    \   'javascript':['biome', 'eslint'],
+                    \   'javascriptreact':['biome', 'eslint'],
+                    \   'typescriptreact':['biome', 'eslint'],
+                    \   'typescript':['biome', 'eslint'],
+                    \   'jsonc':['biome', 'prettier'],
+                    \   'json':['biome', 'prettier'],
                     \   'less':['prettier'],
                     \   'lua':['stylua'],
                     \   'markdown':['prettier'],
@@ -215,11 +216,12 @@ scriptencoding utf-8
                     \   'jsx':['eslint', 'cspell'],
                     \   'tsx':['eslint', 'cspell'],
                     \   'java':['javac', 'cspell'],
-                    \   'javascript':['eslint', 'cspell'],
-                    \   'javascriptreact':['eslint', 'cspell'],
-                    \   'typescriptreact':['eslint', 'cspell'],
-                    \   'typescript':['eslint', 'cspell'],
-                    \   'json':['eslint', 'cspell'],
+                    \   'javascript':['biome', 'eslint', 'cspell'],
+                    \   'javascriptreact':['biome', 'eslint', 'cspell'],
+                    \   'typescriptreact':['biome', 'eslint', 'cspell'],
+                    \   'typescript':['biome', 'eslint', 'cspell'],
+                    \   'jsonc':['biome', 'eslint', 'cspell'],
+                    \   'json':['biome', 'eslint', 'cspell'],
                     \   'less':['stylelint'],
                     \   'lua':['luac', 'cspell'],
                     \   'markdown':['alex', 'cspell'],
@@ -320,18 +322,18 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
-                    \ {'bm':'~/.NERDTreeBookmarks'},
-                    \ {'cm':'~/.vim/config/vimrc.maps'},
-                    \ {'cc':'~/.vim/config/vimrc.custom'},
-                    \ {'cp':'~/.vim/config/vimrc.plugins'},
-                    \ {'wd':'~/MyDocuments/Documents/Words.txt'},
+                    \ {'b':'~/.NERDTreeBookmarks'},
+                    \ {'m':'~/.vim/config/vimrc.maps'},
+                    \ {'c':'~/.vim/config/vimrc.custom'},
+                    \ {'p':'~/.vim/config/vimrc.plugins'},
+                    \ {'w':'~/MyDocuments/Documents/Words.txt'},
                     \]
 
         let g:startify_commands= [
-                    \ {'pc':':PlugClean'},
-                    \ {'pd':':PlugUpdate'},
-                    \ {'pi':':PlugInstall'},
-                    \ {'pg':':PlugUpgrade'},
+                    \ {'C':':PlugClean'},
+                    \ {'u':':PlugUpdate'},
+                    \ {'i':':PlugInstall'},
+                    \ {'U':':PlugUpgrade'},
                     \]
     " }
 " Plugin Config End }
