@@ -85,6 +85,7 @@ scriptencoding utf-8
 
         " Colorscheme {
             Plug 'morhetz/gruvbox'
+            Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
         " }
 
         " Git {
