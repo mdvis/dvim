@@ -91,6 +91,10 @@ scriptencoding utf-8
         " Git {
             Plug 'tpope/vim-fugitive'
         " }
+
+        " Augment {
+            Plug 'augmentcode/augment.vim'
+        " }
     " }
 
     call plug#end()
