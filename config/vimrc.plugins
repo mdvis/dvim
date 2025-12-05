@@ -1,0 +1,349 @@
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+scriptencoding utf-8
+
+" Plugins Beginning {
+    let g:Plug_dir = '~/.vim/plugged/'
+
+    filetype off
+
+    call plug#begin(g:Plug_dir)
+
+    " Plugins list {
+        Plug 'roman/golden-ratio'
+        Plug 'mhinz/vim-startify'
+        Plug 'APZelos/blamer.nvim'
+        Plug 'sheerun/vim-polyglot'             " Highlight
+        Plug 'editorconfig/editorconfig-vim'
+        Plug 'yggdroot/indentline'
+
+        Plug 'mattn/emmet-vim'
+        Plug 'mbbill/undotree'
+        Plug 'tpope/vim-repeat'
+        Plug 'preservim/tagbar'
+        Plug 'justinmk/vim-sneak'
+        Plug 'kshenoy/vim-signature'            " Marks
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+        Plug 'tpope/vim-surround'
+        Plug 'luochen1990/rainbow'
+        Plug 'jiangmiao/auto-pairs'
+
+        Plug 'junegunn/vim-easy-align'
+
+        Plug 'ap/vim-css-color'
+
+        " Status/Tabline {
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
+        " }
+
+        " Snippet {
+            Plug 'SirVer/ultisnips'             " Snippet solution
+            Plug 'honza/vim-snippets'           " Snippets
+        " }
+
+        " Golang {
+            Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " }
+
+        " File {
+            Plug 'preservim/nerdtree'
+            Plug 'tpope/vim-commentary'
+            Plug 'voldikss/vim-floaterm'        " Terminal
+            Plug 'ryanoasis/vim-devicons'
+            Plug 'Xuyuanp/nerdtree-git-plugin'  " Status/Flags
+            Plug 'tpope/vim-vinegar'            " Netrw enhancements
+        " }
+
+        " Search {
+            Plug 'mileszs/ack.vim'
+            Plug 'junegunn/fzf.vim'
+            Plug 'airblade/vim-rooter'
+            Plug 'pechorin/any-jump.vim'
+            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+            Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+        " }
+
+        " Syntax and Fix {
+            Plug 'dense-analysis/ale'
+        " }
+
+        " Complete {
+            Plug 'ycm-core/YouCompleteMe'
+            Plug 'junegunn/vim-emoji'
+        " }
+
+        " Rust {
+            Plug 'racer-rust/vim-racer'
+            Plug 'rust-lang/rust.vim'
+        " }
+
+        " Doc {
+            Plug 'heavenshell/vim-jsdoc', {
+                  \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
+                  \ 'do': 'make install' }
+        " }
+
+        " Colorscheme {
+            Plug 'morhetz/gruvbox'
+            Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+        " }
+
+        " Git {
+            Plug 'tpope/vim-fugitive'
+        " }
+
+        " Augment {
+            " Plug 'augmentcode/augment.vim'
+        " }
+
+        " Copilot {
+            Plug 'github/copilot.vim'
+        " }
+    " }
+
+    call plug#end()
+" Plugins End }
+
+" Plugin Config Start {
+    " AutoJump{
+        let g:any_jump_disable_default_keybindings = 1
+    " }
+
+    " Emoji{
+        set completefunc=emoji#complete
+    " }
+
+    " Emmet {
+        let g:user_emmet_expandabbr_key='<leader><tab>'
+    " }
+
+    " NerdTree {
+        let g:NERDTreeWinSize=40
+        let g:NERDTreeChDirMode=1
+        let g:NERDTreeMouseMode=2
+        let g:NERDTreeQuitOnOpen=1
+        let g:NERDTreeShowHidden=1
+        let g:NERDTreeShowBookmarks=1
+        let g:NERDTreeKeepTreeInNewTab=1
+        let g:NERDTreeDirArrowExpandable = '+'
+        let g:NERDTreeDirArrowCollapsible = '-'
+
+        let g:NERDTreeIgnore=[
+                    \ '\.py[cd]$', '\~$', '\.swo$',
+                    \ '\.swp$', '^\.git$', '^\.hg$',
+                    \ '^\.svn$', '\.bzr$', '^\.DS_Store',
+                    \ 'node_modules', '\.meta$', '\.fire$']
+
+        let g:NERDTreeGitStatusIndicatorMapCustom = {
+            \ 'Modified'  : '*',
+            \ 'Staged'    : '+',
+            \ 'Untracked' : '✭',
+            \ 'Renamed'   : '➜',
+            \ 'Unmerged'  : '═',
+            \ 'Deleted'   : 'x',
+            \ 'Dirty'     : '✗',
+            \ 'Clean'     : '✔︎',
+            \ 'Ignored'   : '☒',
+            \ 'Unknown'   : '?' }
+    " }
+
+    " Ultisnips {
+        let g:UltiSnipsExpandTrigger='<tab>'
+        let g:UltiSnipsJumpBackwardTrigger='<c-j>'
+        let g:UltiSnipsJumpForwardTrigger='<c-k>'
+        let g:UltiSnipsEditSplit='vertical'
+    " }
+
+    " Ale {
+        augroup FiletypeGroup
+            autocmd!
+            au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+            au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
+        augroup END
+
+        let g:ale_fix_on_save=1
+        let g:ale_lint_on_enter=0 " 1
+        let g:ale_lint_on_insert_leave=1
+
+        let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+        let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+        let g:ale_c_cppcheck_options = ''
+        let g:ale_cpp_cppcheck_options = ''
+
+        let g:ale_linter_aliases = {
+                    \   'vue':['vue', 'javascript'],
+                    \   'jsx':['css', 'javascript'],
+                    \   'tsx':['css', 'typescript']}
+
+        let g:ale_fixers = {
+                    \   '*':['remove_trailing_lines', 'trim_whitespace'],
+                    \   'sql':['sqlfluff'],
+                    \   'c':[ 'clangd','uncrustify'],
+                    \   'cmake':['cmake-format'],
+                    \   'cpp':[ 'clangd','uncrustify'],
+                    \   'css':['prettier'],
+                    \   'dockerfile':['dprint'],
+                    \   'go':['gofmt'],
+                    \   'graphqls':['prettier'],
+                    \   'html':['prettier'],
+                    \   'jsx':['prettier', 'eslint'],
+                    \   'tsx':['prettier', 'eslint'],
+                    \   'java':['uncrustify'],
+                    \   'javascript':['biome', 'eslint'],
+                    \   'javascriptreact':['biome', 'eslint'],
+                    \   'typescriptreact':['biome', 'eslint'],
+                    \   'typescript':['biome', 'eslint'],
+                    \   'jsonc':['biome', 'prettier'],
+                    \   'json':['biome', 'prettier'],
+                    \   'less':['prettier'],
+                    \   'lua':['stylua'],
+                    \   'markdown':['prettier'],
+                    \   'python':['ruff'],
+                    \   'r':['styler'],
+                    \   'rust':['rustfmt'],
+                    \   'scss':['prettier'],
+                    \   'sh':['shfmt'],
+                    \   'swift':['swiftformat'],
+                    \   'toml':['dprint'],
+                    \   'vue':['prettier'],
+                    \   'xml':['xmllint'],
+                    \   'yaml':['prettier']}
+
+        let g:ale_linters = {
+                    \   'sql':['sqlfluff'],
+                    \   'c':['cc','gcc','clang', 'clangd', 'cspell'],
+                    \   'cmake':['cmake-lint', 'cspell'],
+                    \   'cpp':['cc','gcc','clang', 'clangd', 'cspell'],
+                    \   'css':['stylelint', 'cspell'],
+                    \   'dockerfile':['hadolint'],
+                    \   'gitcommit':['gitlint', 'cspell'],
+                    \   'glsl':['glslang', 'cspell'],
+                    \   'go':['gopls', 'cspell'],
+                    \   'gohtmltmpl':['djlint', 'cspell'],
+                    \   'graphqls':['eslint'],
+                    \   'html':['alex', 'cspell'],
+                    \   'jsx':['eslint', 'cspell'],
+                    \   'tsx':['eslint', 'cspell'],
+                    \   'java':['checkstyle', 'cspell'],
+                    \   'javascript':['biome', 'eslint', 'cspell'],
+                    \   'javascriptreact':['biome', 'eslint', 'cspell'],
+                    \   'typescriptreact':['biome', 'eslint', 'cspell'],
+                    \   'typescript':['biome', 'eslint', 'cspell'],
+                    \   'jsonc':['biome', 'eslint', 'cspell'],
+                    \   'json':['biome', 'eslint', 'cspell'],
+                    \   'less':['stylelint'],
+                    \   'lua':['luac', 'cspell'],
+                    \   'markdown':['alex', 'cspell'],
+                    \   'python':['ruff', 'cspell'],
+                    \   'r':['lintr', 'cspell'],
+                    \   'rust':['analyzer', 'cargo', 'rustc', 'cspell'],
+                    \   'scss':['stylelint'],
+                    \   'sh':['shellcheck', 'cspell'],
+                    \   'swift':['swiftlint', 'cspell'],
+                    \   'vim':['vint'],
+                    \   'vue':['eslint', 'vls', 'cspell'],
+                    \   'xml':['xmllint'],
+                    \   'yaml':['yamllint']}
+    " }
+
+    " Ack {
+        " let g:ackprg = 'ag --nocolor --column --nogroup'
+        let g:ackprg = 'ag --vimgrep'
+    " }
+
+    " Nerdtree syntax highlight {
+        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+    " }
+
+    "LeaderF {
+      let g:Lf_ShortcutF = "<leader>ff"
+      let g:Lf_WindowPosition = 'popup'
+    " }
+
+    " FZF {
+        let g:fzf_action = {
+                    \ 'ctrl-e': 'edit',
+                    \ 'ctrl-t': 'tab split',
+                    \ 'ctrl-x': 'split',
+                    \ 'ctrl-v': 'vsplit' }
+    " }
+
+    " Rooter {
+        let g:rooter_patterns = [
+                    \ 'package.json', 'setup.py', 'pyproject.toml',
+                    \ 'requirements.txt', 'MANIFEST.in', 'manage.py',
+                    \ 'pom.xml', 'build.gradle', 'go.mod', 'go.sum', 'Gemfile',
+                    \ 'Gemfile.lock', 'composer.json', 'composer.lock',
+                    \ 'Makefile', 'CMakeLists.txt', 'Cargo.toml' ]
+        let g:rooter_ignore = 1
+    " }
+
+    " Rust {
+        let g:racer_cmd='~/.cargo/bin/racer'
+        " let g:racer_experimental_completer = 1
+        " let g:racer_insert_paren = 1
+    " }
+
+    " Blamer {
+        " let g:blamer_enabled = 1
+    " }
+
+    " YCM {
+        let g:ycm_key_invoke_completion = '<C-z>'
+        let g:ycm_key_list_select_completion = ['<Down>']
+        let g:ycm_key_list_previous_completion = ['<Up>']
+
+        set completeopt=menu,menuone
+        let g:ycm_add_preview_to_completeopt = 0
+
+        let g:ycm_show_diagnostics_ui = 0
+    " }
+
+    " Go {
+        let g:go_def_mode='gopls'
+        let g:go_info_mode='gopls'
+    " }
+
+    " Rainbow {
+        let g:rainbow_active = 0 "1
+    " }
+
+    " Startify {
+        let g:startify_session_dir = '~/.vim/session'
+        let g:startify_session_autoload = 1
+        let g:startify_files_number = 7
+        let g:startify_custom_header = ''
+        let g:startify_custom_footer = ''
+
+        let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+
+        let g:startify_lists = [
+              \ { 'type': 'files',     'header': ['   MRU']            },
+              \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+              \ { 'type': 'sessions',  'header': ['   Sessions']},
+              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
+              \ { 'type': 'commands',  'header': ['   Commands']},
+              \ ]
+
+        let g:startify_skiplist = [
+              \ '.*/node_modules',
+              \ ]
+
+        let g:startify_bookmarks = [
+                    \ {'b':'~/.NERDTreeBookmarks'},
+                    \ {'m':'~/.vim/config/vimrc.maps'},
+                    \ {'c':'~/.vim/config/vimrc.custom'},
+                    \ {'p':'~/.vim/config/vimrc.plugins'},
+                    \ {'w':'~/MyDocuments/Documents/Words.txt'},
+                    \]
+
+        let g:startify_commands= [
+                    \ {'C':':PlugClean'},
+                    \ {'u':':PlugUpdate'},
+                    \ {'i':':PlugInstall'},
+                    \ {'U':':PlugUpgrade'},
+                    \]
+    " }
+" Plugin Config End }

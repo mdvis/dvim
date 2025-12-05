@@ -1,0 +1,7 @@
+*.swp
+.DS_Store
+ftplugin
+plugged
+**/gocomplete.vim
+.netrwhist
+/session

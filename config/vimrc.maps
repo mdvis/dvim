@@ -1,0 +1,105 @@
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+scriptencoding utf-8
+
+let g:mapleader = ','
+
+" verbose nnoremap <leader>j
+
+" Mappings {
+    " Augment {
+        " inoremap <leader>y <cmd>call augment#Accept()<CR>
+    " }
+
+    " Fzf {
+        nmap <silent> <C-p> :Files ~/<CR>
+        nmap <silent> <C-e> :Buffers<CR>
+    " }
+
+    " LeaderF {
+        noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+        noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+        noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+        noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+        noremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+    " }
+
+    " Ack {
+        nnoremap <leader>s :Ack<space>
+    " }
+
+    " Ale {
+        nmap <C-k> <Plug>(ale_previous_wrap)
+        nmap <C-j> <Plug>(ale_next_wrap)
+    " }
+
+    " Easy Align{
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+    " }
+
+    " JsDoc {
+        nmap <leader>d <Plug>(jsdoc)
+    " }
+
+    " NerdTree {
+        map <silent> <leader>e :NERDTreeFind<CR>
+        map <silent> <leader>n :NERDTreeToggle<CR>
+    " }
+
+    " Signify {
+        nmap <leader>N <plug>(signify-next-hunk)
+        nmap <leader>P <plug>(signify-prev-hunk)
+    " }
+
+    " Tagbar {
+        nmap <silent> <leader>t :TagbarToggle<CR>
+    " }
+
+    " Undotree {
+        nnoremap <silent> <leader>u :UndotreeToggle<CR>
+    " }
+
+    " Fugitive {
+        nmap <silent> <leader>g :G<CR>
+    " }
+
+    " Blamer {
+      nnoremap<silent> <leader>B :BlamerToggle<CR>
+    " }
+
+    " TPL {
+        nmap <silent> <leader><leader>t :call SetTpl()<CR>
+    " }
+
+    " React Comment{
+        nmap <silent> <leader><leader>c :call AddComment()<CR>
+    " }
+
+    " Eslint Disable{
+        nmap <silent> <leader><leader>e :call AddEsLintDisable()<CR>
+    " }
+
+    " add console {
+        nmap <silent> <leader><leader>l :call AddConsole()<CR>
+    " }
+
+    " Self {
+        nnoremap <silent> <leader><leader>r :vertical-resize<space>
+        nnoremap <silent> <leader><leader>o :browse oldfiles<CR>
+        nnoremap <silent> <leader><CR> :noh<CR>
+        nnoremap <silent> <leader>T :tabs<CR>
+        nnoremap <silent> <leader>r :reg<CR>
+        nnoremap <silent> <leader><leader>q :q!<CR>
+        nnoremap <silent> <leader>w :w<CR>
+        nnoremap <silent> <leader>q :q<CR>
+        nnoremap <silent> <leader>x :x<CR>
+        nnoremap <leader>h <c-w>h
+        nnoremap <leader>j <c-w>j
+        nnoremap <leader>k <c-w>k
+        nnoremap <leader>l <c-w>l
+        inoremap jj <Esc>
+        nnoremap j gj
+        nnoremap k gk
+        nnoremap 0 ^
+    " }
+" }
