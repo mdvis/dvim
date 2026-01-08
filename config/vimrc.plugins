@@ -94,11 +94,11 @@ scriptencoding utf-8
         " }
 
         " Augment {
-            " Plug 'augmentcode/augment.vim'
+            Plug 'augmentcode/augment.vim'
         " }
 
         " Copilot {
-            Plug 'github/copilot.vim'
+            " Plug 'github/copilot.vim'
         " }
     " }
 
