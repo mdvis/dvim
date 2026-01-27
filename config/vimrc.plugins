@@ -26,6 +26,7 @@ scriptencoding utf-8
         Plug 'mbbill/undotree'
         Plug 'tpope/vim-repeat'
         Plug 'preservim/tagbar'                                                         " Tags
+        Plug 'folke/flash.nvim'
         Plug 'ggandor/leap.nvim'                                                        " Motions
         Plug 'kshenoy/vim-signature'                                                    " Marks
         Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -38,6 +39,7 @@ scriptencoding utf-8
         Plug 'junegunn/vim-easy-align'
 
         " Status/Tabline {
+            Plug 'romgrk/barbar.nvim'
             Plug 'vim-airline/vim-airline'
             Plug 'vim-airline/vim-airline-themes'
         " }
@@ -74,6 +76,7 @@ scriptencoding utf-8
 
         " Syntax and Fix {
             Plug 'dense-analysis/ale'
+            Plug 'stevearc/conform.nvim'
         " }
 
         " Complete {
@@ -110,6 +113,7 @@ scriptencoding utf-8
         " Git {
             Plug 'lewis6991/gitsigns.nvim'
             Plug 'tpope/vim-fugitive'
+            Plug 'NeogitOrg/neogit'
         " }
 
         " Diff {
