@@ -336,7 +336,7 @@ scriptencoding utf-8
                     \ {'m':'~/.vim/config/vimrc.maps'},
                     \ {'c':'~/.vim/config/vimrc.custom'},
                     \ {'p':'~/.vim/config/vimrc.plugins'},
-                    \ {'w':'~/MyDocuments/Documents/Words.txt'},
+                    \ {'w':'~/MyDocuments/Documents/Files/Words.txt'},
                     \]
 
         let g:startify_commands= [
