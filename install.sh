@@ -10,10 +10,12 @@ set -e
 set -o pipefail
 
 readonly APP_NAME="dvim"
-readonly APP_SETUP_NAME=".vim"
+readonly APP_SETUP_NAME=".${APP_NAME}"
+
 readonly REPO_PATH="$HOME/$APP_SETUP_NAME"
-readonly CONFIG_PATH="$HOME/$APP_SETUP_NAME/config"
 readonly REPO_URI="https://github.com/mdvis/$APP_NAME.git"
+
+readonly REPO_BRANCH="main"
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -28,6 +30,12 @@ error() {
     exit 1
 }
 
+lnif() {
+    if [ -e "$1" ]; then
+        ln -sf "$1" "$2"
+    fi
+}
+
 initWorkDir() {
     dirList="$*"
 
@@ -36,28 +44,6 @@ initWorkDir() {
     done
 
     success "Init done!"
-}
-
-lnif() {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-}
-
-syncRepo() {
-    local repo_path="$1"
-    local repo_uri="$2"
-
-    if [ ! -e "$repo_path" ]; then
-        # mkdir -p "$repo_path"
-        git clone --depth 1 "$repo_uri" "$repo_path"
-    else
-        cd "$repo_path" && git pull origin main
-    fi
-
-    name=$(basename "${repo_uri%.git}")
-
-    success "Sync done!"
 }
 
 installPlugins() {
@@ -76,6 +62,22 @@ installPlugins() {
     export SHELL="$systemShell"
 
     success "Plugin done!"
+}
+
+syncRepo() {
+    local repo_path="$1"
+    local repo_uri="$2"
+
+    if [ ! -e "$repo_path" ]; then
+        # mkdir -p "$repo_path"
+        git clone --branch "$REPO_BRANCH" --depth 1 "$repo_uri" "$repo_path"
+    else
+        cd "$repo_path" && git pull origin  "$REPO_BRANCH"
+    fi
+
+    name=$(basename "${repo_uri%.git}")
+
+    success "Sync done!"
 }
 
 getFile() {
@@ -114,6 +116,5 @@ initWorkDir "$HOME/.swp" \
 
 syncRepo "$REPO_PATH" "$REPO_URI"
 
-handler "${CONFIG_PATH}" "$HOME/."
-
-installPlugins
+. "${REPO_PATH}/vim/install.sh"
+. "${REPO_PATH}/nvim/install.sh"
