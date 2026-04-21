@@ -142,29 +142,5 @@ function! PrevLinePos()
   call setpos('.', pos)
 endfunction
 
-function! AddComment()
-  call PrevLinePos()
-  let content='{/**/}'
-  put!=content
-endfunction
-
-function! AddEsLintDisable()
-  call PrevLinePos()
-  let content='/* eslint-disable */'
-        \."\n/* eslint-enable */"
-        \."\n/* eslint-disable-next-line */"
-  put!=content
-endfunction
-
-function! AddConsole()
-  call PrevLinePos()
-  let content="console.log(`${String(new Date().getTime()).slice(7)} start ======================================`);\n"
-        \."console.log();\n"
-        \."console.log(`${String(new Date().getTime()).slice(7)} end --`);\n"
-  put!=content
-endfunction
-
-
-
 " highlight Normal ctermbg=none
 highlight ColorColumn ctermbg=96
