@@ -104,8 +104,6 @@ scriptencoding utf-8
   " source
   command! -nargs=0 SConf :call conf#SourceConf()
 
-  command! YZ FloatermNew yazi
-  command! SH FloatermNew
   command! JP AnyJump
 " }
 "
