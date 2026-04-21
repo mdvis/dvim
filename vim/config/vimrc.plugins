@@ -56,12 +56,11 @@ scriptencoding utf-8
         " }
 
         " Search {
-            Plug 'mileszs/ack.vim'
+            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'junegunn/fzf.vim'
+
             Plug 'airblade/vim-rooter'
             Plug 'pechorin/any-jump.vim'
-            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-            Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
         " }
 
         " Syntax and Fix {
@@ -247,19 +246,9 @@ scriptencoding utf-8
                     \   'yaml':['yamllint']}
     " }
 
-    " Ack {
-        " let g:ackprg = 'ag --nocolor --column --nogroup'
-        let g:ackprg = 'ag --vimgrep'
-    " }
-
     " Nerdtree syntax highlight {
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-    " }
-
-    "LeaderF {
-      let g:Lf_ShortcutF = "<leader>ff"
-      let g:Lf_WindowPosition = 'popup'
     " }
 
     " FZF {

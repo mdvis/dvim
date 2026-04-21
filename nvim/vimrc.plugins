@@ -32,17 +32,10 @@ scriptencoding utf-8
 
         Plug 'tpope/vim-surround'
         Plug 'luochen1990/rainbow'
-        " Plug 'jiangmiao/auto-pairs'
         Plug 'windwp/nvim-autopairs'
 
         Plug 'godlygeek/tabular'                                                        " Text Filtering/Alignment
         Plug 'junegunn/vim-easy-align'
-
-        " Status/Tabline {
-            Plug 'romgrk/barbar.nvim'
-            Plug 'vim-airline/vim-airline'
-            Plug 'vim-airline/vim-airline-themes'
-        " }
 
         " Golang {
             Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -51,21 +44,18 @@ scriptencoding utf-8
         " File {
             Plug 'preservim/nerdtree'
             Plug 'tpope/vim-commentary'
-            Plug 'ryanoasis/vim-devicons'
             Plug 'Xuyuanp/nerdtree-git-plugin'                                          " Status/Flags
             Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}                               " Terminal
         " }
 
         " Search {
-            Plug 'mileszs/ack.vim'
+            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'junegunn/fzf.vim'
+
             Plug 'airblade/vim-rooter'
             Plug 'kevinhwang91/nvim-bqf'
             Plug 'pechorin/any-jump.vim'
-            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-            Plug 'skim-rs/skim', { 'dir': '~/.skim', 'do': './install' }
-            Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
         " }
 
         " Syntax and Fix {
@@ -80,7 +70,6 @@ scriptencoding utf-8
             Plug 'neovim/nvim-lspconfig'
             Plug 'mason-org/mason.nvim'
             Plug 'mason-org/mason-lspconfig.nvim'
-            Plug 'j-hui/fidget.nvim'
 
             Plug 'junegunn/vim-emoji'
         " }
@@ -103,6 +92,10 @@ scriptencoding utf-8
             " Plug 'norcalli/nvim-colorizer.lua'
             Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
             Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                 " highlight
+            " Status/Tabline {
+                Plug 'vim-airline/vim-airline'
+                Plug 'vim-airline/vim-airline-themes'
+            " }
         " }
 
         " Colorscheme {
@@ -134,26 +127,12 @@ scriptencoding utf-8
 " Plugins End }
 
 " Plugin Config Start {
-    " Augment {
-      let g:augment_workspace_folders = ['~/Code']
-    " }
     " AutoJump{
         let g:any_jump_disable_default_keybindings = 1
     " }
 
     " Emoji{
         set completefunc=emoji#complete
-    " }
-
-    " Signify {
-        let g:signify_vcs_list = [ 'git' ]
-
-        highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-        highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-        highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-        highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-        highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-        highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
     " }
 
     " Emmet {
@@ -280,19 +259,9 @@ scriptencoding utf-8
                     \   'yaml':['yamllint']}
     " }
 
-    " Ack {
-        " let g:ackprg = 'ag --nocolor --column --nogroup'
-        let g:ackprg = 'ag --vimgrep'
-    " }
-
     " Nerdtree syntax highlight {
         let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
         let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-    " }
-
-    "LeaderF {
-      let g:Lf_ShortcutF = "<leader>FF"
-      let g:Lf_WindowPosition = 'popup'
     " }
 
     " FZF {
@@ -317,17 +286,6 @@ scriptencoding utf-8
         let g:racer_cmd='~/.cargo/bin/racer'
         " let g:racer_experimental_completer = 1
         " let g:racer_insert_paren = 1
-    " }
-
-    " YCM {
-        let g:ycm_key_invoke_completion = '<C-z>'
-        let g:ycm_key_list_select_completion = ['<Down>']
-        let g:ycm_key_list_previous_completion = ['<Up>']
-
-        set completeopt=menu,menuone
-        let g:ycm_add_preview_to_completeopt = 0
-
-        let g:ycm_show_diagnostics_ui = 0
     " }
 
     " Go {
@@ -361,20 +319,19 @@ scriptencoding utf-8
               \ ]
 
         let g:startify_bookmarks = [
-                    \ {'bm':'~/.NERDTreeBookmarks'},
-                    \ {'cv':'~/.dvim/nvim/vimrc'},
-                    \ {'ci':'~/.dvim/nvim/init.vim'},
-                    \ {'cf':'~/.dvim/nvim/vimrc.conf'},
-                    \ {'cm':'~/.dvim/nvim/vimrc.maps'},
-                    \ {'cc':'~/.dvim/nvim/vimrc.custom'},
-                    \ {'cp':'~/.dvim/nvim/vimrc.plugins'},
+                    \ {'b':'~/.NERDTreeBookmarks'},
+                    \ {'m':'~/.dvim/nvim/vimrc.maps'},
+                    \ {'c':'~/.dvim/nvim/vimrc.custom'},
+                    \ {'p':'~/.dvim/nvim/vimrc.plugins'},
+                    \ {'P':'~/.dvim/nvim/lua/config/plugins.lua'},
+                    \ {'w':'~/MyDocuments/Documents/Files/Words.txt'},
                     \]
 
         let g:startify_commands= [
-                    \ {'pc':':PlugClean'},
-                    \ {'pd':':PlugUpdate'},
-                    \ {'pi':':PlugInstall'},
-                    \ {'pg':':PlugUpgrade'},
+                    \ {'C':':PlugClean'},
+                    \ {'u':':PlugUpdate'},
+                    \ {'i':':PlugInstall'},
+                    \ {'U':':PlugUpgrade'},
                     \]
     " }
 " Plugin Config End }

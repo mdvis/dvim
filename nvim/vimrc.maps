@@ -7,16 +7,8 @@ let g:mapleader = ','
 
 " Mappings {
     " Fzf {
-        nmap <silent> <C-p> :Files ~/Code<CR>
+        nmap <silent> <C-p> :Files<CR>
         nmap <silent> <C-e> :Buffers<CR>
-    " }
-
-    " LeaderF {
-        noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-        noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-        noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-        noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-        noremap <leader>fr :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
     " }
 
     " Telescope {
@@ -25,10 +17,6 @@ let g:mapleader = ','
         nnoremap <leader>fg <cmd>Telescope live_grep<cr>
         nnoremap <leader>fb <cmd>Telescope buffers<cr>
         nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    " }
-
-    " Ack {
-        nnoremap <leader>s :Ack<space>
     " }
 
     " Ale {
@@ -45,19 +33,9 @@ let g:mapleader = ','
         nmap <leader>d <Plug>(jsdoc)
     " }
 
-    " Nvim Tree {
-        " map <silent> <leader>e :NvimTreeFindFile!<CR>
-        " map <silent> <leader>n :NvimTreeToggle<CR>
-    " }
-
     " NerdTree {
         map <silent> <leader>e :NERDTreeFind<CR>
         map <silent> <leader>n :NERDTreeToggle<CR>
-    " }
-
-    " Signify {
-        nmap <leader>N <plug>(signify-next-hunk)
-        nmap <leader>P <plug>(signify-prev-hunk)
     " }
 
     " Tagbar {
@@ -74,18 +52,6 @@ let g:mapleader = ','
 
     " TPL {
         nmap <silent> <leader><leader>t :call SetTpl()<CR>
-    " }
-
-    " React Comment{
-        nmap <silent> <leader><leader>c :call AddComment()<CR>
-    " }
-
-    " Eslint Disable{
-        nmap <silent> <leader><leader>e :call AddEsLintDisable()<CR>
-    " }
-
-    " add console {
-        nmap <silent> <leader><leader>l :call AddConsole()<CR>
     " }
 
     " Self {
