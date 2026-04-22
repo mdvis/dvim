@@ -55,7 +55,7 @@ scriptencoding utf-8
             Plug 'airblade/vim-rooter'
             Plug 'kevinhwang91/nvim-bqf'
             Plug 'pechorin/any-jump.vim'
-            Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+            Plug 'nvim-telescope/telescope.nvim', { 'tag': '*' }
         " }
 
         " Syntax and Fix {

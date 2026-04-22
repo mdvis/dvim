@@ -8,14 +8,6 @@ local function setup_plugins()
     require("codecompanion").setup()
     require("which-key").setup()
 
-    require("telescope").setup({
-        defaults = {
-            file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-            grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-            qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        },
-    })
-
     require("blink.cmp").setup({
         -- keymap = { preset = "default" },
         keymap = { preset = "super-tab" },
