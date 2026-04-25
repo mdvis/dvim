@@ -15,33 +15,28 @@ scriptencoding utf-8
         Plug 'nvim-tree/nvim-web-devicons' " Opt for neo-tree, lualine
 
         " Search
-        Plug 'nvim-telescope/telescope.nvim', { 'tag': '*' }
         Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+        Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
+        Plug 'nvim-telescope/telescope.nvim', { 'tag': '*' }
         Plug 'xiyaowong/telescope-emoji.nvim'
+        Plug 'folke/flash.nvim'
 
         " Files
-        " Plug 'nvim-neo-tree/neo-tree.nvim'
-        Plug 'stevearc/oil.nvim'
+        Plug 'nvim-neo-tree/neo-tree.nvim'
 
         " LSP
         Plug 'j-hui/fidget.nvim'
+        Plug 'folke/trouble.nvim'
         Plug 'mason-org/mason.nvim'
         Plug 'neovim/nvim-lspconfig'
         Plug 'mason-org/mason-lspconfig.nvim'
 
         " CMP
-        " Plug 'hrsh7th/nvim-cmp'
-        " Plug 'hrsh7th/cmp-emoji'
-
         Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 
         " Snippet
         Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
         Plug 'rafamadriz/friendly-snippets'
-
-        " Highlight
-        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-        Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
         " Git
         Plug 'lewis6991/gitsigns.nvim'
@@ -51,7 +46,13 @@ scriptencoding utf-8
 
         " UI
         Plug 'folke/noice.nvim'
+        Plug 'goolord/alpha-nvim'
         Plug 'rcarriga/nvim-notify'
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+        Plug 'catppuccin/nvim', { 'branch': 'vim', 'as': 'catppuccin' }
+        Plug 'folke/tokyonight.nvim'
 
         " Debug
         Plug 'mfussenegger/nvim-dap'
@@ -60,88 +61,35 @@ scriptencoding utf-8
 
         Plug 'stevearc/overseer.nvim'
 
-        " AI
-        Plug 'zbirenbaum/copilot.lua'
-
-        " Line
-        Plug 'nvim-lualine/lualine.nvim'
-        Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-
-        " Shortcut
-        Plug 'folke/which-key.nvim'
-
-        " Comment
-        Plug 'numToStr/Comment.nvim'
-
-        " Pairs
-        Plug 'windwp/nvim-autopairs'
-
-        " ibl
-        Plug 'lukas-reineke/indent-blankline.nvim'
-
-        " Lint, Fixer
+        " Syntax
         Plug 'stevearc/conform.nvim'
         Plug 'mfussenegger/nvim-lint'
 
-        Plug 'folke/trouble.nvim'
         Plug 'rachartier/tiny-inline-diagnostic.nvim'
 
-        " Colorscheme
-        Plug 'catppuccin/nvim', { 'branch': 'vim', 'as': 'catppuccin' }
-        Plug 'folke/tokyonight.nvim'
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+        Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
-        " Startify
-        Plug 'goolord/alpha-nvim'
-
-        " Md
+        " Tools
+        Plug 'folke/which-key.nvim'
+        Plug 'zbirenbaum/copilot.lua'
+        Plug 'numToStr/Comment.nvim'
+        Plug 'windwp/nvim-autopairs'
+        Plug 'lukas-reineke/indent-blankline.nvim'
         Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-        " Jump
-        Plug 'folke/flash.nvim'
-
-        " Multi
         Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-        " Align
         Plug 'nvim-mini/mini.align'
-
-        " Surround
         Plug 'kylechui/nvim-surround'
-
-        " Session
         Plug 'folke/persistence.nvim'
-
-        " Tag, Nav
         Plug 'stevearc/aerial.nvim'
-
-        " Todo
         Plug 'folke/todo-comments.nvim'
-
-        " Split
         Plug 'mrjones2014/smart-splits.nvim'
-
-        " Colorizer
         Plug 'catgoose/nvim-colorizer.lua'
-
-        " Rust
         Plug 'mrcjkb/rustaceanvim'
-
         Plug 's1n7ax/nvim-window-picker'
         Plug 'antosha417/nvim-lsp-file-operations'
+        Plug 'folke/snacks.nvim'
     " }
 
     call plug#end()
 " Plugins End }
-
-" Plugin Config Start {
-    " Rust {
-        let g:racer_cmd='~/.cargo/bin/racer'
-        " let g:racer_experimental_completer = 1
-        " let g:racer_insert_paren = 1
-    " }
-
-    " Go {
-        let g:go_def_mode='gopls'
-        let g:go_info_mode='gopls'
-    " }
-" Plugin Config End }

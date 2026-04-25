@@ -1,12 +1,18 @@
 local function setup_plugins()
     -- Search
     -- require('telescope').setup({})
+    -- require('harpoon').setup({})
+    require("flash").setup({
+      search = {
+        mode = "exact", -- 搜索模式：exact, fuzzy, 或 regex
+      },
+    })
 
     -- Files
     require("neo-tree").setup({})
-    require("oil").setup()
 
     -- LSP
+    require("fidget").setup()
     require("mason").setup({
         ui = {
             icons = {
@@ -57,22 +63,17 @@ local function setup_plugins()
         },
     })
 
+    -- Snippet
+
     -- Git
     require("gitsigns").setup({
         current_line_blame = true,
     })
+    -- require("diffview").setup()
+    -- require("fugitive").setup()
+    -- require("neogit").setup()
 
     -- UI
-    local notify = require("notify")
-    notify.setup({
-        render = "compact",
-        stages = "slide",
-        timeout = 50000,
-    })
-    notify("💰按时发薪💰", "info", {
-        title = "🏮万事如意🏮",
-    })
-
     require("noice").setup({
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -92,23 +93,37 @@ local function setup_plugins()
         },
     })
 
-    -- AI
-    require("copilot").setup({})
+    local notify = require("notify")
+    notify.setup({
+        render = "compact",
+        stages = "slide",
+        timeout = 1000,
+    })
+    notify("💰按时发薪💰", "info", {
+        title = "🏮万事如意🏮",
+    })
 
-    -- Line
+    local startify = require("alpha.themes.startify")
+    startify.section.header.val = {
+        "DEVE👻👻👻👻👻",
+    }
+    require("alpha").setup(startify.config)
     require("bufferline").setup()
     require("lualine").setup()
 
-    -- Shortcut
+    -- Debug
+    require("overseer").setup({
+        strategy = "toggleterm",
+    })
+
+    -- Syntax
+
+    -- Tools
     require("which-key").setup()
-
-    -- Comment
+    require("copilot").setup({})
     require("Comment").setup()
-
-    -- auto pairs
     require("nvim-autopairs").setup({})
 
-    -- ibl
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -120,6 +135,7 @@ local function setup_plugins()
     }
 
     local hooks = require("ibl.hooks")
+
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
         vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
@@ -132,8 +148,6 @@ local function setup_plugins()
 
     require("ibl").setup({ indent = { highlight = highlight } })
 
-    require("fidget").setup()
-
     vim.cmd([[
     hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
     hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
@@ -141,25 +155,9 @@ local function setup_plugins()
     hi link BqfPreviewRange Search
     ]])
 
-    -- Startify
-    local startify = require("alpha.themes.startify")
-    startify.section.header.val = {
-        "DEVE👻👻👻👻👻",
-    }
-    require("alpha").setup(startify.config)
-
-    -- Md
     require("render-markdown").setup({})
 
-    require("overseer").setup({
-        strategy = "toggleterm",
-    })
 
-    require("flash").setup({
-      search = {
-        mode = "exact", -- 搜索模式：exact, fuzzy, 或 regex
-      },
-    })
 end
 
 pcall(setup_plugins)

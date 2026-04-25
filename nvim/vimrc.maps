@@ -36,7 +36,7 @@ let g:mapleader = ','
 
     " Neotree {
         map <silent> <leader>n :Neotree toggle<CR>
-        map <silent> <leader>e :Neotree filesystem reveal left toggle<CR>
+        map <silent> <leader>e :Neotree filesystem reveal left<CR>
     " }
 
     " Fugitive {
