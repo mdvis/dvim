@@ -6,44 +6,37 @@ let g:mapleader = ','
 " verbose nnoremap <leader>j
 
 " Mappings {
-    " Fzf {
-        nmap <silent> <C-p> :Files<CR>
-        nmap <silent> <C-e> :Buffers<CR>
+    " flash {
+      nmap s <cmd>lua require("flash").jump()<cr>
+      xmap s <cmd>lua require("flash").jump()<cr>
+      omap s <cmd>lua require("flash").jump()<cr>
+
+      nmap S <cmd>lua require("flash").treesitter()<cr>
+      xmap S <cmd>lua require("flash").treesitter()<cr>
+      omap S <cmd>lua require("flash").treesitter()<cr>
+
+      " 远程操作 (在当前位置对远处内容执行删除、复制等)
+      omap r <cmd>lua require("flash").remote()<cr>
+
+      " Treesitter 搜索
+      omap R <cmd>lua require("flash").treesitter_search()<cr>
+      xmap R <cmd>lua require("flash").treesitter_search()<cr>
     " }
 
     " Telescope {
         " Find files using Telescope command-line sugar.
+        nmap <silent> <C-p> <cmd>Telescope find_files<cr>
+
         nnoremap <leader>ff <cmd>Telescope find_files<cr>
         nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-        nnoremap <leader>fb <cmd>Telescope buffers<cr>
         nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+        nnoremap <leader>fb <cmd>Telescope buffers<cr>
+        nnoremap <leader>fe <cmd>Telescope emoji<cr>
     " }
 
-    " Ale {
-        nmap <C-k> <Plug>(ale_previous_wrap)
-        nmap <C-j> <Plug>(ale_next_wrap)
-    " }
-
-    " Easy Align{
-        xmap ga <Plug>(EasyAlign)
-        nmap ga <Plug>(EasyAlign)
-    " }
-
-    " JsDoc {
-        nmap <leader>d <Plug>(jsdoc)
-    " }
-
-    " NerdTree {
-        map <silent> <leader>e :NERDTreeFind<CR>
-        map <silent> <leader>n :NERDTreeToggle<CR>
-    " }
-
-    " Tagbar {
-        nmap <silent> <leader>t :TagbarToggle<CR>
-    " }
-
-    " Undotree {
-        nnoremap <silent> <leader>u :UndotreeToggle<CR>
+    " Neotree {
+        map <silent> <leader>n :Neotree toggle<CR>
+        map <silent> <leader>e :Neotree filesystem reveal left toggle<CR>
     " }
 
     " Fugitive {

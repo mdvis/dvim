@@ -9,279 +9,131 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
-        " Deps {
-            Plug 'nvim-lua/plenary.nvim'                                                " for gitsigns.nvim, trouble.nvim, telescope.nvim
-            Plug 'nvim-tree/nvim-web-devicons'                                          " for fidget.nvim
-        " }
+        " Deps
+        Plug 'nvim-lua/plenary.nvim' " For neo-tree
+        Plug 'MunifTanjim/nui.nvim' " For neo-tree, notify
+        Plug 'nvim-tree/nvim-web-devicons' " Opt for neo-tree, lualine
 
-        Plug 'roman/golden-ratio'                                                       " Automatic Resizing
-        Plug 'mhinz/vim-startify'
-        Plug 'sheerun/vim-polyglot'                                                     " Highlight
-        Plug 'editorconfig/editorconfig-vim'
-        Plug 'lukas-reineke/indent-blankline.nvim'                                      " Indent Guides
+        " Search
+        Plug 'nvim-telescope/telescope.nvim', { 'tag': '*' }
+        Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+        Plug 'xiyaowong/telescope-emoji.nvim'
 
+        " Files
+        " Plug 'nvim-neo-tree/neo-tree.nvim'
+        Plug 'stevearc/oil.nvim'
 
-        Plug 'mattn/emmet-vim'
-        Plug 'mbbill/undotree'
-        Plug 'tpope/vim-repeat'
-        Plug 'preservim/tagbar'                                                         " Tags
-        Plug 'folke/flash.nvim'
-        " Plug 'ggandor/leap.nvim'                                                        " Motions
-        Plug 'kshenoy/vim-signature'                                                    " Marks
-        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+        " LSP
+        Plug 'j-hui/fidget.nvim'
+        Plug 'mason-org/mason.nvim'
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'mason-org/mason-lspconfig.nvim'
 
-        Plug 'tpope/vim-surround'
-        Plug 'luochen1990/rainbow'
+        " CMP
+        " Plug 'hrsh7th/nvim-cmp'
+        " Plug 'hrsh7th/cmp-emoji'
+
+        Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+
+        " Snippet
+        Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
+        Plug 'rafamadriz/friendly-snippets'
+
+        " Highlight
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+        Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
+        " Git
+        Plug 'lewis6991/gitsigns.nvim'
+        Plug 'sindrets/diffview.nvim'
+        Plug 'tpope/vim-fugitive'
+        Plug 'NeogitOrg/neogit'
+
+        " UI
+        Plug 'folke/noice.nvim'
+        Plug 'rcarriga/nvim-notify'
+
+        " Debug
+        Plug 'mfussenegger/nvim-dap'
+        Plug 'nvim-neotest/nvim-nio'
+        Plug 'rcarriga/nvim-dap-ui'
+
+        Plug 'stevearc/overseer.nvim'
+
+        " AI
+        Plug 'zbirenbaum/copilot.lua'
+
+        " Line
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+        " Shortcut
+        Plug 'folke/which-key.nvim'
+
+        " Comment
+        Plug 'numToStr/Comment.nvim'
+
+        " Pairs
         Plug 'windwp/nvim-autopairs'
 
-        Plug 'godlygeek/tabular'                                                        " Text Filtering/Alignment
-        Plug 'junegunn/vim-easy-align'
+        " ibl
+        Plug 'lukas-reineke/indent-blankline.nvim'
 
-        " Golang {
-            Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-        " }
+        " Lint, Fixer
+        Plug 'stevearc/conform.nvim'
+        Plug 'mfussenegger/nvim-lint'
 
-        " File {
-            Plug 'preservim/nerdtree'
-            Plug 'tpope/vim-commentary'
-            Plug 'Xuyuanp/nerdtree-git-plugin'                                          " Status/Flags
-            Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}                               " Terminal
-        " }
+        Plug 'folke/trouble.nvim'
+        Plug 'rachartier/tiny-inline-diagnostic.nvim'
 
-        " Search {
-            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-            Plug 'junegunn/fzf.vim'
+        " Colorscheme
+        Plug 'catppuccin/nvim', { 'branch': 'vim', 'as': 'catppuccin' }
+        Plug 'folke/tokyonight.nvim'
 
-            Plug 'airblade/vim-rooter'
-            Plug 'kevinhwang91/nvim-bqf'
-            Plug 'pechorin/any-jump.vim'
-            Plug 'nvim-telescope/telescope.nvim', { 'tag': '*' }
-        " }
+        " Startify
+        Plug 'goolord/alpha-nvim'
 
-        " Syntax and Fix {
-            Plug 'dense-analysis/ale'
-            Plug 'stevearc/conform.nvim'
-        " }
+        " Md
+        Plug 'MeanderingProgrammer/render-markdown.nvim'
 
-        " Complete {
-            Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
-            Plug 'rafamadriz/friendly-snippets' " optional: provides snippets for the snippet source
+        " Jump
+        Plug 'folke/flash.nvim'
 
-            Plug 'neovim/nvim-lspconfig'
-            Plug 'mason-org/mason.nvim'
-            Plug 'mason-org/mason-lspconfig.nvim'
+        " Multi
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-            Plug 'junegunn/vim-emoji'
-        " }
+        " Align
+        Plug 'nvim-mini/mini.align'
 
-        " Rust {
-            Plug 'racer-rust/vim-racer'
-            Plug 'rust-lang/rust.vim'
-        " }
+        " Surround
+        Plug 'kylechui/nvim-surround'
 
-        " Doc {
-            Plug 'heavenshell/vim-jsdoc', {
-                  \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
-                  \ 'do': 'make install' }
-        " }
+        " Session
+        Plug 'folke/persistence.nvim'
 
-        " UI {
-            Plug 'j-hui/fidget.nvim'
-            Plug 'folke/trouble.nvim'
-            Plug 'rcarriga/nvim-notify'
-            " Plug 'norcalli/nvim-colorizer.lua'
-            Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-            Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                 " highlight
-            " Status/Tabline {
-                Plug 'vim-airline/vim-airline'
-                Plug 'vim-airline/vim-airline-themes'
-            " }
-        " }
+        " Tag, Nav
+        Plug 'stevearc/aerial.nvim'
 
-        " Colorscheme {
-            Plug 'morhetz/gruvbox'
-            Plug 'rebelot/kanagawa.nvim'
-            Plug 'EdenEast/nightfox.nvim'
-        " }
+        " Todo
+        Plug 'folke/todo-comments.nvim'
 
-        " Git {
-            Plug 'lewis6991/gitsigns.nvim'
-            Plug 'tpope/vim-fugitive'
-            Plug 'NeogitOrg/neogit'
-        " }
+        " Split
+        Plug 'mrjones2014/smart-splits.nvim'
 
-        " Agent {
-            Plug 'olimorris/codecompanion.nvim'
-        " }
+        " Colorizer
+        Plug 'catgoose/nvim-colorizer.lua'
 
-        " Diff {
-            Plug 'sindrets/diffview.nvim'
-        " }
+        " Rust
+        Plug 'mrcjkb/rustaceanvim'
 
-        " Tools {
-            Plug 'folke/which-key.nvim'
-        " }
+        Plug 's1n7ax/nvim-window-picker'
+        Plug 'antosha417/nvim-lsp-file-operations'
     " }
 
     call plug#end()
 " Plugins End }
 
 " Plugin Config Start {
-    " AutoJump{
-        let g:any_jump_disable_default_keybindings = 1
-    " }
-
-    " Emoji{
-        set completefunc=emoji#complete
-    " }
-
-    " Emmet {
-        let g:user_emmet_expandabbr_key='<leader><tab>'
-    " }
-
-    " NerdTree {
-        let g:NERDTreeWinSize=40
-        let g:NERDTreeChDirMode=1
-        let g:NERDTreeMouseMode=2
-        let g:NERDTreeQuitOnOpen=1
-        let g:NERDTreeShowHidden=1
-        let g:NERDTreeShowBookmarks=1
-        let g:NERDTreeKeepTreeInNewTab=1
-        let g:NERDTreeDirArrowExpandable = '+'
-        let g:NERDTreeDirArrowCollapsible = '-'
-
-        let g:NERDTreeIgnore=[
-                    \ '\.py[cd]$', '\~$', '\.swo$',
-                    \ '\.swp$', '^\.git$', '^\.hg$',
-                    \ '^\.svn$', '\.bzr$', '^\.DS_Store',
-                    \ 'node_modules', '\.meta$', '\.fire$']
-
-        let g:NERDTreeGitStatusIndicatorMapCustom = {
-            \ 'Modified'  : '*',
-            \ 'Staged'    : '+',
-            \ 'Untracked' : '✭',
-            \ 'Renamed'   : '➜',
-            \ 'Unmerged'  : '═',
-            \ 'Deleted'   : 'x',
-            \ 'Dirty'     : '✗',
-            \ 'Clean'     : '✔︎',
-            \ 'Ignored'   : '☒',
-            \ 'Unknown'   : '?' }
-    " }
-
-    " Ale {
-        augroup FiletypeGroup
-            autocmd!
-            au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-            au BufNewFile,BufRead *.tsx set filetype=javascript.tsx
-        augroup END
-
-        let g:ale_fix_on_save=1
-        let g:ale_lint_on_enter=0 " 1
-        let g:ale_lint_on_insert_leave=1
-
-        let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-        let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-        let g:ale_c_cppcheck_options = ''
-        let g:ale_cpp_cppcheck_options = ''
-
-        let g:ale_linter_aliases = {
-                    \   'vue':['vue', 'javascript'],
-                    \   'jsx':['css', 'javascript'],
-                    \   'tsx':['css', 'typescript']}
-
-        let g:ale_fixers = {
-                    \   '*':['remove_trailing_lines', 'trim_whitespace'],
-                    \   'sql':['sqlfluff'],
-                    \   'c':[ 'clangd','uncrustify'],
-                    \   'cmake':['cmake-format'],
-                    \   'cpp':[ 'clangd','uncrustify'],
-                    \   'css':['prettier'],
-                    \   'dockerfile':['dprint'],
-                    \   'go':['gofmt'],
-                    \   'graphqls':['prettier'],
-                    \   'html':['prettier'],
-                    \   'jsx':['prettier', 'eslint'],
-                    \   'tsx':['prettier', 'eslint'],
-                    \   'java':['javac'],
-                    \   'javascript':['eslint'],
-                    \   'javascriptreact':['eslint'],
-                    \   'typescriptreact':['eslint'],
-                    \   'typescript':['eslint'],
-                    \   'json':['prettier'],
-                    \   'less':['prettier'],
-                    \   'lua':['stylua'],
-                    \   'markdown':['prettier'],
-                    \   'python':['ruff'],
-                    \   'r':['styler'],
-                    \   'rust':['rustfmt'],
-                    \   'scss':['prettier'],
-                    \   'sh':['shfmt'],
-                    \   'swift':['swiftformat'],
-                    \   'toml':['dprint'],
-                    \   'vue':['prettier'],
-                    \   'xml':['xmllint'],
-                    \   'yaml':['prettier']}
-
-        let g:ale_linters = {
-                    \   'sql':['sqlfluff'],
-                    \   'c':['cc','gcc','clang', 'clangd', 'cspell'],
-                    \   'cmake':['cmake-lint', 'cspell'],
-                    \   'cpp':['cc','gcc','clang', 'clangd', 'cspell'],
-                    \   'css':['stylelint', 'cspell'],
-                    \   'dockerfile':['hadolint'],
-                    \   'gitcommit':['gitlint', 'cspell'],
-                    \   'glsl':['glslang', 'cspell'],
-                    \   'go':['gopls', 'cspell'],
-                    \   'gohtmltmpl':['djlint', 'cspell'],
-                    \   'graphqls':['eslint'],
-                    \   'html':['alex', 'cspell'],
-                    \   'jsx':['eslint', 'cspell'],
-                    \   'tsx':['eslint', 'cspell'],
-                    \   'java':['javac', 'cspell'],
-                    \   'javascript':['eslint', 'cspell'],
-                    \   'javascriptreact':['eslint', 'cspell'],
-                    \   'typescriptreact':['eslint', 'cspell'],
-                    \   'typescript':['eslint', 'cspell'],
-                    \   'json':['eslint', 'cspell'],
-                    \   'less':['stylelint'],
-                    \   'lua':['luac', 'cspell'],
-                    \   'markdown':['alex', 'cspell'],
-                    \   'python':['ruff', 'cspell'],
-                    \   'r':['lintr', 'cspell'],
-                    \   'rust':['analyzer', 'cargo', 'rustc', 'cspell'],
-                    \   'scss':['stylelint'],
-                    \   'sh':['shellcheck', 'cspell'],
-                    \   'swift':['swiftlint', 'cspell'],
-                    \   'vim':['vint'],
-                    \   'vue':['eslint', 'vls', 'cspell'],
-                    \   'xml':['xmllint'],
-                    \   'yaml':['yamllint']}
-    " }
-
-    " Nerdtree syntax highlight {
-        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-    " }
-
-    " FZF {
-        let g:fzf_action = {
-                    \ 'ctrl-e': 'edit',
-                    \ 'ctrl-t': 'tab split',
-                    \ 'ctrl-x': 'split',
-                    \ 'ctrl-v': 'vsplit' }
-    " }
-
-    " Rooter {
-        let g:rooter_patterns = [
-                    \ 'package.json', 'setup.py', 'pyproject.toml',
-                    \ 'requirements.txt', 'MANIFEST.in', 'manage.py',
-                    \ 'pom.xml', 'build.gradle', 'go.mod', 'go.sum', 'Gemfile',
-                    \ 'Gemfile.lock', 'composer.json', 'composer.lock',
-                    \ 'Makefile', 'CMakeLists.txt', 'Cargo.toml' ]
-        let g:rooter_ignore = 1
-    " }
-
     " Rust {
         let g:racer_cmd='~/.cargo/bin/racer'
         " let g:racer_experimental_completer = 1
@@ -291,47 +143,5 @@ scriptencoding utf-8
     " Go {
         let g:go_def_mode='gopls'
         let g:go_info_mode='gopls'
-    " }
-
-    " Rainbow {
-        let g:rainbow_active = 0 "1
-    " }
-
-    " Startify {
-        let g:startify_session_dir = '~/.vim/session'
-        let g:startify_session_autoload = 1
-        let g:startify_files_number = 7
-        let g:startify_custom_header = ''
-        let g:startify_custom_footer = ''
-
-        let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
-
-        let g:startify_lists = [
-              \ { 'type': 'files',     'header': ['   MRU']            },
-              \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-              \ { 'type': 'sessions',  'header': ['   Sessions']},
-              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
-              \ { 'type': 'commands',  'header': ['   Commands']},
-              \ ]
-
-        let g:startify_skiplist = [
-              \ '.*/node_modules',
-              \ ]
-
-        let g:startify_bookmarks = [
-                    \ {'b':'~/.NERDTreeBookmarks'},
-                    \ {'m':'~/.dvim/nvim/vimrc.maps'},
-                    \ {'c':'~/.dvim/nvim/vimrc.custom'},
-                    \ {'p':'~/.dvim/nvim/vimrc.plugins'},
-                    \ {'P':'~/.dvim/nvim/lua/config/plugins.lua'},
-                    \ {'w':'~/MyDocuments/Documents/Files/Words.txt'},
-                    \]
-
-        let g:startify_commands= [
-                    \ {'C':':PlugClean'},
-                    \ {'u':':PlugUpdate'},
-                    \ {'i':':PlugInstall'},
-                    \ {'U':':PlugUpgrade'},
-                    \]
     " }
 " Plugin Config End }

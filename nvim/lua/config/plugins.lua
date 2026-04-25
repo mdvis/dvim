@@ -1,12 +1,40 @@
 local function setup_plugins()
-    require("fidget").setup()
-    require("gitsigns").setup({
-        current_line_blame = true,
+    -- Search
+    -- require('telescope').setup({})
+
+    -- Files
+    require("neo-tree").setup({})
+    require("oil").setup()
+
+    -- LSP
+    require("mason").setup({
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗",
+            },
+        },
     })
-    require("bufferline").setup()
-    require("nvim-autopairs").setup({})
-    require("codecompanion").setup()
-    require("which-key").setup()
+    require("mason-lspconfig").setup({
+        ensure_installed = { -- 自动安装的语言服务器
+            "bashls",
+            "cssls",
+            "gopls",
+            "html",
+            "jdtls",
+            "jsonls",
+            "lua_ls",
+            "pyright",
+            "rust_analyzer",
+            "sqls",
+            "ts_ls",
+        },
+        automatic_installation = true, -- 自动安装上面列出的 LSP
+    })
+
+    -- CMP
+    require("blink.cmp").get_lsp_capabilities()
 
     require("blink.cmp").setup({
         -- keymap = { preset = "default" },
@@ -29,89 +57,58 @@ local function setup_plugins()
         },
     })
 
-    require("mason").setup({
-        ui = {
-            icons = {
-                package_installed = "✓",
-                package_pending = "➜",
-                package_uninstalled = "✗",
-            },
-        },
+    -- Git
+    require("gitsigns").setup({
+        current_line_blame = true,
     })
 
-    require("mason-lspconfig").setup({
-        ensure_installed = { -- 自动安装的语言服务器
-            "bashls",
-            "cssls",
-            "gopls",
-            "html",
-            "jdtls",
-            "jsonls",
-            "lua_ls",
-            "pyright",
-            "rust-analyzer",
-            "sqls",
-            "ts_ls",
-        },
-        automatic_installation = true, -- 自动安装上面列出的 LSP
-    })
-
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-
+    -- UI
     local notify = require("notify")
     notify.setup({
         render = "compact",
         stages = "slide",
-        timeout = 500,
+        timeout = 50000,
     })
     notify("💰按时发薪💰", "info", {
         title = "🏮万事如意🏮",
     })
 
-    vim.cmd([[
-    hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
-    hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
-    hi BqfPreviewThumb guibg=#3e8e2d ctermbg=71
-    hi link BqfPreviewRange Search
-    ]])
-
-    require("bqf").setup({
-        auto_enable = true,
-        auto_resize_height = true,
-        preview = {
-            win_height = 12,
-            win_vheight = 12,
-            delay_syntax = 80,
-            border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
-            show_title = false,
-            should_preview_cb = function(bufnr, _)
-                local ret = true
-                local bufname = vim.api.nvim_buf_get_name(bufnr)
-                local fsize = vim.fn.getfsize(bufname)
-                if fsize > 100 * 1024 then
-                    ret = false
-                elseif bufname:match("^fugitive://") then
-                    ret = false
-                end
-                return ret
-            end,
-        },
-        func_map = {
-            drop = "o",
-            openc = "O",
-            split = "<C-s>",
-            tabdrop = "<C-t>",
-            tabc = "",
-            ptogglemode = "z,",
-        },
-        filter = {
-            fzf = {
-                action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
-                extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+    require("noice").setup({
+        lsp = {
+            -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+            override = {
+                ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                ["vim.lsp.util.stylize_markdown"] = true,
+                ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
             },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+            bottom_search = true, -- use a classic bottom cmdline for search
+            command_palette = true, -- position the cmdline and popupmenu together
+            long_message_to_split = true, -- long messages will be sent to a split
+            inc_rename = false, -- enables an input dialog for inc-rename.nvim
+            lsp_doc_border = false, -- add a border to hover docs and signature help
         },
     })
 
+    -- AI
+    require("copilot").setup({})
+
+    -- Line
+    require("bufferline").setup()
+    require("lualine").setup()
+
+    -- Shortcut
+    require("which-key").setup()
+
+    -- Comment
+    require("Comment").setup()
+
+    -- auto pairs
+    require("nvim-autopairs").setup({})
+
+    -- ibl
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -135,11 +132,33 @@ local function setup_plugins()
 
     require("ibl").setup({ indent = { highlight = highlight } })
 
-    require("toggleterm").setup({
-        size = 55,
-        open_mapping = [[<c-\>]],
-        shade_filetypes = {},
-        direction = "vertical",
+    require("fidget").setup()
+
+    vim.cmd([[
+    hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
+    hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
+    hi BqfPreviewThumb guibg=#3e8e2d ctermbg=71
+    hi link BqfPreviewRange Search
+    ]])
+
+    -- Startify
+    local startify = require("alpha.themes.startify")
+    startify.section.header.val = {
+        "DEVE👻👻👻👻👻",
+    }
+    require("alpha").setup(startify.config)
+
+    -- Md
+    require("render-markdown").setup({})
+
+    require("overseer").setup({
+        strategy = "toggleterm",
+    })
+
+    require("flash").setup({
+      search = {
+        mode = "exact", -- 搜索模式：exact, fuzzy, 或 regex
+      },
     })
 end
 
