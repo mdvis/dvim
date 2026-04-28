@@ -6,8 +6,6 @@ return {
     "saghen/blink.cmp",
   },
   config = function()
-    local lspconfig = require("lspconfig")
-
     -- Get capabilities from blink.cmp
     local function get_capabilities()
       local caps = vim.lsp.protocol.make_client_capabilities()
@@ -178,17 +176,49 @@ return {
       },
     }
 
-    -- Setup servers
+    -- Setup servers using vim.lsp.config (new API)
     for server, config in pairs(servers) do
-      lspconfig[server].setup(vim.tbl_deep_extend("force", default_config, config))
+      vim.lsp.config[server] = vim.tbl_deep_extend("force", default_config, config)
     end
 
     -- Setup remaining servers with default config
     local all_servers = { "bashls", "eslint", "jsonls", "taplo", "yamlls" }
     for _, server in ipairs(all_servers) do
       if not servers[server] then
-        lspconfig[server].setup(default_config)
+        vim.lsp.config[server] = default_config
       end
     end
+
+    -- Enable servers for appropriate filetypes
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("UserLspStart", {}),
+      callback = function(args)
+        local bufnr = args.buf
+        local ft = vim.bo[bufnr].filetype
+        
+        -- Map filetypes to LSP servers
+        local ft_to_server = {
+          lua = "lua_ls",
+          typescript = "ts_ls",
+          typescriptreact = "ts_ls",
+          javascript = "ts_ls",
+          javascriptreact = "ts_ls",
+          python = "pyright",
+          go = "gopls",
+          rust = "rust_analyzer",
+          sh = "bashls",
+          bash = "bashls",
+          json = "jsonls",
+          toml = "taplo",
+          yaml = "yamlls",
+          yml = "yamlls",
+        }
+        
+        local server = ft_to_server[ft]
+        if server then
+          vim.lsp.enable(server)
+        end
+      end,
+    })
   end,
 }
