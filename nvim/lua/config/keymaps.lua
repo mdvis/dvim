@@ -1,12 +1,5 @@
 local map = vim.keymap.set
 
-map("n", "<C-p>", "<cmd>Telescope find_files<cr>", { silent = true })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true })
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { silent = true })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { silent = true })
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true })
-map("n", "<leader>fe", "<cmd>Telescope emoji<cr>", { silent = true })
-
 map("n", "<leader>n", "<cmd>Neotree toggle<cr>", { silent = true })
 map("n", "<leader>e", "<cmd>Neotree filesystem reveal left<cr>", { silent = true })
 map("n", "<leader>g", "<cmd>G<cr>", { silent = true })
