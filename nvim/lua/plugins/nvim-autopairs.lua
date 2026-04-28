@@ -42,15 +42,6 @@ return {
     local npairs = require("nvim-autopairs")
     npairs.setup(opts)
 
-    -- 与 blink.cmp 集成
-    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    local cmp = require("blink.cmp")
-    
-    -- 在确认补全时自动添加括号
-    cmp.on_confirm = function(entry)
-      cmp_autopairs.on_confirm_done()(entry)
-    end
-
     -- 添加自定义规则
     local Rule = require("nvim-autopairs.rule")
     local cond = require("nvim-autopairs.conds")

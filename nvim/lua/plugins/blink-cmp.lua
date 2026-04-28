@@ -4,6 +4,7 @@ return {
   dependencies = {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
+    "windwp/nvim-autopairs",
   },
   opts = {
     keymap = { preset = "super-tab" },
@@ -15,6 +16,11 @@ return {
         show_on_keyword = true,
       },
       documentation = { auto_show = false },
+      accept = {
+        auto_brackets = {
+          enabled = true,
+        },
+      },
     },
     sources = { default = { "lsp", "path", "snippets", "buffer" } },
     fuzzy = { implementation = "prefer_rust_with_warning" },
