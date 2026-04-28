@@ -1,10 +1,7 @@
 local map = vim.keymap.set
 
-map("n", "<leader>g", "<cmd>G<cr>", { silent = true })
 map("n", "<leader><leader>t", "<cmd>SetTpl<cr>", { silent = true })
 
-map("n", "<leader><leader>r", ":vertical-resize ", { silent = true })
-map("n", "<leader><leader>o", "<cmd>browse oldfiles<cr>", { silent = true })
 map("n", "<leader><cr>", "<cmd>noh<cr>", { silent = true })
 map("n", "<leader>T", "<cmd>tabs<cr>", { silent = true })
 map("n", "<leader>r", "<cmd>reg<cr>", { silent = true })
