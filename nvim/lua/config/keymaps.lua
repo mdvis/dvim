@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-map("n", "<leader>n", "<cmd>Neotree toggle<cr>", { silent = true })
-map("n", "<leader>e", "<cmd>Neotree filesystem reveal left<cr>", { silent = true })
 map("n", "<leader>g", "<cmd>G<cr>", { silent = true })
 map("n", "<leader><leader>t", "<cmd>SetTpl<cr>", { silent = true })
 
