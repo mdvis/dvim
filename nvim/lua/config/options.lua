@@ -25,8 +25,9 @@ vim.opt.softtabstop = 4
 vim.opt.whichwrap = "b,s,<,>,[,]"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.formatoptions = "tqmM"
-vim.opt.foldmethod = "indent"
-vim.opt.foldenable = false
+-- foldmethod 由 nvim-ufo 管理，不在这里设置
+-- vim.opt.foldmethod = "indent"
+-- vim.opt.foldenable = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.autoindent = true
@@ -58,14 +59,29 @@ vim.opt.updatecount = 100
 vim.opt.writebackup = true
 vim.opt.undofile = true
 
+-- 创建备份目录（如果不存在）
+local function ensure_dir(path)
+  if vim.fn.isdirectory(path) == 0 then
+    vim.fn.mkdir(path, "p")
+  end
+end
+
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
   vim.opt.backupdir = "c:\\backup\\\\"
   vim.opt.directory = "c:\\swp\\\\"
   vim.opt.undodir = "c:\\undo\\\\"
 else
-  vim.opt.backupdir = vim.fn.expand("~/.backup//")
-  vim.opt.directory = vim.fn.expand("~/.swp//")
-  vim.opt.undodir = vim.fn.expand("~/.undo//")
+  local backup_dir = vim.fn.expand("~/.backup//")
+  local swp_dir = vim.fn.expand("~/.swp//")
+  local undo_dir = vim.fn.expand("~/.undo//")
+  
+  ensure_dir(backup_dir)
+  ensure_dir(swp_dir)
+  ensure_dir(undo_dir)
+  
+  vim.opt.backupdir = backup_dir
+  vim.opt.directory = swp_dir
+  vim.opt.undodir = undo_dir
 end
 
 vim.opt.background = "dark"

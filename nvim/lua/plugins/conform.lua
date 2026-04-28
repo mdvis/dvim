@@ -5,7 +5,7 @@ return {
     formatters_by_ft = {
       go = { "goimports", "gofumpt" },
       rust = { "rustfmt" },
-      python = { "ruff_format", "black" },
+      python = { "ruff_format" }, -- 使用 ruff_format（更快），如需 black 可替换
       lua = { "stylua" },
       sh = { "shfmt" },
       bash = { "shfmt" },

@@ -48,23 +48,6 @@ return {
 
     -- 为箭头函数添加空格: () => {}
     npairs.add_rules({
-      Rule("=", "", { "typescript", "typescriptreact", "javascript", "javascriptreact" })
-        :with_pair(cond.not_before_regex("%s", 1))
-        :with_pair(function(opts)
-          local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
-          return last_char == ">" or last_char == "="
-        end)
-        :replace_endpair(function(opts)
-          local prev_2char = opts.line:sub(opts.col - 2, opts.col - 1)
-          if prev_2char == "=>" then
-            return " {}<Left><Left>"
-          end
-          return ""
-        end),
-    })
-
-    -- 在函数调用后自动添加括号
-    npairs.add_rules({
       Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript", "javascriptreact" })
         :use_regex(true)
         :set_end_pair_length(2),
