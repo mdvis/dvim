@@ -141,7 +141,3 @@ end, {})
 vim.api.nvim_create_user_command("SConf", function()
   vim.cmd("source " .. vim.fn.fnameescape(vim.g.my_nvim_config_dir .. "/init.lua"))
 end, {})
-
-vim.api.nvim_create_user_command("JP", function()
-  vim.cmd("AnyJump")
-end, {})
