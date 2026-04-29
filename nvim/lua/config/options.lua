@@ -25,7 +25,6 @@ vim.opt.softtabstop = 4
 vim.opt.whichwrap = "b,s,<,>,[,]"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.formatoptions = "tqmM"
--- foldmethod 由 nvim-ufo 管理，不在这里设置
 -- vim.opt.foldmethod = "indent"
 -- vim.opt.foldenable = false
 vim.opt.splitbelow = true
@@ -35,7 +34,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.showmatch = true
 vim.opt.incsearch = true
-vim.opt.autochdir = true
+-- vim.opt.autochdir = true
 vim.opt.autoread = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
@@ -88,17 +87,3 @@ vim.opt.background = "dark"
 
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 96 })
 
--- Store original deprecate function
-if not vim._deprecate then
-  vim._deprecate = vim.deprecate
-end
-
--- Override deprecate to suppress specific plugin warnings
-vim.deprecate = function(name, alternative, version, plugin, backtrace)
-  -- Suppress buf_get_clients deprecation from plugins (they'll update eventually)
-  if name and name:match("buf_get_clients") then
-    return
-  end
-  -- Call original for other deprecations
-  return vim._deprecate(name, alternative, version, plugin, backtrace)
-end
