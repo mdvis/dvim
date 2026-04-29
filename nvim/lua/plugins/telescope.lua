@@ -20,14 +20,11 @@ return {
 
     telescope.setup({
       defaults = {
-        -- 可选：美化界面
         prompt_prefix = "🔍 ",
         selection_caret = "➤ ",
         
-        -- 可选：忽略文件（默认已经忽略 .git）
         file_ignore_patterns = { "node_modules", "%.lock" },
         
-        -- 可选：自定义快捷键（默认已有 Ctrl-n/p 上下移动）
         mappings = {
           i = {
             ["<C-j>"] = actions.move_selection_next,
