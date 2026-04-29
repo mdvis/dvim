@@ -26,6 +26,8 @@ return {
       javascriptreact = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
       typescript = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
       typescriptreact = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
+      markdown = { { "markdownlint-cli2", "markdownlint-cli2" }, { "markdownlint", "markdownlint" } },
+      yaml = { { "yamllint", "yamllint" } },
     }
 
     local group = vim.api.nvim_create_augroup("nvim_lint", { clear = true })
