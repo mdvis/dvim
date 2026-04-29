@@ -87,3 +87,18 @@ end
 vim.opt.background = "dark"
 
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 96 })
+
+-- Store original deprecate function
+if not vim._deprecate then
+  vim._deprecate = vim.deprecate
+end
+
+-- Override deprecate to suppress specific plugin warnings
+vim.deprecate = function(name, alternative, version, plugin, backtrace)
+  -- Suppress buf_get_clients deprecation from plugins (they'll update eventually)
+  if name and name:match("buf_get_clients") then
+    return
+  end
+  -- Call original for other deprecations
+  return vim._deprecate(name, alternative, version, plugin, backtrace)
+end
