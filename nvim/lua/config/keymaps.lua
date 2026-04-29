@@ -1,19 +1,8 @@
 local map = vim.keymap.set
 
 map("n", "<leader><leader>t", "<cmd>SetTpl<cr>", { silent = true })
-
 map("n", "<leader><cr>", "<cmd>noh<cr>", { silent = true })
-map("n", "<leader>T", "<cmd>tabs<cr>", { silent = true })
-map("n", "<leader>r", "<cmd>reg<cr>", { silent = true })
-map("n", "<leader><leader>q", "<cmd>q!<cr>", { silent = true })
-map("n", "<leader>w", "<cmd>w<cr>", { silent = true })
-map("n", "<leader>q", "<cmd>q<cr>", { silent = true })
-map("n", "<leader>x", "<cmd>x<cr>", { silent = true })
-map("n", "<leader>h", "<c-w>h")
-map("n", "<leader>j", "<c-w>j")
-map("n", "<leader>k", "<c-w>k")
-map("n", "<leader>l", "<c-w>l")
-map("i", "jj", "<Esc>")
+
 map("n", "j", "gj")
 map("n", "k", "gk")
 map("n", "0", "^")
