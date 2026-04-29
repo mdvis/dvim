@@ -24,7 +24,7 @@ return {
       "taplo",
       "yamlls",
     },
-    automatic_enable = true,
+    -- automatic_enable = true,
   },
   config = function(_, opts)
     if vim.lsp and vim.lsp.config then
