@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("tiny-inline-diagnostic").setup({
-      preset = "classic", -- 或 "dark", "classic"
+      preset = "classic",
       options = {
         show_source = true,
         throttle = 20,
