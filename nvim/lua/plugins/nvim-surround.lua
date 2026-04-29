@@ -4,19 +4,9 @@ return {
   event = "VeryLazy",
   config = function()
     require("nvim-surround").setup({
-      keymaps = {
-        insert = "<C-g>s",
-        insert_line = "<C-g>S",
-        normal = "ys",
-        normal_cur = "yss",
-        normal_line = "yS",
-        normal_cur_line = "ySS",
-        visual = "S",
-        visual_line = "gS",
-        delete = "ds",
-        change = "cs",
-        change_line = "cS",
-      },
+      -- In v4, keymaps are configured via the 'keymaps' table at the top level
+      -- The default keymaps are: ys, yss, yS, ySS (normal), S, gS (visual), ds, cs
+      -- If you need custom keymaps, use vim.keymap.set() after setup
     })
   end,
 }
