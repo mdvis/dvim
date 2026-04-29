@@ -1,5 +1,6 @@
 return {
   "stevearc/overseer.nvim",
+  dependencies = { "stevearc/dressing.nvim" },
   cmd = {
     "OverseerOpen",
     "OverseerClose",
