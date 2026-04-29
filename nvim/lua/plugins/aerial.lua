@@ -26,10 +26,10 @@ return {
     highlight_on_hover = true,
     autojump = false,
   },
-  keys = {
-    { "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle Aerial" },
-    { "<leader>A", "<cmd>AerialNavToggle<cr>", desc = "Toggle Aerial Nav" },
-    { "{", "<cmd>AerialPrev<cr>", desc = "Aerial Prev" },
-    { "}", "<cmd>AerialNext<cr>", desc = "Aerial Next" },
-  },
+  -- keys = {
+  --   { "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle Aerial" },
+  --   { "<leader>A", "<cmd>AerialNavToggle<cr>", desc = "Toggle Aerial Nav" },
+  --   { "{", "<cmd>AerialPrev<cr>", desc = "Aerial Prev" },
+  --   { "}", "<cmd>AerialNext<cr>", desc = "Aerial Next" },
+  -- },
 }
