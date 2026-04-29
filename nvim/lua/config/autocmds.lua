@@ -129,11 +129,6 @@ autocmd({ "FocusGained", "BufEnter" }, {
   end,
 })
 
-vim.api.nvim_create_user_command("W", function()
-  vim.cmd([[write !sudo tee % > /dev/null]])
-  vim.cmd("edit!")
-end, {})
-
 vim.api.nvim_create_user_command("EConf", function()
   vim.cmd("edit " .. vim.fn.fnameescape(vim.g.my_nvim_config_dir .. "/init.lua"))
 end, {})
