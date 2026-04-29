@@ -182,7 +182,7 @@ return {
     end
 
     -- Setup remaining servers with default config
-    local all_servers = { "bashls", "eslint", "jsonls", "taplo", "yamlls" }
+    local all_servers = { "bashls", "eslint", "jsonls", "marksman", "taplo", "yamlls" }
     for _, server in ipairs(all_servers) do
       if not servers[server] then
         vim.lsp.config[server] = default_config
@@ -209,6 +209,9 @@ return {
           sh = "bashls",
           bash = "bashls",
           json = "jsonls",
+          jsonc = "jsonls",
+          markdown = "marksman",
+          ["markdown.mdx"] = "marksman",
           toml = "taplo",
           yaml = "yamlls",
           yml = "yamlls",
