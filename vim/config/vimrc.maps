@@ -1,7 +1,7 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 scriptencoding utf-8
 
-let g:mapleader = ','
+" mapleader is set in vimrc (before vimrc.plugins)
 
 " verbose nnoremap <leader>j
 
@@ -12,12 +12,13 @@ let g:mapleader = ','
 
     " Fzf {
         nmap <silent> <C-p> :Files<CR>
-        nmap <silent> <C-e> :Buffers<CR>
+        nnoremap <silent> <leader>b :Buffers<CR>
+        nnoremap <silent> <leader>R :Rg<CR>
     " }
 
     " Ale {
-        nmap <C-k> <Plug>(ale_previous_wrap)
-        nmap <C-j> <Plug>(ale_next_wrap)
+        nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+        nmap <silent> <leader>aj <Plug>(ale_next_wrap)
     " }
 
     " Easy Align{
@@ -43,11 +44,11 @@ let g:mapleader = ','
     " }
 
     " Fugitive {
-        nmap <silent> <leader>g :G<CR>
+        nmap <silent> <leader>gs :G<CR>
     " }
 
-    " Blamer {
-        nnoremap<silent> <leader>B :BlamerToggle<CR>
+    " Git-messenger {
+        nmap <silent> <leader>gm <Plug>(git-messenger)
     " }
 
     " TPL {
@@ -55,7 +56,7 @@ let g:mapleader = ','
     " }
 
     " Self {
-        nnoremap <silent> <leader><leader>r :vertical-resize<space>
+        nnoremap <silent> <leader>V :vertical-resize<space>
         nnoremap <silent> <leader><leader>o :browse oldfiles<CR>
         nnoremap <silent> <leader><CR> :noh<CR>
         nnoremap <silent> <leader>T :tabs<CR>
@@ -64,13 +65,17 @@ let g:mapleader = ','
         nnoremap <silent> <leader>w :w<CR>
         nnoremap <silent> <leader>q :q<CR>
         nnoremap <silent> <leader>x :x<CR>
-        nnoremap <leader>h <c-w>h
-        nnoremap <leader>j <c-w>j
-        nnoremap <leader>k <c-w>k
-        nnoremap <leader>l <c-w>l
+        nnoremap <C-h> <c-w>h
+        nnoremap <C-j> <c-w>j
+        nnoremap <C-k> <c-w>k
+        nnoremap <C-l> <c-w>l
         inoremap jj <Esc>
         nnoremap j gj
         nnoremap k gk
-        nnoremap 0 ^
+        nnoremap <leader>h ^
+        nnoremap <leader>l g_
+        nnoremap <leader>cc :set cursorcolumn!<CR>
+        " Restore screen redraw (was overridden by <C-l> window nav)
+        nnoremap <leader>cl :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>
     " }
 " }

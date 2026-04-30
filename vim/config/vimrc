@@ -17,26 +17,38 @@ scriptencoding utf-8
     " }
 " }
 
+" Resolve config directory from $MYVIMRC {
+    let s:config_dir = fnamemodify(resolve($MYVIMRC), ':h')
+
+    " Leader must be set BEFORE sourcing plugin config that uses <leader>
+    let g:mapleader = ','
+    let g:maplocalleader = ','
+" }
+
 " Vim-plug {
-    if filereadable(expand('~/.vimrc.plugins'))
-        source ~/.vimrc.plugins
+    let s:plug_conf = s:config_dir . '/vimrc.plugins'
+    if filereadable(s:plug_conf)
+        execute 'source' s:plug_conf
     endif
 " }
 
-" Custom method {
-    if filereadable(expand('~/.vimrc.conf'))
-        source ~/.vimrc.conf
+" Config {
+    let s:conf = s:config_dir . '/vimrc.conf'
+    if filereadable(s:conf)
+        execute 'source' s:conf
     endif
 " }
 
-" Custom method {
-    if filereadable(expand('~/.vimrc.maps'))
-        source ~/.vimrc.maps
+" Mappings {
+    let s:maps = s:config_dir . '/vimrc.maps'
+    if filereadable(s:maps)
+        execute 'source' s:maps
     endif
 " }
 
-" Custom method {
-    if filereadable(expand('~/.vimrc.custom'))
-        source ~/.vimrc.custom
+" Custom {
+    let s:custom = s:config_dir . '/vimrc.custom'
+    if filereadable(s:custom)
+        execute 'source' s:custom
     endif
 " }

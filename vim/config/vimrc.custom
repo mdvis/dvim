@@ -95,7 +95,7 @@ scriptencoding utf-8
 
   augroup Tpl
     autocmd!
-    autocmd BufEnter * call ShouldTpl()
+    autocmd BufNewFile * call ShouldTpl()
   augroup End
 " }
 
@@ -117,7 +117,13 @@ scriptencoding utf-8
   command! Qwen FloatermNew qwen
   command! YZ FloatermNew yazi
   command! SH FloatermNew
-  command! JP AnyJump
+
+  " Rg: search with fzf + ripgrep
+  command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+        \   'rg --column --line-number --no-heading --color=always --smart-case '
+        \   .shellescape(<q-args>), 1,
+        \   fzf#vim#with_preview(), <bang>0)
 " }
 "
 " Return to last edit position when opening files (You want this!)
@@ -135,12 +141,6 @@ augroup chkt
   au FocusGained,BufEnter * checktime
 augroup END
 " }
-
-function! PrevLinePos()
-  let currentLine = line('.')
-  let pos = [0, currentLine, 1, 0]
-  call setpos('.', pos)
-endfunction
 
 " highlight Normal ctermbg=none
 highlight ColorColumn ctermbg=96
