@@ -5,16 +5,11 @@ return {
   dependencies = { "mason-org/mason.nvim" },
   opts = {
     ensure_installed = {
-      "bash-debug-adapter",
       "black",
-      "codelldb",
-      "debugpy",
-      "delve",
       "eslint_d",
       "gofumpt",
       "goimports",
       "golangci-lint",
-      "js-debug-adapter",
       "luacheck",
       "markdownlint-cli2",
       "prettier",
