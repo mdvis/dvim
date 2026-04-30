@@ -48,20 +48,13 @@ scriptencoding utf-8
     " }
 
     " Self {
-        nnoremap <silent> <leader>V :vertical-resize<space>
         nnoremap <silent> <leader><leader>o :browse oldfiles<CR>
         nnoremap <silent> <leader><CR> :noh<CR>
-        nnoremap <silent> <leader>T :tabs<CR>
         nnoremap <silent> <leader>r :reg<CR>
-        nnoremap <silent> <leader><leader>q :q!<CR>
-        nnoremap <silent> <leader>w :w<CR>
-        nnoremap <silent> <leader>q :q<CR>
-        nnoremap <silent> <leader>x :x<CR>
         nnoremap <C-h> <c-w>h
         nnoremap <C-j> <c-w>j
         nnoremap <C-k> <c-w>k
         nnoremap <C-l> <c-w>l
-        inoremap jj <Esc>
         nnoremap j gj
         nnoremap k gk
         nnoremap <leader>h ^
