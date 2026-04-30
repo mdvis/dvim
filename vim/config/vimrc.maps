@@ -26,10 +26,6 @@ scriptencoding utf-8
         nmap ga <Plug>(EasyAlign)
     " }
 
-    " JsDoc {
-        nmap <leader>d <Plug>(jsdoc)
-    " }
-
     " NerdTree {
         map <silent> <leader>e :NERDTreeFind<CR>
         map <silent> <leader>n :NERDTreeToggle<CR>
@@ -45,10 +41,6 @@ scriptencoding utf-8
 
     " Fugitive {
         nmap <silent> <leader>gs :G<CR>
-    " }
-
-    " Git-messenger {
-        nmap <silent> <leader>gm <Plug>(git-messenger)
     " }
 
     " TPL {

@@ -113,11 +113,6 @@ scriptencoding utf-8
   " source
   command! -nargs=0 SConf :call conf#SourceConf()
 
-  command! Gemini FloatermNew gemini
-  command! Qwen FloatermNew qwen
-  command! YZ FloatermNew yazi
-  command! SH FloatermNew
-
   " Rg: search with fzf + ripgrep
   command! -bang -nargs=* Rg
         \ call fzf#vim#grep(

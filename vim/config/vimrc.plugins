@@ -9,22 +9,14 @@ scriptencoding utf-8
     call plug#begin(g:Plug_dir)
 
     " Plugins list {
-        Plug 'roman/golden-ratio'
-        Plug 'mhinz/vim-startify'
-        Plug 'rhysd/git-messenger.vim'           " Git blame popup
         Plug 'editorconfig/editorconfig-vim'
         Plug 'yggdroot/indentline'
 
-        Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
         Plug 'tpope/vim-repeat'
         Plug 'preservim/tagbar', { 'on': 'TagbarToggle' }
-        Plug 'justinmk/vim-sneak'
-        Plug 'kshenoy/vim-signature'            " Marks
-        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
         Plug 'tpope/vim-surround'
-        Plug 'luochen1990/rainbow'
         Plug 'Raimondi/delimitMate'              " Auto-close quotes/brackets
 
         Plug 'junegunn/vim-easy-align'
@@ -47,7 +39,6 @@ scriptencoding utf-8
         " File {
             Plug 'preservim/nerdtree'
             Plug 'tpope/vim-commentary'
-            Plug 'voldikss/vim-floaterm'        " Terminal
             Plug 'ryanoasis/vim-devicons'
             Plug 'Xuyuanp/nerdtree-git-plugin'  " Status/Flags
         " }
@@ -71,14 +62,7 @@ scriptencoding utf-8
             Plug 'rust-lang/rust.vim', { 'for': 'rust' }
         " }
 
-        " Doc {
-            Plug 'heavenshell/vim-jsdoc', {
-                  \ 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue'],
-                  \ 'do': 'make install' }
-        " }
-
         " Colorscheme {
-            Plug 'gruvbox-community/gruvbox'
             Plug 'catppuccin/vim', { 'as': 'catppuccin' }
         " }
 
@@ -88,10 +72,6 @@ scriptencoding utf-8
 
         " Augment {
             Plug 'augmentcode/augment.vim'
-        " }
-
-        " Extras {
-            Plug 'tpope/vim-abolish'              " Case conversion, substitution
         " }
     " }
 
@@ -166,19 +146,6 @@ scriptencoding utf-8
 
     " delimitMate {
         let g:delimitMate_tab2exit = 0  " Disable Tab mapping, handled by smart_tab()
-    " }
-
-    " Sneak {
-        let g:sneak#label = 1
-        " Disable default s/S mappings to preserve Vim's substitute
-        let g:sneak#map_nop = 1
-        " Use leader prefix instead
-        map <leader>s <Plug>Sneak_s
-        map <leader>S <Plug>Sneak_S
-    " }
-
-    " Emmet {
-        let g:user_emmet_expandabbr_key='<leader><tab>'
     " }
 
     " NerdTree {
@@ -333,54 +300,8 @@ scriptencoding utf-8
         let g:rooter_ignore = 1
     " }
 
-    " Git-messenger {
-        let g:git_messenger_no_default_mappings = 0
-        let g:git_messenger_map_browse = '<leader>gm'
-    " }
-
     " Go {
         let g:go_def_mode='gopls'
         let g:go_info_mode='gopls'
-    " }
-
-    " Rainbow {
-        let g:rainbow_active = 0 "1
-    " }
-
-    " Startify {
-        let g:startify_session_dir = '~/.vim/session'
-        let g:startify_session_autoload = 1
-        let g:startify_files_number = 7
-        let g:startify_custom_header = ''
-        let g:startify_custom_footer = ''
-
-        let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
-
-        let g:startify_lists = [
-              \ { 'type': 'files',     'header': ['   MRU']            },
-              \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-              \ { 'type': 'sessions',  'header': ['   Sessions']},
-              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
-              \ { 'type': 'commands',  'header': ['   Commands']},
-              \ ]
-
-        let g:startify_skiplist = [
-              \ '.*/node_modules',
-              \ ]
-
-        let g:startify_bookmarks = [
-                    \ {'b':'~/.NERDTreeBookmarks'},
-                    \ {'m':'~/.vim/config/vimrc.maps'},
-                    \ {'c':'~/.vim/config/vimrc.custom'},
-                    \ {'p':'~/.vim/config/vimrc.plugins'},
-                    \ {'w':'~/MyDocuments/Documents/Files/Words.txt'},
-                    \]
-
-        let g:startify_commands= [
-                    \ {'C':':PlugClean'},
-                    \ {'u':':PlugUpdate'},
-                    \ {'i':':PlugInstall'},
-                    \ {'U':':PlugUpgrade'},
-                    \]
     " }
 " Plugin Config End }
