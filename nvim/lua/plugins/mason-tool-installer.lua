@@ -6,7 +6,6 @@ return {
   opts = {
     ensure_installed = {
       "black",
-      "eslint_d",
       "gofumpt",
       "goimports",
       "golangci-lint",

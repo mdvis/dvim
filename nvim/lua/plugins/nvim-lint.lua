@@ -22,10 +22,6 @@ return {
       sh = { { "shellcheck", "shellcheck" } },
       bash = { { "shellcheck", "shellcheck" } },
       zsh = { { "shellcheck", "shellcheck" } },
-      javascript = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
-      javascriptreact = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
-      typescript = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
-      typescriptreact = { { "eslint_d", "eslint_d" }, { "eslint", "eslint" } },
       markdown = { { "markdownlint-cli2", "markdownlint-cli2" }, { "markdownlint", "markdownlint" } },
       yaml = { { "yamllint", "yamllint" } },
     }

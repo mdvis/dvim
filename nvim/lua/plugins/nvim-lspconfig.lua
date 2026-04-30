@@ -77,7 +77,7 @@ return {
 
         -- Formatting
         vim.keymap.set("n", "<leader>f", function()
-          vim.lsp.buf.format({ async = true })
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end, vim.tbl_extend("force", opts, { desc = "Format buffer" }))
 
         -- Workspace
@@ -157,7 +157,6 @@ return {
             analyses = {
               unusedparams = true,
             },
-            staticcheck = true,
             gofumpt = true,
           },
         },
@@ -168,9 +167,7 @@ return {
             cargo = {
               allFeatures = true,
             },
-            checkOnSave = {
-              command = "clippy",
-            },
+            checkOnSave = false,
           },
         },
       },
