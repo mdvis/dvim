@@ -13,6 +13,7 @@ return {
         local harpoon = require("harpoon")
         harpoon:list():add()
       end,
+      desc = "Add file to Harpoon",
     },
     {
       "<C-e>",
@@ -20,6 +21,7 @@ return {
         local harpoon = require("harpoon")
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
+      desc = "Toggle Harpoon menu",
     },
   },
   settings = {

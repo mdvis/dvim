@@ -29,13 +29,13 @@ return {
         if vim.wo.diff then return ']c' end
         vim.schedule(function() gs.next_hunk() end)
         return '<Ignore>'
-      end, {expr=true})
+      end, { expr = true, desc = "Next git hunk" })
       
       map('n', '[c', function()
         if vim.wo.diff then return '[c' end
         vim.schedule(function() gs.prev_hunk() end)
         return '<Ignore>'
-      end, {expr=true})
+      end, { expr = true, desc = "Previous git hunk" })
     end
   },
 }
