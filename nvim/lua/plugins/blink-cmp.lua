@@ -1,9 +1,6 @@
 return {
   "saghen/blink.cmp",
   version = "v1.*",
-  dependencies = {
-    "windwp/nvim-autopairs",
-  },
   opts = {
     keymap = { preset = "super-tab" },
     appearance = { nerd_font_variant = "mono" },

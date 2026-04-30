@@ -5,7 +5,6 @@ return {
   dependencies = { "mason-org/mason.nvim" },
   opts = {
     ensure_installed = {
-      "black",
       "gofumpt",
       "goimports",
       "golangci-lint",
