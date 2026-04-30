@@ -2,8 +2,6 @@ return {
   "saghen/blink.cmp",
   version = "v1.*",
   dependencies = {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
     "windwp/nvim-autopairs",
   },
   opts = {
