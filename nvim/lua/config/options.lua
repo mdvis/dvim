@@ -87,3 +87,12 @@ vim.opt.background = "dark"
 
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 96 })
 
+-- Compatibility shim for deprecated vim.lsp.buf_get_clients()
+-- This suppresses deprecation warnings from plugins that haven't updated yet
+if vim.lsp.buf_get_clients == nil then
+  ---@diagnostic disable-next-line: duplicate-set-field
+  vim.lsp.buf_get_clients = function(bufnr)
+    return vim.lsp.get_clients({ bufnr = bufnr })
+  end
+end
+
