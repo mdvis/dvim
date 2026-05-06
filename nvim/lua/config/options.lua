@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 vim.opt.mouse = "a"
-vim.opt.guioptions = ""
+-- vim.opt.guioptions = ""
 vim.opt.hidden = true
 vim.opt.clipboard = "unnamed"
 vim.opt.viewoptions = "folds,options,cursor,unix,slash"
@@ -60,27 +60,27 @@ vim.opt.undofile = true
 
 -- 创建备份目录（如果不存在）
 local function ensure_dir(path)
-  if vim.fn.isdirectory(path) == 0 then
-    vim.fn.mkdir(path, "p")
-  end
+    if vim.fn.isdirectory(path) == 0 then
+        vim.fn.mkdir(path, "p")
+    end
 end
 
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
-  vim.opt.backupdir = "c:\\backup\\\\"
-  vim.opt.directory = "c:\\swp\\\\"
-  vim.opt.undodir = "c:\\undo\\\\"
+    vim.opt.backupdir = "c:\\backup\\\\"
+    vim.opt.directory = "c:\\swp\\\\"
+    vim.opt.undodir = "c:\\undo\\\\"
 else
-  local backup_dir = vim.fn.expand("~/.backup//")
-  local swp_dir = vim.fn.expand("~/.swp//")
-  local undo_dir = vim.fn.expand("~/.undo//")
-  
-  ensure_dir(backup_dir)
-  ensure_dir(swp_dir)
-  ensure_dir(undo_dir)
-  
-  vim.opt.backupdir = backup_dir
-  vim.opt.directory = swp_dir
-  vim.opt.undodir = undo_dir
+    local backup_dir = vim.fn.expand("~/.backup//")
+    local swp_dir = vim.fn.expand("~/.swp//")
+    local undo_dir = vim.fn.expand("~/.undo//")
+
+    ensure_dir(backup_dir)
+    ensure_dir(swp_dir)
+    ensure_dir(undo_dir)
+
+    vim.opt.backupdir = backup_dir
+    vim.opt.directory = swp_dir
+    vim.opt.undodir = undo_dir
 end
 
 vim.opt.background = "dark"
@@ -90,9 +90,8 @@ vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 96 })
 -- Compatibility shim for deprecated vim.lsp.buf_get_clients()
 -- This suppresses deprecation warnings from plugins that haven't updated yet
 if vim.lsp.buf_get_clients == nil then
-  ---@diagnostic disable-next-line: duplicate-set-field
-  vim.lsp.buf_get_clients = function(bufnr)
-    return vim.lsp.get_clients({ bufnr = bufnr })
-  end
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.lsp.buf_get_clients = function(bufnr)
+        return vim.lsp.get_clients({ bufnr = bufnr })
+    end
 end
-
